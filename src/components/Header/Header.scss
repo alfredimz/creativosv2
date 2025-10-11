@@ -1,0 +1,131 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    &.scrolled {
+      background-color: rgba(0, 0, 0, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      
+      .navbar {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      .logo {
+        max-height: 50px;
+      }
+    }
+    
+    .navbar {
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+      
+      .navbar-nav {
+        .nav-link {
+          color: black;
+          font-weight: 500;
+          padding: 0.5rem 1rem;
+          transition: all 0.3s ease;
+          
+          &:hover, &.active {
+            color: #ff6b00;
+          }
+        }
+        
+        // Estilos para el menú desplegable
+        .dropdown {
+          &:hover {
+            .dropdown-menu {
+              display: block;
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
+          }
+          
+          .dropdown-toggle {
+            &::after {
+              margin-left: 0.5rem;
+              vertical-align: middle;
+            }
+            
+            &:hover {
+              color: #ff6b00;
+            }
+          }
+          
+          .dropdown-menu {
+            margin-top: 0;
+            border: none;
+            border-radius: 0 0 5px 5px;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            display: block;
+            
+            .dropdown-item {
+              color: white;
+              padding: 0.5rem 1.5rem;
+              font-weight: 400;
+              
+              &:hover, &.active {
+                background-color: rgba(255, 107, 0, 0.2);
+                color: #ff6b00;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .logo {
+      max-height: 60px;
+      transition: all 0.3s ease;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .site-header {
+      background-color: rgba(0, 0, 0, 0.9);
+      
+      .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.95);
+        margin: 0 -12px;
+        padding: 1rem;
+      }
+      
+      .dropdown-menu {
+        background-color: rgba(0, 0, 0, 0) !important;
+        border: none;
+        padding: 0 0 0 1rem !important;
+        margin: 0;
+        
+        .dropdown-item {
+          padding: 0.5rem 1rem !important;
+          
+          &:hover {
+            background-color: transparent !important;
+          }
+        }
+      }
+      
+      .navbar-nav {
+        .dropdown {
+          &:hover {
+            .dropdown-menu {
+              display: block;
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        }
+      }
+    }
+  }

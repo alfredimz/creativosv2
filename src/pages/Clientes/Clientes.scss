@@ -1,0 +1,510 @@
+@import '~bootstrap/scss/bootstrap';
+
+// Variables
+$primary-color: #ff6b00;
+$secondary-color: #1f4c2c;
+$dark-color: #000;
+$light-color: #fff;
+
+.clientes-page {
+  // Estilos generales
+  font-family: 'Montserrat', sans-serif;
+  color: $dark-color;
+
+  .section-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: $primary-color;
+      margin: 1rem auto 0;
+    }
+  }
+
+  // Banner Section
+  .banner-section {
+    height: 400px;
+    background-image: url('/images/clientes/clientes-contenedores-maritimos.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      
+      h1 {
+        color: $light-color;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      
+      .banner-text {
+        color: $light-color;
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // Intro Section
+  .intro-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .intro-text {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+    }
+  }
+
+  // Client Animation Section
+  .client-animation-section {
+    padding: 3rem 0;
+    background-color: #f8f8f8;
+    
+    .animation-container {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      
+      .client-animation {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        transition: transform 0.5s ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  // Main Clients Section
+  .main-clients-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .clients-path {
+      position: relative;
+      padding: 3rem 0;
+      
+      .path-visual {
+        position: absolute;
+        top: 0;
+        left: 10%;
+        right: 10%;
+        height: 50px;
+        /*background: url('/images/clientes/path-bg.png') repeat-x center;*/
+        z-index: 0;
+      }
+    }
+    
+    .clients-row {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .client-item {
+      text-align: center;
+      margin-bottom: 3rem;
+      
+      .client-circle {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1.5rem;
+        position: relative;
+        
+        .client-logo {
+          width: 120px;
+          height: 120px;
+          background-color: $light-color;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease;
+          
+          img {
+            max-width: 70%;
+            max-height: 70%;
+          }
+          
+          &:hover {
+            transform: translateY(-10px);
+          }
+        }
+        
+        .grass-element {
+          width: 100%;
+          height: 40px;
+          /*background: url('/images/clientes/grass.png') no-repeat center bottom;*/
+          background-size: contain;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+      }
+      
+      .client-name {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: $primary-color;
+      }
+      
+      .client-description {
+        font-size: 0.9rem;
+        color: #666;
+      }
+    }
+  }
+
+  // Industries Section
+  .industries-section {
+    padding: 5rem 0;
+    background-color: #f8f8f8;
+    
+    .industries-row {
+      justify-content: center;
+    }
+    
+    .industry-item {
+      margin-bottom: 2rem;
+      
+      .industry-card {
+        background-color: $light-color;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .industry-icon {
+          width: 70px;
+          height: 70px;
+          margin: 0 auto 1.5rem;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        
+        h4 {
+          font-weight: 700;
+          margin-bottom: 0.8rem;
+          color: $primary-color;
+        }
+        
+        p {
+          color: #666;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // Testimonials Section
+  .testimonials-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .testimonial-item {
+      margin-bottom: 2rem;
+      
+      .testimonial-card {
+        background-color: #f8f8f8;
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        position: relative;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-10px);
+        }
+        
+        .quote {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          font-size: 5rem;
+          color: $primary-color;
+          opacity: 0.1;
+          font-family: 'Georgia', serif;
+        }
+        
+        .testimonial-text {
+          font-style: italic;
+          margin-bottom: 2rem;
+          position: relative;
+          z-index: 1;
+          font-size: 1.05rem;
+          line-height: 1.7;
+        }
+        
+        .testimonial-author {
+          display: flex;
+          align-items: center;
+          
+          .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          
+          .author-info {
+            h5 {
+              font-weight: 700;
+              color: $primary-color;
+              margin-bottom: 0.2rem;
+            }
+            
+            p {
+              font-size: 0.9rem;
+              color: #666;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Work Process Section
+  .work-process-section {
+    padding: 5rem 0;
+    background-color: #f8f8f8;
+    
+    .process-steps {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .process-step {
+      display: flex;
+      margin-bottom: 3rem;
+      position: relative;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      &:not(:last-child):after {
+        content: '';
+        position: absolute;
+        top: 70px;
+        left: 30px;
+        height: calc(100% - 30px);
+        width: 2px;
+        background-color: $primary-color;
+      }
+      
+      .step-number {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: $primary-color;
+        color: $light-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-right: 1.5rem;
+        z-index: 1;
+      }
+      
+      .step-content {
+        h3 {
+          font-weight: 700;
+          color: $primary-color;
+          margin-bottom: 1rem;
+        }
+        
+        p {
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #555;
+        }
+      }
+    }
+  }
+
+  // CTA Section
+  .cta-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .cta-content {
+      background-color: #f8f8f8;
+      border-radius: 10px;
+      padding: 3rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cta-text {
+      h2 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+      
+      .cta-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        
+        .btn-primary, .btn-secondary {
+          display: inline-block;
+          padding: 0.8rem 2rem;
+          font-weight: 600;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+          background-color: $primary-color;
+          color: $light-color;
+          
+          &:hover {
+            background-color: darken($primary-color, 10%);
+            transform: translateY(-5px);
+          }
+        }
+        
+        .btn-secondary {
+          background-color: $light-color;
+          color: $primary-color;
+          border: 2px solid $primary-color;
+          
+          &:hover {
+            background-color: $primary-color;
+            color: $light-color;
+            transform: translateY(-5px);
+          }
+        }
+      }
+    }
+    
+    .cta-image {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 991px) {
+  .clientes-page {
+    .banner-section {
+      height: 350px;
+      
+      .banner-overlay {
+        h1 {
+          font-size: 2.5rem;
+        }
+        
+        .banner-text {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    
+    .cta-section {
+      .cta-text {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .clientes-page {
+    .banner-section {
+      height: 300px;
+      
+      .banner-overlay {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    }
+    
+    .main-clients-section {
+      .clients-path {
+        .path-visual {
+          display: none;
+        }
+      }
+    }
+    
+    .work-process-section {
+      .process-step {
+        flex-direction: column;
+        
+        .step-number {
+          margin-bottom: 1rem;
+          margin-right: 0;
+        }
+        
+        &:not(:last-child):after {
+          display: none;
+        }
+      }
+    }
+  }
+}

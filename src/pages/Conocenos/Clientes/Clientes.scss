@@ -1,0 +1,432 @@
+@import '~bootstrap/scss/bootstrap';
+
+// Variables
+$primary-color: #ff6b00;
+$secondary-color: #1f4c2c;
+$dark-color: #000;
+$light-color: #fff;
+
+.conocenos-page {
+  // Estilos generales
+  font-family: 'Montserrat', sans-serif;
+  color: $dark-color;
+
+  .section-title {
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: $primary-color;
+      margin: 1rem auto 0;
+    }
+  }
+
+  // Banner Section
+  .banner-section {
+    height: 500px;
+    background-image: url('/images/conocenos-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      
+      h1 {
+        color: $light-color;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      
+      .banner-text {
+        color: $light-color;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // Valores Section
+  .valores-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .valor-card {
+      padding: 0 1.5rem;
+      margin-bottom: 2rem;
+      
+      .valor-content {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 10px;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-10px);
+        }
+        
+        h3 {
+          color: $primary-color;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        
+        p {
+          color: $dark-color;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  // Misión y Visión Section
+  .mision-vision-section {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+    
+    .mision-col, .vision-col {
+      padding: 0 2rem;
+      
+      @media (max-width: 767px) {
+        margin-bottom: 3rem;
+      }
+    }
+    
+    .mision-content, .vision-content {
+      padding: 2rem;
+      border-radius: 10px;
+      height: 100%;
+      
+      h2 {
+        color: $primary-color;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+        
+        &:after {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 3px;
+          background-color: $primary-color;
+          margin-top: 1rem;
+        }
+      }
+      
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+    }
+    
+    .mision-content {
+      background-color: $light-color;
+      border-left: 5px solid $primary-color;
+    }
+    
+    .vision-content {
+      background-color: $light-color;
+      border-left: 5px solid $secondary-color;
+    }
+  }
+
+  // Historia Section
+  .historia-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .historia-content {
+      margin-bottom: 4rem;
+      
+      p {
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 4rem auto;
+      
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: $primary-color;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+        
+        .timeline-year {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: $primary-color;
+          color: $light-color;
+          padding: 0.5rem 1.5rem;
+          border-radius: 5px;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+        
+        .timeline-content {
+          width: 40%;
+          padding: 1.5rem;
+          background-color: $light-color;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+          
+          &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: $light-color;
+            border: 4px solid $primary-color;
+            border-radius: 50%;
+            transform: translateY(-50%);
+          }
+        }
+        
+        &:nth-child(odd) {
+          .timeline-content {
+            margin-left: auto;
+            
+            &:after {
+              left: -10px;
+            }
+          }
+        }
+        
+        &:nth-child(even) {
+          .timeline-content {
+            margin-right: auto;
+            
+            &:after {
+              right: -10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Valores Corporativos Section
+  .valores-corporativos-section {
+    padding: 5rem 0;
+    background-color: #f8f9fa;
+    
+    .valores-descripcion {
+      margin-bottom: 3rem;
+      text-align: center;
+      
+      p {
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+    }
+    
+    .valores-lista {
+      margin-bottom: 3rem;
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        
+        li {
+          font-size: 1.3rem;
+          font-weight: 600;
+          color: $primary-color;
+          margin-bottom: 1rem;
+          position: relative;
+          padding-left: 2rem;
+          
+          &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background-color: $primary-color;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    
+    .valores-imagen {
+      text-align: center;
+      
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  // Equipo Section
+  .equipo-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .equipo-descripcion {
+      text-align: center;
+      margin-bottom: 4rem;
+      
+      p {
+        max-width: 800px;
+        margin: 0 auto 1.5rem;
+        line-height: 1.7;
+      }
+    }
+    
+    .team-members {
+      margin-bottom: 3rem;
+    }
+    
+    .team-member {
+      margin-bottom: 2.5rem;
+      text-align: center;
+      
+      .member-avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      h4 {
+        color: $primary-color;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      
+      .member-email {
+        color: $secondary-color;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+      }
+      
+      .member-role {
+        font-weight: 500;
+      }
+    }
+    
+    .personal-adicional {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 2rem;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      
+      .member-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      h4 {
+        color: $primary-color;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 767px) {
+  .conocenos-page {
+    .banner-section {
+      height: 400px;
+      
+      .banner-overlay {
+        h1 {
+          font-size: 2.2rem;
+        }
+        
+        .banner-text {
+          font-size: 1rem;
+        }
+      }
+    }
+    
+    .historia-section {
+      .timeline {
+        &:before {
+          left: 20px;
+        }
+        
+        .timeline-item {
+          .timeline-year {
+            left: 20px;
+            transform: none;
+          }
+          
+          .timeline-content {
+            width: 80%;
+            margin-left: 40px !important;
+            
+            &:after {
+              left: -30px !important;
+              right: auto !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

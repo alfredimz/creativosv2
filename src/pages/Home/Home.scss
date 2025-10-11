@@ -1,0 +1,292 @@
+@import '~bootstrap/scss/bootstrap';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+// Variables
+$primary-color: #ff6b00;
+$secondary-color: #1f4c2c;
+$dark-color: #000;
+$light-color: #fff;
+
+.home-page {
+  font-family: 'Montserrat', sans-serif;
+  color: $dark-color;
+
+  // Hero Section
+  .hero-section {
+    position: relative;
+    
+    .hero-swiper {
+      height: 80vh;
+      
+      .hero-slide {
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+          position: relative;
+          z-index: 2;
+          padding: 0 5rem;
+          max-width: 700px;
+          
+          h1 {
+            color: $light-color;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+          }
+          
+          p {
+            color: $light-color;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+          }
+          
+          .hero-btn {
+            background-color: $primary-color;
+            border-color: $primary-color;
+            font-weight: 600;
+            padding: 0.5rem 2rem;
+            
+            &:hover {
+              background-color: darken($primary-color, 10%);
+              border-color: darken($primary-color, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Services Section
+  .services-section {
+    padding: 4rem 0;
+    background-color: $dark-color;
+    
+    .service-card {
+      height: 100%;
+      min-height: 400px;
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      color: $light-color;
+      
+      &.renta {
+        background-color: #214d39;
+      }
+      
+      &.venta {
+        background-color: #40a8d3;
+      }
+      
+      &.construccion {
+        background-color: #f9d43c;
+        color: $dark-color;
+        
+        .round-btn {
+          color: $dark-color;
+          border-color: $dark-color;
+          
+          &:hover {
+            background-color: $dark-color;
+            color: $light-color;
+          }
+        }
+      }
+      
+      h2 {
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      
+      .service-image {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+          max-width: 100%;
+          border-radius: 8px;
+        }
+      }
+      
+      p {
+        margin: 1.5rem 0;
+      }
+      
+      .round-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        font-size: 1.5rem;
+        line-height: 1;
+        align-self: flex-end;
+        
+        &:hover {
+          background-color: $light-color;
+          color: $dark-color;
+        }
+      }
+    }
+  }
+
+  // Additional Services
+  .additional-services {
+    .service-feature {
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      
+      .service-feature-content {
+        position: relative;
+        z-index: 1;
+        color: $light-color;
+        padding: 2rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h3 {
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  // Acabados Section
+  .acabados-section {
+    .acabado-item {
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+      }
+      
+      .acabado-content {
+        position: relative;
+        z-index: 1;
+        color: $light-color;
+        padding: 2rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        h3 {
+          font-weight: 700;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+
+  // Experience Section
+  .experience-section {
+    padding: 4rem 0;
+    background-color: $dark-color;
+    
+    .experience-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      
+      .experience-btn {
+        padding: 1rem;
+        font-weight: 600;
+        
+        &.btn-warning {
+          background-color: $primary-color;
+          border-color: $primary-color;
+          color: $light-color;
+          
+          &:hover {
+            background-color: darken($primary-color, 10%);
+            border-color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 767px) {
+  .home-page {
+    .hero-section {
+      .hero-swiper {
+        height: 60vh;
+        
+        .hero-slide {
+          .hero-content {
+            padding: 0 2rem;
+            
+            h1 {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+    
+    .services-section {
+      .service-card {
+        min-height: 350px;
+      }
+    }
+    
+    .additional-services, .acabados-section {
+      .service-feature, .acabado-item {
+        height: 300px;
+      }
+    }
+  }
+}

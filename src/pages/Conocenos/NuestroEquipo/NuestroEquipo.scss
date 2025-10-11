@@ -1,0 +1,350 @@
+@import '~bootstrap/scss/bootstrap';
+
+// Variables
+$primary-color: #ff6b00;
+$secondary-color: #1f4c2c;
+$dark-color: #000;
+$light-color: #fff;
+
+.nuestro-equipo-page {
+  // Estilos generales
+  font-family: 'Montserrat', sans-serif;
+  color: $dark-color;
+
+  .section-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: $primary-color;
+      margin: 1rem auto 0;
+    }
+  }
+
+  // Banner Section
+  .banner-section {
+    height: 400px;
+    background-image: url('/images/equipo/equipo-contenedores-maritimos.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      
+      h1 {
+        color: $light-color;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      
+      .banner-text {
+        color: $light-color;
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // Intro Section
+  .intro-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .intro-text {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  // Team Sections
+  .team-section {
+    padding: 5rem 0;
+    
+    .team-row {
+      margin-bottom: 2rem;
+    }
+    
+    .team-member {
+      margin-bottom: 2rem;
+      
+      .member-card {
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member-image {
+          height: 280px;
+          overflow: hidden;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        
+        .member-info {
+          padding: 1.5rem;
+          
+          h3 {
+            color: $primary-color;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+          }
+          
+          .member-title {
+            font-weight: 600;
+            color: $secondary-color;
+            margin-bottom: 0.5rem;
+          }
+          
+          .member-email {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+          }
+          
+          .member-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  // Secciones específicas de equipo
+  .directivo-section {
+    background-color: $light-color;
+  }
+  
+  .proyectos-section {
+    background-color: #f5f5f5;
+  }
+  
+  .operativo-section {
+    background-color: $light-color;
+    
+    .team-operative {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      
+      .operative-image {
+        flex: 0 0 100%;
+        
+        @media (min-width: 768px) {
+          flex: 0 0 40%;
+        }
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .operative-info {
+        flex: 0 0 100%;
+        padding: 2rem;
+        background-color: #f8f8f8;
+        
+        @media (min-width: 768px) {
+          flex: 0 0 60%;
+        }
+        
+        h3 {
+          color: $primary-color;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+        
+        .operative-email {
+          color: #666;
+          font-style: italic;
+          margin-bottom: 1rem;
+        }
+        
+        .operative-description {
+          font-size: 1rem;
+          line-height: 1.7;
+          color: #333;
+          margin-bottom: 1rem;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // Gallery Section
+  .gallery-section {
+    padding: 5rem 0;
+    background-color: #f5f5f5;
+    
+    .section-title {
+      margin-bottom: 3rem;
+    }
+    
+    .gallery-item {
+      height: 250px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  // Join Section
+  .join-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .join-text {
+      padding-right: 2rem;
+      
+      @media (max-width: 991px) {
+        padding-right: 0;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      
+      h2 {
+        color: $primary-color;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 2rem;
+      }
+      
+      .btn-primary {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        padding: 0.6rem 2rem;
+        font-weight: 600;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: darken($primary-color, 10%);
+          border-color: darken($primary-color, 10%);
+          transform: translateY(-3px);
+        }
+      }
+    }
+    
+    .join-image {
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 991px) {
+  .nuestro-equipo-page {
+    .banner-section {
+      height: 350px;
+      
+      .banner-overlay {
+        h1 {
+          font-size: 2.5rem;
+        }
+        
+        .banner-text {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .nuestro-equipo-page {
+    .banner-section {
+      height: 300px;
+      
+      .banner-overlay {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    }
+    
+    .team-section {
+      .team-member {
+        .member-card {
+          max-width: 350px;
+          margin: 0 auto;
+        }
+      }
+    }
+    
+    .gallery-section {
+      .gallery-item {
+        height: 200px;
+      }
+    }
+  }
+}

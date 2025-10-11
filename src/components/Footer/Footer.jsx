@@ -1,0 +1,166 @@
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaTimes } from 'react-icons/fa';
+import logo from '../../assets/logo-footer.png';
+import './Footer.scss';
+
+const Footer = () => {
+  return (
+    <footer className="site-footer position-relative">
+      <Container>
+        <Row className="contact-info">
+          <Col xs={12} sm={6} md={3} className="ms-auto text-center text-md-start">
+            <div className="footer-section">
+              <h4>Comunícate con nosotros</h4>
+              <p>Lunes a viernes de<br/>9:00am a 6:00pm</p>
+              <p>
+                <FaWhatsapp className="icon" />
+                <span>Whatsapp</span><br/>
+                <a href="https://wa.me/5554269941">55-54-26-99-41</a>
+              </p>
+              <p>
+                <FaPhone className="icon" />
+                <span>Teléfono</span><br/>
+                <a href="tel:5526088886">55-26-08-88-86</a>
+              </p>
+              <p>
+                <FaEnvelope className="icon" />
+                <span>Mail</span><br/>
+                <a href="mailto:ventas@creativosespacios.mx">ventas@creativosespacios.mx</a>
+              </p>
+            </div>
+          </Col>
+          <Col xs={12} sm={6} md={3} className="ms-auto text-center text-md-start">
+            <div className="footer-section">
+              <h4>Síguenos</h4>
+              <div className="social-links d-flex align-items-center align-items-md-start">
+                <a href="https://facebook.com/creativosespaciosmx" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+                <a href="https://instagram.com/creativposespaciosmx" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+                <a href="https://tiktok.com/@creativosespaciosmx" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
+                <a href="https://x.com/creaespaciosmx" target="_blank" rel="noopener noreferrer"><FaTimes /></a>
+                <a href="https://youtube.com/@creativosespacios" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+              </div>
+              <h4 className="mt-4">Patios de contenedores</h4>
+              <ul className="list-unstyled">
+                <li>Manzanillo, Colima</li>
+                <li>Progreso, Yucatán</li>
+                <li>Altamira, Tamaulipas</li>
+                <li>Puerto, Veracruz</li>
+              </ul>
+            </div>
+          </Col>
+          <Col xs={12} sm={6} md={3} className="ms-auto text-center text-md-start">
+            <div className="footer-section">
+              <h4>Atención a clientes</h4>
+              <p>
+                <a href="https://maps.app.goo.gl/kGwek2XYdjEUvruP6" target="_blank" rel="noopener noreferrer">
+                <FaMapMarkerAlt className="icon" />
+                Av. Del Árbol 104,<br/>
+                Colonia Lomas de San Lorenzo<br/>
+                Código Postal 09780<br/>
+                Alcaldía Iztapalapa<br/>
+                Ciudad de México<br/>
+                México
+                </a>
+              </p>
+              
+             
+            </div>
+          </Col>
+          <Col xs={12} sm={6} md={3} className="ms-auto text-center text-md-start">
+            <div className="footer-section">
+              
+              <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.117851523817!2d-99.05635160000001!3d19.320691699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce025f6302e275%3A0xcf94e14da72b42e9!2sVenta%2C%20renta%20y%20adaptaci%C3%B3n%20de%20contenedores%20mar%C3%ADtimos%20Creativos%20Espacios.!5e0!3m2!1ses!2smx!4v1742294561463!5m2!1ses!2smx"
+                  width="100%" 
+                  height="300" 
+                  style={{ border: 0 }} 
+                  allowFullScreen="" 
+                  loading="lazy" 
+                  title="Ubicación Creativos Espacios"
+                ></iframe>
+             
+            </div>
+          </Col>
+        </Row>
+        
+        <Row className="site-map mt-5">
+          <Col md={2} className="ms-auto text-center text-md-start">
+            <h5>Nosotros</h5>
+            <ul className="list-unstyled">
+              <li><Link to="/quienes-somos">Quienes Somos</Link></li>
+              <li><Link to="/valores">Valores</Link></li>
+              <li><Link to="/mision-vision">Misión y Visión</Link></li>
+              <li><Link to="/historia">Historia</Link></li>
+              <li><Link to="/nuestro-equipo">Nuestro Equipo</Link></li>
+              <li><Link to="/clientes">Clientes</Link></li>
+            </ul>
+          </Col>
+          <Col md={2} className="ms-auto text-center text-md-start">
+            <h5>Servicios</h5>
+            <ul className="list-unstyled">
+              <li><Link to="/venta">Venta de contenedores</Link></li>
+              <li><Link to="/alquiler">Alquiler de contenedores</Link></li>
+              <li><Link to="/construccion">Construcción</Link></li>
+              <li><Link to="/transformacion">Transformación de contenedores</Link></li>
+              <li><Link to="/servicios-adicionales">Servicios adicionales</Link></li>
+            </ul>
+          </Col>
+          <Col md={2} className="ms-auto text-center text-md-start">
+            <h5>Productos</h5>
+            <ul className="list-unstyled">
+              <li><Link to="/tipos">Tipos de contenedores</Link></li>
+              <li><Link to="/fichas">Fichas técnicas</Link></li>
+              <li><Link to="/presentacion">Presentación</Link></li>
+              <li><Link to="/personaliza">Personaliza tu contenedor</Link></li>
+              <li><Link to="/cotizador">Cotizador</Link></li>
+            </ul>
+          </Col>
+          <Col md={2} className="ms-auto text-center text-md-start">
+            <h5>Recursos</h5>
+            <ul className="list-unstyled">
+              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/preguntas">Preguntas frecuentes</Link></li>
+              <li><Link to="/videos">Videos</Link></li>
+              <li><Link to="/recorrido">Recorrido virtual</Link></li>
+              <li><Link to="/perfilador">Perfilador del cliente</Link></li>
+            </ul>
+          </Col>
+          <Col md={2} className="ms-auto text-center text-md-start">
+            <h5>Contacto</h5>
+            <ul className="list-unstyled">
+              <li><Link to="/formulario">Formulario de contacto</Link></li>
+              <li><Link to="/buzon">Buzón de quejas y sugerencias</Link></li>
+              <li><Link to="/aliados">Aliados</Link></li>
+              <li><Link to="/redes">Redes sociales</Link></li>
+            </ul>
+          </Col>
+        </Row>
+        
+        <Row className="copyright mt-5">
+          <Col md={8}>
+            <Link to="/">
+              <img src={logo} alt="Creativos Espacios" className="footer-logo" />
+            </Link>
+            <p className="copyright-text">Todos los derechos reservados 2024-25</p>
+            <div className="legal-links">
+              <Link to="/privacidad">Aviso de privacidad</Link> | 
+              <Link to="/terminos">Términos y condiciones</Link> | 
+              <Link to="/robo-identidad">Aviso de robo de identidad</Link> | 
+              <Link to="/mapa-sitio">Mapa del sitio</Link>
+            </div>
+          </Col>
+          <Col md={4}>
+                   
+          </Col>
+        </Row>
+      </Container>     
+      <Link to="/" className='position-absolute bottom-0 end-0'>
+              <img src="../images/contenedeores-maritimos-creativos.webp" alt="venta-contenedores-maritimos" className="" />
+          </Link>  
+    </footer>
+  );
+};
+
+export default Footer;

@@ -1,0 +1,456 @@
+@import '~bootstrap/scss/bootstrap';
+
+// Variables
+$primary-color: #ff6b00;
+$secondary-color: #1f4c2c;
+$dark-color: #000;
+$light-color: #fff;
+
+.casos-exito-page {
+  // Estilos generales
+  font-family: 'Montserrat', sans-serif;
+  color: $dark-color;
+
+  .section-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: $primary-color;
+      margin: 1rem auto 0;
+    }
+  }
+
+  // Banner Section
+  .banner-section {
+    height: 400px;
+    background-image: url('/images/casos-exito/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      
+      h1 {
+        color: $light-color;
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+      
+      .banner-text {
+        color: $light-color;
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // Intro Section
+  .intro-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .intro-text {
+      p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    
+    .intro-image {
+      .intro-quote {
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        padding: 2.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        
+        .quote-marks {
+          font-size: 5rem;
+          font-family: 'Georgia', serif;
+          color: $primary-color;
+          opacity: 0.2;
+          position: absolute;
+          top: -10px;
+          left: 20px;
+        }
+        
+        .quote-text {
+          font-size: 1.3rem;
+          font-style: italic;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .author-info {
+          display: flex;
+          align-items: center;
+          
+          .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+            
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+          
+          .author-name {
+            font-weight: 700;
+            color: $primary-color;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  // Filter Section
+  .filter-section {
+    padding: 2rem 0;
+    background-color: #f5f5f5;
+    
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      
+      .btn {
+        padding: 0.7rem 1.5rem;
+        background-color: $light-color;
+        border: 2px solid $light-color;
+        color: #555;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: #f0f0f0;
+        }
+        
+        &.active {
+          background-color: $primary-color;
+          border-color: $primary-color;
+          color: $light-color;
+          
+          &:hover {
+            background-color: darken($primary-color, 10%);
+            border-color: darken($primary-color, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  // Casos Section
+  .casos-section {
+    padding: 5rem 0;
+    background-color: $light-color;
+    
+    .caso-item {
+      margin-bottom: 2.5rem;
+      
+      .caso-card {
+        background-color: $light-color;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        height: 100%;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .caso-image {
+          height: 220px;
+          position: relative;
+          overflow: hidden;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+          }
+          
+          .caso-badge {
+            position: absolute;
+            top: 15px;
+            right: 0;
+            background-color: $primary-color;
+            color: $light-color;
+            padding: 0.4rem 1rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 5px 0 0 5px;
+          }
+          
+          &:hover {
+            img {
+              transform: scale(1.1);
+            }
+          }
+        }
+        
+        .caso-info {
+          padding: 1.5rem;
+          
+          h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: $primary-color;
+          }
+          
+          .caso-details {
+            margin-bottom: 1rem;
+            
+            p {
+              margin-bottom: 0.3rem;
+              font-size: 0.9rem;
+            }
+          }
+          
+          .caso-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
+          }
+          
+          .caso-button {
+            .btn {
+              background-color: $primary-color;
+              border-color: $primary-color;
+              color: $light-color;
+              font-weight: 600;
+              padding: 0.5rem 1.5rem;
+              transition: all 0.3s ease;
+              
+              &:hover {
+                background-color: darken($primary-color, 10%);
+                border-color: darken($primary-color, 10%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Testimonials Section
+  .testimonials-section {
+    padding: 5rem 0;
+    background-color: #f5f5f5;
+    
+    .testimonial-item {
+      margin-bottom: 2rem;
+      
+      .testimonial-card {
+        background-color: $light-color;
+        border-radius: 10px;
+        padding: 2rem;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: translateY(-10px);
+        }
+        
+        .quote-marks {
+          font-size: 4rem;
+          font-family: 'Georgia', serif;
+          color: $primary-color;
+          opacity: 0.2;
+          position: absolute;
+          top: -10px;
+          left: 20px;
+        }
+        
+        .testimonial-text {
+          font-size: 1rem;
+          line-height: 1.7;
+          font-style: italic;
+          margin-bottom: 1.5rem;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .testimonial-author {
+          .author-name {
+            font-weight: 700;
+            color: $primary-color;
+            margin-bottom: 0.3rem;
+          }
+          
+          .author-company {
+            font-size: 0.9rem;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+
+  // CTA Section
+  .cta-section {
+    padding: 5rem 0;
+    background-image: url('/images/casos-exito/cta-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      color: $light-color;
+      
+      h2 {
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        font-size: 2.5rem;
+      }
+      
+      p {
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+      }
+      
+      .cta-button {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        padding: 0.8rem 2.5rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background-color: $light-color;
+          border-color: $light-color;
+          color: $primary-color;
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 991px) {
+  .casos-exito-page {
+    .banner-section {
+      height: 350px;
+      
+      .banner-overlay {
+        h1 {
+          font-size: 2.5rem;
+        }
+        
+        .banner-text {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    
+    .intro-section {
+      .intro-text {
+        margin-bottom: 2rem;
+      }
+    }
+    
+    .cta-section {
+      .cta-content {
+        h2 {
+          font-size: 2rem;
+        }
+        
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .casos-exito-page {
+    .banner-section {
+      height: 300px;
+      
+      .banner-overlay {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    }
+    
+    .filter-section {
+      .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+        
+        .btn {
+          width: 80%;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+    
+    .casos-section {
+      .caso-item {
+        .caso-card {
+          max-width: 350px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
