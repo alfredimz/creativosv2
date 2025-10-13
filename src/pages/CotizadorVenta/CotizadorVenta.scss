@@ -1,105 +1,133 @@
-
-@import '~bootstrap/scss/bootstrap';
-
-// Variables from other pages
-$primary-color: #ff6b00;
-$secondary-color: #1f4c2c;
-$dark-color: #000;
-$light-color: #fff;
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .cotizador-page {
-  font-family: 'Montserrat', sans-serif;
+  font-family: $font-parrafos;
 
   .banner-section {
-    height: 400px;
-    background-color: $secondary-color;
+    min-height: 400px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .banner-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: $spacing-4xl 0;
       text-align: center;
+      color: $color-blanco;
 
       h1 {
-        color: $light-color;
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
+        font-family: $font-titulos;
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-lg;
+
+        @include respond-to(md) {
+          font-size: $font-size-5xl;
+        }
       }
 
       .banner-text {
-        color: $light-color;
-        font-size: 1.2rem;
+        font-size: $font-size-lg;
         max-width: 800px;
         margin: 0 auto;
+        opacity: 0.95;
       }
     }
   }
 
   .form-section {
-    padding: 5rem 0;
-    background-color: #f4f7f6;
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
 
     .card {
       border: none;
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-md;
     }
 
     h3 {
-      color: $secondary-color;
-      font-weight: 600;
-      border-left: 4px solid $primary-color;
-      padding-left: 1rem;
-      margin-bottom: 2rem !important; // Overriding bootstrap margin
+      font-family: $font-titulos;
+      color: $color-calipso;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-2xl;
+      border-left: 4px solid $color-naranja;
+      padding-left: $spacing-lg;
+      margin-bottom: $spacing-xl;
     }
 
     .form-label {
-      font-weight: 500;
+      font-weight: $font-weight-semibold;
+      color: $color-gris-oscuro;
+      margin-bottom: $spacing-sm;
+    }
+
+    .form-control {
+      border-radius: $border-radius-md;
+      border: 1px solid $color-gris-medio;
+      padding: $spacing-sm $spacing-md;
+
+      &:focus {
+        border-color: $color-calipso;
+        box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
+      }
+    }
+
+    .form-select {
+      border-radius: $border-radius-md;
+      border: 1px solid $color-gris-medio;
+      padding: $spacing-sm $spacing-md;
+
+      &:focus {
+        border-color: $color-calipso;
+        box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
+      }
     }
 
     .form-check-label {
-        font-weight: 500;
+      font-weight: $font-weight-medium;
+      color: $color-gris-oscuro;
     }
 
     .form-check-input:checked {
-        background-color: $primary-color;
-        border-color: $primary-color;
+      background-color: $color-naranja;
+      border-color: $color-naranja;
     }
 
     .form-switch .form-check-input:checked {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
     }
 
     .btn-primary {
-      background-color: $primary-color;
-      border-color: $primary-color;
-      padding: 0.75rem 2rem;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
+      background-color: $color-naranja;
+      border-color: $color-naranja;
+      padding: $spacing-md $spacing-2xl;
+      font-weight: $font-weight-bold;
+      border-radius: $border-radius-md;
+      transition: all $transition-base;
 
       &:hover {
-        background-color: darken($primary-color, 10%);
-        border-color: darken($primary-color, 10%);
+        background-color: darken($color-naranja, 10%);
+        border-color: darken($color-naranja, 10%);
+        transform: translateY(-2px);
+        box-shadow: $shadow-md;
       }
     }
   }
 
   @media (max-width: 767px) {
     .banner-section {
-      height: 350px;
+      min-height: 350px;
+
       .banner-overlay h1 {
-        font-size: 2.2rem;
+        font-size: $font-size-3xl;
       }
     }
+
     .form-section {
-        padding: 3rem 0;
+      padding: $spacing-3xl 0;
     }
   }
 }

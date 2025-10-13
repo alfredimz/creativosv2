@@ -8,7 +8,14 @@
       "Bash(netstat:*)",
       "Bash(taskkill:*)",
       "Bash(Stop-Process -Id 17772 -Force)",
-      "Bash(cmd /c:*)"
+      "Bash(cmd /c:*)",
+      "Bash(if exist node_modules.cache rmdir /s /q node_modules.cache)",
+      "Bash(timeout:*)",
+      "Bash(curl -v http://127.0.0.1:3845/mcp)",
+      "Bash(tasklist)",
+      "Bash(if not exist .ai-docs mkdir:*)",
+      "Bash(if not exist .ai-docsold mkdir .ai-docsold)",
+      "Bash(Select-Object Name)"
     ],
     "deny": [],
     "ask": []

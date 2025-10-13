@@ -1,18 +1,13 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-@import '~bootstrap/scss/bootstrap';
-
-// Variables from QuienesSomos.scss
-$primary-color: #ff6b00;
-$secondary-color: #1f4c2c;
-$dark-color: #000;
-$light-color: #fff;
-
+// Estilos para la página principal de Servicios
 .servicios-page {
-  font-family: 'Montserrat', sans-serif;
+  font-family: $font-parrafos;
 
   .banner-section {
     height: 450px;
-    background-color: $secondary-color;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     position: relative;
 
     .banner-overlay {
@@ -21,7 +16,7 @@ $light-color: #fff;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -29,62 +24,354 @@ $light-color: #fff;
       flex-direction: column;
 
       h1 {
-        color: $light-color;
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
+        color: $color-blanco;
+        font-family: $font-titulos;
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-lg;
+
+        @include respond-to(md) {
+          font-size: $font-size-5xl;
+        }
       }
 
       .banner-text {
-        color: $light-color;
-        font-size: 1.2rem;
+        color: $color-blanco;
+        font-size: $font-size-lg;
         max-width: 800px;
         margin: 0 auto;
+        opacity: 0.95;
       }
     }
   }
 
   .venta-renta-section {
-    padding: 4rem 0;
-    background-color: #f8f9fa;
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
   }
 
   .servicios-integrales-section {
-    padding: 5rem 0;
+    padding: $spacing-4xl 0;
 
     .servicio-card {
       border: none;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-sm;
+      transition: all $transition-base;
+      height: 100%;
 
       &:hover {
         transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        box-shadow: $shadow-lg;
       }
 
       .servicio-icon {
         font-size: 3rem;
-        margin-bottom: 1rem;
+        margin-bottom: $spacing-lg;
       }
 
       .card-title {
-        color: $primary-color;
-        font-weight: 700;
+        color: $color-calipso;
+        font-family: $font-titulos;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+// Estilos compartidos para páginas de servicio individual (Alquiler, Venta, Transformación)
+.servicio-page {
+  font-family: $font-parrafos;
+
+  &__banner {
+    min-height: 350px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner-overlay {
+    width: 100%;
+    padding: $spacing-4xl 0;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__banner-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+
+    @include respond-to(md) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
+  }
+
+  &__intro {
+    padding: $spacing-3xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__intro-content {
+    text-align: center;
+  }
+
+  &__section-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__intro-text {
+    font-size: $font-size-lg;
+    color: $color-gris-oscuro;
+    line-height: 1.8;
+  }
+
+  &__beneficios {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__beneficio {
+    text-align: center;
+    padding: $spacing-xl;
+    background-color: $color-blanco;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    transition: all $transition-base;
+    height: 100%;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__beneficio-icono {
+    font-size: 3rem;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__beneficio-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+  }
+
+  &__beneficio-descripcion {
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__aplicaciones {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__lista {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: $spacing-md;
+      margin-bottom: $spacing-md;
+      background-color: $color-gris-claro;
+      border-radius: $border-radius-md;
+      border-left: 4px solid $color-naranja;
+      color: $color-gris-oscuro;
+
+      &::before {
+        content: '✓ ';
+        color: $color-naranja;
+        font-weight: $font-weight-bold;
+        margin-right: $spacing-sm;
       }
     }
   }
 
-  @media (max-width: 767px) {
-    .banner-section {
-      height: 400px;
-      .banner-overlay {
-        h1 {
-          font-size: 2.2rem;
-        }
-        .banner-text {
-          font-size: 1rem;
-        }
+  &__imagen-placeholder {
+    height: 100%;
+    min-height: 300px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    border-radius: $border-radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: $shadow-md;
+  }
+
+  &__placeholder-content {
+    text-align: center;
+    color: $color-blanco;
+
+    span {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: $spacing-lg;
+    }
+
+    p {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-semibold;
+      margin: 0;
+    }
+  }
+
+  &__tarifas,
+  &__tipos {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__tarifa-card,
+  &__tipo-card {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__tarifa-tamano,
+  &__tipo-categoria {
+    font-family: $font-titulos;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+  }
+
+  &__tarifa-precio,
+  &__tipo-precio {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-naranja;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__tarifa-lista,
+  &__tipo-lista {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: $spacing-sm 0;
+      color: $color-gris-oscuro;
+      border-bottom: 1px solid $color-gris-medio;
+
+      &:last-child {
+        border-bottom: none;
       }
+    }
+  }
+
+  &__tipo-descripcion {
+    color: $color-gris-oscuro;
+    margin-bottom: $spacing-lg;
+    line-height: 1.6;
+  }
+
+  &__nota {
+    color: $color-gris-oscuro;
+    font-size: $font-size-sm;
+    font-style: italic;
+  }
+
+  &__proceso {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__proceso-item {
+    text-align: center;
+    padding: $spacing-xl;
+    background-color: $color-gris-claro;
+    border-radius: $border-radius-lg;
+    height: 100%;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: darken($color-gris-claro, 5%);
+      transform: translateY(-3px);
+    }
+  }
+
+  &__proceso-numero {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-naranja;
+    margin-bottom: $spacing-md;
+  }
+
+  &__proceso-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__proceso-descripcion {
+    color: $color-gris-oscuro;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  &__cta {
+    padding: $spacing-4xl 0;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    color: $color-blanco;
+  }
+
+  &__cta-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__cta-text {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    padding: $spacing-md $spacing-2xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      transform: translateY(-3px);
+      box-shadow: $shadow-lg;
+      color: $color-blanco;
     }
   }
 }

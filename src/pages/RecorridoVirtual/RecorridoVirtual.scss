@@ -1,40 +1,206 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.recorrido-virtual {
+.recorrido-page {
+  font-family: $font-parrafos;
 
-  &__hero {
-    padding: 3rem 0;
+  &__banner {
+    min-height: 350px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner-overlay {
+    width: 100%;
+    padding: $spacing-4xl 0;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__banner-title {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
+  }
+
+  &__intro {
+    padding: $spacing-3xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__section-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__intro-text {
+    font-size: $font-size-lg;
+    color: $color-gris-oscuro;
+    line-height: 1.8;
+  }
+
+  &__tours {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__card {
+    border: none;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__card-viewer {
+    height: 250px;
+    position: relative;
+  }
+
+  &__card-placeholder {
+    height: 100%;
+    background: linear-gradient(135deg, darken($color-calipso, 15%) 0%, $color-calipso 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      background: linear-gradient(135deg, $color-naranja 0%, darken($color-naranja, 10%) 100%);
+    }
+  }
+
+  &__360-icon {
+    font-size: 4rem;
+    font-weight: $font-weight-bold;
+    color: $color-blanco;
+    margin-bottom: $spacing-md;
+  }
+
+  &__click-text {
+    color: $color-blanco;
+    font-size: $font-size-base;
+    margin: 0;
+  }
+
+  &__card-tipo {
+    display: inline-block;
+    padding: $spacing-xs $spacing-md;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    border-radius: $border-radius-sm;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+  }
+
+  &__card-descripcion {
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+  }
+
+  &__instrucciones {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__instrucciones-card {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+  }
+
+  &__instrucciones-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-xl;
+    text-align: center;
+  }
+
+  &__instruccion-item {
+    margin-bottom: $spacing-lg;
+
+    strong {
+      font-family: $font-titulos;
+      color: $color-calipso;
+      display: block;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      color: $color-gris-oscuro;
+      margin: 0;
+    }
+  }
+
+  &__cta {
+    padding: $spacing-4xl 0;
     background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     color: $color-blanco;
   }
 
-  &__titulo {
+  &__cta-title {
     font-family: $font-titulos;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-lg;
+  }
 
-    @include respond-to(md) {
-      font-size: 3rem;
+  &__cta-text {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    padding: $spacing-md $spacing-2xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      transform: translateY(-3px);
+      box-shadow: $shadow-lg;
+      color: $color-blanco;
     }
-  }
-
-  &__subtitulo {
-    font-family: $font-parrafos;
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-
-  &__contenido {
-    padding: 4rem 0;
-  }
-
-  .placeholder-box {
-    background-color: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 3rem 2rem;
-    margin: 2rem 0;
   }
 }

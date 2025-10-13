@@ -1,41 +1,254 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.blog,
-.articulo-blog {
+.blog-page {
+  font-family: $font-parrafos;
 
-  &__hero {
-    padding: 3rem 0;
+  // Banner
+  &__banner {
+    min-height: 350px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner-overlay {
+    width: 100%;
+    padding: $spacing-4xl 0;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__banner-title {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
+  }
+
+  // Filtros
+  &__filtros {
+    padding: $spacing-2xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+  }
+
+  &__filtro-btn {
+    padding: $spacing-sm $spacing-lg;
+    border: 2px solid $color-calipso;
+    background-color: $color-blanco;
+    color: $color-calipso;
+    font-weight: $font-weight-medium;
+    border-radius: $border-radius-md;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover, &.active {
+      background-color: $color-calipso;
+      color: $color-blanco;
+    }
+  }
+
+  // Destacado
+  &__destacado {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__destacado-imagen {
+    position: relative;
+    height: 400px;
+    background-color: $color-gris-claro;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+  }
+
+  &__destacado-badge {
+    position: absolute;
+    top: $spacing-lg;
+    left: $spacing-lg;
+    z-index: 2;
+  }
+
+  &__destacado-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: $color-gris-medio;
+    font-size: $font-size-lg;
+  }
+
+  &__destacado-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__destacado-resumen {
+    font-size: $font-size-lg;
+    color: $color-gris-oscuro;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__destacado-meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $color-gris-medio;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__destacado-btn {
+    display: inline-block;
+    padding: $spacing-md $spacing-xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-semibold;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      color: $color-blanco;
+      transform: translateY(-2px);
+    }
+  }
+
+  // Grid
+  &__grid {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__card {
+    border: none;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    transition: all $transition-base;
+    box-shadow: $shadow-sm;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__card-imagen {
+    position: relative;
+    height: 200px;
+    background-color: $color-gris-medio;
+  }
+
+  &__card-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: $color-gris-claro;
+    font-size: $font-size-base;
+  }
+
+  &__card-categoria {
+    position: absolute;
+    top: $spacing-md;
+    left: $spacing-md;
+  }
+
+  &__card-titulo a {
+    color: $color-calipso;
+    text-decoration: none;
+    font-family: $font-titulos;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+
+    &:hover {
+      color: $color-naranja;
+    }
+  }
+
+  &__card-resumen {
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+  }
+
+  &__card-footer {
+    background-color: $color-gris-claro;
+    border-top: 1px solid $color-gris-medio;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  // Paginación
+  &__paginacion {
+    padding: $spacing-3xl 0;
+    background-color: $color-blanco;
+  }
+
+  // Newsletter
+  &__newsletter {
+    padding: $spacing-4xl 0;
     background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     color: $color-blanco;
   }
 
-  &__titulo {
+  &__newsletter-titulo {
     font-family: $font-titulos;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-lg;
+  }
 
-    @include respond-to(md) {
-      font-size: 3rem;
+  &__newsletter-texto {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+  }
+
+  &__newsletter-form {
+    display: flex;
+    gap: $spacing-md;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__newsletter-input {
+    flex: 1;
+    padding: $spacing-md;
+    border: none;
+    border-radius: $border-radius-md;
+    font-size: $font-size-base;
+  }
+
+  &__newsletter-btn {
+    padding: $spacing-md $spacing-xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    border: none;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      transform: translateY(-2px);
     }
-  }
-
-  &__subtitulo {
-    font-family: $font-parrafos;
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-
-  &__contenido {
-    padding: 4rem 0;
-  }
-
-  .placeholder-box {
-    background-color: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 3rem 2rem;
-    margin: 2rem 0;
   }
 }

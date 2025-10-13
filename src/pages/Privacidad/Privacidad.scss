@@ -1,122 +1,110 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.servicios-adicionales-page {
+.privacidad-page {
   font-family: $font-parrafos;
 
   &__banner {
-    min-height: 350px;
+    min-height: 300px;
     background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &__banner-overlay {
-    width: 100%;
     padding: $spacing-4xl 0;
-    text-align: center;
-    color: $color-blanco;
   }
 
   &__banner-title {
     font-family: $font-titulos;
-    font-size: $font-size-4xl;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    color: $color-blanco;
+    margin-bottom: $spacing-md;
 
     @include respond-to(md) {
-      font-size: $font-size-5xl;
+      font-size: $font-size-4xl;
     }
   }
 
   &__banner-subtitle {
     font-size: $font-size-lg;
+    color: $color-blanco;
     opacity: 0.95;
   }
 
-  &__intro {
-    padding: $spacing-3xl 0;
+  &__content {
+    padding: $spacing-4xl 0;
     background-color: $color-blanco;
+  }
+
+  &__text-content {
+    line-height: 1.8;
+    color: $color-gris-oscuro;
+  }
+
+  &__intro {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-2xl;
+    padding: $spacing-xl;
+    background-color: $color-gris-claro;
+    border-left: 4px solid $color-calipso;
+    border-radius: $border-radius-md;
   }
 
   &__section-title {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
+    font-size: $font-size-2xl;
     font-weight: $font-weight-bold;
     color: $color-calipso;
+    margin-top: $spacing-2xl;
     margin-bottom: $spacing-lg;
   }
 
-  &__intro-text {
-    font-size: $font-size-lg;
-    color: $color-gris-oscuro;
-    line-height: 1.8;
-  }
-
-  &__grid {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
-  }
-
-  &__card {
-    border: none;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
-    transition: all $transition-base;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-lg;
-    }
-  }
-
-  &__card-header {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__icono {
-    font-size: 3rem;
-    flex-shrink: 0;
-  }
-
-  &__card-titulo {
-    font-family: $font-titulos;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin: 0;
-  }
-
-  &__card-descripcion {
-    color: $color-gris-oscuro;
-    font-size: $font-size-base;
-    line-height: 1.6;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__lista {
+  &__list {
     list-style: none;
-    padding-left: 0;
-    margin: 0;
+    padding: 0;
+    margin-bottom: $spacing-xl;
 
     li {
-      color: $color-gris-oscuro;
-      padding: $spacing-xs 0;
+      padding: $spacing-md;
+      margin-bottom: $spacing-sm;
+      background-color: $color-gris-claro;
+      border-radius: $border-radius-sm;
       position: relative;
-      padding-left: $spacing-lg;
+      padding-left: $spacing-2xl;
 
-      &:before {
+      &::before {
         content: '✓';
-        position: absolute;
-        left: 0;
         color: $color-naranja;
         font-weight: $font-weight-bold;
+        position: absolute;
+        left: $spacing-md;
       }
     }
+  }
+
+  &__info-box {
+    padding: $spacing-xl;
+    background-color: lighten($color-naranja, 35%);
+    border-left: 4px solid $color-naranja;
+    border-radius: $border-radius-md;
+    margin: $spacing-xl 0;
+
+    p {
+      margin-bottom: $spacing-md;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__update-date {
+    text-align: right;
+    font-style: italic;
+    color: $color-gris-medio;
+    margin-top: $spacing-2xl;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-gris-medio;
   }
 
   &__cta {
@@ -157,5 +145,20 @@
       box-shadow: $shadow-lg;
       color: $color-blanco;
     }
+  }
+
+  a {
+    color: $color-calipso;
+    text-decoration: none;
+    font-weight: $font-weight-semibold;
+
+    &:hover {
+      color: $color-naranja;
+      text-decoration: underline;
+    }
+  }
+
+  strong {
+    color: $color-calipso;
   }
 }

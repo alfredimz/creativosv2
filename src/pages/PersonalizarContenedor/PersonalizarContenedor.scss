@@ -1,40 +1,166 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.personalizar-contenedor {
+.personalizar-page {
+  font-family: $font-parrafos;
 
-  &__hero {
-    padding: 3rem 0;
+  &__banner {
+    min-height: 300px;
     background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner-overlay {
+    width: 100%;
+    padding: $spacing-3xl 0;
+    text-align: center;
     color: $color-blanco;
   }
 
-  &__titulo {
+  &__banner-title {
     font-family: $font-titulos;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-md;
 
     @include respond-to(md) {
-      font-size: 3rem;
+      font-size: $font-size-4xl;
     }
   }
 
-  &__subtitulo {
-    font-family: $font-parrafos;
-    font-size: 1.2rem;
-    opacity: 0.9;
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
   }
 
-  &__contenido {
-    padding: 4rem 0;
+  &__configurador {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
   }
 
-  .placeholder-box {
-    background-color: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 3rem 2rem;
-    margin: 2rem 0;
+  &__viewer {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__viewer-content {
+    height: 500px;
+    background: linear-gradient(135deg, lighten($color-calipso, 40%) 0%, lighten($color-calipso, 45%) 100%);
+    border-radius: $border-radius-lg;
+  }
+
+  &__3d-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color-calipso;
+  }
+
+  &__3d-icon {
+    font-size: 6rem;
+    margin-bottom: $spacing-lg;
+  }
+
+  h3 {
+    font-family: $font-titulos;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__resumen {
+    background-color: $color-blanco;
+    padding: $spacing-xl;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: $spacing-xl;
+
+      li {
+        padding: $spacing-sm 0;
+        border-bottom: 1px solid $color-gris-claro;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        strong {
+          color: $color-calipso;
+        }
+      }
+    }
+  }
+
+  &__cotizar-btn {
+    display: inline-block;
+    width: 100%;
+    padding: $spacing-md;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-weight: $font-weight-bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      color: $color-blanco;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__opciones-card {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    position: sticky;
+    top: 20px;
+  }
+
+  &__opciones-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__caracteristicas {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__section-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-2xl;
+  }
+
+  &__caracteristica-icono {
+    font-size: 3rem;
+    margin-bottom: $spacing-lg;
+  }
+
+  h4 {
+    font-family: $font-titulos;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    color: $color-gris-oscuro;
+    line-height: 1.6;
   }
 }

@@ -46,6 +46,12 @@ import Blog from './pages/Blog/Blog';
 import ArticuloBlog from './pages/Blog/ArticuloBlog';
 import RecorridoVirtual from './pages/RecorridoVirtual/RecorridoVirtual';
 
+// Páginas Legales (4 nuevas)
+import Privacidad from './pages/Privacidad/Privacidad';
+import Terminos from './pages/Terminos/Terminos';
+import RoboIdentidad from './pages/RoboIdentidad/RoboIdentidad';
+import MapaSitio from './pages/MapaSitio/MapaSitio';
+
 import './App.scss';
 
 function App() {
@@ -99,6 +105,12 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<ArticuloBlog />} />
             <Route path="/recorrido-virtual" element={<RecorridoVirtual />} />
+
+            {/* Páginas Legales (4) */}
+            <Route path="/privacidad" element={<Privacidad />} />
+            <Route path="/terminos" element={<Terminos />} />
+            <Route path="/robo-identidad" element={<RoboIdentidad />} />
+            <Route path="/mapa-sitio" element={<MapaSitio />} />
           </Routes>
         </main>
         <Footer />

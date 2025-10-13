@@ -1,40 +1,188 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.videos {
+.videos-page {
+  font-family: $font-parrafos;
 
-  &__hero {
-    padding: 3rem 0;
+  // Banner
+  &__banner {
+    min-height: 350px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner-overlay {
+    width: 100%;
+    padding: $spacing-4xl 0;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__banner-title {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
+  }
+
+  // Filtros
+  &__filtros {
+    padding: $spacing-3xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+  }
+
+  &__filtro-btn {
+    padding: $spacing-sm $spacing-lg;
+    border: 2px solid $color-calipso;
+    background-color: $color-blanco;
+    color: $color-calipso;
+    font-weight: $font-weight-medium;
+    border-radius: $border-radius-md;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover, &.active {
+      background-color: $color-calipso;
+      color: $color-blanco;
+    }
+  }
+
+  // Grid
+  &__grid {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__card {
+    border: none;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__card-thumbnail {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  &__card-placeholder {
+    height: 100%;
+    background-color: $color-gris-medio;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__play-button {
+    font-size: 4rem;
+    color: $color-blanco;
+    background-color: rgba($color-calipso, 0.9);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 8px;
+    transition: all $transition-base;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-naranja;
+      transform: scale(1.1);
+    }
+  }
+
+  &__duracion {
+    position: absolute;
+    bottom: $spacing-sm;
+    right: $spacing-sm;
+    background-color: rgba($color-negro, 0.8);
+    color: $color-blanco;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+  }
+
+  &__card-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__card-descripcion {
+    color: $color-gris-oscuro;
+    font-size: $font-size-base;
+    line-height: 1.6;
+  }
+
+  // CTA
+  &__cta {
+    padding: $spacing-4xl 0;
     background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     color: $color-blanco;
   }
 
-  &__titulo {
+  &__cta-title {
     font-family: $font-titulos;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-lg;
+  }
 
-    @include respond-to(md) {
-      font-size: 3rem;
+  &__cta-text {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    padding: $spacing-md $spacing-2xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      transform: translateY(-3px);
+      box-shadow: $shadow-lg;
+      color: $color-blanco;
     }
-  }
-
-  &__subtitulo {
-    font-family: $font-parrafos;
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-
-  &__contenido {
-    padding: 4rem 0;
-  }
-
-  .placeholder-box {
-    background-color: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 3rem 2rem;
-    margin: 2rem 0;
   }
 }

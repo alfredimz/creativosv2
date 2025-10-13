@@ -1,41 +1,218 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.construccion,
-.detalle-paso {
+.construccion-page {
+  font-family: $font-parrafos;
 
-  &__hero {
-    padding: 3rem 0;
+  // Banner Hero
+  &__banner {
+    min-height: 400px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  &__banner-overlay {
+    width: 100%;
+    padding: $spacing-4xl 0;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__banner-title {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+    line-height: 1.6;
+  }
+
+  // Introducción
+  &__intro {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__intro-content {
+    text-align: center;
+  }
+
+  &__section-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__section-subtitle {
+    font-size: $font-size-lg;
+    color: $color-gris-oscuro;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__intro-text {
+    font-size: $font-size-lg;
+    color: $color-gris-oscuro;
+    line-height: 1.8;
+    margin-bottom: $spacing-lg;
+  }
+
+  // Pasos del Proceso
+  &__pasos {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__paso-card {
+    height: 100%;
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    transition: all $transition-base;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__paso-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__paso-numero {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    opacity: 0.3;
+  }
+
+  &__paso-icono {
+    font-size: 3rem;
+  }
+
+  &__paso-titulo {
+    font-family: $font-titulos;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+  }
+
+  &__paso-descripcion {
+    color: $color-gris-oscuro;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__paso-duracion {
+    padding: $spacing-sm $spacing-md;
+    background-color: $color-gris-claro;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    color: $color-gris-oscuro;
+  }
+
+  // Timeline Total
+  &__timeline {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__timeline-box {
+    padding: $spacing-3xl;
+    background: linear-gradient(135deg, lighten($color-calipso, 45%) 0%, lighten($color-calipso, 50%) 100%);
+    border-radius: $border-radius-lg;
+    border: 3px solid $color-calipso;
+  }
+
+  &__timeline-title {
+    font-family: $font-titulos;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__timeline-tiempo {
+    font-family: $font-titulos;
+    font-size: $font-size-5xl;
+    font-weight: $font-weight-bold;
+    color: $color-naranja;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__timeline-text {
+    font-size: $font-size-base;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+  }
+
+  // Call to Action
+  &__cta {
+    padding: $spacing-4xl 0;
     background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     color: $color-blanco;
   }
 
-  &__titulo {
+  &__cta-title {
     font-family: $font-titulos;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-lg;
+  }
 
-    @include respond-to(md) {
-      font-size: 3rem;
+  &__cta-text {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    padding: $spacing-md $spacing-2xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      transform: translateY(-3px);
+      box-shadow: $shadow-lg;
+      color: $color-blanco;
     }
   }
 
-  &__subtitulo {
-    font-family: $font-parrafos;
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-
-  &__contenido {
-    padding: 4rem 0;
-  }
-
-  .placeholder-box {
-    background-color: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 3rem 2rem;
-    margin: 2rem 0;
+  // Responsive
+  @include respond-to(md) {
+    &__banner-title {
+      font-size: $font-size-5xl;
+    }
   }
 }

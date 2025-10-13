@@ -1,40 +1,142 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.ubicacion {
+.ubicacion-page {
+  font-family: $font-parrafos;
 
-  &__hero {
-    padding: 3rem 0;
+  &__banner {
+    min-height: 350px;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner-overlay {
+    width: 100%;
+    padding: $spacing-4xl 0;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__banner-title {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    opacity: 0.95;
+  }
+
+  &__info {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__card {
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    height: 100%;
+  }
+
+  &__card-title {
+    font-family: $font-titulos;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__info-item {
+    margin-bottom: $spacing-xl;
+
+    strong {
+      font-family: $font-titulos;
+      color: $color-calipso;
+      font-weight: $font-weight-semibold;
+      display: block;
+      margin-bottom: $spacing-sm;
+    }
+
+    p {
+      color: $color-gris-oscuro;
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+
+  &__instrucciones {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      color: $color-gris-oscuro;
+      padding: $spacing-xs 0;
+      position: relative;
+      padding-left: $spacing-lg;
+
+      &:before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: $color-naranja;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+
+  &__mapa {
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+  }
+
+  &__cta {
+    padding: $spacing-4xl 0;
     background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
     color: $color-blanco;
   }
 
-  &__titulo {
+  &__cta-title {
     font-family: $font-titulos;
+    font-size: $font-size-3xl;
     font-weight: $font-weight-bold;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-lg;
+  }
 
-    @include respond-to(md) {
-      font-size: 3rem;
+  &__cta-text {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    padding: $spacing-md $spacing-2xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      transform: translateY(-3px);
+      box-shadow: $shadow-lg;
+      color: $color-blanco;
     }
-  }
-
-  &__subtitulo {
-    font-family: $font-parrafos;
-    font-size: 1.2rem;
-    opacity: 0.9;
-  }
-
-  &__contenido {
-    padding: 4rem 0;
-  }
-
-  .placeholder-box {
-    background-color: #f8f9fa;
-    border: 2px dashed #dee2e6;
-    border-radius: 8px;
-    padding: 3rem 2rem;
-    margin: 2rem 0;
   }
 }
