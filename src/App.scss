@@ -1,14 +1,18 @@
+// Variables y Mixins
+@import './styles/variables';
+@import './styles/mixins';
+
+// Fonts (Google Fonts)
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap');
+
 // Import Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Fonts
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-// Variables
-$primary-color: #ff6b00;
-$secondary-color: #1f4c2c;
-$dark-color: #000;
-$light-color: #fff;
+// Variables legacy (mantenidas para compatibilidad)
+$primary-color: $color-naranja;
+$secondary-color: $color-calipso;
+$dark-color: $color-negro;
+$light-color: $color-blanco;
 
 // Global styles
 * {

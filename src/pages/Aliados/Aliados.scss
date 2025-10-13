@@ -1,0 +1,276 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.aliados-page {
+  font-family: $font-parrafos;
+
+  // Banner Hero
+  &__banner {
+    min-height: 400px;
+    background-color: $color-calipso;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__banner-overlay {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: $spacing-4xl 0;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__banner-title {
+    font-family: $font-titulos;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+
+    @include respond-to(md) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__banner-subtitle {
+    font-size: $font-size-lg;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+  }
+
+  // Introducción
+  &__intro {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__intro-content {
+    text-align: center;
+  }
+
+  &__section-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__intro-text {
+    font-size: $font-size-lg;
+    color: $color-gris-oscuro;
+    line-height: 1.8;
+    margin-bottom: $spacing-lg;
+  }
+
+  // Filtros
+  &__filtros {
+    padding: $spacing-3xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__filtros-container {
+    text-align: center;
+  }
+
+  &__filtros-title {
+    font-family: $font-titulos;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-gris-oscuro;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__filtros-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    justify-content: center;
+  }
+
+  &__filtro-btn {
+    padding: $spacing-sm $spacing-lg;
+    border: 2px solid $color-calipso;
+    background-color: $color-blanco;
+    color: $color-calipso;
+    font-weight: $font-weight-medium;
+    border-radius: $border-radius-md;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      background-color: $color-calipso;
+      color: $color-blanco;
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+
+    &.active {
+      background-color: $color-calipso;
+      color: $color-blanco;
+    }
+  }
+
+  // Grid de Aliados
+  &__grid {
+    padding: $spacing-4xl 0;
+    background-color: $color-blanco;
+  }
+
+  &__card {
+    height: 100%;
+    border: none;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    transition: all $transition-base;
+    overflow: hidden;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &__card-image {
+    height: 200px;
+    background-color: $color-gris-claro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__card-placeholder {
+    color: $color-gris-medio;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+  }
+
+  &__card-categoria {
+    display: inline-block;
+    padding: $spacing-xs $spacing-md;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    border-radius: $border-radius-sm;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-title {
+    font-family: $font-titulos;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-text {
+    color: $color-gris-oscuro;
+    font-size: $font-size-base;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__card-link {
+    color: $color-naranja;
+    text-decoration: none;
+    font-weight: $font-weight-semibold;
+    transition: color $transition-base;
+
+    &:hover {
+      color: darken($color-naranja, 10%);
+      text-decoration: underline;
+    }
+  }
+
+  // Beneficios
+  &__beneficios {
+    padding: $spacing-4xl 0;
+    background-color: $color-gris-claro;
+  }
+
+  &__beneficio {
+    text-align: center;
+    padding: $spacing-xl;
+    background-color: $color-blanco;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-sm;
+    height: 100%;
+    transition: all $transition-base;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &__beneficio-icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__beneficio-title {
+    font-family: $font-titulos;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+  }
+
+  &__beneficio-text {
+    color: $color-gris-oscuro;
+    font-size: $font-size-base;
+    line-height: 1.6;
+  }
+
+  // Call to Action
+  &__cta {
+    padding: $spacing-4xl 0;
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    color: $color-blanco;
+  }
+
+  &__cta-title {
+    font-family: $font-titulos;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__cta-text {
+    font-size: $font-size-lg;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+    opacity: 0.95;
+  }
+
+  &__cta-button {
+    display: inline-block;
+    padding: $spacing-md $spacing-2xl;
+    background-color: $color-naranja;
+    color: $color-blanco;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all $transition-base;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      transform: translateY(-3px);
+      box-shadow: $shadow-lg;
+      color: $color-blanco;
+    }
+  }
+
+  // Responsive
+  @include respond-to(md) {
+    &__filtros-buttons {
+      gap: $spacing-lg;
+    }
+  }
+}

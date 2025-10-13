@@ -1,144 +1,102 @@
-import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import './Home.scss';
 
-const Home = () => {
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import './Servicios.scss';
+
+const Servicios = () => {
+  const serviciosIntegrales = [
+    {
+      title: 'Transporte',
+      description: 'Traslado a cualquier parte de la República Mexicana, adaptándonos a los plazos de entrega.',
+      icon: '🚛'
+    },
+    {
+      title: 'Maniobras',
+      description: 'Aseguramos la carga y descarga en un proceso ágil y seguro.',
+      icon: '🏗️'
+    },
+    {
+      title: 'Diseño arquitectónico',
+      description: 'Atención y asesoramiento cuando lo requieras, acompañarte en todo.',
+      icon: '🏛️'
+    },
+    {
+      title: 'Herrería',
+      description: 'Desarrollo de diseños personalizados y únicos para satisfacer tus necesidades.',
+      icon: '🧰'
+    },
+    {
+      title: 'Instalaciones aplicadas',
+      description: 'Eléctrica, hidráulica, sanitaria, gas y red de internet.',
+      icon: '🧑‍🔧'
+    },
+    {
+      title: 'Instalación de acabados interiores',
+      description: 'Tablaroca, azulejos, piso laminado, pasta texturizada.',
+      icon: '🔨'
+    },
+    {
+      title: 'Instalación de aislantes térmicos',
+      description: 'Fibra de vidrio, madera, foamular, aire acondicionado.',
+      icon: '🪵'
+    },
+    {
+      title: 'Acabados exteriores',
+      description: 'Pintura esmalte, pintura bajo el proceso de sand blas, y bajo normas especificadas.',
+      icon: '🎨'
+    }
+  ];
+
   return (
-    <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <Container fluid className="p-0">
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={0}
-            slidesPerView={1}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 5000 }}
-            className="hero-swiper"
-          >
-            <SwiperSlide>
-              <div className="hero-slide" style={{ backgroundImage: 'url("/images/venta-contenedores-maritimos.webp")' }}>
-                <div className="hero-content">
-                  <h1>14 años creando espacios y soluciones a la medida para tus proyectos</h1>
-                  <p>Venta, renta, construcción y transformación de contenedores marítimos nuevos y usados en México</p>
-                  <Button variant="primary" as={Link} to="/contacto" className="hero-btn">Contacto</Button>
-                </div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </Container>
+    <div className="servicios-page">
+      {/* Banner Principal */}
+      <section className="banner-section text-center">
+        <div className="banner-overlay">
+          <Container>
+            <h1>Nuestros Servicios</h1>
+            <p className="banner-text">
+              ¡Transforma tu espacio con nuestros contenedores marítimos! ¿Buscas un almacén seguro, una oficina móvil, un hogar único o un espacio comercial? ¡Tenemos la solución perfecta para ti!
+            </p>
+          </Container>
+        </div>
       </section>
 
-      {/* Servicios Section */}
-      <section className="services-section">
+      {/* Sección Venta y Renta */}
+      <section className="venta-renta-section">
         <Container>
           <Row>
-            <Col md={4}>
-              <div className="service-card renta">
-                <h2>RENTA</h2>
-                <div className="service-image">
-                  <img src="/images/renta-contenedores.jpg" alt="Renta de contenedores" />
-                </div>
-                <p>Renta de contenedores marítimos flexible para proyectos a corto o largo plazo.</p>
-                <Button variant="outline-light" className="round-btn">+</Button>
-              </div>
+            <Col md={6} className="text-center mb-4">
+              <h2>Venta</h2>
+              <p>Ofrecemos contenedores marítimos en diversos tamaños (10, 20 y 40 pies), ya sean usados o nuevos. 🚚</p>
             </Col>
-            <Col md={4}>
-              <div className="service-card venta">
-                <h2>VENTA</h2>
-                <div className="service-image">
-                  <img src="/images/venta-contenedores.jpg" alt="Venta de contenedores" />
-                </div>
-                <p>Venta de contenedores marítimos en diversos tamaños 10 pies, 20 pies y 40 pies; usados o nuevos.</p>
-                <Button variant="outline-light" className="round-btn">+</Button>
-              </div>
-            </Col>
-            <Col md={4}>
-              <div className="service-card construccion">
-                <h2>CONSTRUCCIÓN</h2>
-                <div className="service-image">
-                  <img src="/images/construccion-contenedores.jpg" alt="Construcción con contenedores" />
-                </div>
-                <p>Construcción con contenedores marítimos a la medida: desde diseños básicos hasta construcciones completas.</p>
-                <Button variant="outline-light" className="round-btn">+</Button>
-              </div>
+            <Col md={6} className="text-center mb-4">
+              <h2>Renta</h2>
+              <p>Planes de renta flexibles para tus proyectos a corto o largo plazo. 📝</p>
             </Col>
           </Row>
+          <div className="text-center mt-4">
+              <h2>Modificaciones a la Medida</h2>
+              <p>Desde diseños básicos hasta construcciones completas, ¡tu imaginación es el límite! 🏘️</p>
+          </div>
         </Container>
       </section>
 
-      {/* Servicios Adicionales */}
-      <section className="additional-services">
-        <Container fluid className="p-0">
-          <Row className="g-0">
-            <Col md={6} className="service-feature" style={{ backgroundImage: 'url("/images/transporte.jpg")' }}>
-              <div className="service-feature-content">
-                <h3>Transporte</h3>
-                <p>Ofrecemos soluciones confiables y eficientes para el traslado de contenedores marítimos a cualquier parte de la República Mexicana, garantizando la seguridad de tu carga en cada etapa del proceso, con un servicio profesional y puntual.</p>
-              </div>
-            </Col>
-            <Col md={6} className="service-feature" style={{ backgroundImage: 'url("/images/maniobras.jpg")' }}>
-              <div className="service-feature-content">
-                <h3>Maniobras</h3>
-                <p>Realizamos maniobras seguras y precisas con grúas, adaptándonos a tus necesidades específicas para garantizar el manejo eficiente de cargas pesadas en cualquier tipo de proyecto.</p>
-              </div>
-            </Col>
-          </Row>
-          <Row className="g-0">
-            <Col md={12} className="service-feature" style={{ backgroundImage: 'url("/images/diseno-arquitectonico.jpg")' }}>
-              <div className="service-feature-content">
-                <h3>Diseño arquitectónico</h3>
-                <p>Desarrollamos proyectos innovadores y personalizados, fusionando funcionalidad y estética para crear espacios que reflejan tu visión y elevan tu entorno, siempre con la calidad y detalle que nos caracteriza.</p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Acabados Section */}
-      <section className="acabados-section">
-        <Container fluid className="p-0">
-          <Row className="g-0">
-            <Col md={4} className="acabado-item" style={{ backgroundImage: 'url("/images/acabados-interiores.jpg")' }}>
-              <div className="acabado-content">
-                <h3>Acabados interiores</h3>
-                <p>Ofrecemos soluciones en tablaroca, azulejos, pisos laminados y pasta texturizada, creando espacios funcionales y estéticamente atractivos con acabados de alta calidad.</p>
-              </div>
-            </Col>
-            <Col md={4} className="acabado-item" style={{ backgroundImage: 'url("/images/acabados-exteriores.jpg")' }}>
-              <div className="acabado-content">
-                <h3>Acabados exteriores</h3>
-                <p>Aplicamos pintura esmalte y procesos especializados de sand blast, garantizando acabados de alta durabilidad y cumpliendo con todas las normativas establecidas para ofrecerte calidad y resistencia en cada proyecto.</p>
-              </div>
-            </Col>
-            <Col md={4} className="acabado-item" style={{ backgroundImage: 'url("/images/acabados-aislamientos.jpg")' }}>
-              <div className="acabado-content">
-                <h3>Aislamientos</h3>
-                <p>Trabajamos con fibra de vidrio, madera, foamular y sistemas de aire acondicionado, garantizando materiales de primera calidad para un confort y eficiencia en cada proyecto.</p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      {/* Experience Section */}
-      <section className="experience-section">
+      {/* Sección Servicios Integrales */}
+      <section className="servicios-integrales-section">
         <Container>
-          <Row className="justify-content-center">
-            <Col md={8} className="text-center">
-              <div className="experience-buttons">
-                <Button variant="warning" className="experience-btn">Soy nuevo y quiero aprender más</Button>
-                <Button variant="outline-secondary" className="experience-btn">He trabajado con contenedores antes</Button>
-                <Button variant="outline-secondary" className="experience-btn">Conozco bien los contenedores</Button>
-              </div>
-            </Col>
+          <h2 className="text-center mb-5">Servicios Integrales</h2>
+          <Row>
+            {serviciosIntegrales.map((servicio, index) => (
+              <Col lg={3} md={6} key={index} className="mb-4">
+                <Card className="h-100 text-center servicio-card">
+                  <Card.Body>
+                    <div className="servicio-icon">{servicio.icon}</div>
+                    <Card.Title>{servicio.title}</Card.Title>
+                    <Card.Text>{servicio.description}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
@@ -146,4 +104,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Servicios;

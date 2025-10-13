@@ -1,0 +1,351 @@
+@import '../../App.scss';
+
+.presentacion-empresarial {
+
+  h1, h2, h3, h4, h5 {
+    font-family: $font-titulos;
+  }
+
+  p, li, span {
+    font-family: $font-parrafos;
+  }
+
+  // Hero Section
+  &__hero {
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    padding: 4rem 0;
+    color: white;
+
+    @include respond-to(lg) {
+      padding: 6rem 0;
+    }
+  }
+
+  &__logo {
+    max-width: 200px;
+    height: auto;
+
+    @include respond-to(md) {
+      max-width: 250px;
+    }
+  }
+
+  &__titulo {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @include respond-to(md) {
+      font-size: 2.5rem;
+    }
+
+    @include respond-to(lg) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitulo {
+    font-size: 1.1rem;
+    opacity: 0.9;
+
+    @include respond-to(md) {
+      font-size: 1.25rem;
+    }
+  }
+
+  // Vistazo Section
+  &__vistazo {
+    background-color: #f8f9fa;
+
+    .vistazo-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    .vistazo-icon {
+      font-size: 3rem;
+    }
+
+    .vistazo-titulo {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: $color-calipso;
+      margin-bottom: 0.5rem;
+    }
+
+    .vistazo-descripcion {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0;
+    }
+  }
+
+  // Contenedores Section
+  &__contenedores {
+    .contenedor-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .precios {
+        background-color: #f8f9fa;
+        padding: 0.75rem;
+        border-radius: 0.25rem;
+
+        div {
+          margin-bottom: 0.25rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          strong {
+            color: $color-naranja;
+            font-size: 1.1rem;
+          }
+        }
+      }
+
+      .caracteristicas-list {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+          padding: 0.25rem 0;
+
+          &:before {
+            content: "✓ ";
+            color: $color-calipso;
+            font-weight: bold;
+            margin-right: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Casos de Uso Section
+  &__casos {
+    .nav-casos {
+      .nav-link {
+        font-weight: 600;
+        color: $color-calipso;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+
+        &:hover {
+          border-color: $color-calipso;
+          background-color: rgba($color-calipso, 0.1);
+        }
+
+        &.active {
+          background-color: $color-calipso;
+          color: white;
+        }
+      }
+    }
+
+    .caracteristica-item {
+      padding-left: 1.5rem;
+      position: relative;
+
+      &:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: $color-calipso;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+
+    .beneficio-box {
+      border-left: 4px solid $color-naranja;
+    }
+  }
+
+  // Servicios Integrales Section
+  &__servicios {
+    .servicio-item {
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+
+    .servicio-icon {
+      opacity: 0.9;
+    }
+  }
+
+  // Patios Section
+  &__patios {
+    .patio-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  // Nosotros Section
+  &__nosotros {
+    .card {
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  // Beneficios Section
+  &__beneficios {
+    .beneficio-card {
+      .beneficio-image {
+        position: relative;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
+        }
+      }
+
+      &:hover {
+        .beneficio-image {
+          &:after {
+            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+          }
+        }
+      }
+    }
+  }
+
+  // Valores Section
+  &__valores {
+    .valor-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .valor-icono {
+      opacity: 0.9;
+    }
+
+    .valor-año {
+      font-size: 0.9rem;
+      padding: 0.25rem 0.75rem;
+    }
+  }
+
+  // Contacto Section
+  &__contacto {
+    background-color: #f8f9fa;
+
+    a {
+      color: $color-calipso;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-naranja;
+        text-decoration: underline;
+      }
+    }
+
+    .social-buttons {
+      .btn {
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  // CTA Section
+  &__cta {
+    .btn {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @include respond-to(md) {
+    &__hero {
+      text-align: left;
+    }
+  }
+
+  // Utility classes
+  .shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+
+  .shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  }
+
+  // Breadcrumb styling
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+
+    .breadcrumb-item {
+      a {
+        color: $color-calipso;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-naranja;
+        }
+      }
+
+      &.active {
+        color: #6c757d;
+      }
+
+      + .breadcrumb-item::before {
+        content: "›";
+        color: #6c757d;
+      }
+    }
+  }
+}

@@ -30,9 +30,7 @@ $light-color: #fff;
   // Banner Section
   .banner-section {
     height: 400px;
-    background-image: url('/images/casos-exito/banner.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: $secondary-color;
     position: relative;
     
     .banner-overlay {
@@ -328,9 +326,7 @@ $light-color: #fff;
   // CTA Section
   .cta-section {
     padding: 5rem 0;
-    background-image: url('/images/casos-exito/cta-bg.jpg');
-    background-size: cover;
-    background-position: center;
+    background-color: $secondary-color;
     position: relative;
     
     &:before {

@@ -1,0 +1,177 @@
+@import '../../App.scss';
+
+.fichas-tecnicas {
+
+  &__hero {
+    background-color: #fff;
+  }
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-weight: 400;
+    font-size: 2.5rem;
+    color: $color-naranja;
+    margin-bottom: 0;
+
+    @include respond-to(md) {
+      font-size: 3rem;
+    }
+  }
+
+  .exchange-rate {
+    font-family: $font-parrafos;
+    font-size: 0.9rem;
+    color: #666;
+    padding: 0.5rem 1rem;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+  }
+
+  &__contenido {
+    background-color: #fafafa;
+  }
+
+  // Ficha Card
+  .ficha-card {
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    &__imagen {
+      max-width: 150px;
+      margin: 0 auto;
+
+      img {
+        max-height: 100px;
+        object-fit: contain;
+      }
+    }
+
+    &__nombre {
+      font-family: $font-titulos;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0;
+    }
+
+    .specs-grid {
+      .spec-item {
+        margin-bottom: 0.75rem;
+
+        small {
+          display: block;
+          font-family: $font-parrafos;
+          font-size: 0.75rem;
+          color: #999;
+          margin-bottom: 0.25rem;
+        }
+
+        strong {
+          display: block;
+          font-family: $font-parrafos;
+          font-size: 0.9rem;
+          color: #333;
+        }
+      }
+    }
+
+    .pricing-info {
+      .price-item {
+        margin-bottom: 0.75rem;
+
+        small {
+          display: block;
+          font-family: $font-parrafos;
+          font-size: 0.75rem;
+          color: #999;
+          margin-bottom: 0.25rem;
+        }
+
+        strong {
+          display: block;
+          font-family: $font-titulos;
+          font-size: 1rem;
+          color: #333;
+        }
+
+        &.total {
+          margin-top: 1rem;
+          padding-top: 1rem;
+          border-top: 2px solid #e9ecef;
+
+          strong {
+            font-size: 1.25rem;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+
+  // CTA Section
+  &__cta {
+    h3 {
+      font-family: $font-titulos;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .lead {
+      font-family: $font-parrafos;
+      color: #666;
+    }
+
+    .btn-primary {
+      background-color: $color-naranja;
+      border-color: $color-naranja;
+      font-family: $font-titulos;
+      font-weight: 600;
+
+      &:hover {
+        background-color: darken($color-naranja, 10%);
+        border-color: darken($color-naranja, 10%);
+      }
+    }
+  }
+
+  // Breadcrumb styling
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+
+    .breadcrumb-item {
+      a {
+        color: $color-calipso;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-naranja;
+        }
+      }
+
+      &.active {
+        color: #6c757d;
+      }
+
+      + .breadcrumb-item::before {
+        content: "›";
+        color: #6c757d;
+      }
+    }
+  }
+
+  // Responsive
+  @include respond-to(md) {
+    .ficha-card {
+      &__imagen {
+        max-width: 100%;
+      }
+    }
+  }
+}

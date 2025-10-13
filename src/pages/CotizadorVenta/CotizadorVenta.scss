@@ -1,0 +1,105 @@
+
+@import '~bootstrap/scss/bootstrap';
+
+// Variables from other pages
+$primary-color: #ff6b00;
+$secondary-color: #1f4c2c;
+$dark-color: #000;
+$light-color: #fff;
+
+.cotizador-page {
+  font-family: 'Montserrat', sans-serif;
+
+  .banner-section {
+    height: 400px;
+    background-color: $secondary-color;
+    position: relative;
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      h1 {
+        color: $light-color;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .banner-text {
+        color: $light-color;
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .form-section {
+    padding: 5rem 0;
+    background-color: #f4f7f6;
+
+    .card {
+      border: none;
+    }
+
+    h3 {
+      color: $secondary-color;
+      font-weight: 600;
+      border-left: 4px solid $primary-color;
+      padding-left: 1rem;
+      margin-bottom: 2rem !important; // Overriding bootstrap margin
+    }
+
+    .form-label {
+      font-weight: 500;
+    }
+
+    .form-check-label {
+        font-weight: 500;
+    }
+
+    .form-check-input:checked {
+        background-color: $primary-color;
+        border-color: $primary-color;
+    }
+
+    .form-switch .form-check-input:checked {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    }
+
+    .btn-primary {
+      background-color: $primary-color;
+      border-color: $primary-color;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+        border-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .banner-section {
+      height: 350px;
+      .banner-overlay h1 {
+        font-size: 2.2rem;
+      }
+    }
+    .form-section {
+        padding: 3rem 0;
+    }
+  }
+}

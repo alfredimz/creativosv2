@@ -1,0 +1,192 @@
+@import '../../App.scss';
+
+.beneficios {
+
+  &__hero {
+    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
+    padding: 4rem 0;
+    color: white;
+  }
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-weight: 700;
+    font-size: 2.5rem;
+
+    @include respond-to(md) {
+      font-size: 3rem;
+    }
+  }
+
+  &__subtitulo {
+    font-family: $font-parrafos;
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+
+  // Beneficio Card
+  .beneficio-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    &__icono {
+      font-size: 4rem;
+    }
+
+    &__titulo {
+      font-family: $font-titulos;
+      font-weight: 600;
+      color: $color-calipso;
+    }
+
+    &__descripcion {
+      font-family: $font-parrafos;
+      color: #666;
+    }
+
+    &__detalles {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f0f0f0;
+
+        &:before {
+          content: "✓ ";
+          color: $color-calipso;
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  // Comparativa
+  &__comparativa {
+    .comparativa-table {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+      .comparativa-header {
+        margin: 0;
+        padding: 1.5rem 0;
+        font-family: $font-titulos;
+      }
+
+      .comparativa-row {
+        margin: 0;
+        padding: 1rem 0;
+        border-top: 1px solid #e9ecef;
+
+        &:hover {
+          background-color: #f8f9fa;
+        }
+      }
+
+      .bg-light-primary {
+        background-color: rgba($color-calipso, 0.1);
+        color: $color-calipso;
+        font-weight: 600;
+      }
+    }
+  }
+
+  // Caso Card
+  .caso-card {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    &__imagen {
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+      }
+    }
+  }
+
+  // Testimonios
+  &__testimonios {
+    .testimonio-card {
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .testimonio-stars {
+      font-size: 1.25rem;
+    }
+
+    .testimonio-author {
+      strong {
+        font-family: $font-titulos;
+      }
+
+      small {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  // CTA
+  &__cta {
+    h2 {
+      font-family: $font-titulos;
+      font-weight: 600;
+    }
+
+    .btn {
+      font-family: $font-titulos;
+      font-weight: 600;
+    }
+  }
+
+  // Breadcrumb
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+
+    .breadcrumb-item {
+      a {
+        color: $color-calipso;
+        text-decoration: none;
+
+        &:hover {
+          color: $color-naranja;
+        }
+      }
+
+      &.active {
+        color: #6c757d;
+      }
+
+      + .breadcrumb-item::before {
+        content: "›";
+        color: #6c757d;
+      }
+    }
+  }
+}
