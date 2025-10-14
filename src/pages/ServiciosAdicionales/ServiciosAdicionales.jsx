@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Breadcrumb, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './ServiciosAdicionales.scss';
 
@@ -79,34 +79,27 @@ const ServiciosAdicionales = () => {
 
   return (
     <div className="servicios-adicionales-page">
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Servicios Adicionales</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      <section className="servicios-adicionales-page__banner">
-        <div className="servicios-adicionales-page__banner-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <h1 className="servicios-adicionales-page__banner-title">Servicios Adicionales</h1>
-                <p className="servicios-adicionales-page__banner-subtitle">
-                  Complementa tu proyecto con nuestros servicios especializados
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </section>
-
-      <section className="servicios-adicionales-page__intro">
+      {/* Hero Section */}
+      <section className="servicios-adicionales-hero">
         <Container>
           <Row className="justify-content-center">
-            <Col lg={10} className="text-center">
-              <h2 className="servicios-adicionales-page__section-title">Todo lo que Necesitas en un Solo Lugar</h2>
-              <p className="servicios-adicionales-page__intro-text">
+            <Col lg={8}>
+              <h1 className="servicios-adicionales-hero__title">Servicios Adicionales</h1>
+              <p className="servicios-adicionales-hero__description">
+                Complementa tu proyecto con nuestros servicios especializados
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Intro Section */}
+      <section className="servicios-adicionales-intro">
+        <Container>
+          <Row className="justify-content-center">
+            <Col lg={10}>
+              <h2 className="servicios-adicionales-intro__titulo">Todo lo que Necesitas en un Solo Lugar</h2>
+              <p className="servicios-adicionales-intro__texto">
                 Ofrecemos una amplia gama de servicios complementarios para que tu proyecto de contenedor
                 esté completamente equipado y listo para usar. Desde el transporte hasta los acabados finales.
               </p>
@@ -115,19 +108,20 @@ const ServiciosAdicionales = () => {
         </Container>
       </section>
 
-      <section className="servicios-adicionales-page__grid">
+      {/* Grid Section */}
+      <section className="servicios-adicionales-grid">
         <Container>
           <Row>
             {servicios.map((servicio) => (
               <Col key={servicio.id} lg={6} className="mb-4">
-                <Card className="servicios-adicionales-page__card h-100">
+                <Card className="servicios-adicionales-grid__card h-100">
                   <Card.Body>
-                    <div className="servicios-adicionales-page__card-header">
-                      <div className="servicios-adicionales-page__icono">{servicio.icono}</div>
-                      <h3 className="servicios-adicionales-page__card-titulo">{servicio.titulo}</h3>
+                    <div className="servicios-adicionales-grid__card-header">
+                      <div className="servicios-adicionales-grid__card-icon">{servicio.icono}</div>
+                      <h3 className="servicios-adicionales-grid__card-titulo">{servicio.titulo}</h3>
                     </div>
-                    <p className="servicios-adicionales-page__card-descripcion">{servicio.descripcion}</p>
-                    <ul className="servicios-adicionales-page__lista">
+                    <p className="servicios-adicionales-grid__card-descripcion">{servicio.descripcion}</p>
+                    <ul className="servicios-adicionales-grid__card-lista">
                       {servicio.caracteristicas.map((caracteristica, index) => (
                         <li key={index}>{caracteristica}</li>
                       ))}
@@ -140,16 +134,17 @@ const ServiciosAdicionales = () => {
         </Container>
       </section>
 
-      <section className="servicios-adicionales-page__cta">
+      {/* CTA Section */}
+      <section className="servicios-adicionales-cta">
         <Container>
-          <Row className="justify-content-center text-center">
+          <Row className="justify-content-center">
             <Col lg={8}>
-              <h2 className="servicios-adicionales-page__cta-title">¿Necesitas Alguno de Estos Servicios?</h2>
-              <p className="servicios-adicionales-page__cta-text">
+              <h2 className="servicios-adicionales-cta__titulo">¿Necesitas Alguno de Estos Servicios?</h2>
+              <p className="servicios-adicionales-cta__texto">
                 Cotiza los servicios adicionales que necesitas para tu proyecto.
                 Te ayudamos a crear el espacio perfecto.
               </p>
-              <Link to="/contacto" className="servicios-adicionales-page__cta-button">
+              <Link to="/contacto" className="servicios-adicionales-cta__button">
                 Solicitar Cotización
               </Link>
             </Col>

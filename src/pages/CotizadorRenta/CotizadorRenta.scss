@@ -2,132 +2,93 @@
 @import '../../styles/mixins';
 
 .cotizador-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  .banner-section {
-    min-height: 400px;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+// Hero Section
+.cotizador-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
 
-    .banner-overlay {
-      width: 100%;
-      padding: $spacing-4xl 0;
-      text-align: center;
-      color: $color-blanco;
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
 
-      h1 {
-        font-family: $font-titulos;
-        font-size: $font-size-4xl;
-        font-weight: $font-weight-bold;
-        margin-bottom: $spacing-lg;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
 
-        @include respond-to(md) {
-          font-size: $font-size-5xl;
-        }
-      }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
 
-      .banner-text {
-        font-size: $font-size-lg;
-        max-width: 800px;
-        margin: 0 auto;
-        opacity: 0.95;
-      }
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  .form-section {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-    .card {
-      border: none;
-      border-radius: $border-radius-lg;
-      box-shadow: $shadow-md;
-    }
-
-    h3 {
-      font-family: $font-titulos;
-      color: $color-calipso;
-      font-weight: $font-weight-bold;
-      font-size: $font-size-2xl;
-      border-left: 4px solid $color-naranja;
-      padding-left: $spacing-lg;
-      margin-bottom: $spacing-xl;
-    }
-
-    .form-label {
-      font-weight: $font-weight-semibold;
-      color: $color-gris-oscuro;
-      margin-bottom: $spacing-sm;
-    }
-
-    .form-control {
-      border-radius: $border-radius-md;
-      border: 1px solid $color-gris-medio;
-      padding: $spacing-sm $spacing-md;
-
-      &:focus {
-        border-color: $color-calipso;
-        box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
-      }
-    }
-
-    .form-select {
-      border-radius: $border-radius-md;
-      border: 1px solid $color-gris-medio;
-      padding: $spacing-sm $spacing-md;
-
-      &:focus {
-        border-color: $color-calipso;
-        box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
-      }
-    }
-
-    .form-check-label {
-      font-weight: $font-weight-medium;
-      color: $color-gris-oscuro;
-    }
-
-    .form-check-input:checked {
-      background-color: $color-naranja;
-      border-color: $color-naranja;
-    }
-
-    .form-switch .form-check-input:checked {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-    }
-
-    .btn-primary {
-      background-color: $color-naranja;
-      border-color: $color-naranja;
-      padding: $spacing-md $spacing-2xl;
-      font-weight: $font-weight-bold;
-      border-radius: $border-radius-md;
-      transition: all $transition-base;
-
-      &:hover {
-        background-color: darken($color-naranja, 10%);
-        border-color: darken($color-naranja, 10%);
-        transform: translateY(-2px);
-        box-shadow: $shadow-md;
-      }
+    &__title {
+      font-size: 28px;
     }
   }
+}
 
-  @media (max-width: 767px) {
-    .banner-section {
-      min-height: 350px;
+// Form Section
+.cotizador-form {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-      .banner-overlay h1 {
-        font-size: $font-size-3xl;
-      }
-    }
+  &__section-title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+  }
 
-    .form-section {
-      padding: $spacing-3xl 0;
+  &__label {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: 4px;
+  }
+
+  &__input {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    padding: $spacing-sm;
+  }
+
+  &__divider {
+    border-top: 1px solid $color-negro;
+    margin: $spacing-xl 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__section-title {
+      font-size: 18px;
     }
   }
 }

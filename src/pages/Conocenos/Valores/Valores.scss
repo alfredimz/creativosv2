@@ -1,349 +1,149 @@
-@import '~bootstrap/scss/bootstrap';
-
-// Variables
-$primary-color: #ff6b00;
-$secondary-color: #1f4c2c;
-$dark-color: #000;
-$light-color: #fff;
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .valores-page {
-  // Estilos generales
-  font-family: 'Montserrat', sans-serif;
-  color: $dark-color;
+  background-color: $color-blanco;
+}
 
-  .section-title {
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    position: relative;
-    
-    &:after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: $primary-color;
-      margin: 1rem auto 0;
+// Hero Section
+.valores-hero {
+  padding: $spacing-2xl 0 $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+
+    p {
+      margin: 0;
     }
   }
 
-  // Banner Section
-  .banner-section {
-    height: 400px;
-    background-image: url('/images/valores/valores-contenedores-maritimos.png');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    
-    .banner-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      
-      h1 {
-        color: $light-color;
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-      
-      .banner-text {
-        color: $light-color;
-        font-size: 1.3rem;
-        max-width: 800px;
-        margin: 0 auto;
-      }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0 $spacing-lg 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  // Intro Section
-  .intro-section {
-    padding: 5rem 0;
-    background-color: $light-color;
-    
-    .intro-text {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      
-      p {
-        font-size: 1.1rem;
-        line-height: 1.8;
-      }
-    }
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  // Container Heart Section
-  .container-heart-section {
-    padding: 3rem 0;
-    background-color: #f5f5f5;
-    text-align: center;
-    
-    .container-image {
-      max-width: 800px;
-      margin: 0 auto;
-      
-      img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      }
-    }
-  }
-
-  // Core Values Section
-  .core-values-section {
-    padding: 5rem 0;
-    background-color: $light-color;
-    
-    .values-row {
-      margin-bottom: 3rem;
-    }
-    
-    .value-item {
-      margin-bottom: 2rem;
-      
-      .value-card {
-        background-color: #f8f8f8;
-        border-radius: 10px;
-        padding: 2rem;
-        height: 100%;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        
-        &:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-        
-        .value-icon {
-          width: 80px;
-          height: 80px;
-          margin: 0 auto 1.5rem;
-          
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-          }
-        }
-        
-        h3 {
-          text-align: center;
-          color: $primary-color;
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
-        
-        p {
-          text-align: center;
-          font-size: 1rem;
-          line-height: 1.7;
-          margin-bottom: 1.5rem;
-        }
-        
-        .value-list {
-          padding-left: 1.5rem;
-          
-          li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-          }
-        }
-      }
-    }
-  }
-
-  // Principles Action Section
-  .principles-action-section {
-    padding: 5rem 0;
-    background-color: #f5f5f5;
-    
-    .action-row {
-      margin-bottom: 4rem;
-      align-items: center;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    
-    .action-text {
-      padding: 0 2rem;
-      
-      h3 {
-        color: $primary-color;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        
-        &:after {
-          content: '';
-          display: block;
-          width: 50px;
-          height: 3px;
-          background-color: $primary-color;
-          margin-top: 1rem;
-        }
-      }
-      
-      p {
-        font-size: 1.05rem;
-        line-height: 1.7;
-        margin-bottom: 1rem;
-        
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-    
-    .action-image {
-      img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-    }
-  }
-
-  // Commitment Section
-  .commitment-section {
-    padding: 5rem 0;
-    background-color: $light-color;
-    /*background-image: url('/images/valores/bg-commitment.jpg');*/
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-    
-    .commitment-content {
-      position: relative;
-      z-index: 1;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      color: $light-color;
-      
-      h2 {
-        font-weight: 700;
-        margin-bottom: 2rem;
-        font-size: 2.5rem;
-      }
-      
-      p {
-        font-size: 1.2rem;
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-      }
-      
-      .commitment-cta {
-        margin-top: 3rem;
-        
-        .btn-primary {
-          display: inline-block;
-          background-color: $primary-color;
-          color: $light-color;
-          padding: 1rem 2.5rem;
-          border-radius: 50px;
-          font-weight: 600;
-          font-size: 1.1rem;
-          text-decoration: none;
-          transition: all 0.3s ease;
-          
-          &:hover {
-            background-color: darken($primary-color, 10%);
-            transform: translateY(-5px);
-          }
-        }
-      }
+    &__title {
+      font-size: 28px;
     }
   }
 }
 
-// Responsive styles
-@media (max-width: 991px) {
-  .valores-page {
-    .banner-section {
-      height: 350px;
-      
-      .banner-overlay {
-        h1 {
-          font-size: 2.5rem;
-        }
-        
-        .banner-text {
-          font-size: 1.1rem;
-        }
-      }
+// Content Section
+.valores-content {
+  padding: $spacing-lg 0 $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    padding: $spacing-md 0 $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-sm 0 $spacing-lg 0;
+  }
+}
+
+// Valores List
+.valores-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding-right: $spacing-lg;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $color-negro;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    font-family: $font-titulos;
+    font-size: 25px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.6;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    padding-right: 0;
+    margin-bottom: $spacing-xl;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-sm;
+
+    &__text {
+      font-size: 22px;
     }
-    
-    .principles-action-section {
-      .action-row {
-        margin-bottom: 3rem;
-      }
-      
-      .action-text {
-        padding: 0;
-        margin-bottom: 2rem;
-        order: 1;
-      }
-      
-      .action-image {
-        order: 2;
-      }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__bullet {
+      width: 6px;
+      height: 6px;
+    }
+
+    &__text {
+      font-size: 20px;
     }
   }
 }
 
-@media (max-width: 767px) {
-  .valores-page {
-    .banner-section {
-      height: 300px;
-      
-      .banner-overlay {
-        h1 {
-          font-size: 2rem;
-        }
-      }
-    }
-    
-    .core-values-section {
-      .value-item {
-        .value-card {
-          max-width: 350px;
-          margin: 0 auto;
-        }
-      }
-    }
-    
-    .commitment-section {
-      .commitment-content {
-        h2 {
-          font-size: 2rem;
-        }
-        
-        p {
-          font-size: 1.1rem;
-        }
-      }
+// Image Section
+.valores-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    width: 100%;
+    max-width: 484px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 30px;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    &__img {
+      max-width: 100%;
+      border-radius: 20px;
     }
   }
 }

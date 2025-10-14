@@ -1,56 +1,39 @@
 import React from 'react';
-import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Container, Row, Col } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import './Construccion.scss';
 
-/**
- * @component DetallePaso
- * @description Detalle de cada paso del proceso de construcción
- * @phase Fase 2 - Sprint 4
- * @status Estructura base creada - Pendiente de maquetación por Gemini
- */
 const DetallePaso = () => {
   const { paso } = useParams();
 
   return (
-    <div className="detalle-paso">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/construccion" }}>Construcción</Breadcrumb.Item>
-          <Breadcrumb.Item active>Paso {paso}</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Hero / Título Principal */}
-      <section className="detalle-paso__hero">
+    <div className="detalle-paso-page">
+      {/* Hero Section */}
+      <section className="detalle-paso-hero">
         <Container>
-          <Row className="justify-content-center text-center">
+          <Row className="justify-content-center">
             <Col lg={8}>
-              <h1 className="detalle-paso__titulo">Paso {paso}</h1>
-              <p className="detalle-paso__subtitulo">
-                Detalle del proceso de construcción
+              <h1 className="detalle-paso-hero__title">Paso {paso}</h1>
+              <p className="detalle-paso-hero__description">
+                Detalle del proceso de construcción de contenedores
               </p>
             </Col>
           </Row>
         </Container>
       </section>
 
-      {/* Contenido Placeholder */}
-      <section className="detalle-paso__contenido">
+      {/* Content Section */}
+      <section className="detalle-paso-content">
         <Container>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <div className="placeholder-box">
-                <p className="text-muted text-center">
-                  Contenido pendiente de maquetación por Gemini Pro
+              <div className="detalle-paso-content__placeholder">
+                <h2 className="detalle-paso-content__title">Contenido en Desarrollo</h2>
+                <p className="detalle-paso-content__text">
+                  Esta página mostrará información detallada sobre el paso {paso} del proceso de construcción.
                 </p>
-                <p className="text-muted text-center small">
-                  Ruta: <code>/construccion/:paso</code> | Fase: <strong>2</strong> | Sprint: <strong>4</strong>
-                </p>
-                <p className="text-muted text-center small">
-                  Paso actual: <strong>{paso}</strong>
+                <p className="detalle-paso-content__text">
+                  El contenido específico para cada paso está pendiente de implementación.
                 </p>
               </div>
             </Col>

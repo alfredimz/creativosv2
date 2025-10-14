@@ -1,14 +1,8 @@
 import React from 'react';
-import { Container, Row, Col, Breadcrumb, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Construccion.scss';
 
-/**
- * @component Construccion
- * @description Proceso de construcción de contenedores paso a paso
- * @phase Fase 2 - Sprint 4
- * @status Maquetado completo - Pendiente de contenido por Gemini
- */
 const Construccion = () => {
   const pasos = [
     {
@@ -95,99 +89,79 @@ const Construccion = () => {
 
   return (
     <div className="construccion-page">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Proceso de Construcción</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Banner Hero */}
-      <section className="construccion-page__banner">
-        <div className="construccion-page__banner-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <h1 className="construccion-page__banner-title">Proceso de Construcción</h1>
-                <p className="construccion-page__banner-subtitle">
-                  Transformamos contenedores marítimos en espacios funcionales y personalizados con un proceso paso a paso profesional
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+      {/* Hero Section */}
+      <section className="construccion-hero">
+        <Container>
+          <h1 className="construccion-hero__title">Proceso de Construcción</h1>
+          <p className="construccion-hero__description">
+            Transformamos contenedores marítimos en espacios funcionales y personalizados con un proceso
+            paso a paso profesional. Con más de 10 años de experiencia, hemos completado cientos de proyectos
+            únicos que superan las expectativas de nuestros clientes.
+          </p>
+        </Container>
       </section>
 
-      {/* Introducción */}
-      <section className="construccion-page__intro">
+      {/* Intro Section */}
+      <section className="construccion-intro">
         <Container>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <div className="construccion-page__intro-content">
-                <h2 className="construccion-page__section-title">De Contenedor a Espacio Único</h2>
-                <p className="construccion-page__intro-text">
-                  Nuestro proceso de construcción está diseñado para garantizar la máxima calidad en cada proyecto.
-                  Con más de 10 años de experiencia, hemos perfeccionado cada paso para entregar espacios que superan
-                  las expectativas de nuestros clientes.
-                </p>
-                <p className="construccion-page__intro-text">
-                  Cada proyecto es único y se adapta a las necesidades específicas del cliente, desde oficinas modulares
-                  hasta viviendas completas, pasando por espacios comerciales y soluciones industriales.
-                </p>
-              </div>
+              <h2 className="construccion-intro__title">De Contenedor a Espacio Único</h2>
+              <p className="construccion-intro__text">
+                Nuestro proceso de construcción está diseñado para garantizar la máxima calidad en cada proyecto.
+                Con más de 10 años de experiencia, hemos perfeccionado cada paso para entregar espacios que superan
+                las expectativas de nuestros clientes.
+              </p>
+              <p className="construccion-intro__text">
+                Cada proyecto es único y se adapta a las necesidades específicas del cliente, desde oficinas modulares
+                hasta viviendas completas, pasando por espacios comerciales y soluciones industriales.
+              </p>
             </Col>
           </Row>
         </Container>
       </section>
 
-      {/* Timeline de Pasos */}
-      <section className="construccion-page__pasos">
+      {/* Pasos Section */}
+      <section className="construccion-pasos">
         <Container>
           <Row className="justify-content-center mb-5">
-            <Col lg={10} className="text-center">
-              <h2 className="construccion-page__section-title">10 Pasos para la Transformación</h2>
-              <p className="construccion-page__section-subtitle">
+            <Col lg={10}>
+              <h2 className="construccion-pasos__title">10 Pasos para la Transformación</h2>
+              <p className="construccion-pasos__subtitle">
                 Desde la inspección inicial hasta la entrega final, cada fase está cuidadosamente planificada
               </p>
             </Col>
           </Row>
 
           <Row>
-            {pasos.map((paso, index) => (
+            {pasos.map((paso) => (
               <Col key={paso.id} lg={6} className="mb-4">
-                <Card className="construccion-page__paso-card">
-                  <Card.Body>
-                    <div className="construccion-page__paso-header">
-                      <div className="construccion-page__paso-numero">{paso.numero}</div>
-                      <div className="construccion-page__paso-icono">{paso.icono}</div>
-                    </div>
-                    <Card.Title className="construccion-page__paso-titulo">
-                      {paso.titulo}
-                    </Card.Title>
-                    <Card.Text className="construccion-page__paso-descripcion">
-                      {paso.descripcion}
-                    </Card.Text>
-                    <div className="construccion-page__paso-duracion">
-                      ⏱️ Duración estimada: <strong>{paso.duracion}</strong>
-                    </div>
-                  </Card.Body>
-                </Card>
+                <div className="construccion-pasos__card">
+                  <div className="construccion-pasos__card-header">
+                    <div className="construccion-pasos__card-numero">{paso.numero}</div>
+                    <div className="construccion-pasos__card-icono">{paso.icono}</div>
+                  </div>
+                  <h3 className="construccion-pasos__card-titulo">{paso.titulo}</h3>
+                  <p className="construccion-pasos__card-descripcion">{paso.descripcion}</p>
+                  <div className="construccion-pasos__card-duracion">
+                    ⏱️ Duración estimada: <strong>{paso.duracion}</strong>
+                  </div>
+                </div>
               </Col>
             ))}
           </Row>
         </Container>
       </section>
 
-      {/* Tiempo Total */}
-      <section className="construccion-page__timeline">
+      {/* Timeline Section */}
+      <section className="construccion-timeline">
         <Container>
           <Row className="justify-content-center">
-            <Col lg={8} className="text-center">
-              <div className="construccion-page__timeline-box">
-                <h3 className="construccion-page__timeline-title">Tiempo Total del Proyecto</h3>
-                <div className="construccion-page__timeline-tiempo">4-6 semanas</div>
-                <p className="construccion-page__timeline-text">
+            <Col lg={8}>
+              <div className="construccion-timeline__box">
+                <h3 className="construccion-timeline__title">Tiempo Total del Proyecto</h3>
+                <div className="construccion-timeline__tiempo">4-6 semanas</div>
+                <p className="construccion-timeline__text">
                   El tiempo puede variar según la complejidad del proyecto y las especificaciones personalizadas.
                   Le proporcionaremos un cronograma detallado al inicio de su proyecto.
                 </p>
@@ -197,19 +171,21 @@ const Construccion = () => {
         </Container>
       </section>
 
-      {/* Call to Action */}
-      <section className="construccion-page__cta">
+      {/* CTA Section */}
+      <section className="construccion-cta">
         <Container>
-          <Row className="justify-content-center text-center">
+          <Row className="justify-content-center">
             <Col lg={8}>
-              <h2 className="construccion-page__cta-title">¿Listo para Comenzar tu Proyecto?</h2>
-              <p className="construccion-page__cta-text">
+              <h2 className="construccion-cta__title">¿Listo para Comenzar tu Proyecto?</h2>
+              <p className="construccion-cta__text">
                 Nuestro equipo de expertos está listo para transformar tu visión en realidad.
                 Contáctanos para una consulta gratuita y cotización personalizada.
               </p>
-              <Link to="/contacto" className="construccion-page__cta-button">
-                Solicitar Cotización
-              </Link>
+              <div className="text-center">
+                <Link to="/contacto" className="construccion-cta__button">
+                  Solicitar Cotización
+                </Link>
+              </div>
             </Col>
           </Row>
         </Container>

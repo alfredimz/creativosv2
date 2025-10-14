@@ -1,277 +1,305 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Form, Breadcrumb } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Row, Col, Form } from 'react-bootstrap';
+import { ContainerCard } from '../../components/common';
 import './TiposContenedores.scss';
 
+// Image URLs from Figma
+const FIGMA_IMAGES = {
+  dry10: 'https://www.figma.com/api/mcp/asset/0496165f-1602-48fa-8946-9832324a871f',
+  dry20: 'https://www.figma.com/api/mcp/asset/8d490df4-1933-4cb4-96c8-232771f9b6bf',
+  dry40: 'https://www.figma.com/api/mcp/asset/633003df-86a6-4ddd-89be-15f8dd8bf61e',
+  hc40: 'https://www.figma.com/api/mcp/asset/633003df-86a6-4ddd-89be-15f8dd8bf61e',
+  reefer20: 'https://www.figma.com/api/mcp/asset/5e80401b-b72e-4c86-ac8c-f6a24952e509',
+  reefer40: 'https://www.figma.com/api/mcp/asset/13b7118c-1fd3-4360-9a6b-2624a08e3831',
+  openTop20: 'https://www.figma.com/api/mcp/asset/1e137601-da6a-467a-b383-c4059070fd7d',
+  openTop40: 'https://www.figma.com/api/mcp/asset/329a0c8c-9b09-4855-8e68-45050adc69fd',
+  doubleDoor20: 'https://www.figma.com/api/mcp/asset/8b0c53e1-abf1-4a75-8d46-1a2428456808',
+  doubleDoor40: 'https://www.figma.com/api/mcp/asset/8b0c53e1-abf1-4a75-8d46-1a2428456808',
+  openSide20: 'https://www.figma.com/api/mcp/asset/9434382b-5054-481e-891e-35ed1da9026d',
+  openSide40: 'https://www.figma.com/api/mcp/asset/9434382b-5054-481e-891e-35ed1da9026d'
+};
+
 const TiposContenedores = () => {
-  const [selectedSize, setSelectedSize] = useState('all');
-  const [selectedType, setSelectedType] = useState('all');
+  const [filters, setFilters] = useState({
+    size10: false,
+    size20: false,
+    size40: false,
+    typeSTD: false,
+    typeHC: false,
+    typeReefer: false,
+    typeFlatRack: false,
+    typeOpenTop: false,
+    typeOpenSide: false,
+    typeDoubleDoor: false
+  });
 
   const contenedores = [
     {
       id: 'dry-10',
-      nombre: 'Contenedor marítimo Dry 10"',
+      title: 'Contenedor marítimo Dry 10"',
       tipo: 'STD',
-      tamaño: '10',
-      imagen: 'dry-10.jpg',
-      color: '#7CC5D8',
-      slug: 'dry-10'
+      size: '10',
+      image: FIGMA_IMAGES.dry10,
+      backgroundColor: '#65bdd8',
+      link: '/tipos-contenedores/dry-10'
     },
     {
       id: 'dry-20',
-      nombre: 'Contenedor marítimo Dry 20"',
+      title: 'Contenedor marítimo Dry 20"',
       tipo: 'STD',
-      tamaño: '20',
-      imagen: 'dry-20.jpg',
-      color: '#7CC5D8',
-      slug: 'dry-20'
+      size: '20',
+      image: FIGMA_IMAGES.dry20,
+      backgroundColor: '#65bdd8',
+      link: '/tipos-contenedores/dry-20'
     },
     {
       id: 'dry-40',
-      nombre: 'Contenedor marítimo Dry 40"',
+      title: 'Contenedor marítimo Dry 40"',
       tipo: 'STD',
-      tamaño: '40',
-      imagen: 'dry-40.jpg',
-      color: '#7CC5D8',
-      slug: 'dry-40'
+      size: '40',
+      image: FIGMA_IMAGES.dry40,
+      backgroundColor: '#65bdd8',
+      link: '/tipos-contenedores/dry-40'
     },
     {
       id: 'hc-40',
-      nombre: 'Contenedor marítimo High Cube 40"',
+      title: 'Contenedor marítimo Hight Cube 40"',
       tipo: 'HC',
-      tamaño: '40',
-      imagen: 'hc-40.jpg',
-      color: '#F4A261',
-      slug: 'high-cube-40'
+      size: '40',
+      image: FIGMA_IMAGES.hc40,
+      backgroundColor: '#fea664',
+      link: '/tipos-contenedores/high-cube-40'
     },
     {
       id: 'reefer-20',
-      nombre: 'Contenedor marítimo Reefer 20"',
+      title: 'Contenedor marítimo Reefer 20"',
       tipo: 'Reefer',
-      tamaño: '20',
-      imagen: 'reefer-20.jpg',
-      color: '#D4D19C',
-      slug: 'reefer-20'
+      size: '20',
+      image: FIGMA_IMAGES.reefer20,
+      backgroundColor: '#dfd49c',
+      link: '/tipos-contenedores/reefer-20'
     },
     {
       id: 'reefer-40',
-      nombre: 'Contenedor marítimo Reefer 40"',
+      title: 'Contenedor marítimo Reefer 40"',
       tipo: 'Reefer',
-      tamaño: '40',
-      imagen: 'reefer-40.jpg',
-      color: '#D4D19C',
-      slug: 'reefer-40'
+      size: '40',
+      image: FIGMA_IMAGES.reefer40,
+      backgroundColor: '#dfd49c',
+      link: '/tipos-contenedores/reefer-40'
     },
     {
       id: 'opentop-20',
-      nombre: 'Contenedor marítimo Open Top 20"',
+      title: 'Contenedor marítimo Open Top 20"',
       tipo: 'Open Top',
-      tamaño: '20',
-      imagen: 'opentop-20.jpg',
-      color: '#6B8E7F',
-      slug: 'open-top-20'
+      size: '20',
+      image: FIGMA_IMAGES.openTop20,
+      backgroundColor: '#5b8174',
+      link: '/tipos-contenedores/open-top-20'
     },
     {
       id: 'opentop-40',
-      nombre: 'Contenedor marítimo Open Top 40"',
+      title: 'Contenedor marítimo Open Top 40"',
       tipo: 'Open Top',
-      tamaño: '40',
-      imagen: 'opentop-40.jpg',
-      color: '#6B8E7F',
-      slug: 'open-top-40'
+      size: '40',
+      image: FIGMA_IMAGES.openTop40,
+      backgroundColor: '#5b8174',
+      link: '/tipos-contenedores/open-top-40'
     },
     {
       id: 'doubledoor-20',
-      nombre: 'Contenedor marítimo Double Door 20"',
+      title: 'Contenedor marítimo Double Door 20"',
       tipo: 'Double door',
-      tamaño: '20',
-      imagen: 'doubledoor-20.jpg',
-      color: '#C89B88',
-      slug: 'double-door-20'
+      size: '20',
+      image: FIGMA_IMAGES.doubleDoor20,
+      backgroundColor: '#c27765',
+      link: '/tipos-contenedores/double-door-20'
     },
     {
       id: 'doubledoor-40',
-      nombre: 'Contenedor marítimo Double Door 40"',
+      title: 'Contenedor marítimo Double Door 40"',
       tipo: 'Double door',
-      tamaño: '40',
-      imagen: 'doubledoor-40.jpg',
-      color: '#C89B88',
-      slug: 'double-door-40'
+      size: '40',
+      image: FIGMA_IMAGES.doubleDoor40,
+      backgroundColor: '#c27765',
+      link: '/tipos-contenedores/double-door-40'
     },
     {
       id: 'openside-20',
-      nombre: 'Contenedor marítimo Open Side 20"',
+      title: 'Contenedor marítimo Open Side 20"',
       tipo: 'Open Side',
-      tamaño: '20',
-      imagen: 'openside-20.jpg',
-      color: '#7CC5D8',
-      slug: 'open-side-20'
+      size: '20',
+      image: FIGMA_IMAGES.openSide20,
+      backgroundColor: '#9ccfdf',
+      link: '/tipos-contenedores/open-side-20'
     },
     {
       id: 'openside-40',
-      nombre: 'Contenedor marítimo Open Side 40"',
+      title: 'Contenedor marítimo Open Side 40"',
       tipo: 'Open Side',
-      tamaño: '40',
-      imagen: 'openside-40.jpg',
-      color: '#7CC5D8',
-      slug: 'open-side-40'
+      size: '40',
+      image: FIGMA_IMAGES.openSide40,
+      backgroundColor: '#9ccfdf',
+      link: '/tipos-contenedores/open-side-40'
     }
   ];
 
-  const filteredContenedores = contenedores.filter(contenedor => {
-    const sizeMatch = selectedSize === 'all' || contenedor.tamaño === selectedSize;
-    const typeMatch = selectedType === 'all' || contenedor.tipo === selectedType;
+  const handleFilterChange = (filterName) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterName]: !prev[filterName]
+    }));
+  };
+
+  const filteredContenedores = contenedores.filter(cont => {
+    const hasFilters = Object.values(filters).some(v => v);
+    if (!hasFilters) return true;
+
+    const sizeMatch = (filters.size10 && cont.size === '10') ||
+                      (filters.size20 && cont.size === '20') ||
+                      (filters.size40 && cont.size === '40') ||
+                      (!filters.size10 && !filters.size20 && !filters.size40);
+
+    const typeMatch = (filters.typeSTD && cont.tipo === 'STD') ||
+                      (filters.typeHC && cont.tipo === 'HC') ||
+                      (filters.typeReefer && cont.tipo === 'Reefer') ||
+                      (filters.typeOpenTop && cont.tipo === 'Open Top') ||
+                      (filters.typeOpenSide && cont.tipo === 'Open Side') ||
+                      (filters.typeDoubleDoor && cont.tipo === 'Double door') ||
+                      (!filters.typeSTD && !filters.typeHC && !filters.typeReefer &&
+                       !filters.typeOpenTop && !filters.typeOpenSide && !filters.typeDoubleDoor);
+
     return sizeMatch && typeMatch;
   });
 
   return (
-    <div className="tipos-contenedores">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Contenedores</Breadcrumb.Item>
-          <Breadcrumb.Item active>Tipos de Contenedores</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Hero / Título Principal */}
-      <section className="tipos-contenedores__hero">
+    <div className="tipos-contenedores-page">
+      {/* Hero Section */}
+      <section className="tipos-hero">
         <Container>
-          <Row>
-            <Col>
-              <h1 className="tipos-contenedores__titulo">Bienvenido a nuestros tipos de contenedores</h1>
-            </Col>
-          </Row>
+          <h1 className="tipos-hero__title">Bienvenido a nuestros tipos de contenedores</h1>
         </Container>
       </section>
 
-      {/* Contenido Principal con Filtros */}
-      <section className="tipos-contenedores__contenido py-5">
+      {/* Main Content */}
+      <section className="tipos-content">
         <Container>
           <Row>
-            {/* Sidebar de Filtros */}
-            <Col lg={3} className="mb-4 mb-lg-0">
-              <div className="tipos-contenedores__filtros">
-                <h5 className="mb-4">Tipo de contenedor</h5>
+            {/* Filters Sidebar */}
+            <Col lg={3} className="tipos-filters-col">
+              <div className="tipos-filters">
+                <h3 className="tipos-filters__title">Tipo de contenedor</h3>
 
-                {/* Filtro por Tamaño */}
-                <div className="filtro-grupo mb-4">
-                  <h6 className="filtro-titulo">Tamaño</h6>
+                {/* Size Filters */}
+                <div className="tipos-filters__group">
                   <Form.Check
                     type="checkbox"
-                    id="size-10"
+                    id="filter-10"
                     label='10"'
-                    checked={selectedSize === '10'}
-                    onChange={() => setSelectedSize(selectedSize === '10' ? 'all' : '10')}
+                    checked={filters.size10}
+                    onChange={() => handleFilterChange('size10')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="size-20"
+                    id="filter-20"
                     label='20"'
-                    checked={selectedSize === '20'}
-                    onChange={() => setSelectedSize(selectedSize === '20' ? 'all' : '20')}
+                    checked={filters.size20}
+                    onChange={() => handleFilterChange('size20')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="size-40"
+                    id="filter-40"
                     label='40"'
-                    checked={selectedSize === '40'}
-                    onChange={() => setSelectedSize(selectedSize === '40' ? 'all' : '40')}
+                    checked={filters.size40}
+                    onChange={() => handleFilterChange('size40')}
+                    className="tipos-filters__checkbox"
                   />
                 </div>
 
-                {/* Filtro por Tipo */}
-                <div className="filtro-grupo">
-                  <h6 className="filtro-titulo">Tipo</h6>
+                <div className="tipos-filters__separator" />
+
+                {/* Type Filters */}
+                <div className="tipos-filters__group">
                   <Form.Check
                     type="checkbox"
-                    id="type-std"
+                    id="filter-std"
                     label="STD"
-                    checked={selectedType === 'STD'}
-                    onChange={() => setSelectedType(selectedType === 'STD' ? 'all' : 'STD')}
+                    checked={filters.typeSTD}
+                    onChange={() => handleFilterChange('typeSTD')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="type-hc"
+                    id="filter-hc"
                     label="HC"
-                    checked={selectedType === 'HC'}
-                    onChange={() => setSelectedType(selectedType === 'HC' ? 'all' : 'HC')}
+                    checked={filters.typeHC}
+                    onChange={() => handleFilterChange('typeHC')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="type-reefer"
+                    id="filter-reefer"
                     label="Reefer"
-                    checked={selectedType === 'Reefer'}
-                    onChange={() => setSelectedType(selectedType === 'Reefer' ? 'all' : 'Reefer')}
+                    checked={filters.typeReefer}
+                    onChange={() => handleFilterChange('typeReefer')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="type-flatrack"
+                    id="filter-flatrack"
                     label="Flat Rack"
-                    checked={selectedType === 'Flat Rack'}
-                    onChange={() => setSelectedType(selectedType === 'Flat Rack' ? 'all' : 'Flat Rack')}
+                    checked={filters.typeFlatRack}
+                    onChange={() => handleFilterChange('typeFlatRack')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="type-opentop"
+                    id="filter-opentop"
                     label="Open Top"
-                    checked={selectedType === 'Open Top'}
-                    onChange={() => setSelectedType(selectedType === 'Open Top' ? 'all' : 'Open Top')}
+                    checked={filters.typeOpenTop}
+                    onChange={() => handleFilterChange('typeOpenTop')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="type-openside"
+                    id="filter-openside"
                     label="Open Side"
-                    checked={selectedType === 'Open Side'}
-                    onChange={() => setSelectedType(selectedType === 'Open Side' ? 'all' : 'Open Side')}
+                    checked={filters.typeOpenSide}
+                    onChange={() => handleFilterChange('typeOpenSide')}
+                    className="tipos-filters__checkbox"
                   />
                   <Form.Check
                     type="checkbox"
-                    id="type-doubledoor"
+                    id="filter-doubledoor"
                     label="Double door"
-                    checked={selectedType === 'Double door'}
-                    onChange={() => setSelectedType(selectedType === 'Double door' ? 'all' : 'Double door')}
+                    checked={filters.typeDoubleDoor}
+                    onChange={() => handleFilterChange('typeDoubleDoor')}
+                    className="tipos-filters__checkbox"
                   />
                 </div>
               </div>
             </Col>
 
-            {/* Grid de Contenedores */}
+            {/* Containers Grid */}
             <Col lg={9}>
-              <Row>
+              <div className="tipos-grid">
                 {filteredContenedores.map((contenedor) => (
-                  <Col md={6} lg={4} key={contenedor.id} className="mb-4">
-                    <Link to={`/tipos-contenedores/${contenedor.slug}`} className="contenedor-link">
-                      <Card
-                        className="contenedor-card h-100 border-0 shadow-sm"
-                        style={{ backgroundColor: contenedor.color }}
-                      >
-                        <div className="contenedor-card__image-wrapper">
-                          <Card.Img
-                            variant="top"
-                            src={`/images/contenedores/${contenedor.imagen}`}
-                            alt={contenedor.nombre}
-                            className="contenedor-card__image"
-                          />
-                        </div>
-                        <Card.Body className="text-center">
-                          <Card.Title className="contenedor-card__title">
-                            {contenedor.nombre}
-                          </Card.Title>
-                          <div className="contenedor-card__icon">
-                            <span className="icon-plus">+</span>
-                          </div>
-                        </Card.Body>
-                      </Card>
-                    </Link>
-                  </Col>
+                  <ContainerCard
+                    key={contenedor.id}
+                    id={contenedor.id}
+                    title={contenedor.title}
+                    image={contenedor.image}
+                    backgroundColor={contenedor.backgroundColor}
+                    link={contenedor.link}
+                  />
                 ))}
-              </Row>
+              </div>
 
               {filteredContenedores.length === 0 && (
-                <div className="text-center py-5">
-                  <p className="text-muted">No se encontraron contenedores con los filtros seleccionados</p>
+                <div className="tipos-empty">
+                  <p>No se encontraron contenedores con los filtros seleccionados</p>
                 </div>
               )}
             </Col>

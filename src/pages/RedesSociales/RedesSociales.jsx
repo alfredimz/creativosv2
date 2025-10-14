@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button, Breadcrumb } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './RedesSociales.scss';
 
@@ -93,22 +93,14 @@ const RedesSociales = () => {
   ];
 
   return (
-    <div className="redes-sociales">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Redes Sociales</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Hero */}
-      <section className="redes-sociales__hero">
+    <div className="redes-sociales-page">
+      {/* Hero Section */}
+      <section className="redes-sociales-hero">
         <Container>
-          <Row className="justify-content-center text-center">
+          <Row className="justify-content-center">
             <Col lg={8}>
-              <h1 className="redes-sociales__titulo">Síguenos en Redes Sociales</h1>
-              <p className="redes-sociales__subtitulo">
+              <h1 className="redes-sociales-hero__title">Síguenos en Redes Sociales</h1>
+              <p className="redes-sociales-hero__description">
                 Únete a nuestra comunidad y descubre ideas, proyectos inspiradores y contenido exclusivo
               </p>
             </Col>
@@ -117,39 +109,34 @@ const RedesSociales = () => {
       </section>
 
       {/* Redes Sociales Cards */}
-      <section className="redes-sociales__cards py-5">
+      <section className="redes-sociales-cards">
         <Container>
           <Row>
             {redesSociales.map((red, index) => (
               <Col md={6} lg={4} key={index} className="mb-4">
-                <Card className="red-social-card h-100 border-0 shadow-sm">
-                  <Card.Body className="text-center p-4">
-                    <div
-                      className="red-social-card__icono mb-3"
-                      style={{ backgroundColor: red.color }}
-                    >
+                <Card className="redes-sociales-cards__card h-100">
+                  <Card.Body className="text-center">
+                    <div className="redes-sociales-cards__card-icono">
                       {red.icono}
                     </div>
-                    <Card.Title className="red-social-card__nombre h4">{red.nombre}</Card.Title>
-                    <Card.Subtitle className="red-social-card__username mb-3 text-muted">
+                    <Card.Title className="redes-sociales-cards__card-nombre">{red.nombre}</Card.Title>
+                    <Card.Subtitle className="redes-sociales-cards__card-username">
                       {red.username}
                     </Card.Subtitle>
-                    <Card.Text className="red-social-card__descripcion mb-3">
+                    <Card.Text className="redes-sociales-cards__card-descripcion">
                       {red.descripcion}
                     </Card.Text>
-                    <div className="red-social-card__seguidores mb-3">
+                    <div className="redes-sociales-cards__card-seguidores">
                       <strong>{red.seguidores}</strong> seguidores
                     </div>
-                    <Button
-                      variant="primary"
-                      className="w-100"
+                    <a
                       href={red.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ backgroundColor: red.color, borderColor: red.color }}
+                      className="redes-sociales-cards__card-button"
                     >
                       Seguir en {red.nombre}
-                    </Button>
+                    </a>
                   </Card.Body>
                 </Card>
               </Col>
@@ -159,15 +146,15 @@ const RedesSociales = () => {
       </section>
 
       {/* Últimas Publicaciones */}
-      <section className="redes-sociales__publicaciones py-5 bg-light">
+      <section className="redes-sociales-publicaciones">
         <Container>
-          <h2 className="text-center mb-5">Últimas Publicaciones</h2>
+          <h2 className="redes-sociales-publicaciones__title">Últimas Publicaciones</h2>
           <Row>
             {ultimasPublicaciones.map((pub, index) => (
               <Col md={4} key={index} className="mb-4">
-                <Card className="publicacion-card h-100 border-0 shadow-sm">
+                <Card className="redes-sociales-publicaciones__card h-100">
                   <div
-                    className="publicacion-card__imagen"
+                    className="redes-sociales-publicaciones__card-imagen"
                     style={{
                       backgroundImage: `url(/images/social/${pub.imagen})`,
                       height: '250px',
@@ -175,18 +162,18 @@ const RedesSociales = () => {
                       backgroundPosition: 'center'
                     }}
                   >
-                    <div className="publicacion-card__tipo">{pub.tipo}</div>
+                    <div className="redes-sociales-publicaciones__card-tipo">{pub.tipo}</div>
                   </div>
                   <Card.Body>
-                    <div className="publicacion-card__red mb-2">
-                      <small>{pub.red}</small>
+                    <div className="redes-sociales-publicaciones__card-red">
+                      {pub.red}
                     </div>
-                    <Card.Text className="publicacion-card__descripcion">
+                    <Card.Text className="redes-sociales-publicaciones__card-descripcion">
                       {pub.descripcion}
                     </Card.Text>
-                    <div className="publicacion-card__footer d-flex justify-content-between align-items-center">
-                      <small className="text-muted">{pub.fecha}</small>
-                      <div className="publicacion-card__likes">
+                    <div className="redes-sociales-publicaciones__card-footer">
+                      <span className="redes-sociales-publicaciones__card-fecha">{pub.fecha}</span>
+                      <div className="redes-sociales-publicaciones__card-likes">
                         ❤️ {pub.likes.toLocaleString()}
                       </div>
                     </div>
@@ -199,14 +186,14 @@ const RedesSociales = () => {
       </section>
 
       {/* Hashtags */}
-      <section className="redes-sociales__hashtags py-5">
+      <section className="redes-sociales-hashtags">
         <Container>
-          <h2 className="text-center mb-4">Síguenos con estos Hashtags</h2>
+          <h2 className="redes-sociales-hashtags__title">Síguenos con estos Hashtags</h2>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <div className="hashtags-container text-center">
+              <div className="redes-sociales-hashtags__container">
                 {hashtags.map((hashtag, index) => (
-                  <span key={index} className="hashtag-badge">
+                  <span key={index} className="redes-sociales-hashtags__badge">
                     {hashtag}
                   </span>
                 ))}
@@ -217,43 +204,45 @@ const RedesSociales = () => {
       </section>
 
       {/* Widgets Placeholder */}
-      <section className="redes-sociales__widgets py-5 bg-light">
+      <section className="redes-sociales-widgets">
         <Container>
-          <h2 className="text-center mb-5">Nuestro Feed Social</h2>
+          <h2 className="redes-sociales-widgets__title">Nuestro Feed Social</h2>
           <Row>
             <Col md={6} className="mb-4">
-              <Card className="widget-card h-100">
-                <Card.Body className="text-center p-5">
-                  <div className="widget-icon mb-3">📷</div>
-                  <h4>Instagram Feed</h4>
-                  <p className="text-muted">Ver nuestras últimas fotos y proyectos</p>
-                  <Button
-                    variant="outline-primary"
+              <Card className="redes-sociales-widgets__card h-100">
+                <Card.Body className="text-center">
+                  <div className="redes-sociales-widgets__card-icon">📷</div>
+                  <h4 className="redes-sociales-widgets__card-title">Instagram Feed</h4>
+                  <p className="redes-sociales-widgets__card-text">Ver nuestras últimas fotos y proyectos</p>
+                  <a
                     href="https://www.instagram.com/creativosespaciosmx"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    className="redes-sociales-widgets__card-button"
                   >
                     Ver en Instagram
-                  </Button>
-                  <div className="mt-4 text-muted small">
+                  </a>
+                  <div className="redes-sociales-widgets__card-note">
                     <em>Widget de Instagram se integrará aquí</em>
                   </div>
                 </Card.Body>
               </Card>
             </Col>
             <Col md={6} className="mb-4">
-              <Card className="widget-card h-100">
-                <Card.Body className="text-center p-5">
-                  <div className="widget-icon mb-3">📺</div>
-                  <h4>YouTube Videos</h4>
-                  <p className="text-muted">Mira nuestros videos más recientes</p>
-                  <Button
-                    variant="outline-danger"
+              <Card className="redes-sociales-widgets__card h-100">
+                <Card.Body className="text-center">
+                  <div className="redes-sociales-widgets__card-icon">📺</div>
+                  <h4 className="redes-sociales-widgets__card-title">YouTube Videos</h4>
+                  <p className="redes-sociales-widgets__card-text">Mira nuestros videos más recientes</p>
+                  <a
                     href="https://www.youtube.com/@creativosespacios"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    className="redes-sociales-widgets__card-button"
                   >
                     Ver en YouTube
-                  </Button>
-                  <div className="mt-4 text-muted small">
+                  </a>
+                  <div className="redes-sociales-widgets__card-note">
                     <em>Widget de YouTube se integrará aquí</em>
                   </div>
                 </Card.Body>
@@ -264,20 +253,24 @@ const RedesSociales = () => {
       </section>
 
       {/* CTA */}
-      <section className="redes-sociales__cta py-5 text-center">
+      <section className="redes-sociales-cta">
         <Container>
-          <h2 className="mb-4">¿Te Gustó lo que Viste?</h2>
-          <p className="lead mb-4">
-            Comparte tus ideas con nosotros y etiquétanos en tus publicaciones
-          </p>
-          <div className="d-flex gap-3 justify-content-center flex-wrap">
-            <Button variant="primary" size="lg" as={Link} to="/contacto">
-              Contáctanos
-            </Button>
-            <Button variant="outline-primary" size="lg" as={Link} to="/cotizador-venta">
-              Cotizar Proyecto
-            </Button>
-          </div>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <h2 className="redes-sociales-cta__title">¿Te Gustó lo que Viste?</h2>
+              <p className="redes-sociales-cta__text">
+                Comparte tus ideas con nosotros y etiquétanos en tus publicaciones
+              </p>
+              <div className="redes-sociales-cta__buttons">
+                <Link to="/contacto" className="redes-sociales-cta__button redes-sociales-cta__button--primary">
+                  Contáctanos
+                </Link>
+                <Link to="/cotizador-venta" className="redes-sociales-cta__button redes-sociales-cta__button--secondary">
+                  Cotizar Proyecto
+                </Link>
+              </div>
+            </Col>
+          </Row>
         </Container>
       </section>
     </div>

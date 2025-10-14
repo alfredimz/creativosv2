@@ -2,215 +2,106 @@
 @import '../../styles/mixins';
 
 .catalogo-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  // Banner Hero
-  &__banner {
-    min-height: 350px;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
+// Hero Section
+.catalogo-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
 
-  &__banner-overlay {
-    width: 100%;
-    padding: $spacing-4xl 0;
-    text-align: center;
-    color: $color-blanco;
-  }
-
-  &__banner-title {
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
 
-    @include respond-to(md) {
-      font-size: $font-size-5xl;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__banner-subtitle {
-    font-size: $font-size-lg;
-    max-width: 700px;
-    margin: 0 auto;
-    opacity: 0.95;
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  // Filtros y Controles
-  &__filtros {
-    padding: $spacing-3xl 0;
-    background-color: $color-gris-claro;
-  }
-
-  &__vista-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: $spacing-sm;
-
-    @include respond-to(md) {
-      gap: $spacing-md;
+    &__title {
+      font-size: 28px;
     }
   }
+}
 
-  // Cards de Productos
+// Products Section
+.catalogo-productos {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
   &__card {
     height: 100%;
-    border: none;
-    border-radius: $border-radius-lg;
-    overflow: hidden;
-    box-shadow: $shadow-sm;
-    transition: all $transition-base;
-    background-color: $color-blanco;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-lg;
-    }
-
-    // Vista Lista
-    &--lista {
-      .catalogo-page__card-imagen {
-        height: 250px;
-        width: 100%;
-
-        @include respond-to(md) {
-          height: 200px;
-          width: 300px;
-          float: left;
-          margin-right: $spacing-xl;
-        }
-      }
-
-      .catalogo-page__card-actions {
-        display: flex;
-        gap: $spacing-md;
-
-        button {
-          flex: 1;
-          margin-bottom: 0 !important;
-        }
-      }
-    }
-  }
-
-  &__card-imagen {
-    position: relative;
-    height: 200px;
-    background-color: $color-gris-medio;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &__card-placeholder {
-    color: $color-gris-claro;
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
-  }
-
-  &__card-badge {
-    position: absolute;
-    top: $spacing-md;
-    right: $spacing-md;
-    padding: $spacing-xs $spacing-md;
-    background-color: $color-naranja;
-    color: $color-blanco;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-semibold;
-    border-radius: $border-radius-sm;
-    z-index: 2;
-  }
-
-  &__card-tipo {
-    display: inline-block;
-    padding: $spacing-xs $spacing-md;
-    background-color: $color-calipso;
-    color: $color-blanco;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-semibold;
-    border-radius: $border-radius-sm;
-    margin-bottom: $spacing-md;
+    padding: $spacing-md;
   }
 
   &__card-title {
     font-family: $font-titulos;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-md;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
   }
 
-  &__card-info {
-    margin-bottom: $spacing-lg;
-  }
-
-  &__card-medidas {
-    color: $color-gris-oscuro;
-    font-size: $font-size-base;
-    margin-bottom: $spacing-sm;
+  &__card-tipo {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    margin: 0 0 4px 0;
   }
 
   &__card-precio {
-    color: $color-naranja;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
+    font-family: $font-parrafos;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 4px 0;
   }
 
-  &__card-actions {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
+  &__card-medidas {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    margin: 0 0 4px 0;
   }
 
-  // Call to Action
-  &__cta {
-    padding: $spacing-4xl 0;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    color: $color-blanco;
-    text-align: center;
-  }
-
-  &__cta-title {
-    font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__cta-text {
-    font-size: $font-size-lg;
-    line-height: 1.8;
-    margin-bottom: $spacing-xl;
-    opacity: 0.95;
-  }
-
-  &__cta-button {
-    display: inline-block;
-    padding: $spacing-md $spacing-2xl;
-    background-color: $color-naranja;
-    color: $color-blanco;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-    text-decoration: none;
-    border-radius: $border-radius-md;
-    transition: all $transition-base;
-    box-shadow: $shadow-md;
-
-    &:hover {
-      background-color: darken($color-naranja, 10%);
-      transform: translateY(-3px);
-      box-shadow: $shadow-lg;
-      color: $color-blanco;
-    }
+  &__card-disponibilidad {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    margin: 0;
   }
 
   // Responsive
-  @include respond-to(md) {
-    &__banner-title {
-      font-size: $font-size-5xl;
-    }
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
   }
 }

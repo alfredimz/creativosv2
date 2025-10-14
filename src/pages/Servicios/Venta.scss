@@ -1,0 +1,114 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.venta-page {
+  background-color: $color-blanco;
+}
+
+// Hero Section
+.venta-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
+
+// Content Section
+.venta-content {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 24px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__card {
+    padding: $spacing-md;
+    height: 100%;
+  }
+
+  &__card-title {
+    font-family: $font-titulos;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  &__card-text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__list {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    padding-left: $spacing-md;
+    margin: 0;
+
+    li {
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 20px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Breadcrumb, Card, Button, Form } from 'react-bootstrap';
+import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './PersonalizarContenedor.scss';
 
@@ -22,45 +22,38 @@ const PersonalizarContenedor = () => {
 
   return (
     <div className="personalizar-page">
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Personaliza tu Contenedor</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      <section className="personalizar-page__banner">
-        <div className="personalizar-page__banner-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <h1 className="personalizar-page__banner-title">Personaliza tu Contenedor</h1>
-                <p className="personalizar-page__banner-subtitle">
-                  Diseña tu contenedor ideal seleccionando las características que necesitas
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+      {/* Hero Section */}
+      <section className="personalizar-hero">
+        <Container>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <h1 className="personalizar-hero__title">Personaliza tu Contenedor</h1>
+              <p className="personalizar-hero__description">
+                Diseña tu contenedor ideal seleccionando las características que necesitas
+              </p>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
-      <section className="personalizar-page__configurador">
+      {/* Configurador Section */}
+      <section className="personalizar-configurador">
         <Container>
           <Row>
             <Col lg={8}>
-              <Card className="personalizar-page__viewer">
-                <div className="personalizar-page__viewer-content">
-                  <div className="personalizar-page__3d-placeholder">
-                    <div className="personalizar-page__3d-icon">🏗️</div>
-                    <h3>Vista 3D del Contenedor</h3>
-                    <p>Configurador 3D interactivo<br/>(En desarrollo)</p>
+              <Card className="personalizar-configurador__viewer">
+                <div className="personalizar-configurador__viewer-content">
+                  <div className="personalizar-configurador__placeholder">
+                    <div className="personalizar-configurador__placeholder-icon">🏗️</div>
+                    <h3 className="personalizar-configurador__placeholder-title">Vista 3D del Contenedor</h3>
+                    <p className="personalizar-configurador__placeholder-text">Configurador 3D interactivo<br/>(En desarrollo)</p>
                   </div>
                 </div>
               </Card>
 
-              <div className="personalizar-page__resumen">
-                <h3>Resumen de tu Configuración</h3>
-                <ul>
+              <div className="personalizar-configurador__resumen">
+                <h3 className="personalizar-configurador__resumen-titulo">Resumen de tu Configuración</h3>
+                <ul className="personalizar-configurador__resumen-lista">
                   <li><strong>Tamaño:</strong> {config.tamano} pies</li>
                   <li><strong>Color:</strong> {config.color}</li>
                   <li><strong>Puertas:</strong> {config.puertas}</li>
@@ -68,16 +61,16 @@ const PersonalizarContenedor = () => {
                   <li><strong>Aislamiento térmico:</strong> {config.aislamiento ? 'Sí' : 'No'}</li>
                   <li><strong>Instalación eléctrica:</strong> {config.electrico ? 'Sí' : 'No'}</li>
                 </ul>
-                <Link to="/contacto" className="personalizar-page__cotizar-btn">
+                <Link to="/contacto" className="personalizar-configurador__resumen-button">
                   Solicitar Cotización
                 </Link>
               </div>
             </Col>
 
             <Col lg={4}>
-              <Card className="personalizar-page__opciones-card">
+              <Card className="personalizar-configurador__opciones">
                 <Card.Body>
-                  <h3 className="personalizar-page__opciones-titulo">Opciones de Personalización</h3>
+                  <h3 className="personalizar-configurador__opciones-titulo">Opciones de Personalización</h3>
 
                   <Form.Group className="mb-3">
                     <Form.Label>Tamaño del Contenedor</Form.Label>
@@ -139,40 +132,41 @@ const PersonalizarContenedor = () => {
         </Container>
       </section>
 
-      <section className="personalizar-page__caracteristicas">
+      {/* Características Section */}
+      <section className="personalizar-caracteristicas">
         <Container>
           <Row className="justify-content-center mb-4">
             <Col lg={10} className="text-center">
-              <h2 className="personalizar-page__section-title">Características Adicionales Disponibles</h2>
+              <h2 className="personalizar-caracteristicas__titulo">Características Adicionales Disponibles</h2>
             </Col>
           </Row>
           <Row>
             <Col md={3} className="text-center mb-4">
-              <div className="personalizar-page__caracteristica">
-                <div className="personalizar-page__caracteristica-icono">🔌</div>
-                <h4>Sistema Eléctrico</h4>
-                <p>Cableado completo y tomas</p>
+              <div className="personalizar-caracteristicas__card">
+                <div className="personalizar-caracteristicas__card-icon">🔌</div>
+                <h4 className="personalizar-caracteristicas__card-titulo">Sistema Eléctrico</h4>
+                <p className="personalizar-caracteristicas__card-texto">Cableado completo y tomas</p>
               </div>
             </Col>
             <Col md={3} className="text-center mb-4">
-              <div className="personalizar-page__caracteristica">
-                <div className="personalizar-page__caracteristica-icono">❄️</div>
-                <h4>Climatización</h4>
-                <p>Aires acondicionados</p>
+              <div className="personalizar-caracteristicas__card">
+                <div className="personalizar-caracteristicas__card-icon">❄️</div>
+                <h4 className="personalizar-caracteristicas__card-titulo">Climatización</h4>
+                <p className="personalizar-caracteristicas__card-texto">Aires acondicionados</p>
               </div>
             </Col>
             <Col md={3} className="text-center mb-4">
-              <div className="personalizar-page__caracteristica">
-                <div className="personalizar-page__caracteristica-icono">💧</div>
-                <h4>Plomería</h4>
-                <p>Instalaciones hidráulicas</p>
+              <div className="personalizar-caracteristicas__card">
+                <div className="personalizar-caracteristicas__card-icon">💧</div>
+                <h4 className="personalizar-caracteristicas__card-titulo">Plomería</h4>
+                <p className="personalizar-caracteristicas__card-texto">Instalaciones hidráulicas</p>
               </div>
             </Col>
             <Col md={3} className="text-center mb-4">
-              <div className="personalizar-page__caracteristica">
-                <div className="personalizar-page__caracteristica-icono">🎨</div>
-                <h4>Acabados</h4>
-                <p>Interiores personalizados</p>
+              <div className="personalizar-caracteristicas__card">
+                <div className="personalizar-caracteristicas__card-icon">🎨</div>
+                <h4 className="personalizar-caracteristicas__card-titulo">Acabados</h4>
+                <p className="personalizar-caracteristicas__card-texto">Interiores personalizados</p>
               </div>
             </Col>
           </Row>

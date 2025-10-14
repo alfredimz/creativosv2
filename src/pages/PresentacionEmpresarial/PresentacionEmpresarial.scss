@@ -1,351 +1,198 @@
-@import '../../App.scss';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.presentacion-empresarial {
+.presentacion-empresarial-page {
+  background-color: $color-blanco;
+}
 
-  h1, h2, h3, h4, h5 {
+// Hero Section
+.presentacion-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &__title {
     font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  p, li, span {
+  &__description {
     font-family: $font-parrafos;
-  }
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
 
-  // Hero Section
-  &__hero {
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    padding: 4rem 0;
-    color: white;
+    p {
+      margin: 0 0 $spacing-sm 0;
 
-    @include respond-to(lg) {
-      padding: 6rem 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
   &__logo {
     max-width: 200px;
     height: auto;
+    margin: 0 0 $spacing-md 0;
+  }
 
-    @include respond-to(md) {
-      max-width: 250px;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__titulo {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-    @include respond-to(md) {
-      font-size: 2.5rem;
-    }
-
-    @include respond-to(lg) {
-      font-size: 3rem;
+    &__title {
+      font-size: 28px;
     }
   }
+}
 
-  &__subtitulo {
-    font-size: 1.1rem;
-    opacity: 0.9;
+// Overview Section
+.presentacion-overview {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-    @include respond-to(md) {
-      font-size: 1.25rem;
-    }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $spacing-md;
   }
 
-  // Vistazo Section
-  &__vistazo {
-    background-color: #f8f9fa;
-
-    .vistazo-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      }
-    }
-
-    .vistazo-icon {
-      font-size: 3rem;
-    }
-
-    .vistazo-titulo {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: $color-calipso;
-      margin-bottom: 0.5rem;
-    }
-
-    .vistazo-descripcion {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 0;
-    }
+  &__item {
+    text-align: center;
+    padding: $spacing-md;
   }
 
-  // Contenedores Section
-  &__contenedores {
-    .contenedor-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: none;
-
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-      }
-
-      .card-img-top {
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .card-title {
-        font-size: 1.3rem;
-        font-weight: 600;
-      }
-
-      .precios {
-        background-color: #f8f9fa;
-        padding: 0.75rem;
-        border-radius: 0.25rem;
-
-        div {
-          margin-bottom: 0.25rem;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-
-          strong {
-            color: $color-naranja;
-            font-size: 1.1rem;
-          }
-        }
-      }
-
-      .caracteristicas-list {
-        list-style: none;
-        padding-left: 0;
-
-        li {
-          padding: 0.25rem 0;
-
-          &:before {
-            content: "✓ ";
-            color: $color-calipso;
-            font-weight: bold;
-            margin-right: 0.5rem;
-          }
-        }
-      }
-    }
+  &__title {
+    font-family: $font-titulos;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 4px 0;
   }
 
-  // Casos de Uso Section
-  &__casos {
-    .nav-casos {
-      .nav-link {
-        font-weight: 600;
-        color: $color-calipso;
-        border: 2px solid transparent;
-        transition: all 0.3s ease;
-
-        &:hover {
-          border-color: $color-calipso;
-          background-color: rgba($color-calipso, 0.1);
-        }
-
-        &.active {
-          background-color: $color-calipso;
-          color: white;
-        }
-      }
-    }
-
-    .caracteristica-item {
-      padding-left: 1.5rem;
-      position: relative;
-
-      &:before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: $color-calipso;
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-    }
-
-    .beneficio-box {
-      border-left: 4px solid $color-naranja;
-    }
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  // Servicios Integrales Section
-  &__servicios {
-    .servicio-item {
-      transition: transform 0.3s ease;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-      &:hover {
-        transform: translateY(-5px);
-      }
-    }
-
-    .servicio-icon {
-      opacity: 0.9;
+    &__grid {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
   }
+}
 
-  // Patios Section
-  &__patios {
-    .patio-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+// Contenedores Section
+.presentacion-contenedores {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-      &:hover {
-        transform: scale(1.05);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-      }
-    }
+  &__title {
+    font-family: $font-titulos;
+    font-size: 28px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    text-align: center;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  // Nosotros Section
-  &__nosotros {
-    .card {
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: translateX(10px);
-      }
-    }
+  &__card {
+    height: 100%;
   }
 
-  // Beneficios Section
-  &__beneficios {
-    .beneficio-card {
-      .beneficio-image {
-        position: relative;
-
-        &:after {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.5) 100%);
-        }
-      }
-
-      &:hover {
-        .beneficio-image {
-          &:after {
-            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-          }
-        }
-      }
-    }
+  &__card-title {
+    font-family: $font-titulos;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
   }
 
-  // Valores Section
-  &__valores {
-    .valor-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      }
-    }
-
-    .valor-icono {
-      opacity: 0.9;
-    }
-
-    .valor-año {
-      font-size: 0.9rem;
-      padding: 0.25rem 0.75rem;
-    }
+  &__card-text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
   }
 
-  // Contacto Section
-  &__contacto {
-    background-color: #f8f9fa;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-    a {
-      color: $color-calipso;
-      text-decoration: none;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: $color-naranja;
-        text-decoration: underline;
-      }
-    }
-
-    .social-buttons {
-      .btn {
-        transition: transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
+    &__title {
+      font-size: 24px;
     }
   }
+}
 
-  // CTA Section
-  &__cta {
-    .btn {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+// Servicios Section
+.presentacion-servicios {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-      &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      }
-    }
+  &__title {
+    font-family: $font-titulos;
+    font-size: 28px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    text-align: center;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  // Responsive adjustments
-  @include respond-to(md) {
-    &__hero {
-      text-align: left;
-    }
+  &__item {
+    text-align: center;
+    padding: $spacing-md;
   }
 
-  // Utility classes
-  .shadow-sm {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  &__item-title {
+    font-family: $font-titulos;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 4px 0;
   }
 
-  .shadow-lg {
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  &__item-text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  // Breadcrumb styling
-  .breadcrumb {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 0;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-    .breadcrumb-item {
-      a {
-        color: $color-calipso;
-        text-decoration: none;
-
-        &:hover {
-          color: $color-naranja;
-        }
-      }
-
-      &.active {
-        color: #6c757d;
-      }
-
-      + .breadcrumb-item::before {
-        content: "›";
-        color: #6c757d;
-      }
+    &__title {
+      font-size: 24px;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Breadcrumb } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './MapaSitio.scss';
 
@@ -101,19 +101,12 @@ const MapaSitio = () => {
 
   return (
     <div className="mapa-sitio-page">
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Mapa del Sitio</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      <section className="mapa-sitio-page__banner">
+      <section className="mapa-sitio-hero">
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <h1 className="mapa-sitio-page__banner-title">Mapa del Sitio</h1>
-              <p className="mapa-sitio-page__banner-subtitle">
+              <h1 className="mapa-sitio-hero__title">Mapa del Sitio</h1>
+              <p className="mapa-sitio-hero__description">
                 Encuentra fácilmente todo lo que buscas
               </p>
             </Col>
@@ -121,21 +114,21 @@ const MapaSitio = () => {
         </Container>
       </section>
 
-      <section className="mapa-sitio-page__content">
+      <section className="mapa-sitio-content">
         <Container>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <p className="mapa-sitio-page__intro-text">
+              <p className="mapa-sitio-content__intro">
                 Explora todas las secciones de nuestro sitio web. Encuentra información sobre nuestros productos, servicios, contenedores y mucho más.
               </p>
 
-              <div className="mapa-sitio-page__sections">
+              <div className="mapa-sitio-content__sections">
                 <Row>
                   {secciones.map((seccion, index) => (
                     <Col key={index} md={6} lg={4} className="mb-4">
-                      <div className="mapa-sitio-page__section">
-                        <h2 className="mapa-sitio-page__section-title">{seccion.titulo}</h2>
-                        <ul className="mapa-sitio-page__list">
+                      <div className="mapa-sitio-content__section">
+                        <h2 className="mapa-sitio-content__section-titulo">{seccion.titulo}</h2>
+                        <ul className="mapa-sitio-content__lista">
                           {seccion.enlaces.map((enlace, idx) => (
                             <li key={idx}>
                               <Link to={enlace.ruta}>{enlace.nombre}</Link>
@@ -152,46 +145,46 @@ const MapaSitio = () => {
         </Container>
       </section>
 
-      <section className="mapa-sitio-page__stats">
+      <section className="mapa-sitio-stats">
         <Container>
           <Row className="text-center">
             <Col md={3} className="mb-4">
-              <div className="mapa-sitio-page__stat">
-                <div className="mapa-sitio-page__stat-number">42+</div>
-                <div className="mapa-sitio-page__stat-label">Páginas</div>
+              <div className="mapa-sitio-stats__item">
+                <div className="mapa-sitio-stats__number">42+</div>
+                <div className="mapa-sitio-stats__label">Páginas</div>
               </div>
             </Col>
             <Col md={3} className="mb-4">
-              <div className="mapa-sitio-page__stat">
-                <div className="mapa-sitio-page__stat-number">11</div>
-                <div className="mapa-sitio-page__stat-label">Categorías</div>
+              <div className="mapa-sitio-stats__item">
+                <div className="mapa-sitio-stats__number">11</div>
+                <div className="mapa-sitio-stats__label">Categorías</div>
               </div>
             </Col>
             <Col md={3} className="mb-4">
-              <div className="mapa-sitio-page__stat">
-                <div className="mapa-sitio-page__stat-number">100%</div>
-                <div className="mapa-sitio-page__stat-label">Accesible</div>
+              <div className="mapa-sitio-stats__item">
+                <div className="mapa-sitio-stats__number">100%</div>
+                <div className="mapa-sitio-stats__label">Accesible</div>
               </div>
             </Col>
             <Col md={3} className="mb-4">
-              <div className="mapa-sitio-page__stat">
-                <div className="mapa-sitio-page__stat-number">24/7</div>
-                <div className="mapa-sitio-page__stat-label">Disponible</div>
+              <div className="mapa-sitio-stats__item">
+                <div className="mapa-sitio-stats__number">24/7</div>
+                <div className="mapa-sitio-stats__label">Disponible</div>
               </div>
             </Col>
           </Row>
         </Container>
       </section>
 
-      <section className="mapa-sitio-page__cta">
+      <section className="mapa-sitio-cta">
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <h2 className="mapa-sitio-page__cta-title">¿No Encuentras lo que Buscas?</h2>
-              <p className="mapa-sitio-page__cta-text">
+              <h2 className="mapa-sitio-cta__titulo">¿No Encuentras lo que Buscas?</h2>
+              <p className="mapa-sitio-cta__texto">
                 Contáctanos y con gusto te ayudaremos a encontrar la información que necesitas.
               </p>
-              <Link to="/contacto" className="mapa-sitio-page__cta-button">
+              <Link to="/contacto" className="mapa-sitio-cta__button">
                 Contactar
               </Link>
             </Col>

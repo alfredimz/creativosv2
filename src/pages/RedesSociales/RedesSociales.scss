@@ -1,181 +1,410 @@
-@import '../../App.scss';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.redes-sociales {
+.redes-sociales-page {
+  background-color: $color-blanco;
+}
 
-  &__hero {
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    padding: 4rem 0;
-    color: white;
+// Hero Section
+.redes-sociales-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__titulo {
-    font-family: $font-titulos;
-    font-weight: 700;
-    font-size: 2.5rem;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
 
-    @include respond-to(md) {
-      font-size: 3rem;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__subtitulo {
-    font-family: $font-parrafos;
-    font-size: 1.25rem;
-    opacity: 0.9;
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
+
+// Social Cards Section
+.redes-sociales-cards {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__card {
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
   }
 
-  // Red Social Card
-  .red-social-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &__card-icono {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    border: 2px solid $color-negro;
+    border-radius: 50%;
+  }
+
+  &__card-nombre {
+    font-family: $font-titulos;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  &__card-username {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    opacity: 0.6;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__card-descripcion {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__card-seguidores {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+
+    strong {
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  &__card-button {
+    display: block;
+    width: 100%;
+    padding: $spacing-sm;
+    background-color: $color-negro;
+    color: $color-blanco;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
 
     &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    }
-
-    &__icono {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-
-    &__nombre {
-      font-family: $font-titulos;
-      font-weight: 600;
-      color: #333;
-    }
-
-    &__username {
-      font-family: $font-parrafos;
-      font-size: 0.95rem;
-    }
-
-    &__descripcion {
-      font-family: $font-parrafos;
-      color: #666;
-    }
-
-    &__seguidores {
-      font-family: $font-parrafos;
-      color: #999;
-      font-size: 0.9rem;
+      background-color: $color-blanco;
+      color: $color-negro;
     }
   }
 
-  // Publicacion Card
-  .publicacion-card {
-    &__imagen {
-      position: relative;
-    }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+  }
+}
 
-    &__tipo {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-family: $font-parrafos;
-    }
+// Publicaciones Section
+.redes-sociales-publicaciones {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-    &__red {
-      font-family: $font-titulos;
-      font-weight: 600;
-      color: $color-calipso;
-    }
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
 
-    &__descripcion {
-      font-family: $font-parrafos;
-      color: #333;
-      font-size: 0.95rem;
-    }
+  &__card {
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+  }
 
-    &__likes {
-      font-family: $font-parrafos;
-      font-weight: 600;
-      color: #e74c3c;
+  &__card-imagen {
+    position: relative;
+  }
+
+  &__card-tipo {
+    position: absolute;
+    top: $spacing-sm;
+    right: $spacing-sm;
+    background-color: $color-negro;
+    color: $color-blanco;
+    padding: 4px $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
+  }
+
+  &__card-red {
+    font-family: $font-titulos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  &__card-descripcion {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__card-fecha {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    opacity: 0.6;
+  }
+
+  &__card-likes {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Hashtags Section
+.redes-sociales-hashtags {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+    text-align: center;
+  }
+
+  &__container {
+    text-align: center;
+  }
+
+  &__badge {
+    display: inline-block;
+    background-color: $color-blanco;
+    color: $color-negro;
+    padding: $spacing-xs $spacing-md;
+    margin: 4px;
+    border: 1px solid $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Widgets Section
+.redes-sociales-widgets {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__card {
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+  }
+
+  &__card-icon {
+    font-size: 48px;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-title {
+    font-family: $font-titulos;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  &__card-text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__card-button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-blanco;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-negro;
+      color: $color-blanco;
     }
   }
 
-  // Hashtags
-  &__hashtags {
-    .hashtags-container {
-      .hashtag-badge {
-        display: inline-block;
-        background-color: $color-calipso;
-        color: white;
-        padding: 0.5rem 1rem;
-        margin: 0.25rem;
-        border-radius: 20px;
-        font-family: $font-parrafos;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
+  &__card-note {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    opacity: 0.5;
+    margin-top: $spacing-md;
+  }
 
-        &:hover {
-          background-color: $color-naranja;
-          transform: scale(1.05);
-          cursor: pointer;
-        }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// CTA Section
+.redes-sociales-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
+
+    &--primary {
+      background-color: $color-negro;
+      color: $color-blanco;
+
+      &:hover {
+        background-color: $color-blanco;
+        color: $color-negro;
+      }
+    }
+
+    &--secondary {
+      background-color: $color-blanco;
+      color: $color-negro;
+
+      &:hover {
+        background-color: $color-negro;
+        color: $color-blanco;
       }
     }
   }
 
-  // Widget Card
-  .widget-card {
-    .widget-icon {
-      font-size: 4rem;
-    }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-    h4 {
-      font-family: $font-titulos;
-      font-weight: 600;
-    }
-  }
-
-  // CTA
-  &__cta {
-    h2 {
-      font-family: $font-titulos;
-      font-weight: 600;
-    }
-
-    .btn {
-      font-family: $font-titulos;
-      font-weight: 600;
-    }
-  }
-
-  // Breadcrumb
-  .breadcrumb {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 0;
-
-    .breadcrumb-item {
-      a {
-        color: $color-calipso;
-        text-decoration: none;
-
-        &:hover {
-          color: $color-naranja;
-        }
-      }
-
-      &.active {
-        color: #6c757d;
-      }
-
-      + .breadcrumb-item::before {
-        content: "›";
-        color: #6c757d;
-      }
+    &__title {
+      font-size: 18px;
     }
   }
 }

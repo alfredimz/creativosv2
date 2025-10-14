@@ -1,0 +1,317 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.articulo-blog-page {
+  background-color: $color-blanco;
+}
+
+// Hero Section
+.articulo-hero {
+  padding: $spacing-2xl 0 $spacing-xl 0;
+  background-color: $color-blanco;
+  border-bottom: 1px solid $color-negro;
+
+  &__breadcrumb {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    color: $color-negro;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__breadcrumb-link {
+    color: $color-negro;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  &__breadcrumb-separator {
+    margin: 0 $spacing-xs;
+    opacity: 0.4;
+  }
+
+  &__breadcrumb-current {
+    opacity: 0.6;
+  }
+
+  &__categoria {
+    display: inline-block;
+    background-color: $color-negro;
+    color: $color-blanco;
+    padding: 4px $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-md;
+  }
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 32px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    line-height: 1.3;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 11px;
+    color: $color-negro;
+    opacity: 0.6;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0 $spacing-lg 0;
+
+    &__titulo {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0 $spacing-md 0;
+
+    &__titulo {
+      font-size: 22px;
+    }
+  }
+}
+
+// Imagen Section
+.articulo-imagen {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__placeholder {
+    height: 400px;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    opacity: 0.3;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__placeholder {
+      height: 300px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md 0;
+
+    &__placeholder {
+      height: 200px;
+    }
+  }
+}
+
+// Contenido Section
+.articulo-contenido {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__parrafo {
+    font-family: $font-parrafos;
+    font-size: 14px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.8;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__subtitulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: $spacing-2xl 0 $spacing-md 0;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-negro;
+
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__parrafo {
+      font-size: 13px;
+    }
+
+    &__subtitulo {
+      font-size: 18px;
+      margin: $spacing-xl 0 $spacing-md 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md 0;
+
+    &__parrafo {
+      font-size: 12px;
+    }
+
+    &__subtitulo {
+      font-size: 16px;
+    }
+  }
+}
+
+// Relacionados Section
+.articulo-relacionados {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__card {
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
+  }
+
+  &__card-categoria {
+    display: inline-block;
+    background-color: $color-negro;
+    color: $color-blanco;
+    padding: 4px $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__card-titulo {
+    margin-bottom: $spacing-sm;
+
+    a {
+      color: $color-negro;
+      text-decoration: none;
+      font-family: $font-titulos;
+      font-size: 16px;
+      font-weight: $font-weight-semibold;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__card-fecha {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    color: $color-negro;
+    opacity: 0.6;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
+      margin: 0 0 $spacing-lg 0;
+    }
+  }
+}
+
+// CTA Section
+.articulo-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  text-align: center;
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-blanco;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 1px solid $color-blanco;
+    transition: all 0.3s ease;
+
+    &--primary {
+      background-color: $color-blanco;
+      color: $color-negro;
+
+      &:hover {
+        background-color: transparent;
+        color: $color-blanco;
+      }
+    }
+
+    &--secondary {
+      background-color: transparent;
+      color: $color-blanco;
+
+      &:hover {
+        background-color: $color-blanco;
+        color: $color-negro;
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
+    }
+  }
+}

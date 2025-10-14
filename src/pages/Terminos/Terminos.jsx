@@ -1,24 +1,17 @@
 import React from 'react';
-import { Container, Row, Col, Breadcrumb, Accordion } from 'react-bootstrap';
+import { Container, Row, Col, Accordion } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Terminos.scss';
 
 const Terminos = () => {
   return (
     <div className="terminos-page">
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Términos y Condiciones</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      <section className="terminos-page__banner">
+      <section className="terminos-hero">
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <h1 className="terminos-page__banner-title">Términos y Condiciones de Uso</h1>
-              <p className="terminos-page__banner-subtitle">
+              <h1 className="terminos-hero__title">Términos y Condiciones de Uso</h1>
+              <p className="terminos-hero__description">
                 www.creativosespacios.com.mx
               </p>
             </Col>
@@ -26,22 +19,22 @@ const Terminos = () => {
         </Container>
       </section>
 
-      <section className="terminos-page__content">
+      <section className="terminos-content">
         <Container>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <div className="terminos-page__intro">
+              <div className="terminos-content__intro">
                 <p>
                   Al ingresar y utilizar este portal de Internet, cuyo nombre de dominio es <strong>http://www.creativosespacios.com.mx</strong>, propiedad de <strong>Imagina Creativos Espacios S.A. de C.V.</strong>, que en lo sucesivo se denominará <strong>Creativos Espacios</strong>, el usuario está aceptando los Términos y condiciones de uso contenidos en este convenio y declara expresamente su aceptación utilizando para tal efecto medios electrónicos, en términos de lo dispuesto por el artículo 1803 del Código Civil Federal.
                 </p>
-                <div className="terminos-page__alert">
+                <div className="terminos-content__alert">
                   <p>
                     <strong>En caso de no aceptar en forma absoluta y completa los términos y condiciones de este convenio, el usuario deberá abstenerse de acceder, utilizar y observar el sitio web.</strong>
                   </p>
                 </div>
               </div>
 
-              <Accordion defaultActiveKey="0" className="terminos-page__accordion">
+              <Accordion defaultActiveKey="0" className="terminos-content__accordion">
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>1. Proemio</Accordion.Header>
                   <Accordion.Body>
@@ -152,7 +145,7 @@ const Terminos = () => {
                 </Accordion.Item>
               </Accordion>
 
-              <div className="terminos-page__footer-text">
+              <div className="terminos-content__footer">
                 <p>
                   <strong>Última actualización:</strong> Enero 2025
                 </p>
@@ -165,15 +158,15 @@ const Terminos = () => {
         </Container>
       </section>
 
-      <section className="terminos-page__cta">
+      <section className="terminos-cta">
         <Container>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
-              <h2 className="terminos-page__cta-title">¿Dudas sobre los Términos?</h2>
-              <p className="terminos-page__cta-text">
+              <h2 className="terminos-cta__titulo">¿Dudas sobre los Términos?</h2>
+              <p className="terminos-cta__texto">
                 Si tienes preguntas sobre estos términos y condiciones, contáctanos.
               </p>
-              <Link to="/contacto" className="terminos-page__cta-button">
+              <Link to="/contacto" className="terminos-cta__button">
                 Contactar
               </Link>
             </Col>

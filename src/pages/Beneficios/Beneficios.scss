@@ -1,192 +1,364 @@
-@import '../../App.scss';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.beneficios {
+.beneficios-page {
+  background-color: $color-blanco;
+}
 
-  &__hero {
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    padding: 4rem 0;
-    color: white;
-  }
+// Hero Section
+.beneficios-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
 
-  &__titulo {
+  &__title {
     font-family: $font-titulos;
-    font-weight: 700;
-    font-size: 2.5rem;
-
-    @include respond-to(md) {
-      font-size: 3rem;
-    }
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__subtitulo {
+  &__description {
     font-family: $font-parrafos;
-    font-size: 1.25rem;
-    opacity: 0.9;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  // Beneficio Card
-  .beneficio-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
 
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    &__title {
+      font-size: 32px;
     }
 
-    &__icono {
-      font-size: 4rem;
-    }
-
-    &__titulo {
-      font-family: $font-titulos;
-      font-weight: 600;
-      color: $color-calipso;
-    }
-
-    &__descripcion {
-      font-family: $font-parrafos;
-      color: #666;
-    }
-
-    &__detalles {
-      list-style: none;
-      padding-left: 0;
-
-      li {
-        padding: 0.5rem 0;
-        border-bottom: 1px solid #f0f0f0;
-
-        &:before {
-          content: "✓ ";
-          color: $color-calipso;
-          font-weight: bold;
-          margin-right: 0.5rem;
-        }
-
-        &:last-child {
-          border-bottom: none;
-        }
-      }
+    &__description {
+      font-size: 11px;
     }
   }
 
-  // Comparativa
-  &__comparativa {
-    .comparativa-table {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-      .comparativa-header {
-        margin: 0;
-        padding: 1.5rem 0;
-        font-family: $font-titulos;
-      }
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
 
-      .comparativa-row {
-        margin: 0;
-        padding: 1rem 0;
-        border-top: 1px solid #e9ecef;
+// Content Section (Main Benefits Cards)
+.beneficios-content {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-        &:hover {
-          background-color: #f8f9fa;
-        }
-      }
+  &__card {
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+  }
 
-      .bg-light-primary {
-        background-color: rgba($color-calipso, 0.1);
-        color: $color-calipso;
-        font-weight: 600;
-      }
+  &__card-icono {
+    font-size: 48px;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-titulo {
+    font-family: $font-titulos;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-descripcion {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-detalles {
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+  }
+
+  &__card-detalle {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    padding: $spacing-xs 0;
+    border-bottom: 1px solid $color-negro;
+    opacity: 0.8;
+
+    &:before {
+      content: "✓ ";
+      font-weight: $font-weight-semibold;
+      margin-right: $spacing-xs;
+    }
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 
-  // Caso Card
-  .caso-card {
-    transition: transform 0.3s ease;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-    &:hover {
-      transform: translateY(-5px);
+    &__card-titulo {
+      font-size: 16px;
     }
+  }
+}
 
-    &__imagen {
-      position: relative;
+// Comparativa Section
+.beneficios-comparativa {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-      &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
-      }
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__table {
+    background-color: $color-blanco;
+    border: 2px solid $color-negro;
+  }
+
+  &__header {
+    margin: 0;
+    padding: $spacing-md 0;
+    font-family: $font-titulos;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    border-bottom: 2px solid $color-negro;
+  }
+
+  &__header-highlight {
+    background-color: $color-negro;
+    color: $color-blanco;
+  }
+
+  &__row {
+    margin: 0;
+    padding: $spacing-sm 0;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    border-bottom: 1px solid $color-negro;
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 
-  // Testimonios
-  &__testimonios {
-    .testimonio-card {
-      transition: transform 0.3s ease;
+  &__value-highlight {
+    font-weight: $font-weight-semibold;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Casos de Uso Section
+.beneficios-casos {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__card {
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    overflow: hidden;
+  }
+
+  &__card-imagen {
+    position: relative;
+  }
+
+  &__card-titulo {
+    font-family: $font-titulos;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__card-descripcion {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Testimonios Section
+.beneficios-testimonios {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-blanco;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__card {
+    background-color: transparent;
+    border: 1px solid $color-blanco;
+    color: $color-blanco;
+  }
+
+  &__stars {
+    font-size: 16px;
+    margin-bottom: $spacing-md;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.5;
+    margin-bottom: $spacing-md;
+  }
+
+  &__author {
+    // Container for author info
+  }
+
+  &__author-name {
+    font-family: $font-titulos;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    color: $color-blanco;
+  }
+
+  &__author-info {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    opacity: 0.7;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// CTA Section
+.beneficios-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
+
+    &--primary {
+      background-color: $color-negro;
+      color: $color-blanco;
 
       &:hover {
-        transform: scale(1.05);
+        background-color: $color-blanco;
+        color: $color-negro;
       }
     }
 
-    .testimonio-stars {
-      font-size: 1.25rem;
-    }
+    &--secondary {
+      background-color: $color-blanco;
+      color: $color-negro;
 
-    .testimonio-author {
-      strong {
-        font-family: $font-titulos;
-      }
-
-      small {
-        opacity: 0.7;
+      &:hover {
+        background-color: $color-negro;
+        color: $color-blanco;
       }
     }
   }
 
-  // CTA
-  &__cta {
-    h2 {
-      font-family: $font-titulos;
-      font-weight: 600;
-    }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-    .btn {
-      font-family: $font-titulos;
-      font-weight: 600;
-    }
-  }
-
-  // Breadcrumb
-  .breadcrumb {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 0;
-
-    .breadcrumb-item {
-      a {
-        color: $color-calipso;
-        text-decoration: none;
-
-        &:hover {
-          color: $color-naranja;
-        }
-      }
-
-      &.active {
-        color: #6c757d;
-      }
-
-      + .breadcrumb-item::before {
-        content: "›";
-        color: #6c757d;
-      }
+    &__title {
+      font-size: 18px;
     }
   }
 }

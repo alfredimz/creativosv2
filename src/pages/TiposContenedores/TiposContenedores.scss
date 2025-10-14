@@ -1,191 +1,145 @@
-@import '../../App.scss';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.tipos-contenedores {
+.tipos-contenedores-page {
+  background-color: $color-blanco;
+}
 
-  &__hero {
-    padding: 2rem 0;
-    background-color: #fff;
-  }
+// Hero Section
+.tipos-hero {
+  padding: $spacing-2xl 0 $spacing-xl 0;
+  background-color: $color-blanco;
 
-  &__titulo {
+  &__title {
     font-family: $font-titulos;
-    font-weight: 600;
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 0;
-
-    @include respond-to(md) {
-      font-size: 2.5rem;
-    }
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0;
   }
 
-  &__contenido {
-    background-color: #fff;
-  }
-
-  // Filtros Sidebar
-  &__filtros {
-    background-color: #fff;
-    padding: 1.5rem;
-    border-right: 1px solid #e0e0e0;
-
-    h5 {
-      font-family: $font-titulos;
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #333;
-    }
-
-    .filtro-grupo {
-      .filtro-titulo {
-        font-family: $font-titulos;
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: #666;
-        margin-bottom: 0.75rem;
-      }
-
-      .form-check {
-        margin-bottom: 0.5rem;
-
-        .form-check-input {
-          border-color: #ccc;
-
-          &:checked {
-            background-color: $color-calipso;
-            border-color: $color-calipso;
-          }
-
-          &:focus {
-            border-color: $color-calipso;
-            box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
-          }
-        }
-
-        .form-check-label {
-          font-family: $font-parrafos;
-          font-size: 0.9rem;
-          color: #555;
-          cursor: pointer;
-        }
-      }
-    }
-
-    @include respond-to(lg) {
-      position: sticky;
-      top: 20px;
-    }
-  }
-
-  // Contenedor Link
-  .contenedor-link {
-    text-decoration: none;
-    display: block;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  // Contenedor Card
-  .contenedor-card {
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-
-    &:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-
-      .icon-plus {
-        transform: rotate(90deg);
-      }
-    }
-
-    &__image-wrapper {
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 200px;
-    }
-
-    &__image {
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0 $spacing-lg 0;
 
     &__title {
+      font-size: 32px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 24px;
+    }
+  }
+}
+
+// Content Section
+.tipos-content {
+  padding: $spacing-lg 0 $spacing-2xl 0;
+  background-color: $color-blanco;
+}
+
+.tipos-filters-col {
+  @media (max-width: $breakpoint-lg) {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+// Filters Sidebar
+.tipos-filters {
+  padding-right: $spacing-lg;
+
+  &__title {
+    font-family: $font-parrafos;
+    font-size: 14px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__group {
+    margin-bottom: $spacing-sm;
+  }
+
+  &__separator {
+    height: 20px;
+  }
+
+  &__checkbox {
+    margin-bottom: $spacing-sm;
+
+    .form-check-input {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      border: 0.75px solid $color-gris-oscuro;
+      background-color: $color-blanco;
+      margin-top: 4px;
+
+      &:checked {
+        background-color: $color-calipso;
+        border-color: $color-calipso;
+      }
+
+      &:focus {
+        border-color: $color-calipso;
+        box-shadow: none;
+      }
+    }
+
+    .form-check-label {
       font-family: $font-parrafos;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-
-    &__icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      .icon-plus {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.9);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        font-weight: 300;
-        color: #333;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-
-        &:hover {
-          background-color: #fff;
-        }
-      }
-    }
-
-    .card-body {
-      background-color: rgba(255, 255, 255, 0.95);
-      padding: 1.25rem;
+      font-size: 14px;
+      font-weight: $font-weight-light;
+      color: $color-negro;
+      cursor: pointer;
+      padding-left: $spacing-xs;
     }
   }
 
-  // Breadcrumb styling
-  .breadcrumb {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 0;
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    padding-right: 0;
+    border-bottom: 1px solid $color-gris-medio;
+    padding-bottom: $spacing-lg;
+  }
+}
 
-    .breadcrumb-item {
-      a {
-        color: $color-calipso;
-        text-decoration: none;
+// Containers Grid
+.tipos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
 
-        &:hover {
-          color: $color-naranja;
-        }
-      }
-
-      &.active {
-        color: #6c757d;
-      }
-
-      + .breadcrumb-item::before {
-        content: "›";
-        color: #6c757d;
-      }
-    }
+  // Responsive
+  @media (max-width: $breakpoint-xl) {
+    gap: $spacing-md;
   }
 
-  // Responsive adjustments
-  @include respond-to(md) {
-    &__filtros {
-      border-right: 1px solid #e0e0e0;
-    }
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+// Empty State
+.tipos-empty {
+  text-align: center;
+  padding: $spacing-2xl 0;
+
+  p {
+    font-family: $font-parrafos;
+    font-size: 16px;
+    color: $color-gris-oscuro;
+    margin: 0;
   }
 }

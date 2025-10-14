@@ -1,0 +1,124 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container-card {
+  width: 288px;
+  height: 320px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-lg;
+  cursor: pointer;
+  @include transition(transform);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  &__image-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: $spacing-md;
+  }
+
+  &__image {
+    max-width: 250px;
+    max-height: 250px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &__footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+    color: $color-negro;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__button {
+    width: 26px;
+    height: 26px;
+    background-color: transparent;
+    border: 2px solid $color-negro;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    @include transition(all);
+
+    svg {
+      font-size: 12px;
+      color: $color-negro;
+    }
+
+    &:hover {
+      background-color: $color-negro;
+
+      svg {
+        color: $color-blanco;
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    width: 260px;
+    height: 300px;
+
+    &__image {
+      max-width: 220px;
+      max-height: 220px;
+    }
+
+    &__title {
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    height: 280px;
+
+    &__image {
+      max-width: 200px;
+      max-height: 200px;
+    }
+
+    &__title {
+      font-size: 14px;
+    }
+
+    &__button {
+      width: 24px;
+      height: 24px;
+
+      svg {
+        font-size: 10px;
+      }
+    }
+  }
+}

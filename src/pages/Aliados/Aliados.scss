@@ -2,275 +2,323 @@
 @import '../../styles/mixins';
 
 .aliados-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  // Banner Hero
-  &__banner {
-    min-height: 400px;
-    background-color: $color-calipso;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+// Hero Section
+.aliados-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
 
-  &__banner-overlay {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: $spacing-4xl 0;
-    text-align: center;
-    color: $color-blanco;
-  }
-
-  &__banner-title {
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
 
-    @include respond-to(md) {
-      font-size: $font-size-5xl;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__banner-subtitle {
-    font-size: $font-size-lg;
-    max-width: 700px;
-    margin: 0 auto;
-    opacity: 0.95;
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  // Introducción
-  &__intro {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
+    &__title {
+      font-size: 28px;
+    }
   }
+}
 
-  &__intro-content {
-    text-align: center;
-  }
+// Intro Section
+.aliados-intro {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  text-align: center;
 
-  &__section-title {
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-xl;
-  }
-
-  &__intro-text {
-    font-size: $font-size-lg;
-    color: $color-gris-oscuro;
-    line-height: 1.8;
-    margin-bottom: $spacing-lg;
-  }
-
-  // Filtros
-  &__filtros {
-    padding: $spacing-3xl 0;
-    background-color: $color-gris-claro;
-  }
-
-  &__filtros-container {
-    text-align: center;
-  }
-
-  &__filtros-title {
-    font-family: $font-titulos;
-    font-size: $font-size-xl;
+    font-size: 20px;
     font-weight: $font-weight-semibold;
-    color: $color-gris-oscuro;
-    margin-bottom: $spacing-xl;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__filtros-buttons {
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.6;
+    margin: 0 0 $spacing-md 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Filtros Section
+.aliados-filtros {
+  padding: $spacing-lg 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
+  border-bottom: 1px solid $color-negro;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
+  }
+
+  &__buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-md;
+    gap: $spacing-sm;
     justify-content: center;
   }
 
-  &__filtro-btn {
+  &__button {
     padding: $spacing-sm $spacing-lg;
-    border: 2px solid $color-calipso;
+    border: 1px solid $color-negro;
     background-color: $color-blanco;
-    color: $color-calipso;
-    font-weight: $font-weight-medium;
-    border-radius: $border-radius-md;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
     cursor: pointer;
-    transition: all $transition-base;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: $color-calipso;
+      background-color: $color-negro;
       color: $color-blanco;
-      transform: translateY(-2px);
-      box-shadow: $shadow-md;
     }
 
-    &.active {
-      background-color: $color-calipso;
+    &--active {
+      background-color: $color-negro;
       color: $color-blanco;
     }
   }
 
-  // Grid de Aliados
-  &__grid {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md 0;
+
+    &__title {
+      font-size: 14px;
+    }
   }
+}
+
+// Grid Section
+.aliados-grid {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
   &__card {
-    height: 100%;
-    border: none;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
-    transition: all $transition-base;
-    overflow: hidden;
-
-    &:hover {
-      transform: translateY(-8px);
-      box-shadow: $shadow-lg;
-    }
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
   }
 
   &__card-image {
     height: 200px;
-    background-color: $color-gris-claro;
+    background-color: $color-blanco;
+    border-bottom: 1px solid $color-negro;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   &__card-placeholder {
-    color: $color-gris-medio;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-medium;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    color: $color-negro;
+    opacity: 0.3;
   }
 
   &__card-categoria {
     display: inline-block;
-    padding: $spacing-xs $spacing-md;
-    background-color: $color-naranja;
+    background-color: $color-negro;
     color: $color-blanco;
-    font-size: $font-size-sm;
+    padding: 4px $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 10px;
     font-weight: $font-weight-semibold;
-    border-radius: $border-radius-sm;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-sm;
   }
 
-  &__card-title {
+  &__card-titulo {
     font-family: $font-titulos;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-md;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: $spacing-sm 0;
   }
 
-  &__card-text {
-    color: $color-gris-oscuro;
-    font-size: $font-size-base;
-    line-height: 1.6;
-    margin-bottom: $spacing-lg;
+  &__card-texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-md 0;
   }
 
   &__card-link {
-    color: $color-naranja;
-    text-decoration: none;
+    font-family: $font-parrafos;
+    font-size: 12px;
     font-weight: $font-weight-semibold;
-    transition: color $transition-base;
+    color: $color-negro;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
 
     &:hover {
-      color: darken($color-naranja, 10%);
-      text-decoration: underline;
+      opacity: 0.6;
     }
   }
 
-  // Beneficios
-  &__beneficios {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
   }
+}
 
-  &__beneficio {
-    text-align: center;
-    padding: $spacing-xl;
-    background-color: $color-blanco;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
-    height: 100%;
-    transition: all $transition-base;
+// Beneficios Section
+.aliados-beneficios {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-md;
-    }
-  }
-
-  &__beneficio-icon {
-    font-size: 3rem;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__beneficio-title {
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__card {
+    text-align: center;
+    padding: $spacing-lg;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    height: 100%;
+  }
+
+  &__card-icon {
+    font-size: 48px;
     margin-bottom: $spacing-md;
   }
 
-  &__beneficio-text {
-    color: $color-gris-oscuro;
-    font-size: $font-size-base;
-    line-height: 1.6;
-  }
-
-  // Call to Action
-  &__cta {
-    padding: $spacing-4xl 0;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    color: $color-blanco;
-  }
-
-  &__cta-title {
+  &__card-titulo {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
   }
 
-  &__cta-text {
-    font-size: $font-size-lg;
-    line-height: 1.8;
-    margin-bottom: $spacing-xl;
-    opacity: 0.95;
+  &__card-texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  &__cta-button {
-    display: inline-block;
-    padding: $spacing-md $spacing-2xl;
-    background-color: $color-naranja;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// CTA Section
+.aliados-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
     color: $color-blanco;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-blanco;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
     text-decoration: none;
-    border-radius: $border-radius-md;
-    transition: all $transition-base;
-    box-shadow: $shadow-md;
+    border: 1px solid $color-blanco;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: darken($color-naranja, 10%);
-      transform: translateY(-3px);
-      box-shadow: $shadow-lg;
+      background-color: transparent;
       color: $color-blanco;
     }
   }
 
   // Responsive
-  @include respond-to(md) {
-    &__filtros-buttons {
-      gap: $spacing-lg;
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
     }
   }
 }

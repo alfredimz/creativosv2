@@ -2,73 +2,98 @@
 @import '../../styles/mixins';
 
 .servicios-adicionales-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  &__banner {
-    min-height: 350px;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+// Hero Section
+.servicios-adicionales-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
 
-  &__banner-overlay {
-    width: 100%;
-    padding: $spacing-4xl 0;
-    text-align: center;
-    color: $color-blanco;
-  }
-
-  &__banner-title {
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
 
-    @include respond-to(md) {
-      font-size: $font-size-5xl;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__banner-subtitle {
-    font-size: $font-size-lg;
-    opacity: 0.95;
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  &__intro {
-    padding: $spacing-3xl 0;
-    background-color: $color-blanco;
+    &__title {
+      font-size: 28px;
+    }
   }
+}
 
-  &__section-title {
+// Intro Section
+.servicios-adicionales-intro {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  text-align: center;
+
+  &__titulo {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-lg;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__intro-text {
-    font-size: $font-size-lg;
-    color: $color-gris-oscuro;
-    line-height: 1.8;
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.6;
+    margin: 0;
   }
 
-  &__grid {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
+    }
   }
+}
+
+// Grid Section
+.servicios-adicionales-grid {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
 
   &__card {
-    border: none;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
-    transition: all $transition-base;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-lg;
-    }
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    transition: border-color 0.3s ease;
   }
 
   &__card-header {
@@ -78,33 +103,38 @@
     margin-bottom: $spacing-lg;
   }
 
-  &__icono {
-    font-size: 3rem;
+  &__card-icon {
+    font-size: 48px;
     flex-shrink: 0;
   }
 
   &__card-titulo {
     font-family: $font-titulos;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
     margin: 0;
   }
 
   &__card-descripcion {
-    color: $color-gris-oscuro;
-    font-size: $font-size-base;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
     line-height: 1.6;
     margin-bottom: $spacing-lg;
   }
 
-  &__lista {
+  &__card-lista {
     list-style: none;
     padding-left: 0;
     margin: 0;
 
     li {
-      color: $color-gris-oscuro;
+      font-family: $font-parrafos;
+      font-size: 12px;
+      font-weight: $font-weight-normal;
+      color: $color-negro;
       padding: $spacing-xs 0;
       position: relative;
       padding-left: $spacing-lg;
@@ -113,49 +143,69 @@
         content: '✓';
         position: absolute;
         left: 0;
-        color: $color-naranja;
-        font-weight: $font-weight-bold;
+        color: $color-negro;
+        font-weight: $font-weight-semibold;
       }
     }
   }
 
-  &__cta {
-    padding: $spacing-4xl 0;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    color: $color-blanco;
-  }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-  &__cta-title {
+    &__card-icon {
+      font-size: 40px;
+    }
+  }
+}
+
+// CTA Section
+.servicios-adicionales-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  text-align: center;
+
+  &__titulo {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__cta-text {
-    font-size: $font-size-lg;
-    line-height: 1.8;
-    margin-bottom: $spacing-xl;
-    opacity: 0.95;
-  }
-
-  &__cta-button {
-    display: inline-block;
-    padding: $spacing-md $spacing-2xl;
-    background-color: $color-naranja;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
     color: $color-blanco;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.6;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-blanco;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
     text-decoration: none;
-    border-radius: $border-radius-md;
-    transition: all $transition-base;
-    box-shadow: $shadow-md;
+    border: 1px solid $color-blanco;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: darken($color-naranja, 10%);
-      transform: translateY(-3px);
-      box-shadow: $shadow-lg;
+      background-color: transparent;
       color: $color-blanco;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
     }
   }
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Breadcrumb, Card, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './QuejasSugerencias.scss';
 
 const QuejasSugerencias = () => {
@@ -33,180 +32,171 @@ const QuejasSugerencias = () => {
 
   return (
     <div className="quejas-page">
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Buzón de Quejas y Sugerencias</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      <section className="quejas-page__banner">
-        <div className="quejas-page__banner-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <h1 className="quejas-page__banner-title">Buzón de Quejas y Sugerencias</h1>
-                <p className="quejas-page__banner-subtitle">
-                  Tu opinión es muy importante para nosotros. Ayúdanos a mejorar
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+      {/* Hero Section */}
+      <section className="quejas-hero">
+        <Container>
+          <h1 className="quejas-hero__title">Buzón de Quejas y Sugerencias</h1>
+          <p className="quejas-hero__description">
+            Tu opinión es muy importante para nosotros. Ayúdanos a mejorar nuestros servicios compartiendo
+            tu experiencia, sugerencias o inquietudes. Respondemos todos los mensajes en máximo 48 horas hábiles.
+          </p>
+        </Container>
       </section>
 
-      <section className="quejas-page__contenido">
+      {/* Content Section */}
+      <section className="quejas-content">
         <Container>
           <Row>
+            {/* Form Column */}
             <Col lg={8}>
-              <Card className="quejas-page__card">
-                <Card.Body>
-                  <h2 className="quejas-page__card-title">Comparte tu Experiencia</h2>
-                  <p className="quejas-page__card-texto">
-                    Valoramos tu retroalimentación. Completa el formulario y nos pondremos en contacto
-                    contigo a la brevedad para atender tu solicitud.
-                  </p>
+              <h3 className="quejas-form__title">Comparte tu Experiencia</h3>
+              <p className="quejas-form__text">
+                Valoramos tu retroalimentación. Completa el formulario y nos pondremos en contacto
+                contigo a la brevedad para atender tu solicitud.
+              </p>
 
-                  <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3">
+                  <Form.Label className="quejas-form__label">Tipo de Mensaje</Form.Label>
+                  <div>
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Sugerencia"
+                      name="tipo"
+                      value="sugerencia"
+                      checked={formData.tipo === 'sugerencia'}
+                      onChange={handleChange}
+                    />
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Queja"
+                      name="tipo"
+                      value="queja"
+                      checked={formData.tipo === 'queja'}
+                      onChange={handleChange}
+                    />
+                    <Form.Check
+                      inline
+                      type="radio"
+                      label="Felicitación"
+                      name="tipo"
+                      value="felicitacion"
+                      checked={formData.tipo === 'felicitacion'}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </Form.Group>
+
+                <Row>
+                  <Col md={6}>
                     <Form.Group className="mb-3">
-                      <Form.Label>Tipo de Mensaje</Form.Label>
-                      <div>
-                        <Form.Check
-                          inline
-                          type="radio"
-                          label="Sugerencia"
-                          name="tipo"
-                          value="sugerencia"
-                          checked={formData.tipo === 'sugerencia'}
-                          onChange={handleChange}
-                        />
-                        <Form.Check
-                          inline
-                          type="radio"
-                          label="Queja"
-                          name="tipo"
-                          value="queja"
-                          checked={formData.tipo === 'queja'}
-                          onChange={handleChange}
-                        />
-                        <Form.Check
-                          inline
-                          type="radio"
-                          label="Felicitación"
-                          name="tipo"
-                          value="felicitacion"
-                          checked={formData.tipo === 'felicitacion'}
-                          onChange={handleChange}
-                        />
-                      </div>
-                    </Form.Group>
-
-                    <Row>
-                      <Col md={6}>
-                        <Form.Group className="mb-3">
-                          <Form.Label>Nombre Completo *</Form.Label>
-                          <Form.Control
-                            type="text"
-                            name="nombre"
-                            value={formData.nombre}
-                            onChange={handleChange}
-                            required
-                          />
-                        </Form.Group>
-                      </Col>
-                      <Col md={6}>
-                        <Form.Group className="mb-3">
-                          <Form.Label>Teléfono</Form.Label>
-                          <Form.Control
-                            type="tel"
-                            name="telefono"
-                            value={formData.telefono}
-                            onChange={handleChange}
-                          />
-                        </Form.Group>
-                      </Col>
-                    </Row>
-
-                    <Form.Group className="mb-3">
-                      <Form.Label>Email *</Form.Label>
+                      <Form.Label className="quejas-form__label">Nombre Completo*</Form.Label>
                       <Form.Control
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3">
-                      <Form.Label>Asunto *</Form.Label>
-                      <Form.Control
+                        className="quejas-form__input"
                         type="text"
-                        name="asunto"
-                        value={formData.asunto}
+                        name="nombre"
+                        value={formData.nombre}
                         onChange={handleChange}
                         required
                       />
                     </Form.Group>
-
-                    <Form.Group className="mb-4">
-                      <Form.Label>Mensaje *</Form.Label>
+                  </Col>
+                  <Col md={6}>
+                    <Form.Group className="mb-3">
+                      <Form.Label className="quejas-form__label">Teléfono</Form.Label>
                       <Form.Control
-                        as="textarea"
-                        rows={6}
-                        name="mensaje"
-                        value={formData.mensaje}
+                        className="quejas-form__input"
+                        type="tel"
+                        name="telefono"
+                        value={formData.telefono}
                         onChange={handleChange}
-                        placeholder="Describe tu experiencia, sugerencia o queja..."
-                        required
                       />
                     </Form.Group>
+                  </Col>
+                </Row>
 
-                    <div className="text-center">
-                      <Button variant="primary" type="submit" size="lg" className="quejas-page__submit-btn">
-                        Enviar Mensaje
-                      </Button>
-                    </div>
-                  </Form>
-                </Card.Body>
-              </Card>
+                <Form.Group className="mb-3">
+                  <Form.Label className="quejas-form__label">Email*</Form.Label>
+                  <Form.Control
+                    className="quejas-form__input"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group className="mb-3">
+                  <Form.Label className="quejas-form__label">Asunto*</Form.Label>
+                  <Form.Control
+                    className="quejas-form__input"
+                    type="text"
+                    name="asunto"
+                    value={formData.asunto}
+                    onChange={handleChange}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group className="mb-4">
+                  <Form.Label className="quejas-form__label">Mensaje*</Form.Label>
+                  <Form.Control
+                    className="quejas-form__input"
+                    as="textarea"
+                    rows={6}
+                    name="mensaje"
+                    value={formData.mensaje}
+                    onChange={handleChange}
+                    placeholder="Describe tu experiencia, sugerencia o queja..."
+                    required
+                  />
+                </Form.Group>
+
+                <div className="text-center">
+                  <Button variant="primary" type="submit" size="lg">
+                    Enviar Mensaje
+                  </Button>
+                </div>
+              </Form>
             </Col>
 
+            {/* Info Column */}
             <Col lg={4}>
-              <Card className="quejas-page__info-card">
-                <Card.Body>
-                  <h3 className="quejas-page__info-titulo">¿Por Qué es Importante tu Opinión?</h3>
+              <div className="quejas-info">
+                <h3 className="quejas-info__title">¿Por Qué es Importante tu Opinión?</h3>
 
-                  <div className="quejas-page__info-item">
-                    <div className="quejas-page__info-icono">📈</div>
-                    <p>Nos ayuda a mejorar continuamente nuestros servicios</p>
-                  </div>
+                <div className="quejas-info__item">
+                  <div className="quejas-info__icon">📈</div>
+                  <p className="quejas-info__text">Nos ayuda a mejorar continuamente nuestros servicios</p>
+                </div>
 
-                  <div className="quejas-page__info-item">
-                    <div className="quejas-page__info-icono">🎯</div>
-                    <p>Identificamos áreas de oportunidad</p>
-                  </div>
+                <div className="quejas-info__item">
+                  <div className="quejas-info__icon">🎯</div>
+                  <p className="quejas-info__text">Identificamos áreas de oportunidad</p>
+                </div>
 
-                  <div className="quejas-page__info-item">
-                    <div className="quejas-page__info-icono">🤝</div>
-                    <p>Fortalece nuestra relación contigo</p>
-                  </div>
+                <div className="quejas-info__item">
+                  <div className="quejas-info__icon">🤝</div>
+                  <p className="quejas-info__text">Fortalece nuestra relación contigo</p>
+                </div>
 
-                  <hr className="my-4" />
+                <hr className="quejas-info__divider" />
 
-                  <h4 className="quejas-page__info-subtitulo">Tiempo de Respuesta</h4>
-                  <p className="quejas-page__info-texto">
-                    Respondemos todas las quejas y sugerencias en un plazo máximo de
-                    <strong> 48 horas hábiles</strong>.
-                  </p>
+                <h4 className="quejas-info__subtitle">Tiempo de Respuesta</h4>
+                <p className="quejas-info__description">
+                  Respondemos todas las quejas y sugerencias en un plazo máximo de
+                  <strong> 48 horas hábiles</strong>.
+                </p>
 
-                  <h4 className="quejas-page__info-subtitulo">Confidencialidad</h4>
-                  <p className="quejas-page__info-texto">
-                    Toda la información proporcionada es tratada de manera confidencial
-                    de acuerdo a nuestra política de privacidad.
-                  </p>
-                </Card.Body>
-              </Card>
+                <h4 className="quejas-info__subtitle">Confidencialidad</h4>
+                <p className="quejas-info__description">
+                  Toda la información proporcionada es tratada de manera confidencial
+                  de acuerdo a nuestra política de privacidad.
+                </p>
+              </div>
             </Col>
           </Row>
         </Container>

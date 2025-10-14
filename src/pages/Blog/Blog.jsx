@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Breadcrumb, Card, Badge, Pagination } from 'react-bootstrap';
+import { Container, Row, Col, Card, Pagination } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Blog.scss';
 
-/**
- * @component Blog
- * @description Sistema de blog con listado de artículos
- * @phase Fase 3 - Sprint 7
- * @status Maquetado completo - Pendiente de contenido por Gemini
- */
 const Blog = () => {
   const [filtroActivo, setFiltroActivo] = useState('Todos');
 
@@ -83,40 +77,30 @@ const Blog = () => {
 
   return (
     <div className="blog-page">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Blog</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Banner Hero */}
-      <section className="blog-page__banner">
-        <div className="blog-page__banner-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <h1 className="blog-page__banner-title">Blog Creativos Espacios</h1>
-                <p className="blog-page__banner-subtitle">
-                  Noticias, consejos y tendencias sobre contenedores marítimos y soluciones modulares
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+      {/* Hero Section */}
+      <section className="blog-hero">
+        <Container>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <h1 className="blog-hero__title">Blog Creativos Espacios</h1>
+              <p className="blog-hero__description">
+                Noticias, consejos y tendencias sobre contenedores marítimos y soluciones modulares
+              </p>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
-      {/* Filtros de Categorías */}
-      <section className="blog-page__filtros">
+      {/* Filtros Section */}
+      <section className="blog-filtros">
         <Container>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <div className="blog-page__filtros-container">
+              <div className="blog-filtros__container">
                 {categorias.map((categoria) => (
                   <button
                     key={categoria}
-                    className={`blog-page__filtro-btn ${filtroActivo === categoria ? 'active' : ''}`}
+                    className={`blog-filtros__button ${filtroActivo === categoria ? 'blog-filtros__button--active' : ''}`}
                     onClick={() => setFiltroActivo(categoria)}
                   >
                     {categoria}
@@ -128,28 +112,28 @@ const Blog = () => {
         </Container>
       </section>
 
-      {/* Artículo Destacado */}
+      {/* Destacado Section */}
       {articuloDestacado && (
-        <section className="blog-page__destacado">
+        <section className="blog-destacado">
           <Container>
             <Row className="align-items-center">
               <Col lg={6} className="mb-4 mb-lg-0">
-                <div className="blog-page__destacado-imagen">
-                  <Badge bg="warning" className="blog-page__destacado-badge">Destacado</Badge>
-                  <div className="blog-page__destacado-placeholder">Imagen del Artículo</div>
+                <div className="blog-destacado__imagen">
+                  <span className="blog-destacado__badge">Destacado</span>
+                  <div className="blog-destacado__placeholder">Imagen del Artículo</div>
                 </div>
               </Col>
               <Col lg={6}>
-                <div className="blog-page__destacado-contenido">
-                  <Badge bg="primary" className="mb-3">{articuloDestacado.categoria}</Badge>
-                  <h2 className="blog-page__destacado-titulo">{articuloDestacado.titulo}</h2>
-                  <p className="blog-page__destacado-resumen">{articuloDestacado.resumen}</p>
-                  <div className="blog-page__destacado-meta">
-                    <span className="blog-page__destacado-autor">{articuloDestacado.autor}</span>
-                    <span className="blog-page__destacado-separador">•</span>
-                    <span className="blog-page__destacado-fecha">{articuloDestacado.fecha}</span>
+                <div className="blog-destacado__contenido">
+                  <span className="blog-destacado__categoria">{articuloDestacado.categoria}</span>
+                  <h2 className="blog-destacado__titulo">{articuloDestacado.titulo}</h2>
+                  <p className="blog-destacado__resumen">{articuloDestacado.resumen}</p>
+                  <div className="blog-destacado__meta">
+                    <span className="blog-destacado__autor">{articuloDestacado.autor}</span>
+                    <span className="blog-destacado__separador">•</span>
+                    <span className="blog-destacado__fecha">{articuloDestacado.fecha}</span>
                   </div>
-                  <Link to={`/blog/${articuloDestacado.id}`} className="blog-page__destacado-btn">
+                  <Link to={`/blog/${articuloDestacado.id}`} className="blog-destacado__button">
                     Leer Artículo Completo →
                   </Link>
                 </div>
@@ -159,30 +143,30 @@ const Blog = () => {
         </section>
       )}
 
-      {/* Grid de Artículos */}
-      <section className="blog-page__grid">
+      {/* Grid Section */}
+      <section className="blog-grid">
         <Container>
           <Row>
             {otrosArticulos.map((articulo) => (
               <Col key={articulo.id} lg={4} md={6} className="mb-4">
-                <Card className="blog-page__card h-100">
-                  <div className="blog-page__card-imagen">
-                    <div className="blog-page__card-placeholder">Imagen del Artículo</div>
-                    <Badge bg="primary" className="blog-page__card-categoria">
+                <Card className="blog-grid__card h-100">
+                  <div className="blog-grid__card-imagen">
+                    <div className="blog-grid__card-placeholder">Imagen del Artículo</div>
+                    <span className="blog-grid__card-categoria">
                       {articulo.categoria}
-                    </Badge>
+                    </span>
                   </div>
                   <Card.Body>
-                    <Card.Title className="blog-page__card-titulo">
+                    <Card.Title className="blog-grid__card-titulo">
                       <Link to={`/blog/${articulo.id}`}>{articulo.titulo}</Link>
                     </Card.Title>
-                    <Card.Text className="blog-page__card-resumen">
+                    <Card.Text className="blog-grid__card-resumen">
                       {articulo.resumen}
                     </Card.Text>
                   </Card.Body>
-                  <Card.Footer className="blog-page__card-footer">
-                    <small className="blog-page__card-autor">{articulo.autor}</small>
-                    <small className="blog-page__card-fecha">{articulo.fecha}</small>
+                  <Card.Footer className="blog-grid__card-footer">
+                    <small className="blog-grid__card-autor">{articulo.autor}</small>
+                    <small className="blog-grid__card-fecha">{articulo.fecha}</small>
                   </Card.Footer>
                 </Card>
               </Col>
@@ -191,12 +175,12 @@ const Blog = () => {
         </Container>
       </section>
 
-      {/* Paginación */}
-      <section className="blog-page__paginacion">
+      {/* Paginacion Section */}
+      <section className="blog-paginacion">
         <Container>
           <Row className="justify-content-center">
             <Col lg={8}>
-              <Pagination className="justify-content-center">
+              <Pagination className="justify-content-center blog-paginacion__controls">
                 <Pagination.First />
                 <Pagination.Prev />
                 <Pagination.Item active>{1}</Pagination.Item>
@@ -212,22 +196,22 @@ const Blog = () => {
         </Container>
       </section>
 
-      {/* Newsletter Subscription */}
-      <section className="blog-page__newsletter">
+      {/* Newsletter Section */}
+      <section className="blog-newsletter">
         <Container>
           <Row className="justify-content-center">
-            <Col lg={8} className="text-center">
-              <h2 className="blog-page__newsletter-titulo">Suscríbete a Nuestro Newsletter</h2>
-              <p className="blog-page__newsletter-texto">
+            <Col lg={8}>
+              <h2 className="blog-newsletter__title">Suscríbete a Nuestro Newsletter</h2>
+              <p className="blog-newsletter__text">
                 Recibe las últimas noticias y consejos directamente en tu correo
               </p>
-              <div className="blog-page__newsletter-form">
+              <div className="blog-newsletter__form">
                 <input
                   type="email"
-                  className="blog-page__newsletter-input"
+                  className="blog-newsletter__input"
                   placeholder="Tu correo electrónico"
                 />
-                <button className="blog-page__newsletter-btn">Suscribirse</button>
+                <button className="blog-newsletter__button">Suscribirse</button>
               </div>
             </Col>
           </Row>

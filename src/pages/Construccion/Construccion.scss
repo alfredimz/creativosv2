@@ -2,217 +2,374 @@
 @import '../../styles/mixins';
 
 .construccion-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  // Banner Hero
-  &__banner {
-    min-height: 400px;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
+// Hero Section
+.construccion-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
 
-  &__banner-overlay {
-    width: 100%;
-    padding: $spacing-4xl 0;
-    text-align: center;
-    color: $color-blanco;
-  }
-
-  &__banner-title {
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
 
-    @include respond-to(md) {
-      font-size: $font-size-5xl;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__banner-subtitle {
-    font-size: $font-size-lg;
-    max-width: 700px;
-    margin: 0 auto;
-    opacity: 0.95;
-    line-height: 1.6;
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  // Introducción
-  &__intro {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
+    &__title {
+      font-size: 28px;
+    }
   }
+}
 
-  &__intro-content {
+// Intro Section
+.construccion-intro {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
     text-align: center;
   }
 
-  &__section-title {
-    font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-xl;
-  }
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
 
-  &__section-subtitle {
-    font-size: $font-size-lg;
-    color: $color-gris-oscuro;
-    margin-bottom: $spacing-xl;
-  }
-
-  &__intro-text {
-    font-size: $font-size-lg;
-    color: $color-gris-oscuro;
-    line-height: 1.8;
-    margin-bottom: $spacing-lg;
-  }
-
-  // Pasos del Proceso
-  &__pasos {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
-  }
-
-  &__paso-card {
-    height: 100%;
-    border: none;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
-    transition: all $transition-base;
-    overflow: hidden;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-lg;
-    }
-  }
-
-  &__paso-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__paso-numero {
-    font-family: $font-titulos;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    opacity: 0.3;
-  }
-
-  &__paso-icono {
-    font-size: 3rem;
-  }
-
-  &__paso-titulo {
-    font-family: $font-titulos;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-md;
-  }
-
-  &__paso-descripcion {
-    color: $color-gris-oscuro;
-    font-size: $font-size-base;
-    line-height: 1.6;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__paso-duracion {
-    padding: $spacing-sm $spacing-md;
-    background-color: $color-gris-claro;
-    border-radius: $border-radius-sm;
-    font-size: $font-size-sm;
-    color: $color-gris-oscuro;
-  }
-
-  // Timeline Total
-  &__timeline {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
-  }
-
-  &__timeline-box {
-    padding: $spacing-3xl;
-    background: linear-gradient(135deg, lighten($color-calipso, 45%) 0%, lighten($color-calipso, 50%) 100%);
-    border-radius: $border-radius-lg;
-    border: 3px solid $color-calipso;
-  }
-
-  &__timeline-title {
-    font-family: $font-titulos;
-    font-size: $font-size-2xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__timeline-tiempo {
-    font-family: $font-titulos;
-    font-size: $font-size-5xl;
-    font-weight: $font-weight-bold;
-    color: $color-naranja;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__timeline-text {
-    font-size: $font-size-base;
-    color: $color-gris-oscuro;
-    line-height: 1.6;
-  }
-
-  // Call to Action
-  &__cta {
-    padding: $spacing-4xl 0;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    color: $color-blanco;
-  }
-
-  &__cta-title {
-    font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__cta-text {
-    font-size: $font-size-lg;
-    line-height: 1.8;
-    margin-bottom: $spacing-xl;
-    opacity: 0.95;
-  }
-
-  &__cta-button {
-    display: inline-block;
-    padding: $spacing-md $spacing-2xl;
-    background-color: $color-naranja;
-    color: $color-blanco;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-    text-decoration: none;
-    border-radius: $border-radius-md;
-    transition: all $transition-base;
-    box-shadow: $shadow-md;
-
-    &:hover {
-      background-color: darken($color-naranja, 10%);
-      transform: translateY(-3px);
-      box-shadow: $shadow-lg;
-      color: $color-blanco;
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
   // Responsive
-  @include respond-to(md) {
-    &__banner-title {
-      font-size: $font-size-5xl;
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Pasos Section
+.construccion-pasos {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__card {
+    padding: $spacing-md;
+    margin-bottom: $spacing-md;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+  }
+
+  &__card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-numero {
+    font-family: $font-titulos;
+    font-size: 32px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    opacity: 0.3;
+  }
+
+  &__card-icono {
+    font-size: 24px;
+  }
+
+  &__card-titulo {
+    font-family: $font-titulos;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  &__card-descripcion {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-sm 0;
+  }
+
+  &__card-duracion {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+
+    strong {
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Timeline Section
+.construccion-timeline {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__box {
+    padding: $spacing-xl;
+    border: 2px solid $color-negro;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__tiempo {
+    font-family: $font-titulos;
+    font-size: 32px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__box {
+      padding: $spacing-lg;
+    }
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__tiempo {
+      font-size: 28px;
+    }
+  }
+}
+
+// CTA Section
+.construccion-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
+    text-align: center;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-negro;
+    color: $color-blanco;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-blanco;
+      color: $color-negro;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+  }
+}
+
+// Detalle Paso Page
+.detalle-paso-page {
+  background-color: $color-blanco;
+}
+
+// Detalle Paso Hero
+.detalle-paso-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
+
+// Detalle Paso Content
+.detalle-paso-content {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+    text-align: center;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
+  }
+
+  &__placeholder {
+    padding: $spacing-xl;
+    border: 2px solid $color-negro;
+    text-align: center;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Breadcrumb, Card, Button, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, ProgressBar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './PerfiladorCliente.scss';
 
@@ -51,100 +51,90 @@ const PerfiladorCliente = () => {
 
   return (
     <div className="perfilador-page">
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Perfilador de Cliente</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      <section className="perfilador-page__banner">
-        <div className="perfilador-page__banner-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <h1 className="perfilador-page__banner-title">Perfilador de Cliente</h1>
-                <p className="perfilador-page__banner-subtitle">
-                  Responde 5 preguntas y te ayudaremos a encontrar la solución perfecta
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </section>
-
-      <section className="perfilador-page__quiz">
+      {/* Hero Section */}
+      <section className="perfilador-hero">
         <Container>
           <Row className="justify-content-center">
             <Col lg={8}>
-              <Card className="perfilador-page__card">
+              <h1 className="perfilador-hero__title">Perfilador de Cliente</h1>
+              <p className="perfilador-hero__description">
+                Responde 5 preguntas y te ayudaremos a encontrar la solución perfecta
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Quiz Section */}
+      <section className="perfilador-quiz">
+        <Container>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <Card className="perfilador-quiz__card">
                 <Card.Body>
                   {paso <= preguntas.length ? (
                     <>
-                      <div className="perfilador-page__progreso-container">
-                        <div className="perfilador-page__paso-numero">
+                      <div className="perfilador-quiz__progreso-container">
+                        <div className="perfilador-quiz__progreso-numero">
                           Pregunta {paso} de {preguntas.length}
                         </div>
-                        <ProgressBar now={progreso} className="perfilador-page__progreso" />
+                        <ProgressBar now={progreso} className="perfilador-quiz__progreso-bar" />
                       </div>
 
-                      <h2 className="perfilador-page__pregunta">
+                      <h2 className="perfilador-quiz__pregunta">
                         {preguntas[paso - 1].pregunta}
                       </h2>
 
-                      <div className="perfilador-page__opciones">
+                      <div className="perfilador-quiz__opciones">
                         {preguntas[paso - 1].opciones.map((opcion, index) => (
-                          <Button
+                          <button
                             key={index}
-                            variant="outline-primary"
-                            className="perfilador-page__opcion-btn"
+                            className="perfilador-quiz__opcion"
                             onClick={() => handleRespuesta(opcion)}
                           >
                             {opcion}
-                          </Button>
+                          </button>
                         ))}
                       </div>
 
                       {paso > 1 && (
-                        <Button
-                          variant="link"
-                          className="perfilador-page__back-btn"
+                        <button
+                          className="perfilador-quiz__back-button"
                           onClick={() => setPaso(paso - 1)}
                         >
                           ← Pregunta anterior
-                        </Button>
+                        </button>
                       )}
                     </>
                   ) : (
-                    <div className="perfilador-page__resultado">
-                      <div className="perfilador-page__resultado-icono">✓</div>
-                      <h2 className="perfilador-page__resultado-titulo">¡Perfil Completado!</h2>
-                      <p className="perfilador-page__resultado-texto">
+                    <div className="perfilador-quiz__resultado">
+                      <div className="perfilador-quiz__resultado-icon">✓</div>
+                      <h2 className="perfilador-quiz__resultado-titulo">¡Perfil Completado!</h2>
+                      <p className="perfilador-quiz__resultado-texto">
                         Gracias por completar el perfilador. Basándonos en tus respuestas,
                         te recomendamos contactarnos para una asesoría personalizada.
                       </p>
 
-                      <div className="perfilador-page__resumen">
-                        <h3>Tus respuestas:</h3>
+                      <div className="perfilador-quiz__resumen">
+                        <h3 className="perfilador-quiz__resumen-titulo">Tus respuestas:</h3>
                         {Object.entries(respuestas).map(([key, value]) => (
-                          <div key={key} className="perfilador-page__resumen-item">
-                            <strong>{preguntas[key - 1].pregunta}</strong>
-                            <p>{value}</p>
+                          <div key={key} className="perfilador-quiz__resumen-item">
+                            <strong className="perfilador-quiz__resumen-pregunta">{preguntas[key - 1].pregunta}</strong>
+                            <p className="perfilador-quiz__resumen-respuesta">{value}</p>
                           </div>
                         ))}
                       </div>
 
-                      <div className="perfilador-page__acciones">
-                        <Link to="/contacto" className="perfilador-page__contacto-btn">
+                      <div className="perfilador-quiz__acciones">
+                        <Link to="/contacto" className="perfilador-quiz__accion-button perfilador-quiz__accion-button--primary">
                           Solicitar Asesoría Personalizada
                         </Link>
-                        <Button
-                          variant="outline-secondary"
+                        <button
                           onClick={reiniciar}
-                          className="perfilador-page__reiniciar-btn"
+                          className="perfilador-quiz__accion-button perfilador-quiz__accion-button--secondary"
                         >
                           Reiniciar Perfilador
-                        </Button>
+                        </button>
                       </div>
                     </div>
                   )}
@@ -155,33 +145,34 @@ const PerfiladorCliente = () => {
         </Container>
       </section>
 
-      <section className="perfilador-page__beneficios">
+      {/* Beneficios Section */}
+      <section className="perfilador-beneficios">
         <Container>
           <Row className="justify-content-center mb-4">
             <Col lg={10} className="text-center">
-              <h2 className="perfilador-page__section-title">¿Por Qué Usar el Perfilador?</h2>
+              <h2 className="perfilador-beneficios__titulo">¿Por Qué Usar el Perfilador?</h2>
             </Col>
           </Row>
           <Row>
             <Col md={4} className="text-center mb-4">
-              <div className="perfilador-page__beneficio">
-                <div className="perfilador-page__beneficio-icono">🎯</div>
-                <h3>Solución Precisa</h3>
-                <p>Identifica exactamente qué tipo de contenedor necesitas</p>
+              <div className="perfilador-beneficios__card">
+                <div className="perfilador-beneficios__card-icon">🎯</div>
+                <h3 className="perfilador-beneficios__card-titulo">Solución Precisa</h3>
+                <p className="perfilador-beneficios__card-texto">Identifica exactamente qué tipo de contenedor necesitas</p>
               </div>
             </Col>
             <Col md={4} className="text-center mb-4">
-              <div className="perfilador-page__beneficio">
-                <div className="perfilador-page__beneficio-icono">⚡</div>
-                <h3>Proceso Rápido</h3>
-                <p>Solo 5 preguntas para obtener una recomendación personalizada</p>
+              <div className="perfilador-beneficios__card">
+                <div className="perfilador-beneficios__card-icon">⚡</div>
+                <h3 className="perfilador-beneficios__card-titulo">Proceso Rápido</h3>
+                <p className="perfilador-beneficios__card-texto">Solo 5 preguntas para obtener una recomendación personalizada</p>
               </div>
             </Col>
             <Col md={4} className="text-center mb-4">
-              <div className="perfilador-page__beneficio">
-                <div className="perfilador-page__beneficio-icono">💰</div>
-                <h3>Ahorra Tiempo</h3>
-                <p>Evita cotizaciones innecesarias, directo a lo que necesitas</p>
+              <div className="perfilador-beneficios__card">
+                <div className="perfilador-beneficios__card-icon">💰</div>
+                <h3 className="perfilador-beneficios__card-titulo">Ahorra Tiempo</h3>
+                <p className="perfilador-beneficios__card-texto">Evita cotizaciones innecesarias, directo a lo que necesitas</p>
               </div>
             </Col>
           </Row>

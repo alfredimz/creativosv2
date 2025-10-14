@@ -1,14 +1,8 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Breadcrumb, Card, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Videos.scss';
 
-/**
- * @component Videos
- * @description Galería de videos demostrativos y testimoniales
- * @phase Fase 2 - Sprint 5
- * @status Maquetado completo - Pendiente de contenido por Gemini
- */
 const Videos = () => {
   const [categoriaActiva, setCategoriaActiva] = useState('Todos');
 
@@ -77,40 +71,30 @@ const Videos = () => {
 
   return (
     <div className="videos-page">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Videos</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Banner Hero */}
-      <section className="videos-page__banner">
-        <div className="videos-page__banner-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <h1 className="videos-page__banner-title">Galería de Videos</h1>
-                <p className="videos-page__banner-subtitle">
-                  Descubre nuestros proyectos, procesos y testimoniales en video
-                </p>
-              </Col>
-            </Row>
-          </Container>
-        </div>
+      {/* Hero Section */}
+      <section className="videos-hero">
+        <Container>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <h1 className="videos-hero__title">Galería de Videos</h1>
+              <p className="videos-hero__description">
+                Descubre nuestros proyectos, procesos y testimoniales en video
+              </p>
+            </Col>
+          </Row>
+        </Container>
       </section>
 
-      {/* Filtros */}
-      <section className="videos-page__filtros">
+      {/* Filtros Section */}
+      <section className="videos-filtros">
         <Container>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <div className="videos-page__filtros-container">
+              <div className="videos-filtros__container">
                 {categorias.map((categoria) => (
                   <button
                     key={categoria}
-                    className={`videos-page__filtro-btn ${categoriaActiva === categoria ? 'active' : ''}`}
+                    className={`videos-filtros__button ${categoriaActiva === categoria ? 'videos-filtros__button--active' : ''}`}
                     onClick={() => setCategoriaActiva(categoria)}
                   >
                     {categoria}
@@ -122,25 +106,25 @@ const Videos = () => {
         </Container>
       </section>
 
-      {/* Grid de Videos */}
-      <section className="videos-page__grid">
+      {/* Videos Grid Section */}
+      <section className="videos-grid">
         <Container>
           <Row>
             {videosFiltrados.map((video) => (
               <Col key={video.id} lg={4} md={6} className="mb-4">
-                <Card className="videos-page__card h-100">
-                  <div className="videos-page__card-thumbnail">
-                    <div className="videos-page__card-placeholder">
-                      <div className="videos-page__play-button">▶</div>
-                      <div className="videos-page__duracion">{video.duracion}</div>
+                <Card className="videos-grid__card h-100">
+                  <div className="videos-grid__card-thumbnail">
+                    <div className="videos-grid__card-placeholder">
+                      <div className="videos-grid__play-button">▶</div>
+                      <div className="videos-grid__duracion">{video.duracion}</div>
                     </div>
                   </div>
                   <Card.Body>
-                    <Badge bg="primary" className="mb-2">{video.categoria}</Badge>
-                    <Card.Title className="videos-page__card-titulo">
+                    <span className="videos-grid__card-categoria">{video.categoria}</span>
+                    <Card.Title className="videos-grid__card-titulo">
                       {video.titulo}
                     </Card.Title>
-                    <Card.Text className="videos-page__card-descripcion">
+                    <Card.Text className="videos-grid__card-descripcion">
                       {video.descripcion}
                     </Card.Text>
                   </Card.Body>
@@ -151,17 +135,17 @@ const Videos = () => {
         </Container>
       </section>
 
-      {/* Call to Action */}
-      <section className="videos-page__cta">
+      {/* CTA Section */}
+      <section className="videos-cta">
         <Container>
-          <Row className="justify-content-center text-center">
+          <Row className="justify-content-center">
             <Col lg={8}>
-              <h2 className="videos-page__cta-title">¿Quieres Ver tu Proyecto en Video?</h2>
-              <p className="videos-page__cta-text">
+              <h2 className="videos-cta__title">¿Quieres Ver tu Proyecto en Video?</h2>
+              <p className="videos-cta__text">
                 Contáctanos y descubre cómo podemos transformar tu visión en realidad.
                 Documentamos cada proyecto con videos profesionales.
               </p>
-              <Link to="/contacto" className="videos-page__cta-button">
+              <Link to="/contacto" className="videos-cta__button">
                 Iniciar Proyecto
               </Link>
             </Col>

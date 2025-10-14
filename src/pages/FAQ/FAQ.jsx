@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Accordion, Card, Button, Form, Breadcrumb } from 'react-bootstrap';
+import { Container, Row, Col, Accordion, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './FAQ.scss';
 
@@ -136,22 +136,14 @@ const FAQ = () => {
   })).filter(cat => cat.preguntas.length > 0);
 
   return (
-    <div className="faq">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Preguntas Frecuentes</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Hero */}
-      <section className="faq__hero">
+    <div className="faq-page">
+      {/* Hero Section */}
+      <section className="faq-hero">
         <Container>
-          <Row className="justify-content-center text-center">
+          <Row className="justify-content-center">
             <Col lg={8}>
-              <h1 className="faq__titulo">Preguntas Frecuentes</h1>
-              <p className="faq__subtitulo">
+              <h1 className="faq-hero__title">Preguntas Frecuentes</h1>
+              <p className="faq-hero__description">
                 Encuentra respuestas a las dudas más comunes sobre nuestros contenedores y servicios
               </p>
             </Col>
@@ -159,8 +151,8 @@ const FAQ = () => {
         </Container>
       </section>
 
-      {/* Buscador */}
-      <section className="faq__search py-4 bg-light">
+      {/* Search Section */}
+      <section className="faq-search">
         <Container>
           <Row className="justify-content-center">
             <Col lg={8}>
@@ -170,7 +162,7 @@ const FAQ = () => {
                   placeholder="Busca tu pregunta aquí... (ej: precio, entrega, permisos)"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="faq-search-input"
+                  className="faq-search__input"
                 />
               </Form.Group>
             </Col>
@@ -179,31 +171,31 @@ const FAQ = () => {
       </section>
 
       {/* FAQ Content */}
-      <section className="faq__contenido py-5">
+      <section className="faq-content">
         <Container>
           <Row className="justify-content-center">
             <Col lg={10}>
               {filteredFAQs.length === 0 ? (
-                <div className="text-center py-5">
-                  <h4>No se encontraron resultados</h4>
-                  <p>Intenta con otras palabras clave o <Link to="/contacto">contáctanos directamente</Link></p>
+                <div className="faq-content__no-results">
+                  <h4 className="faq-content__no-results-title">No se encontraron resultados</h4>
+                  <p className="faq-content__no-results-text">Intenta con otras palabras clave o <Link to="/contacto">contáctanos directamente</Link></p>
                 </div>
               ) : (
                 filteredFAQs.map((categoria, catIndex) => (
-                  <div key={catIndex} className="faq-categoria mb-5">
-                    <h2 className="faq-categoria__titulo mb-4">{categoria.categoria}</h2>
+                  <div key={catIndex} className="faq-content__categoria">
+                    <h2 className="faq-content__categoria-title">{categoria.categoria}</h2>
                     <Accordion defaultActiveKey="0">
                       {categoria.preguntas.map((faq, faqIndex) => (
                         <Accordion.Item
                           eventKey={`${catIndex}-${faqIndex}`}
                           key={faqIndex}
-                          className="faq-item mb-3"
+                          className="faq-content__item"
                         >
-                          <Accordion.Header className="faq-item__header">
-                            <span className="faq-item__numero">{faqIndex + 1}</span>
+                          <Accordion.Header className="faq-content__item-header">
+                            <span className="faq-content__item-numero">{faqIndex + 1}</span>
                             {faq.pregunta}
                           </Accordion.Header>
-                          <Accordion.Body className="faq-item__body">
+                          <Accordion.Body className="faq-content__item-body">
                             {faq.respuesta}
                           </Accordion.Body>
                         </Accordion.Item>
@@ -217,21 +209,25 @@ const FAQ = () => {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section className="faq__cta py-5 bg-primary text-white text-center">
+      {/* CTA Section */}
+      <section className="faq-cta">
         <Container>
-          <h2 className="mb-4">¿No encontraste lo que buscabas?</h2>
-          <p className="lead mb-4">
-            Nuestro equipo está listo para responder todas tus dudas
-          </p>
-          <div className="d-flex gap-3 justify-content-center flex-wrap">
-            <Button variant="light" size="lg" as={Link} to="/contacto">
-              Contactar por Formulario
-            </Button>
-            <Button variant="outline-light" size="lg" href="https://wa.me/5554269941" target="_blank">
-              WhatsApp: 55-54-26-99-41
-            </Button>
-          </div>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <h2 className="faq-cta__title">¿No encontraste lo que buscabas?</h2>
+              <p className="faq-cta__text">
+                Nuestro equipo está listo para responder todas tus dudas
+              </p>
+              <div className="faq-cta__buttons">
+                <Link to="/contacto" className="faq-cta__button faq-cta__button--primary">
+                  Contactar por Formulario
+                </Link>
+                <a href="https://wa.me/5554269941" target="_blank" rel="noopener noreferrer" className="faq-cta__button faq-cta__button--secondary">
+                  WhatsApp: 55-54-26-99-41
+                </a>
+              </div>
+            </Col>
+          </Row>
         </Container>
       </section>
     </div>

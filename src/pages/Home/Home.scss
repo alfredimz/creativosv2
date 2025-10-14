@@ -1,292 +1,379 @@
-@import '~bootstrap/scss/bootstrap';
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
-
-// Variables
-$primary-color: #ff6b00;
-$secondary-color: #1f4c2c;
-$dark-color: #000;
-$light-color: #fff;
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .home-page {
-  font-family: 'Montserrat', sans-serif;
-  color: $dark-color;
+  background-color: $color-blanco;
+  overflow-x: hidden;
+}
 
-  // Hero Section
-  .hero-section {
+// Hero Section
+.hero-section {
+  position: relative;
+  min-height: 508px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: $spacing-xl 0;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+  }
+
+  &__container {
     position: relative;
-    
-    .hero-swiper {
-      height: 80vh;
-      
-      .hero-slide {
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: flex;
-        align-items: center;
-        position: relative;
-        
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.4);
-        }
-        
-        .hero-content {
-          position: relative;
-          z-index: 2;
-          padding: 0 5rem;
-          max-width: 700px;
-          
-          h1 {
-            color: $light-color;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-          }
-          
-          p {
-            color: $light-color;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-          }
-          
-          .hero-btn {
-            background-color: $primary-color;
-            border-color: $primary-color;
-            font-weight: 600;
-            padding: 0.5rem 2rem;
-            
-            &:hover {
-              background-color: darken($primary-color, 10%);
-              border-color: darken($primary-color, 10%);
-            }
-          }
-        }
-      }
+    z-index: 2;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    min-height: 600px;
+    padding: $spacing-lg 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    min-height: auto;
+    padding: $spacing-md 0;
+  }
+}
+
+// Hero Content (Left Side)
+.hero-content {
+  color: $color-blanco;
+  padding-right: $spacing-lg;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 48px;
+    font-weight: $font-weight-light;
+    line-height: 1.2;
+    margin-bottom: $spacing-md;
+    color: $color-blanco;
+  }
+
+  &__subtitle {
+    font-family: $font-parrafos;
+    font-size: 18px;
+    font-weight: $font-weight-normal;
+    line-height: 1.6;
+    color: $color-blanco;
+    margin-bottom: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding-right: 0;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+
+    &__title {
+      font-size: 36px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
     }
   }
 
-  // Services Section
-  .services-section {
-    padding: 4rem 0;
-    background-color: $dark-color;
-    
-    .service-card {
-      height: 100%;
-      min-height: 400px;
-      border-radius: 10px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-      color: $light-color;
-      
-      &.renta {
-        background-color: #214d39;
+  @media (max-width: $breakpoint-sm) {
+    &__title {
+      font-size: 28px;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+    }
+  }
+}
+
+// Contact Panel (Right Side)
+.contact-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: $spacing-lg;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 32px;
+    font-weight: $font-weight-medium;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+    text-align: center;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-sm;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid rgba(59, 111, 127, 0.1);
+
+    &:last-of-type {
+      border-bottom: none;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__label {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+    color: $color-gris-claro;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  &__value {
+    font-family: $font-parrafos;
+    font-size: 16px;
+    font-weight: $font-weight-normal;
+    color: $color-calipso;
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+      color: $color-naranja;
+    }
+  }
+
+  &__office {
+    background: rgba(59, 111, 127, 0.05);
+    border-radius: 12px;
+    padding: $spacing-sm;
+    margin-top: $spacing-sm;
+
+    h4 {
+      font-family: $font-titulos;
+      font-size: 18px;
+      font-weight: $font-weight-medium;
+      color: $color-calipso;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-family: $font-parrafos;
+      font-size: 14px;
+      color: $color-gris-oscuro;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    margin-top: $spacing-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__value {
+      font-size: 14px;
+    }
+
+    &__office {
+      h4 {
+        font-size: 16px;
       }
-      
-      &.venta {
-        background-color: #40a8d3;
-      }
-      
-      &.construccion {
-        background-color: #f9d43c;
-        color: $dark-color;
-        
-        .round-btn {
-          color: $dark-color;
-          border-color: $dark-color;
-          
-          &:hover {
-            background-color: $dark-color;
-            color: $light-color;
-          }
-        }
-      }
-      
-      h2 {
-        text-transform: uppercase;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-      
-      .service-image {
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        
-        img {
-          max-width: 100%;
-          border-radius: 8px;
-        }
-      }
-      
+
       p {
-        margin: 1.5rem 0;
-      }
-      
-      .round-btn {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        font-size: 1.5rem;
-        line-height: 1;
-        align-self: flex-end;
-        
-        &:hover {
-          background-color: $light-color;
-          color: $dark-color;
-        }
-      }
-    }
-  }
-
-  // Additional Services
-  .additional-services {
-    .service-feature {
-      height: 350px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-      }
-      
-      .service-feature-content {
-        position: relative;
-        z-index: 1;
-        color: $light-color;
-        padding: 2rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        
-        h3 {
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
-      }
-    }
-  }
-
-  // Acabados Section
-  .acabados-section {
-    .acabado-item {
-      height: 350px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-      }
-      
-      .acabado-content {
-        position: relative;
-        z-index: 1;
-        color: $light-color;
-        padding: 2rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        
-        h3 {
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
-      }
-    }
-  }
-
-  // Experience Section
-  .experience-section {
-    padding: 4rem 0;
-    background-color: $dark-color;
-    
-    .experience-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      
-      .experience-btn {
-        padding: 1rem;
-        font-weight: 600;
-        
-        &.btn-warning {
-          background-color: $primary-color;
-          border-color: $primary-color;
-          color: $light-color;
-          
-          &:hover {
-            background-color: darken($primary-color, 10%);
-            border-color: darken($primary-color, 10%);
-          }
-        }
+        font-size: 12px;
       }
     }
   }
 }
 
-// Responsive styles
-@media (max-width: 767px) {
-  .home-page {
-    .hero-section {
-      .hero-swiper {
-        height: 60vh;
-        
-        .hero-slide {
-          .hero-content {
-            padding: 0 2rem;
-            
-            h1 {
-              font-size: 1.8rem;
-            }
-          }
-        }
-      }
+// Services Section (3 Cards)
+.services-section {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  // Responsive
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-lg;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    gap: $spacing-md;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    gap: $spacing-md;
+  }
+}
+
+// Additional Services Section (Transporte & Maniobras)
+.additional-services-section {
+  background-color: $color-blanco;
+
+  .row {
+    margin: 0;
+  }
+
+  .col-md-6 {
+    padding: 0;
+  }
+}
+
+// Diseño Arquitectónico Section
+.diseno-section {
+  background-color: $color-blanco;
+
+  .container-fluid {
+    padding: 0;
+  }
+}
+
+// Acabados Sections
+.acabados-section {
+  background-color: $color-blanco;
+
+  .row {
+    margin: 0;
+  }
+
+  .col-md-4 {
+    padding: 0;
+  }
+
+  // Add small gap between sections
+  & + .acabados-section {
+    margin-top: 0;
+  }
+}
+
+// Experience Buttons Section
+.experience-section {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  // Responsive
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+  }
+}
+
+.experience-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.experience-btn {
+  font-family: $font-parrafos;
+  font-size: 16px;
+  font-weight: $font-weight-medium;
+  padding: 16px 32px;
+  border-radius: 50px;
+  border: 2px solid transparent;
+  min-width: 280px;
+  white-space: nowrap;
+  @include transition(all);
+
+  &--primary {
+    background-color: $color-naranja;
+    border-color: $color-naranja;
+    color: $color-blanco;
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      border-color: darken($color-naranja, 10%);
+      color: $color-blanco;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(241, 103, 0, 0.3);
     }
-    
-    .services-section {
-      .service-card {
-        min-height: 350px;
-      }
+
+    &:active {
+      transform: translateY(0);
     }
-    
-    .additional-services, .acabados-section {
-      .service-feature, .acabado-item {
-        height: 300px;
-      }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    border-color: $color-calipso;
+    color: $color-calipso;
+
+    &:hover {
+      background-color: $color-calipso;
+      border-color: $color-calipso;
+      color: $color-blanco;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 111, 127, 0.2);
     }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &--tertiary {
+    background-color: transparent;
+    border-color: $color-gris-claro;
+    color: $color-gris-oscuro;
+
+    &:hover {
+      background-color: $color-gris-claro;
+      border-color: $color-gris-claro;
+      color: $color-blanco;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(130, 130, 130, 0.2);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    min-width: 100%;
+    font-size: 15px;
+    padding: 14px 24px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+}
+
+// Override Bootstrap button styles
+.btn.experience-btn {
+  &:focus,
+  &:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgba(59, 111, 127, 0.25);
   }
 }

@@ -1,131 +1,143 @@
-@import '~bootstrap/scss/bootstrap';
-
-// Variables
-$primary-color: #ff6b00;
-$secondary-color: #1f4c2c;
-$dark-color: #000;
-$light-color: #fff;
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .quienes-somos-page {
-  // Estilos generales
-  font-family: 'Montserrat', sans-serif;
-  color: $dark-color;
+  background-color: $color-blanco;
+}
 
-  // Banner Section
-  .banner-section {
-    height: 500px;
-    background-image: url('/images/mision-vision/mision-vision-contenedores-maritimos.png');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    
-    .banner-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      
-      h1 {
-        color: $light-color;
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-      
-      .banner-text {
-        color: $light-color;
-        font-size: 1.2rem;
-        max-width: 800px;
-        margin: 0 auto;
-      }
+// Hero Section
+.quienes-hero {
+  padding: $spacing-2xl 0 $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    max-width: 525px;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0 $spacing-lg 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  // Valores Section
-  .valores-section {
-    padding: 5rem 0;
-    background-color: $light-color;
-    
-    .valor-card {
-      padding: 0 1.5rem;
-      margin-bottom: 2rem;
-      
-      .valor-content {
-        background-color: #f8f9fa;
-        padding: 2rem;
-        border-radius: 10px;
-        height: 100%;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        
-        &:hover {
-          transform: translateY(-10px);
-        }
-        
-        h3 {
-          color: $primary-color;
-          font-weight: 700;
-          margin-bottom: 1rem;
-        }
-        
-        p {
-          color: $dark-color;
-          line-height: 1.6;
-        }
-      }
-    }
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  // Gallery Section
-  .gallery-section {
-    .gallery-item {
-      height: 300px;
-      overflow: hidden;
-      position: relative;
-      
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-      
-      &:hover {
-        img {
-          transform: scale(1.1);
-        }
-      }
+    &__title {
+      font-size: 28px;
     }
   }
 }
 
-// Responsive styles
-@media (max-width: 767px) {
-  .quienes-somos-page {
-    .banner-section {
-      height: 400px;
-      
-      .banner-overlay {
-        h1 {
-          font-size: 2.2rem;
-        }
-        
-        .banner-text {
-          font-size: 1rem;
-        }
-      }
+// Gallery Section
+.quienes-gallery {
+  padding: $spacing-lg 0;
+  background-color: $color-blanco;
+
+  &__item {
+    width: 100%;
+    height: 275px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    &__item {
+      height: 220px;
     }
-    
-    .gallery-section {
-      .gallery-item {
-        height: 200px;
-      }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__item {
+      height: 180px;
+      border-radius: 20px;
+    }
+  }
+}
+
+// Values Section
+.quienes-values {
+  padding: $spacing-lg 0 $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &__card {
+    padding: 0 $spacing-sm;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 25px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.6;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    padding: $spacing-md 0 $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &__title {
+      font-size: 22px;
+      margin-bottom: $spacing-sm;
+    }
+
+    &__text {
+      font-size: 11px;
+    }
+
+    &__card {
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__title {
+      font-size: 20px;
+    }
+
+    &__text {
+      font-size: 10px;
     }
   }
 }

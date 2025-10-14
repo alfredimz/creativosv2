@@ -2,132 +2,168 @@
 @import '../../styles/mixins';
 
 .cotizador-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  .banner-section {
-    min-height: 400px;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+// Hero Section
+.cotizador-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
 
-    .banner-overlay {
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
+
+// Form Section
+.cotizador-form {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__section-title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__label {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__input {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    padding: $spacing-sm;
+    border: 1px solid $color-negro;
+    background-color: $color-blanco;
+
+    &:focus {
+      border-color: $color-negro;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid $color-negro;
+    margin: $spacing-xl 0;
+    opacity: 1;
+  }
+
+  &__submit-button {
+    padding: $spacing-md $spacing-2xl;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    color: $color-blanco;
+    background-color: $color-negro;
+    border: 1px solid $color-negro;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-blanco;
+      color: $color-negro;
+    }
+  }
+
+  // Form controls styling
+  .form-control,
+  .form-select {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    color: $color-negro;
+    border: 1px solid $color-negro;
+    background-color: $color-blanco;
+    padding: $spacing-sm;
+
+    &:focus {
+      border-color: $color-negro;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  .form-check-label {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    color: $color-negro;
+  }
+
+  .form-check-input {
+    border: 1px solid $color-negro;
+
+    &:checked {
+      background-color: $color-negro;
+      border-color: $color-negro;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: $color-negro;
+    }
+  }
+
+  .form-switch .form-check-input {
+    &:checked {
+      background-color: $color-negro;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__section-title {
+      font-size: 18px;
+    }
+
+    &__submit-button {
       width: 100%;
-      padding: $spacing-4xl 0;
-      text-align: center;
-      color: $color-blanco;
-
-      h1 {
-        font-family: $font-titulos;
-        font-size: $font-size-4xl;
-        font-weight: $font-weight-bold;
-        margin-bottom: $spacing-lg;
-
-        @include respond-to(md) {
-          font-size: $font-size-5xl;
-        }
-      }
-
-      .banner-text {
-        font-size: $font-size-lg;
-        max-width: 800px;
-        margin: 0 auto;
-        opacity: 0.95;
-      }
-    }
-  }
-
-  .form-section {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
-
-    .card {
-      border: none;
-      border-radius: $border-radius-lg;
-      box-shadow: $shadow-md;
-    }
-
-    h3 {
-      font-family: $font-titulos;
-      color: $color-calipso;
-      font-weight: $font-weight-bold;
-      font-size: $font-size-2xl;
-      border-left: 4px solid $color-naranja;
-      padding-left: $spacing-lg;
-      margin-bottom: $spacing-xl;
-    }
-
-    .form-label {
-      font-weight: $font-weight-semibold;
-      color: $color-gris-oscuro;
-      margin-bottom: $spacing-sm;
-    }
-
-    .form-control {
-      border-radius: $border-radius-md;
-      border: 1px solid $color-gris-medio;
-      padding: $spacing-sm $spacing-md;
-
-      &:focus {
-        border-color: $color-calipso;
-        box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
-      }
-    }
-
-    .form-select {
-      border-radius: $border-radius-md;
-      border: 1px solid $color-gris-medio;
-      padding: $spacing-sm $spacing-md;
-
-      &:focus {
-        border-color: $color-calipso;
-        box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
-      }
-    }
-
-    .form-check-label {
-      font-weight: $font-weight-medium;
-      color: $color-gris-oscuro;
-    }
-
-    .form-check-input:checked {
-      background-color: $color-naranja;
-      border-color: $color-naranja;
-    }
-
-    .form-switch .form-check-input:checked {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
-    }
-
-    .btn-primary {
-      background-color: $color-naranja;
-      border-color: $color-naranja;
-      padding: $spacing-md $spacing-2xl;
-      font-weight: $font-weight-bold;
-      border-radius: $border-radius-md;
-      transition: all $transition-base;
-
-      &:hover {
-        background-color: darken($color-naranja, 10%);
-        border-color: darken($color-naranja, 10%);
-        transform: translateY(-2px);
-        box-shadow: $shadow-md;
-      }
-    }
-  }
-
-  @media (max-width: 767px) {
-    .banner-section {
-      min-height: 350px;
-
-      .banner-overlay h1 {
-        font-size: $font-size-3xl;
-      }
-    }
-
-    .form-section {
-      padding: $spacing-3xl 0;
     }
   }
 }

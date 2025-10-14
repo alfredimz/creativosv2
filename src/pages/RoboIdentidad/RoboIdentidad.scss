@@ -2,136 +2,208 @@
 @import '../../styles/mixins';
 
 .robo-identidad-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  &__banner {
-    min-height: 300px;
-    background: linear-gradient(135deg, darken($color-terracota, 5%) 0%, darken($color-terracota, 15%) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: $spacing-4xl 0;
+// Hero Section
+.robo-identidad-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__banner-title {
-    font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $color-blanco;
-    margin-bottom: $spacing-md;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
 
-    @include respond-to(md) {
-      font-size: $font-size-4xl;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__banner-subtitle {
-    font-size: $font-size-lg;
-    color: $color-blanco;
-    opacity: 0.95;
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  &__intro {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
-  }
-
-  &__intro-content {
-    p {
-      line-height: 1.8;
-      color: $color-gris-oscuro;
-      margin-bottom: $spacing-lg;
+    &__title {
+      font-size: 28px;
     }
   }
+}
 
-  &__section-title {
+// Intro Section
+.robo-identidad-intro {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__titulo {
     font-family: $font-titulos;
-    font-size: $font-size-2xl;
-    font-weight: $font-weight-bold;
-    color: $color-terracota;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.6;
     margin-bottom: $spacing-lg;
-
-    @include respond-to(md) {
-      font-size: $font-size-3xl;
-    }
   }
 
   &__alert {
-    padding: $spacing-xl;
-    background-color: lighten($color-terracota, 40%);
-    border-left: 5px solid $color-terracota;
-    border-radius: $border-radius-md;
-    margin: $spacing-xl 0;
+    padding: $spacing-lg;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    margin: $spacing-lg 0;
 
     p {
+      font-family: $font-parrafos;
+      font-size: 12px;
+      font-weight: $font-weight-normal;
+      color: $color-negro;
+      line-height: 1.6;
       margin: 0;
-      color: $color-terracota;
-      font-weight: $font-weight-semibold;
     }
   }
 
-  &__medidas {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
+    }
+
+    &__alert {
+      padding: $spacing-md;
+    }
+  }
+}
+
+// Medidas Section
+.robo-identidad-medidas {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-xl 0;
   }
 
   &__card {
-    border: none;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
-    transition: all $transition-base;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-lg;
-    }
+    border: 1px solid $color-negro;
+    background-color: $color-blanco;
+    transition: border-color 0.3s ease;
   }
 
   &__card-icono {
-    font-size: 3rem;
+    font-size: 48px;
     text-align: center;
     margin-bottom: $spacing-lg;
   }
 
   &__card-titulo {
     font-family: $font-titulos;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
-    color: $color-terracota;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
     text-align: center;
     margin-bottom: $spacing-md;
   }
 
   &__card-descripcion {
-    color: $color-gris-oscuro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
     text-align: center;
     line-height: 1.6;
     margin: 0;
   }
 
-  &__senales,
-  &__acciones,
-  &__seguridad {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
+    }
+
+    &__card-icono {
+      font-size: 40px;
+    }
+
+    &__card-titulo {
+      font-size: 14px;
+    }
+  }
+}
+
+// Senales Section
+.robo-identidad-senales {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__acciones {
-    background-color: $color-gris-claro;
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
   }
 
-  &__list {
+  &__lista {
     list-style: none;
     padding: 0;
-    margin: $spacing-xl 0;
+    margin: 0;
 
     li {
-      padding: $spacing-md $spacing-md $spacing-md $spacing-2xl;
+      font-family: $font-parrafos;
+      font-size: 12px;
+      font-weight: $font-weight-normal;
+      color: $color-negro;
+      padding: $spacing-md;
       margin-bottom: $spacing-md;
-      background-color: $color-gris-claro;
-      border-radius: $border-radius-md;
-      border-left: 4px solid $color-terracota;
+      background-color: $color-blanco;
+      border: 1px solid $color-negro;
       position: relative;
+      padding-left: $spacing-2xl;
 
       &::before {
         content: '⚠️';
@@ -141,61 +213,122 @@
     }
   }
 
-  &__numbered-list {
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
+    }
+
+    &__lista li {
+      padding: $spacing-sm $spacing-sm $spacing-sm $spacing-xl;
+    }
+  }
+}
+
+// Acciones Section
+.robo-identidad-acciones {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__lista {
     list-style: none;
     counter-reset: item;
     padding: 0;
-    margin: $spacing-xl 0;
+    margin: $spacing-lg 0 0 0;
 
     li {
       counter-increment: item;
-      padding: $spacing-lg;
+      font-family: $font-parrafos;
+      font-size: 12px;
+      font-weight: $font-weight-normal;
+      color: $color-negro;
+      padding: $spacing-md;
       margin-bottom: $spacing-md;
       background-color: $color-blanco;
-      border-radius: $border-radius-md;
-      box-shadow: $shadow-sm;
+      border: 1px solid $color-negro;
       position: relative;
-      padding-left: 4rem;
+      padding-left: 3rem;
 
       &::before {
         content: counter(item);
         position: absolute;
-        left: $spacing-lg;
-        top: $spacing-lg;
-        width: 2.5rem;
-        height: 2.5rem;
-        background-color: $color-terracota;
+        left: $spacing-md;
+        top: $spacing-md;
+        width: 2rem;
+        height: 2rem;
+        background-color: $color-negro;
         color: $color-blanco;
-        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: $font-weight-bold;
-        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        font-size: 14px;
       }
 
       strong {
-        color: $color-terracota;
+        font-weight: $font-weight-semibold;
+        color: $color-negro;
         display: block;
-        margin-bottom: $spacing-sm;
+        margin-bottom: $spacing-xs;
       }
     }
   }
 
-  &__acciones-box {
-    padding: $spacing-2xl;
-    background-color: $color-blanco;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-md;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
+    }
+
+    &__lista li {
+      padding: $spacing-sm $spacing-sm $spacing-sm 2.5rem;
+
+      &::before {
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+// Seguridad Section
+.robo-identidad-seguridad {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__info-box {
-    padding: $spacing-xl;
-    background-color: lighten($color-calipso, 40%);
-    border-left: 4px solid $color-calipso;
-    border-radius: $border-radius-md;
+  &__info {
+    padding: $spacing-lg;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
 
     p {
+      font-family: $font-parrafos;
+      font-size: 12px;
+      font-weight: $font-weight-normal;
+      color: $color-negro;
+      line-height: 1.6;
       margin-bottom: $spacing-md;
 
       &:last-child {
@@ -208,111 +341,175 @@
       padding-left: $spacing-xl;
 
       li {
-        margin-bottom: $spacing-sm;
-        color: $color-gris-oscuro;
+        font-family: $font-parrafos;
+        font-size: 12px;
+        font-weight: $font-weight-normal;
+        color: $color-negro;
+        margin-bottom: $spacing-xs;
       }
     }
   }
 
-  &__contacto {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
-  }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-  &__contacto-box {
-    padding: $spacing-2xl;
-    background-color: $color-blanco;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-md;
+    &__titulo {
+      font-size: 18px;
+    }
+
+    &__info {
+      padding: $spacing-md;
+    }
+  }
+}
+
+// Contacto Section
+.robo-identidad-contacto {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
+
+  &__titulo {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
     text-align: center;
-
-    h3 {
-      font-family: $font-titulos;
-      font-size: $font-size-2xl;
-      font-weight: $font-weight-bold;
-      color: $color-terracota;
-      margin-bottom: $spacing-lg;
-    }
-
-    p {
-      line-height: 1.8;
-      color: $color-gris-oscuro;
-    }
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__contacto-info {
-    padding: $spacing-xl;
-    background-color: $color-gris-claro;
-    border-radius: $border-radius-md;
-    margin: $spacing-xl 0;
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__info {
+    padding: $spacing-lg;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    text-align: center;
+    margin: $spacing-lg 0;
 
     p {
+      font-family: $font-parrafos;
+      font-size: 12px;
+      font-weight: $font-weight-normal;
+      color: $color-negro;
+      line-height: 1.6;
       margin-bottom: $spacing-md;
 
       &:last-child {
         margin-bottom: 0;
       }
     }
+
+    a {
+      color: $color-negro;
+      text-decoration: underline;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    strong {
+      font-weight: $font-weight-semibold;
+    }
   }
 
-  &__contacto-horario {
+  &__horario {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    text-align: center;
     font-style: italic;
-    color: $color-gris-medio;
     margin-top: $spacing-lg;
   }
 
-  &__cta {
-    padding: $spacing-4xl 0;
-    background: linear-gradient(135deg, darken($color-terracota, 5%) 0%, darken($color-terracota, 15%) 100%);
-    color: $color-blanco;
-  }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-  &__cta-title {
+    &__titulo {
+      font-size: 18px;
+    }
+
+    &__info {
+      padding: $spacing-md;
+    }
+  }
+}
+
+// CTA Section
+.robo-identidad-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  text-align: center;
+
+  &__titulo {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__cta-text {
-    font-size: $font-size-lg;
-    line-height: 1.8;
-    margin-bottom: $spacing-xl;
-    opacity: 0.95;
-  }
-
-  &__cta-button {
-    display: inline-block;
-    padding: $spacing-md $spacing-2xl;
-    background-color: $color-naranja;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
     color: $color-blanco;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.6;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-blanco;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
     text-decoration: none;
-    border-radius: $border-radius-md;
-    transition: all $transition-base;
-    box-shadow: $shadow-md;
+    border: 1px solid $color-blanco;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: darken($color-naranja, 10%);
-      transform: translateY(-3px);
-      box-shadow: $shadow-lg;
+      background-color: transparent;
       color: $color-blanco;
     }
   }
 
-  a {
-    color: $color-terracota;
-    text-decoration: none;
-    font-weight: $font-weight-semibold;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-    &:hover {
-      color: $color-naranja;
-      text-decoration: underline;
+    &__titulo {
+      font-size: 18px;
     }
   }
+}
 
-  strong {
-    color: $color-terracota;
+// Global styles for links and strong
+a {
+  color: $color-negro;
+  text-decoration: none;
+  font-weight: $font-weight-semibold;
+
+  &:hover {
+    text-decoration: underline;
   }
+}
+
+strong {
+  font-weight: $font-weight-semibold;
+  color: $color-negro;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button, Breadcrumb } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Beneficios.scss';
 
@@ -116,22 +116,14 @@ const Beneficios = () => {
   ];
 
   return (
-    <div className="beneficios">
-      {/* Breadcrumb */}
-      <Container className="py-3">
-        <Breadcrumb>
-          <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>
-          <Breadcrumb.Item active>Beneficios</Breadcrumb.Item>
-        </Breadcrumb>
-      </Container>
-
-      {/* Hero */}
-      <section className="beneficios__hero">
+    <div className="beneficios-page">
+      {/* Hero Section */}
+      <section className="beneficios-hero">
         <Container>
-          <Row className="justify-content-center text-center">
+          <Row className="justify-content-center">
             <Col lg={8}>
-              <h1 className="beneficios__titulo">¿Por Qué Elegir Contenedores?</h1>
-              <p className="beneficios__subtitulo">
+              <h1 className="beneficios-hero__title">¿Por Qué Elegir Contenedores?</h1>
+              <p className="beneficios-hero__description">
                 Descubre las ventajas que hacen de los contenedores la solución ideal para tu proyecto
               </p>
             </Col>
@@ -140,21 +132,21 @@ const Beneficios = () => {
       </section>
 
       {/* Beneficios Principales */}
-      <section className="beneficios__principales py-5">
+      <section className="beneficios-content">
         <Container>
           <Row>
             {beneficiosPrincipales.map((beneficio, index) => (
               <Col md={6} lg={4} key={index} className="mb-4">
-                <Card className="beneficio-card h-100 border-0 shadow-sm">
-                  <Card.Body className="text-center p-4">
-                    <div className="beneficio-card__icono mb-3">{beneficio.icono}</div>
-                    <Card.Title className="beneficio-card__titulo mb-3">{beneficio.titulo}</Card.Title>
-                    <Card.Text className="beneficio-card__descripcion mb-4">
+                <Card className="beneficios-content__card h-100">
+                  <Card.Body className="text-center">
+                    <div className="beneficios-content__card-icono">{beneficio.icono}</div>
+                    <Card.Title className="beneficios-content__card-titulo">{beneficio.titulo}</Card.Title>
+                    <Card.Text className="beneficios-content__card-descripcion">
                       {beneficio.descripcion}
                     </Card.Text>
-                    <ul className="beneficio-card__detalles text-start">
+                    <ul className="beneficios-content__card-detalles">
                       {beneficio.detalles.map((detalle, idx) => (
-                        <li key={idx}>{detalle}</li>
+                        <li key={idx} className="beneficios-content__card-detalle">{detalle}</li>
                       ))}
                     </ul>
                   </Card.Body>
@@ -166,21 +158,21 @@ const Beneficios = () => {
       </section>
 
       {/* Comparativa */}
-      <section className="beneficios__comparativa py-5 bg-light">
+      <section className="beneficios-comparativa">
         <Container>
-          <h2 className="text-center mb-5">Contenedores vs Construcción Tradicional</h2>
+          <h2 className="beneficios-comparativa__title">Contenedores vs Construcción Tradicional</h2>
           <Row className="justify-content-center">
             <Col lg={10}>
-              <div className="comparativa-table">
-                <Row className="comparativa-header">
+              <div className="beneficios-comparativa__table">
+                <Row className="beneficios-comparativa__header">
                   <Col md={4}><strong>Aspecto</strong></Col>
-                  <Col md={4} className="text-center bg-primary text-white"><strong>Contenedores</strong></Col>
+                  <Col md={4} className="text-center beneficios-comparativa__header-highlight"><strong>Contenedores</strong></Col>
                   <Col md={4} className="text-center"><strong>Construcción Tradicional</strong></Col>
                 </Row>
                 {comparativa.contenedores.map((item, index) => (
-                  <Row key={index} className="comparativa-row">
+                  <Row key={index} className="beneficios-comparativa__row">
                     <Col md={4}><strong>{item.aspecto}</strong></Col>
-                    <Col md={4} className="text-center bg-light-primary">{item.valor}</Col>
+                    <Col md={4} className="text-center beneficios-comparativa__value-highlight">{item.valor}</Col>
                     <Col md={4} className="text-center">{comparativa.tradicional[index].valor}</Col>
                   </Row>
                 ))}
@@ -191,22 +183,22 @@ const Beneficios = () => {
       </section>
 
       {/* Casos de Uso */}
-      <section className="beneficios__casos-uso py-5">
+      <section className="beneficios-casos">
         <Container>
-          <h2 className="text-center mb-5">Aplicaciones Reales</h2>
+          <h2 className="beneficios-casos__title">Aplicaciones Reales</h2>
           <Row>
             {casosUso.map((caso, index) => (
               <Col md={6} lg={3} key={index} className="mb-4">
-                <Card className="caso-card h-100 border-0 shadow-sm overflow-hidden">
-                  <div className="caso-card__imagen" style={{
+                <Card className="beneficios-casos__card h-100">
+                  <div className="beneficios-casos__card-imagen" style={{
                     backgroundImage: `url(/images/${caso.imagen})`,
                     height: '200px',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
                   }}></div>
                   <Card.Body>
-                    <Card.Title className="h5">{caso.titulo}</Card.Title>
-                    <Card.Text>{caso.descripcion}</Card.Text>
+                    <Card.Title className="beneficios-casos__card-titulo">{caso.titulo}</Card.Title>
+                    <Card.Text className="beneficios-casos__card-descripcion">{caso.descripcion}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
@@ -216,48 +208,48 @@ const Beneficios = () => {
       </section>
 
       {/* Testimonios */}
-      <section className="beneficios__testimonios py-5 bg-dark text-white">
+      <section className="beneficios-testimonios">
         <Container>
-          <h2 className="text-center mb-5">Lo Que Dicen Nuestros Clientes</h2>
+          <h2 className="beneficios-testimonios__title">Lo Que Dicen Nuestros Clientes</h2>
           <Row>
             <Col md={4} className="mb-4">
-              <Card className="testimonio-card bg-white bg-opacity-10 border-0 text-white h-100">
-                <Card.Body className="p-4">
-                  <div className="testimonio-stars mb-3">⭐⭐⭐⭐⭐</div>
-                  <Card.Text className="mb-4">
+              <Card className="beneficios-testimonios__card h-100">
+                <Card.Body>
+                  <div className="beneficios-testimonios__stars">⭐⭐⭐⭐⭐</div>
+                  <Card.Text className="beneficios-testimonios__text">
                     "Excelente servicio. Mi oficina estuvo lista en 6 semanas y el ahorro fue significativo. Totalmente recomendados."
                   </Card.Text>
-                  <div className="testimonio-author">
-                    <strong>Juan Pérez</strong>
-                    <small className="d-block">Arquitecto, CDMX</small>
+                  <div className="beneficios-testimonios__author">
+                    <strong className="beneficios-testimonios__author-name">Juan Pérez</strong>
+                    <small className="beneficios-testimonios__author-info d-block">Arquitecto, CDMX</small>
                   </div>
                 </Card.Body>
               </Card>
             </Col>
             <Col md={4} className="mb-4">
-              <Card className="testimonio-card bg-white bg-opacity-10 border-0 text-white h-100">
-                <Card.Body className="p-4">
-                  <div className="testimonio-stars mb-3">⭐⭐⭐⭐⭐</div>
-                  <Card.Text className="mb-4">
+              <Card className="beneficios-testimonios__card h-100">
+                <Card.Body>
+                  <div className="beneficios-testimonios__stars">⭐⭐⭐⭐⭐</div>
+                  <Card.Text className="beneficios-testimonios__text">
                     "La calidad de construcción es increíble. Mi local comercial está funcionando perfectamente desde hace 2 años."
                   </Card.Text>
-                  <div className="testimonio-author">
-                    <strong>María González</strong>
-                    <small className="d-block">Empresaria, Guadalajara</small>
+                  <div className="beneficios-testimonios__author">
+                    <strong className="beneficios-testimonios__author-name">María González</strong>
+                    <small className="beneficios-testimonios__author-info d-block">Empresaria, Guadalajara</small>
                   </div>
                 </Card.Body>
               </Card>
             </Col>
             <Col md={4} className="mb-4">
-              <Card className="testimonio-card bg-white bg-opacity-10 border-0 text-white h-100">
-                <Card.Body className="p-4">
-                  <div className="testimonio-stars mb-3">⭐⭐⭐⭐⭐</div>
-                  <Card.Text className="mb-4">
+              <Card className="beneficios-testimonios__card h-100">
+                <Card.Body>
+                  <div className="beneficios-testimonios__stars">⭐⭐⭐⭐⭐</div>
+                  <Card.Text className="beneficios-testimonios__text">
                     "Solución perfecta para mi bodega. Segura, resistente y con excelente relación calidad-precio."
                   </Card.Text>
-                  <div className="testimonio-author">
-                    <strong>Carlos Ramírez</strong>
-                    <small className="d-block">Empresario, Monterrey</small>
+                  <div className="beneficios-testimonios__author">
+                    <strong className="beneficios-testimonios__author-name">Carlos Ramírez</strong>
+                    <small className="beneficios-testimonios__author-info d-block">Empresario, Monterrey</small>
                   </div>
                 </Card.Body>
               </Card>
@@ -267,20 +259,24 @@ const Beneficios = () => {
       </section>
 
       {/* CTA */}
-      <section className="beneficios__cta py-5 text-center">
+      <section className="beneficios-cta">
         <Container>
-          <h2 className="mb-4">¿Listo para Tu Proyecto?</h2>
-          <p className="lead mb-4">
-            Aprovecha todos estos beneficios y comienza tu proyecto hoy mismo
-          </p>
-          <div className="d-flex gap-3 justify-content-center flex-wrap">
-            <Button variant="primary" size="lg" as={Link} to="/cotizador-venta">
-              Solicitar Cotización
-            </Button>
-            <Button variant="outline-primary" size="lg" as={Link} to="/contacto">
-              Contactar Asesor
-            </Button>
-          </div>
+          <Row className="justify-content-center">
+            <Col lg={8}>
+              <h2 className="beneficios-cta__title">¿Listo para Tu Proyecto?</h2>
+              <p className="beneficios-cta__text">
+                Aprovecha todos estos beneficios y comienza tu proyecto hoy mismo
+              </p>
+              <div className="beneficios-cta__buttons">
+                <Link to="/cotizador-venta" className="beneficios-cta__button beneficios-cta__button--primary">
+                  Solicitar Cotización
+                </Link>
+                <Link to="/contacto" className="beneficios-cta__button beneficios-cta__button--secondary">
+                  Contactar Asesor
+                </Link>
+              </div>
+            </Col>
+          </Row>
         </Container>
       </section>
     </div>

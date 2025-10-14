@@ -2,158 +2,233 @@
 @import '../../styles/mixins';
 
 .blog-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  // Banner
-  &__banner {
-    min-height: 350px;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+// Hero Section
+.blog-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
 
-  &__banner-overlay {
-    width: 100%;
-    padding: $spacing-4xl 0;
-    text-align: center;
-    color: $color-blanco;
-  }
-
-  &__banner-title {
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__banner-subtitle {
-    font-size: $font-size-lg;
-    opacity: 0.95;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  // Filtros
-  &__filtros {
-    padding: $spacing-2xl 0;
-    background-color: $color-gris-claro;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
+    }
   }
 
-  &__filtros-container {
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
+
+// Filtros Section
+.blog-filtros {
+  padding: $spacing-lg 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
+  border-bottom: 1px solid $color-negro;
+
+  &__container {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-md;
+    gap: $spacing-sm;
     justify-content: center;
   }
 
-  &__filtro-btn {
+  &__button {
     padding: $spacing-sm $spacing-lg;
-    border: 2px solid $color-calipso;
+    border: 1px solid $color-negro;
     background-color: $color-blanco;
-    color: $color-calipso;
-    font-weight: $font-weight-medium;
-    border-radius: $border-radius-md;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
     cursor: pointer;
-    transition: all $transition-base;
+    transition: all 0.3s ease;
 
-    &:hover, &.active {
-      background-color: $color-calipso;
+    &:hover {
+      background-color: $color-negro;
+      color: $color-blanco;
+    }
+
+    &--active {
+      background-color: $color-negro;
       color: $color-blanco;
     }
   }
 
-  // Destacado
-  &__destacado {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md 0;
   }
+}
 
-  &__destacado-imagen {
+// Destacado Section
+.blog-destacado {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__imagen {
     position: relative;
     height: 400px;
-    background-color: $color-gris-claro;
-    border-radius: $border-radius-lg;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
     overflow: hidden;
   }
 
-  &__destacado-badge {
+  &__badge {
     position: absolute;
-    top: $spacing-lg;
-    left: $spacing-lg;
+    top: $spacing-md;
+    left: $spacing-md;
+    background-color: $color-negro;
+    color: $color-blanco;
+    padding: 4px $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
     z-index: 2;
   }
 
-  &__destacado-placeholder {
+  &__placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: $color-gris-medio;
-    font-size: $font-size-lg;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    opacity: 0.3;
   }
 
-  &__destacado-titulo {
+  &__contenido {
+    padding-left: $spacing-xl;
+  }
+
+  &__categoria {
+    display: inline-block;
+    background-color: $color-negro;
+    color: $color-blanco;
+    padding: 4px $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-md;
+  }
+
+  &__titulo {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-lg;
+    font-size: 24px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__destacado-resumen {
-    font-size: $font-size-lg;
-    color: $color-gris-oscuro;
-    line-height: 1.8;
-    margin-bottom: $spacing-xl;
+  &__resumen {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.6;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__destacado-meta {
+  &__meta {
     display: flex;
     align-items: center;
     gap: $spacing-sm;
-    color: $color-gris-medio;
-    margin-bottom: $spacing-xl;
+    font-family: $font-parrafos;
+    font-size: 11px;
+    color: $color-negro;
+    opacity: 0.6;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__destacado-btn {
+  &__button {
     display: inline-block;
-    padding: $spacing-md $spacing-xl;
-    background-color: $color-naranja;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-negro;
     color: $color-blanco;
-    text-decoration: none;
-    border-radius: $border-radius-md;
+    font-family: $font-parrafos;
+    font-size: 12px;
     font-weight: $font-weight-semibold;
-    transition: all $transition-base;
+    text-decoration: none;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: darken($color-naranja, 10%);
-      color: $color-blanco;
-      transform: translateY(-2px);
+      background-color: $color-blanco;
+      color: $color-negro;
     }
   }
 
-  // Grid
-  &__grid {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
+  // Responsive
+  @media (max-width: $breakpoint-lg) {
+    &__contenido {
+      padding-left: 0;
+      margin-top: $spacing-lg;
+    }
   }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__imagen {
+      height: 300px;
+    }
+
+    &__titulo {
+      font-size: 20px;
+    }
+  }
+}
+
+// Grid Section
+.blog-grid {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
 
   &__card {
-    border: none;
-    border-radius: $border-radius-lg;
-    overflow: hidden;
-    transition: all $transition-base;
-    box-shadow: $shadow-sm;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-lg;
-    }
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
   }
 
   &__card-imagen {
     position: relative;
     height: 200px;
-    background-color: $color-gris-medio;
+    background-color: $color-blanco;
+    border-bottom: 1px solid $color-negro;
   }
 
   &__card-placeholder {
@@ -161,94 +236,190 @@
     align-items: center;
     justify-content: center;
     height: 100%;
-    color: $color-gris-claro;
-    font-size: $font-size-base;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    opacity: 0.3;
   }
 
   &__card-categoria {
     position: absolute;
-    top: $spacing-md;
-    left: $spacing-md;
+    top: $spacing-sm;
+    left: $spacing-sm;
+    background-color: $color-negro;
+    color: $color-blanco;
+    padding: 4px $spacing-sm;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
   }
 
-  &__card-titulo a {
-    color: $color-calipso;
-    text-decoration: none;
-    font-family: $font-titulos;
-    font-weight: $font-weight-bold;
-    font-size: $font-size-xl;
+  &__card-titulo {
+    margin-bottom: $spacing-sm;
 
-    &:hover {
-      color: $color-naranja;
+    a {
+      color: $color-negro;
+      text-decoration: none;
+      font-family: $font-titulos;
+      font-size: 16px;
+      font-weight: $font-weight-semibold;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 
   &__card-resumen {
-    color: $color-gris-oscuro;
-    line-height: 1.6;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
   }
 
   &__card-footer {
-    background-color: $color-gris-claro;
-    border-top: 1px solid $color-gris-medio;
+    background-color: $color-blanco;
+    border-top: 1px solid $color-negro;
     display: flex;
     justify-content: space-between;
+    padding: $spacing-sm $spacing-md;
   }
 
-  // Paginación
-  &__paginacion {
-    padding: $spacing-3xl 0;
-    background-color: $color-blanco;
+  &__card-autor,
+  &__card-fecha {
+    font-family: $font-parrafos;
+    font-size: 11px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    opacity: 0.6;
   }
 
-  // Newsletter
-  &__newsletter {
-    padding: $spacing-4xl 0;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    color: $color-blanco;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+  }
+}
+
+// Paginacion Section
+.blog-paginacion {
+  padding: $spacing-lg 0;
+  background-color: $color-blanco;
+
+  &__controls {
+    .pagination {
+      gap: $spacing-xs;
+    }
+
+    .page-item {
+      .page-link {
+        color: $color-negro;
+        border: 1px solid $color-negro;
+        background-color: $color-blanco;
+        font-family: $font-parrafos;
+        font-size: 12px;
+        padding: $spacing-xs $spacing-sm;
+
+        &:hover {
+          background-color: $color-negro;
+          color: $color-blanco;
+          border-color: $color-negro;
+        }
+      }
+
+      &.active .page-link {
+        background-color: $color-negro;
+        border-color: $color-negro;
+        color: $color-blanco;
+      }
+    }
   }
 
-  &__newsletter-titulo {
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md 0;
+  }
+}
+
+// Newsletter Section
+.blog-newsletter {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  text-align: center;
+
+  &__title {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-blanco;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__newsletter-texto {
-    font-size: $font-size-lg;
-    margin-bottom: $spacing-xl;
-    opacity: 0.95;
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
   }
 
-  &__newsletter-form {
+  &__form {
     display: flex;
-    gap: $spacing-md;
+    gap: $spacing-sm;
     max-width: 500px;
     margin: 0 auto;
   }
 
-  &__newsletter-input {
+  &__input {
     flex: 1;
-    padding: $spacing-md;
-    border: none;
-    border-radius: $border-radius-md;
-    font-size: $font-size-base;
+    padding: $spacing-sm;
+    border: 1px solid $color-blanco;
+    background-color: transparent;
+    color: $color-blanco;
+    font-family: $font-parrafos;
+    font-size: 12px;
+
+    &::placeholder {
+      color: $color-blanco;
+      opacity: 0.6;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $color-blanco;
+      color: $color-negro;
+    }
   }
 
-  &__newsletter-btn {
-    padding: $spacing-md $spacing-xl;
-    background-color: $color-naranja;
-    color: $color-blanco;
-    border: none;
-    border-radius: $border-radius-md;
-    font-weight: $font-weight-bold;
+  &__button {
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-blanco;
+    color: $color-negro;
+    border: 1px solid $color-blanco;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
     cursor: pointer;
-    transition: all $transition-base;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: darken($color-naranja, 10%);
-      transform: translateY(-2px);
+      background-color: transparent;
+      color: $color-blanco;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
+    }
+
+    &__form {
+      flex-direction: column;
     }
   }
 }

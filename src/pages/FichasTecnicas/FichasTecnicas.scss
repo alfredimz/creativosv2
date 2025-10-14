@@ -1,177 +1,220 @@
-@import '../../App.scss';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.fichas-tecnicas {
+.fichas-tecnicas-page {
+  background-color: $color-blanco;
+}
 
-  &__hero {
-    background-color: #fff;
-  }
+// Hero Section
+.fichas-tecnicas-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
 
-  &__titulo {
+  &__title {
     font-family: $font-titulos;
-    font-weight: 400;
-    font-size: 2.5rem;
-    color: $color-naranja;
-    margin-bottom: 0;
-
-    @include respond-to(md) {
-      font-size: 3rem;
-    }
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  .exchange-rate {
+  &__description {
     font-family: $font-parrafos;
-    font-size: 0.9rem;
-    color: #666;
-    padding: 0.5rem 1rem;
-    background-color: #f8f9fa;
-    border-radius: 6px;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
   }
 
-  &__contenido {
-    background-color: #fafafa;
+  &__exchange-rate {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $color-negro;
+    background-color: $color-blanco;
   }
 
-  // Ficha Card
-  .ficha-card {
-    background-color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    &__title {
+      font-size: 32px;
     }
 
-    &__imagen {
-      max-width: 150px;
-      margin: 0 auto;
-
-      img {
-        max-height: 100px;
-        object-fit: contain;
-      }
-    }
-
-    &__nombre {
-      font-family: $font-titulos;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #333;
-      margin-bottom: 0;
-    }
-
-    .specs-grid {
-      .spec-item {
-        margin-bottom: 0.75rem;
-
-        small {
-          display: block;
-          font-family: $font-parrafos;
-          font-size: 0.75rem;
-          color: #999;
-          margin-bottom: 0.25rem;
-        }
-
-        strong {
-          display: block;
-          font-family: $font-parrafos;
-          font-size: 0.9rem;
-          color: #333;
-        }
-      }
-    }
-
-    .pricing-info {
-      .price-item {
-        margin-bottom: 0.75rem;
-
-        small {
-          display: block;
-          font-family: $font-parrafos;
-          font-size: 0.75rem;
-          color: #999;
-          margin-bottom: 0.25rem;
-        }
-
-        strong {
-          display: block;
-          font-family: $font-titulos;
-          font-size: 1rem;
-          color: #333;
-        }
-
-        &.total {
-          margin-top: 1rem;
-          padding-top: 1rem;
-          border-top: 2px solid #e9ecef;
-
-          strong {
-            font-size: 1.25rem;
-            font-weight: 600;
-          }
-        }
-      }
+    &__description {
+      font-size: 11px;
     }
   }
 
-  // CTA Section
-  &__cta {
-    h3 {
-      font-family: $font-titulos;
-      font-weight: 600;
-      color: #333;
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
     }
+  }
+}
 
-    .lead {
-      font-family: $font-parrafos;
-      color: #666;
-    }
+// Content Section
+.fichas-tecnicas-content {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
 
-    .btn-primary {
-      background-color: $color-naranja;
-      border-color: $color-naranja;
-      font-family: $font-titulos;
-      font-weight: 600;
+  &__card {
+    margin-bottom: $spacing-md;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+  }
 
-      &:hover {
-        background-color: darken($color-naranja, 10%);
-        border-color: darken($color-naranja, 10%);
-      }
+  &__card-imagen {
+    max-width: 150px;
+    margin: 0 auto;
+
+    img {
+      max-height: 100px;
+      object-fit: contain;
     }
   }
 
-  // Breadcrumb styling
-  .breadcrumb {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 0;
+  &__card-nombre {
+    font-family: $font-titulos;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0;
+  }
 
-    .breadcrumb-item {
-      a {
-        color: $color-calipso;
-        text-decoration: none;
+  &__specs-grid {
+    // Uses Bootstrap Row
+  }
 
-        &:hover {
-          color: $color-naranja;
-        }
-      }
+  &__spec-item {
+    margin-bottom: $spacing-sm;
+  }
 
-      &.active {
-        color: #6c757d;
-      }
+  &__spec-label {
+    display: block;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
 
-      + .breadcrumb-item::before {
-        content: "›";
-        color: #6c757d;
-      }
+  &__spec-value {
+    display: block;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+  }
+
+  &__pricing {
+    // Container for price items
+  }
+
+  &__price-item {
+    margin-bottom: $spacing-sm;
+
+    &--total {
+      margin-top: $spacing-md;
+      padding-top: $spacing-md;
+      border-top: 1px solid $color-negro;
+    }
+  }
+
+  &__price-label {
+    display: block;
+    font-family: $font-parrafos;
+    font-size: 10px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    opacity: 0.6;
+    margin-bottom: 4px;
+  }
+
+  &__price-value {
+    display: block;
+    font-family: $font-titulos;
+    font-size: 14px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+
+    &--total {
+      font-size: 16px;
     }
   }
 
   // Responsive
-  @include respond-to(md) {
-    .ficha-card {
-      &__imagen {
-        max-width: 100%;
-      }
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__card-imagen {
+      max-width: 100%;
+      margin-bottom: $spacing-md;
+    }
+
+    &__card-nombre {
+      text-align: center;
+      margin-bottom: $spacing-md;
+    }
+  }
+}
+
+// CTA Section
+.fichas-tecnicas-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+    text-align: center;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
+    text-align: center;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-negro;
+    color: $color-blanco;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: $color-blanco;
+      color: $color-negro;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 18px;
     }
   }
 }

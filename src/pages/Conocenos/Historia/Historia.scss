@@ -1,440 +1,59 @@
-@import '~bootstrap/scss/bootstrap';
-
-// Variables
-$primary-color: #ff6b00;
-$secondary-color: #1f4c2c;
-$dark-color: #000;
-$light-color: #fff;
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .historia-page {
-  // Estilos generales
-  font-family: 'Montserrat', sans-serif;
-  color: $dark-color;
-
-  .section-title {
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    position: relative;
-    
-    &:after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: $primary-color;
-      margin: 1rem auto 0;
-    }
-  }
-
-  // Banner Section
-  .banner-section {
-    height: 400px;
-    background-image: url('/images/historia/historia-contenedores-maritimos.png');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    
-    .banner-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      
-      h1 {
-        color: $light-color;
-        font-size: 3.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-      }
-      
-      .banner-text {
-        color: $light-color;
-        font-size: 1.3rem;
-        max-width: 800px;
-        margin: 0 auto;
-      }
-    }
-  }
-
-  // Intro Section
-  .intro-section {
-    padding: 5rem 0;
-    background-color: $light-color;
-    
-    .intro-text {
-      max-width: 900px;
-      margin: 0 auto;
-      
-      p {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-        
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-
-  // Timeline Section
-  .timeline-section {
-    padding: 5rem 0;
-    background-color: #f5f5f5;
-    
-    .timeline {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        width: 6px;
-        background-color: $primary-color;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        margin-left: -3px;
-      }
-      
-      .timeline-item {
-        padding: 10px 40px;
-        position: relative;
-        width: 50%;
-        box-sizing: border-box;
-        margin-bottom: 4rem;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          width: 25px;
-          height: 25px;
-          right: -13px;
-          background-color: $light-color;
-          border: 4px solid $primary-color;
-          top: 20px;
-          border-radius: 50%;
-          z-index: 1;
-        }
-        
-        .timeline-content {
-          padding: 20px 30px;
-          background-color: $light-color;
-          position: relative;
-          border-radius: 6px;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-          
-          .year {
-            display: inline-block;
-            padding: 8px 16px;
-            background-color: $primary-color;
-            color: $light-color;
-            font-weight: 700;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-          }
-          
-          .logo-container {
-            width: 150px;
-            height: 100px;
-            margin-bottom: 1.5rem;
-            
-            img {
-              width: 100%;
-              height: 100%;
-              object-fit: contain;
-            }
-          }
-          
-          .milestone-content {
-            h3 {
-              color: $primary-color;
-              font-weight: 700;
-              margin-bottom: 1rem;
-            }
-            
-            p {
-              font-size: 1rem;
-              line-height: 1.6;
-              margin-bottom: 1rem;
-            }
-            
-            ul {
-              padding-left: 1.5rem;
-              
-              li {
-                margin-bottom: 0.5rem;
-              }
-            }
-          }
-        }
-      }
-      
-      .left {
-        left: 0;
-        
-        &::after {
-          left: auto;
-          right: -12px;
-        }
-      }
-      
-      .right {
-        left: 50%;
-        
-        &::after {
-          left: -12px;
-          right: auto;
-        }
-      }
-    }
-  }
-
-  // Project Gallery Section
-  .project-gallery-section {
-    padding: 5rem 0;
-    background-color: $light-color;
-    
-    .project-item {
-      margin-bottom: 2rem;
-      
-      .project-card {
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        height: 100%;
-        transition: transform 0.3s ease;
-        
-        &:hover {
-          transform: translateY(-10px);
-        }
-        
-        .project-image {
-          height: 200px;
-          position: relative;
-          overflow: hidden;
-          
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-          }
-          
-          .project-year {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            padding: 5px 15px;
-            background-color: $primary-color;
-            color: $light-color;
-            font-weight: 700;
-            font-size: 1rem;
-          }
-          
-          &:hover {
-            img {
-              transform: scale(1.1);
-            }
-          }
-        }
-        
-        .project-info {
-          padding: 1.5rem;
-          
-          h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: $primary-color;
-            margin-bottom: 1rem;
-          }
-          
-          p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-          }
-        }
-      }
-    }
-  }
-
-  // Testimonials Section
-  .testimonials-section {
-    padding: 5rem 0;
-    background-color: #f5f5f5;
-    
-    .testimonials-row {
-      justify-content: center;
-    }
-    
-    .testimonial-item {
-      margin-bottom: 2rem;
-      
-      .testimonial-card {
-        background-color: $light-color;
-        border-radius: 8px;
-        padding: 2rem;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        height: 100%;
-        position: relative;
-        transition: transform 0.3s ease;
-        
-        &:hover {
-          transform: translateY(-10px);
-        }
-        
-        .quote {
-          position: absolute;
-          top: -10px;
-          left: 20px;
-          font-size: 4rem;
-          color: $primary-color;
-          opacity: 0.2;
-          font-family: Georgia, serif;
-        }
-        
-        .testimonial-text {
-          font-size: 1rem;
-          line-height: 1.7;
-          font-style: italic;
-          margin-bottom: 1.5rem;
-          position: relative;
-          z-index: 1;
-        }
-        
-        .testimonial-author {
-          .author-name {
-            font-weight: 700;
-            color: $primary-color;
-            margin-bottom: 0.3rem;
-          }
-          
-          .author-company {
-            font-size: 0.9rem;
-            color: #666;
-          }
-        }
-      }
-    }
-  }
-
-  // Future Section
-  .future-section {
-    padding: 5rem 0;
-    background-color: $light-color;
-    
-    .future-image {
-      margin-bottom: 2rem;
-      
-      img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-    }
-    
-    .future-text {
-      h2 {
-        color: $primary-color;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        
-        &:after {
-          content: '';
-          display: block;
-          width: 50px;
-          height: 3px;
-          background-color: $primary-color;
-          margin-top: 1rem;
-        }
-      }
-      
-      p {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
-      }
-      
-      .future-list {
-        margin-bottom: 1.5rem;
-        padding-left: 1.5rem;
-        
-        li {
-          font-size: 1.1rem;
-          margin-bottom: 0.8rem;
-        }
-      }
-    }
-  }
+  background-color: $color-blanco;
 }
 
-// Responsive styles
-@media (max-width: 991px) {
-  .historia-page {
-    .banner-section {
-      height: 350px;
-      
-      .banner-overlay {
-        h1 {
-          font-size: 2.5rem;
-        }
-        
-        .banner-text {
-          font-size: 1.1rem;
-        }
-      }
-    }
-    
-    .future-section {
-      .future-text {
-        padding: 0 1rem;
+// Hero Section
+.historia-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+
+    p {
+      margin: 0 0 $spacing-sm 0;
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
   }
-}
 
-@media (max-width: 767px) {
-  .historia-page {
-    .banner-section {
-      height: 300px;
-      
-      .banner-overlay {
-        h1 {
-          font-size: 2rem;
-        }
-      }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
     }
-    
-    .timeline-section {
-      .timeline {
-        &::after {
-          left: 31px;
-        }
-        
-        .timeline-item {
-          width: 100%;
-          padding-left: 70px;
-          padding-right: 25px;
-          
-          &::after {
-            left: 18px;
-            right: auto;
-          }
-        }
-        
-        .left, .right {
-          left: 0;
-        }
-      }
+
+    &__description {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
     }
   }
 }

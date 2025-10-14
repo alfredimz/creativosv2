@@ -2,187 +2,235 @@
 @import '../../styles/mixins';
 
 .mapa-sitio-page {
-  font-family: $font-parrafos;
+  background-color: $color-blanco;
+}
 
-  &__banner {
-    min-height: 300px;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: $spacing-4xl 0;
+// Hero Section
+.mapa-sitio-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__banner-title {
-    font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    color: $color-blanco;
-    margin-bottom: $spacing-md;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
 
-    @include respond-to(md) {
-      font-size: $font-size-4xl;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__banner-subtitle {
-    font-size: $font-size-lg;
-    color: $color-blanco;
-    opacity: 0.95;
-  }
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
 
-  &__content {
-    padding: $spacing-4xl 0;
-    background-color: $color-blanco;
+    &__title {
+      font-size: 28px;
+    }
   }
+}
 
-  &__intro-text {
-    font-size: $font-size-lg;
+// Content Section
+.mapa-sitio-content {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__intro {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
     text-align: center;
-    color: $color-gris-oscuro;
-    line-height: 1.8;
-    margin-bottom: $spacing-3xl;
+    line-height: 1.6;
+    margin-bottom: $spacing-xl;
   }
 
   &__sections {
-    margin-top: $spacing-2xl;
+    margin-top: $spacing-xl;
   }
 
   &__section {
-    padding: $spacing-xl;
-    background-color: $color-gris-claro;
-    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
     height: 100%;
-    border-left: 4px solid $color-calipso;
-    transition: all $transition-base;
-
-    &:hover {
-      border-left-color: $color-naranja;
-      box-shadow: $shadow-md;
-      transform: translateX(5px);
-    }
+    transition: border-color 0.3s ease;
   }
 
-  &__section-title {
+  &__section-titulo {
     font-family: $font-titulos;
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
-    margin-bottom: $spacing-lg;
+    font-size: 16px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
     padding-bottom: $spacing-sm;
-    border-bottom: 2px solid $color-naranja;
+    border-bottom: 1px solid $color-negro;
   }
 
-  &__list {
+  &__lista {
     list-style: none;
     padding: 0;
     margin: 0;
 
     li {
-      margin-bottom: $spacing-sm;
+      margin-bottom: $spacing-xs;
 
       a {
-        color: $color-gris-oscuro;
+        font-family: $font-parrafos;
+        font-size: 12px;
+        font-weight: $font-weight-normal;
+        color: $color-negro;
         text-decoration: none;
         display: block;
-        padding: $spacing-sm $spacing-md;
-        border-radius: $border-radius-sm;
-        transition: all $transition-base;
+        padding: $spacing-xs $spacing-sm;
         position: relative;
-        padding-left: $spacing-xl;
+        padding-left: $spacing-lg;
+        transition: all 0.3s ease;
 
         &::before {
           content: '→';
           position: absolute;
-          left: $spacing-sm;
-          color: $color-naranja;
-          font-weight: $font-weight-bold;
-          transition: all $transition-base;
+          left: 0;
+          color: $color-negro;
+          font-weight: $font-weight-semibold;
         }
 
         &:hover {
-          background-color: $color-blanco;
-          color: $color-calipso;
-          padding-left: calc(#{$spacing-xl} + 5px);
-          box-shadow: $shadow-sm;
+          background-color: $color-negro;
+          color: $color-blanco;
+          padding-left: $spacing-xl;
 
           &::before {
-            color: $color-calipso;
+            color: $color-blanco;
           }
         }
       }
     }
   }
 
-  &__stats {
-    padding: $spacing-4xl 0;
-    background-color: $color-gris-claro;
-  }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-  &__stat {
-    padding: $spacing-xl;
-    background-color: $color-blanco;
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
-    transition: all $transition-base;
+    &__section {
+      padding: $spacing-md;
+    }
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-lg;
+    &__section-titulo {
+      font-size: 14px;
     }
   }
+}
 
-  &__stat-number {
+// Stats Section
+.mapa-sitio-stats {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+  border-top: 1px solid $color-negro;
+
+  &__item {
+    padding: $spacing-lg;
+    background-color: $color-blanco;
+    border: 1px solid $color-negro;
+  }
+
+  &__number {
     font-family: $font-titulos;
-    font-size: $font-size-4xl;
-    font-weight: $font-weight-bold;
-    color: $color-calipso;
+    font-size: 32px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
     margin-bottom: $spacing-sm;
   }
 
-  &__stat-label {
-    font-size: $font-size-lg;
-    color: $color-gris-oscuro;
-    font-weight: $font-weight-semibold;
+  &__label {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
   }
 
-  &__cta {
-    padding: $spacing-4xl 0;
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    color: $color-blanco;
-  }
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-  &__cta-title {
+    &__item {
+      padding: $spacing-md;
+    }
+
+    &__number {
+      font-size: 24px;
+    }
+  }
+}
+
+// CTA Section
+.mapa-sitio-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  text-align: center;
+
+  &__titulo {
     font-family: $font-titulos;
-    font-size: $font-size-3xl;
-    font-weight: $font-weight-bold;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__cta-text {
-    font-size: $font-size-lg;
-    line-height: 1.8;
-    margin-bottom: $spacing-xl;
-    opacity: 0.95;
-  }
-
-  &__cta-button {
-    display: inline-block;
-    padding: $spacing-md $spacing-2xl;
-    background-color: $color-naranja;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
     color: $color-blanco;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__texto {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.6;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-blanco;
+    color: $color-negro;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
     text-decoration: none;
-    border-radius: $border-radius-md;
-    transition: all $transition-base;
-    box-shadow: $shadow-md;
+    border: 1px solid $color-blanco;
+    transition: all 0.3s ease;
 
     &:hover {
-      background-color: darken($color-naranja, 10%);
-      transform: translateY(-3px);
-      box-shadow: $shadow-lg;
+      background-color: transparent;
       color: $color-blanco;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__titulo {
+      font-size: 18px;
     }
   }
 }

@@ -1,156 +1,269 @@
-@import '../../App.scss';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
-.faq {
+.faq-page {
+  background-color: $color-blanco;
+}
 
-  &__hero {
-    background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 10%) 100%);
-    padding: 4rem 0;
-    color: white;
+// Hero Section
+.faq-hero {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 40px;
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    line-height: 1.2;
+    margin: 0 0 $spacing-md 0;
   }
 
-  &__titulo {
-    font-family: $font-titulos;
-    font-weight: 700;
-    font-size: 2.5rem;
+  &__description {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+  }
 
-    @include respond-to(md) {
-      font-size: 3rem;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 11px;
     }
   }
 
-  &__subtitulo {
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
+
+// Search Section
+.faq-search {
+  padding: $spacing-lg 0;
+  background-color: $color-blanco;
+
+  &__input {
     font-family: $font-parrafos;
-    font-size: 1.25rem;
-    opacity: 0.9;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    padding: $spacing-sm $spacing-md;
+    border: 1px solid $color-negro;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: $color-negro;
+      box-shadow: none;
+      outline: none;
+    }
   }
 
-  &__search {
-    .faq-search-input {
-      font-family: $font-parrafos;
-      font-size: 1.1rem;
-      padding: 1rem 1.5rem;
-      border: 2px solid #dee2e6;
-      border-radius: 50px;
-      transition: all 0.3s ease;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md 0;
+  }
+}
 
-      &:focus {
-        border-color: $color-calipso;
-        box-shadow: 0 0 0 0.2rem rgba($color-calipso, 0.25);
+// Content Section
+.faq-content {
+  padding: $spacing-xl 0;
+  background-color: $color-blanco;
+
+  &__no-results {
+    padding: $spacing-2xl 0;
+    text-align: center;
+  }
+
+  &__no-results-title {
+    font-family: $font-titulos;
+    font-size: 18px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__no-results-text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.5;
+    margin: 0;
+
+    a {
+      color: $color-negro;
+      text-decoration: underline;
+
+      &:hover {
+        opacity: 0.7;
       }
     }
   }
 
-  // FAQ Categoria
-  .faq-categoria {
-    &__titulo {
-      font-family: $font-titulos;
-      font-weight: 600;
-      font-size: 1.75rem;
-      color: $color-calipso;
-      padding-bottom: 0.75rem;
-      border-bottom: 3px solid $color-naranja;
-    }
+  &__categoria {
+    margin-bottom: $spacing-2xl;
   }
 
-  // FAQ Item
-  .faq-item {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  &__categoria-title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+    padding-bottom: $spacing-sm;
+    border-bottom: 2px solid $color-negro;
+  }
 
-    &:hover {
-      border-color: $color-calipso;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
+  &__item {
+    margin-bottom: $spacing-md;
+    border: 1px solid $color-negro;
 
     .accordion-header {
       .accordion-button {
         font-family: $font-titulos;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #333;
-        padding: 1.25rem 1.5rem;
-        background-color: #fff;
+        font-size: 14px;
+        font-weight: $font-weight-semibold;
+        color: $color-negro;
+        padding: $spacing-md;
+        background-color: $color-blanco;
+        border: none;
 
         &:not(.collapsed) {
-          background-color: rgba($color-calipso, 0.05);
-          color: $color-calipso;
+          background-color: $color-blanco;
+          color: $color-negro;
         }
 
         &:focus {
-          border-color: $color-calipso;
           box-shadow: none;
+          border: none;
         }
 
         &::after {
-          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233B6F7F'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
         }
       }
     }
 
-    &__numero {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background-color: $color-naranja;
-      color: white;
-      border-radius: 50%;
-      font-size: 0.9rem;
-      font-weight: 700;
-      margin-right: 1rem;
-      flex-shrink: 0;
-    }
-
-    &__body {
-      font-family: $font-parrafos;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #555;
-      padding: 1.5rem;
-      background-color: #fafafa;
+    .accordion-body {
+      padding: $spacing-md;
+      background-color: $color-blanco;
+      border-top: 1px solid $color-negro;
     }
   }
 
-  // CTA
-  &__cta {
-    h2 {
-      font-family: $font-titulos;
-      font-weight: 600;
+  &__item-numero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: $color-negro;
+    color: $color-blanco;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: $font-weight-semibold;
+    margin-right: $spacing-sm;
+    flex-shrink: 0;
+  }
+
+  &__item-body {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.6;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
+
+    &__categoria-title {
+      font-size: 18px;
+    }
+  }
+}
+
+// CTA Section
+.faq-cta {
+  padding: $spacing-xl 0;
+  background-color: $color-negro;
+  text-align: center;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    color: $color-blanco;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    line-height: 1.5;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: $spacing-sm $spacing-lg;
+    font-family: $font-parrafos;
+    font-size: 12px;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    border: 1px solid $color-blanco;
+    transition: all 0.3s ease;
+
+    &--primary {
+      background-color: $color-blanco;
+      color: $color-negro;
+
+      &:hover {
+        background-color: transparent;
+        color: $color-blanco;
+      }
     }
 
-    .btn {
-      font-family: $font-titulos;
-      font-weight: 600;
+    &--secondary {
+      background-color: transparent;
+      color: $color-blanco;
+
+      &:hover {
+        background-color: $color-blanco;
+        color: $color-negro;
+      }
     }
   }
 
-  // Breadcrumb
-  .breadcrumb {
-    background-color: transparent;
-    padding: 0;
-    margin-bottom: 0;
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-lg 0;
 
-    .breadcrumb-item {
-      a {
-        color: $color-calipso;
-        text-decoration: none;
-
-        &:hover {
-          color: $color-naranja;
-        }
-      }
-
-      &.active {
-        color: #6c757d;
-      }
-
-      + .breadcrumb-item::before {
-        content: "›";
-        color: #6c757d;
-      }
+    &__title {
+      font-size: 18px;
     }
   }
 }
