@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './RoboIdentidad.scss';
 
 const RoboIdentidad = () => {
@@ -48,6 +49,8 @@ const RoboIdentidad = () => {
 
   return (
     <div className="robo-identidad-page">
+      <SEO {...seoConfig.roboIdentidad} />
+
       <section className="robo-identidad-hero">
         <Container>
           <Row className="justify-content-center text-center">

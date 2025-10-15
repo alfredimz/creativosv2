@@ -27,6 +27,110 @@ body {
   line-height: 1.6;
 }
 
+// =============================================
+// ACCESSIBILITY STYLES
+// =============================================
+
+// Skip to main content - Keyboard Navigation
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 9999;
+  padding: 1rem 1.5rem;
+  background-color: $color-naranja;
+  color: $color-blanco;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+
+  &:focus {
+    left: 0;
+    outline: 3px solid $color-calipso;
+    outline-offset: 2px;
+  }
+}
+
+// Global Focus Indicators - WCAG 2.1 AA Compliance
+a, button, input, textarea, select, [tabindex]:not([tabindex="-1"]) {
+  &:focus {
+    outline: 2px solid $color-calipso;
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-calipso;
+    outline-offset: 2px;
+  }
+}
+
+// Enhanced focus for buttons
+.btn {
+  &:focus,
+  &:focus-visible {
+    outline: 3px solid $color-calipso;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba($color-calipso, 0.2);
+  }
+}
+
+// Navbar links focus
+.navbar {
+  a, .nav-link, .dropdown-item {
+    &:focus,
+    &:focus-visible {
+      outline: 2px solid $color-naranja;
+      outline-offset: 2px;
+      background-color: rgba($color-naranja, 0.1);
+    }
+  }
+}
+
+// Form inputs focus (enhanced)
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+textarea,
+select {
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid $color-calipso;
+    outline-offset: 0;
+    border-color: $color-calipso;
+    box-shadow: 0 0 0 3px rgba($color-calipso, 0.15);
+  }
+}
+
+// Screen reader only class (visually hidden but accessible)
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
 .app {
   display: flex;
   flex-direction: column;

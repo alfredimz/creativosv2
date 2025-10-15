@@ -1,10 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../../components/SEO';
 import './CasosExito.scss';
 
 const CasosExito = () => {
   return (
     <div className="casos-exito-page">
+      <SEO {...seoConfig.casosExito} />
+
       {/* Hero Section */}
       <section className="casos-hero">
         <Container>

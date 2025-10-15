@@ -1,11 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Privacidad.scss';
 
 const Privacidad = () => {
   return (
     <div className="privacidad-page">
+      <SEO {...seoConfig.privacidad} />
+
       {/* Hero Section */}
       <section className="privacidad-hero">
         <Container>
@@ -66,6 +69,67 @@ const Privacidad = () => {
                   En caso de que no desee recibir mensajes promocionales de nuestra parte, puede enviarnos su solicitud por medio de la dirección electrónica: <a href="mailto:ventas@creativosespacios.com.mx">ventas@creativosespacios.com.mx</a>
                 </p>
 
+                <h2 className="privacidad-content__titulo">Uso de Cookies y Tecnologías de Rastreo</h2>
+                <p>
+                  Le informamos que en nuestra página de Internet utilizamos cookies, web beacons y otras tecnologías de rastreo, a través de las cuales es posible monitorear su comportamiento como usuario de Internet, brindarle un mejor servicio y experiencia de usuario al navegar en nuestra página, así como ofrecerle nuevos productos y servicios basados en sus preferencias.
+                </p>
+                <p>
+                  Los datos personales que obtenemos de estas tecnologías de rastreo son los siguientes:
+                </p>
+                <ul className="privacidad-content__lista">
+                  <li>Identificadores, nombre de usuario y contraseñas de una sesión</li>
+                  <li>Idioma preferido por el usuario</li>
+                  <li>Región en la que se encuentra el usuario</li>
+                  <li>Tipo de navegador del usuario</li>
+                  <li>Tipo de sistema operativo del usuario</li>
+                  <li>Fecha y hora del inicio y final de una sesión de un usuario</li>
+                  <li>Páginas web visitadas por un usuario</li>
+                  <li>Búsquedas realizadas por un usuario</li>
+                  <li>Publicidad revisada por un usuario</li>
+                  <li>Listas y hábitos de consumo en páginas de compras</li>
+                </ul>
+
+                <h3 className="privacidad-content__subtitulo">Tipos de Cookies que Utilizamos</h3>
+                <div className="privacidad-content__cookie-types">
+                  <div className="privacidad-content__cookie-type">
+                    <h4>Cookies Necesarias</h4>
+                    <p>
+                      Esenciales para el funcionamiento del sitio web. Permiten la navegación y el uso de funciones básicas.
+                      No se pueden desactivar.
+                    </p>
+                  </div>
+                  <div className="privacidad-content__cookie-type">
+                    <h4>Cookies de Análisis</h4>
+                    <p>
+                      Nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web, recopilando información
+                      de forma anónima. Utilizamos Google Analytics y Google Tag Manager para este fin.
+                    </p>
+                  </div>
+                  <div className="privacidad-content__cookie-type">
+                    <h4>Cookies de Marketing</h4>
+                    <p>
+                      Se utilizan para mostrar anuncios relevantes y medir la efectividad de nuestras campañas publicitarias.
+                      Incluyen Google Ads y pueden incluir redes sociales como Facebook.
+                    </p>
+                  </div>
+                  <div className="privacidad-content__cookie-type">
+                    <h4>Cookies de Personalización</h4>
+                    <p>
+                      Permiten que el sitio recuerde sus elecciones (como idioma o región) para proporcionarle una
+                      experiencia más personalizada.
+                    </p>
+                  </div>
+                </div>
+
+                <p>
+                  <strong>Puede configurar sus preferencias de cookies en cualquier momento</strong> desde el banner de
+                  consentimiento que aparece al visitar nuestro sitio o contactándonos directamente.
+                </p>
+                <p>
+                  El usuario puede deshabilitar o eliminar estas tecnologías de rastreo en su navegador. Para conocer
+                  cómo hacerlo, consulte las instrucciones de su navegador web.
+                </p>
+
                 <h2 className="privacidad-content__titulo">Modificaciones al Aviso</h2>
                 <div className="privacidad-content__info-box">
                   <p>
@@ -77,7 +141,7 @@ const Privacidad = () => {
                 </div>
 
                 <p className="privacidad-content__update-date">
-                  <strong>Fecha de última actualización:</strong> 28 de Abril de 2021
+                  <strong>Fecha de última actualización:</strong> 14 de Octubre de 2025
                 </p>
               </div>
             </Col>

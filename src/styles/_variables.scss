@@ -18,16 +18,28 @@ $color-gris-oscuro: #333333;
 $font-titulos: 'Outfit', sans-serif;
 $font-parrafos: 'Hind', sans-serif;
 
-// Tamaños de fuente
+// Base font sizes (for Bootstrap compatibility - numeric values)
+$font-size-base: 1rem;     // 16px - Used by Bootstrap for calculations
 $font-size-xs: 0.75rem;    // 12px
 $font-size-sm: 0.875rem;   // 14px
-$font-size-base: 1rem;     // 16px
 $font-size-lg: 1.125rem;   // 18px
 $font-size-xl: 1.25rem;    // 20px
 $font-size-2xl: 1.5rem;    // 24px
 $font-size-3xl: 1.875rem;  // 30px
 $font-size-4xl: 2.25rem;   // 36px
 $font-size-5xl: 3rem;      // 48px
+
+// Fluid Typography (320px → 1920px) - Use these in custom components
+// Using clamp() for responsive typography without media queries
+$fluid-font-size-xs: clamp(0.625rem, 0.5rem + 0.5vw, 0.75rem);      // 10px → 12px
+$fluid-font-size-sm: clamp(0.75rem, 0.625rem + 0.5vw, 0.875rem);    // 12px → 14px
+$fluid-font-size-base: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);      // 14px → 16px
+$fluid-font-size-lg: clamp(1rem, 0.875rem + 0.5vw, 1.125rem);       // 16px → 18px
+$fluid-font-size-xl: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);        // 18px → 20px
+$fluid-font-size-2xl: clamp(1.25rem, 1rem + 1vw, 1.5rem);           // 20px → 24px
+$fluid-font-size-3xl: clamp(1.5rem, 1.25rem + 1.5vw, 1.875rem);     // 24px → 30px
+$fluid-font-size-4xl: clamp(1.75rem, 1.5rem + 2vw, 2.25rem);        // 28px → 36px
+$fluid-font-size-5xl: clamp(1.75rem, 1.5rem + 3vw, 3rem);           // 28px → 48px (hero)
 
 // Pesos de fuente
 $font-weight-light: 300;

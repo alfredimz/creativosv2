@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Breadcrumb, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './RecorridoVirtual.scss';
 
 const RecorridoVirtual = () => {
@@ -27,6 +28,8 @@ const RecorridoVirtual = () => {
 
   return (
     <div className="recorrido-page">
+      <SEO {...seoConfig.recorridoVirtual} />
+
       <Container className="py-3">
         <Breadcrumb>
           <Breadcrumb.Item linkAs={Link} linkProps={{ to: "/" }}>Inicio</Breadcrumb.Item>

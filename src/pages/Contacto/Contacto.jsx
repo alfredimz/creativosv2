@@ -1,24 +1,120 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaInstagram, FaYoutube, FaTiktok, FaTwitter } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { SEO, seoConfig } from '../../components/SEO';
+import { ErrorMessage, LoadingSpinner } from '../../components/Accessibility';
 import './Contacto.scss';
 
 const Contacto = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    asunto: '',
+    mensaje: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', null
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Mensaje enviado. Gracias por contactarnos.');
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // EmailJS configuration
+      // TODO: Replace with actual EmailJS credentials after account setup
+      const serviceID = 'YOUR_SERVICE_ID'; // Replace with actual service ID
+      const templateID = 'YOUR_TEMPLATE_ID'; // Replace with actual template ID
+      const publicKey = 'YOUR_PUBLIC_KEY'; // Replace with actual public key
+
+      const templateParams = {
+        to_email: 'ventas@creativosespacios.mx',
+        from_name: formData.nombre,
+        from_email: formData.email,
+        subject: formData.asunto,
+        message: formData.mensaje,
+        reply_to: formData.email
+      };
+
+      await emailjs.send(serviceID, templateID, templateParams, publicKey);
+
+      // Google Ads conversion tracking
+      if (window.gtag) {
+        window.gtag('event', 'conversion', {
+          'send_to': 'AW-11471696489/sTNfCMWcgbMZEOnkkN4q',
+          'event_category': 'Form',
+          'event_label': 'Contacto Form Submission',
+          'value': 1.0,
+          'currency': 'MXN'
+        });
+      }
+
+      setSubmitStatus('success');
+      setFormData({
+        nombre: '',
+        email: '',
+        asunto: '',
+        mensaje: ''
+      });
+    } catch (error) {
+      console.error('Error al enviar formulario:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialMedia = [
-    { icon: <FaFacebook />, href: 'https://www.facebook.com/creativosespaciosmx' },
-    { icon: <FaInstagram />, href: 'https://www.instagram.com/creativosespaciosmx/' },
-    { icon: <FaYoutube />, href: 'https://www.youtube.com/@creativosespacios' },
-    { icon: <FaTiktok />, href: 'https://www.tiktok.com/@creativosespaciosmx' },
-    { icon: <FaTwitter />, href: 'https://x.com/creaespaciosmx' },
+    { icon: <FaFacebook />, href: 'https://www.facebook.com/creativosespaciosmx', label: 'Síguenos en Facebook' },
+    { icon: <FaInstagram />, href: 'https://www.instagram.com/creativosespaciosmx/', label: 'Síguenos en Instagram' },
+    { icon: <FaYoutube />, href: 'https://www.youtube.com/@creativosespacios', label: 'Síguenos en YouTube' },
+    { icon: <FaTiktok />, href: 'https://www.tiktok.com/@creativosespaciosmx', label: 'Síguenos en TikTok' },
+    { icon: <FaTwitter />, href: 'https://x.com/creaespaciosmx', label: 'Síguenos en X (Twitter)' },
   ];
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Creativos Espacios",
+    "image": "https://www.creativosespacios.mx/creativos-images/creativos-espacios.png",
+    "@id": "https://www.creativosespacios.mx",
+    "url": "https://www.creativosespacios.mx",
+    "telephone": "+52-55-2608-886",
+    "email": "ventas@creativosespacios.mx",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Del Árbol 104, Lomas de San Lorenzo",
+      "addressLocality": "Iztapalapa",
+      "addressRegion": "CDMX",
+      "postalCode": "09780",
+      "addressCountry": "MX"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 19.3562,
+      "longitude": -99.0637
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  };
 
   return (
     <div className="contacto-page">
+      <SEO {...seoConfig.contacto} structuredData={localBusinessSchema} />
+
       {/* Hero Section */}
       <section className="contacto-hero">
         <Container>
@@ -37,31 +133,112 @@ const Contacto = () => {
             {/* Form Column */}
             <Col lg={7} className="mb-5 mb-lg-0">
               <h3 className="contacto-form__title">Envíanos un Mensaje</h3>
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmit} aria-label="Formulario de contacto">
+                {submitStatus === 'success' && (
+                  <ErrorMessage
+                    type="success"
+                    message="¡Mensaje enviado correctamente! Nos pondremos en contacto contigo pronto."
+                    className="mb-3"
+                  />
+                )}
+                {submitStatus === 'error' && (
+                  <ErrorMessage
+                    type="error"
+                    message="Error al enviar el mensaje. Por favor intenta nuevamente o contáctanos directamente por teléfono o email."
+                    className="mb-3"
+                  />
+                )}
+
                 <Row>
                   <Col md={6}>
-                    <Form.Group className="mb-3">
-                      <Form.Label className="contacto-form__label">Nombre*</Form.Label>
-                      <Form.Control className="contacto-form__input" type="text" placeholder="Tu Nombre" required />
+                    <Form.Group className="mb-3" controlId="contacto-nombre">
+                      <Form.Label className="contacto-form__label">
+                        Nombre <span aria-label="campo requerido">*</span>
+                      </Form.Label>
+                      <Form.Control
+                        className="contacto-form__input"
+                        type="text"
+                        name="nombre"
+                        placeholder="Tu Nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
+                        required
+                        disabled={isSubmitting}
+                        aria-required="true"
+                        aria-label="Ingrese su nombre completo"
+                      />
                     </Form.Group>
                   </Col>
                   <Col md={6}>
-                    <Form.Group className="mb-3">
-                      <Form.Label className="contacto-form__label">Email*</Form.Label>
-                      <Form.Control className="contacto-form__input" type="email" placeholder="tu@email.com" required />
+                    <Form.Group className="mb-3" controlId="contacto-email">
+                      <Form.Label className="contacto-form__label">
+                        Email <span aria-label="campo requerido">*</span>
+                      </Form.Label>
+                      <Form.Control
+                        className="contacto-form__input"
+                        type="email"
+                        name="email"
+                        placeholder="tu@email.com"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        disabled={isSubmitting}
+                        aria-required="true"
+                        aria-label="Ingrese su correo electrónico"
+                      />
                     </Form.Group>
                   </Col>
                 </Row>
-                <Form.Group className="mb-3">
-                  <Form.Label className="contacto-form__label">Asunto*</Form.Label>
-                  <Form.Control className="contacto-form__input" type="text" placeholder="Asunto del mensaje" required />
+                <Form.Group className="mb-3" controlId="contacto-asunto">
+                  <Form.Label className="contacto-form__label">
+                    Asunto <span aria-label="campo requerido">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    className="contacto-form__input"
+                    type="text"
+                    name="asunto"
+                    placeholder="Asunto del mensaje"
+                    value={formData.asunto}
+                    onChange={handleChange}
+                    required
+                    disabled={isSubmitting}
+                    aria-required="true"
+                    aria-label="Ingrese el asunto de su mensaje"
+                  />
                 </Form.Group>
-                <Form.Group className="mb-4">
-                  <Form.Label className="contacto-form__label">Mensaje*</Form.Label>
-                  <Form.Control className="contacto-form__input" as="textarea" rows={5} placeholder="Escribe tu mensaje aquí..." required />
+                <Form.Group className="mb-4" controlId="contacto-mensaje">
+                  <Form.Label className="contacto-form__label">
+                    Mensaje <span aria-label="campo requerido">*</span>
+                  </Form.Label>
+                  <Form.Control
+                    className="contacto-form__input"
+                    as="textarea"
+                    name="mensaje"
+                    rows={5}
+                    placeholder="Escribe tu mensaje aquí..."
+                    value={formData.mensaje}
+                    onChange={handleChange}
+                    required
+                    disabled={isSubmitting}
+                    aria-required="true"
+                    aria-label="Ingrese su mensaje"
+                  />
                 </Form.Group>
                 <div className="text-center">
-                  <Button variant="primary" type="submit" size="lg">Enviar Mensaje</Button>
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    aria-label="Enviar formulario de contacto"
+                  >
+                    {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                  </Button>
+                  {isSubmitting && (
+                    <div className="mt-2">
+                      <LoadingSpinner message="Enviando mensaje..." size="sm" />
+                    </div>
+                  )}
                 </div>
               </Form>
             </Col>
@@ -72,30 +249,35 @@ const Contacto = () => {
                 <h3 className="contacto-info__title">Información de Contacto</h3>
 
                 <div className="contacto-info__item">
-                  <FaMapMarkerAlt className="contacto-info__icon" />
+                  <FaMapMarkerAlt className="contacto-info__icon" aria-hidden="true" />
                   <p className="contacto-info__text">
+                    <span className="sr-only">Dirección:</span>
                     Av. del Árbol 104, Col. Lomas de San Lorenzo, C.P. 09780, Iztapalapa, CDMX.
                   </p>
                 </div>
 
                 <div className="contacto-info__item">
-                  <FaEnvelope className="contacto-info__icon" />
+                  <FaEnvelope className="contacto-info__icon" aria-hidden="true" />
                   <p className="contacto-info__text">
-                    <a href="mailto:ventas@creativosespacios.mx">ventas@creativosespacios.mx</a>
+                    <a href="mailto:ventas@creativosespacios.mx" aria-label="Enviar correo a ventas@creativosespacios.mx">
+                      ventas@creativosespacios.mx
+                    </a>
                   </p>
                 </div>
 
                 <div className="contacto-info__item">
-                  <FaPhone className="contacto-info__icon" />
+                  <FaPhone className="contacto-info__icon" aria-hidden="true" />
                   <p className="contacto-info__text">
-                    55 2608 8867 / 55 5426 9941
+                    <span className="sr-only">Teléfonos:</span>
+                    <a href="tel:+525526088867" aria-label="Llamar al 55 2608 8867">55 2608 8867</a> /
+                    <a href="tel:+525554269941" aria-label="Llamar al 55 5426 9941">55 5426 9941</a>
                   </p>
                 </div>
 
                 <hr className="contacto-info__divider" />
 
                 <h4 className="contacto-info__subtitle">Síguenos</h4>
-                <div className="contacto-info__social">
+                <div className="contacto-info__social" role="list" aria-label="Redes sociales">
                   {socialMedia.map((social, index) => (
                     <a
                       key={index}
@@ -103,8 +285,10 @@ const Contacto = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="contacto-info__social-link"
+                      aria-label={social.label}
+                      role="listitem"
                     >
-                      {social.icon}
+                      <span aria-hidden="true">{social.icon}</span>
                     </a>
                   ))}
                 </div>

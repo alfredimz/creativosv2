@@ -1,11 +1,44 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Ubicacion.scss';
 
 const Ubicacion = () => {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Creativos Espacios",
+    "image": "https://www.creativosespacios.mx/creativos-images/creativos-espacios.png",
+    "@id": "https://www.creativosespacios.mx",
+    "url": "https://www.creativosespacios.mx",
+    "telephone": "+52-55-2608-886",
+    "email": "ventas@creativosespacios.mx",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Del Árbol 104, Lomas de San Lorenzo",
+      "addressLocality": "Iztapalapa",
+      "addressRegion": "CDMX",
+      "postalCode": "09780",
+      "addressCountry": "MX"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 19.3562,
+      "longitude": -99.0637
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  };
+
   return (
     <div className="ubicacion-page">
+      <SEO {...seoConfig.ubicacion} structuredData={localBusinessSchema} />
+
       {/* Hero Section */}
       <section className="ubicacion-hero">
         <Container>

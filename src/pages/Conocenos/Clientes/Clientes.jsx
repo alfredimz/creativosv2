@@ -120,25 +120,25 @@ const Conocenos = () => {
             <div className="timeline-item">
               <div className="timeline-year">2010</div>
               <div className="timeline-content">
-                <img src="/images/logo-2010.png" alt="Logo 2010" />
+                <img src="/images/logo-2010.png" alt="Logo 2010" loading="lazy" />
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-year">2015</div>
               <div className="timeline-content">
-                <img src="/images/logo-2015.png" alt="Logo 2015" />
+                <img src="/images/logo-2015.png" alt="Logo 2015" loading="lazy" />
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-year">2020</div>
               <div className="timeline-content">
-                <img src="/images/logo-2020.png" alt="Logo 2020" />
+                <img src="/images/logo-2020.png" alt="Logo 2020" loading="lazy" />
               </div>
             </div>
             <div className="timeline-item">
               <div className="timeline-year">2024</div>
               <div className="timeline-content">
-                <img src="/images/logo-2024.png" alt="Logo 2024" />
+                <img src="/images/logo-2024.png" alt="Logo 2024" loading="lazy" />
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ const Conocenos = () => {
             </Col>
           </Row>
           <div className="valores-imagen">
-            <img src="/images/valores-contenedor.png" alt="Valores Creativos Espacios" />
+            <img src="/images/valores-contenedor.png" alt="Valores Creativos Espacios" loading="lazy" />
           </div>
         </Container>
       </section>
@@ -213,7 +213,7 @@ const Conocenos = () => {
           <Row className="team-members">
             <Col md={4} className="team-member">
               <div className="member-avatar">
-                <img src="/images/team/edith.png" alt="Edith Ramírez" />
+                <img src="/images/team/edith.png" alt="Edith Ramírez" loading="lazy" />
               </div>
               <h4>Edith Ramírez</h4>
               <p className="member-email">edith@creativosespacios.mx</p>
@@ -221,7 +221,7 @@ const Conocenos = () => {
             </Col>
             <Col md={4} className="team-member">
               <div className="member-avatar">
-                <img src="/images/team/alejandra.png" alt="Alejandra Ramírez" />
+                <img src="/images/team/alejandra.png" alt="Alejandra Ramírez" loading="lazy" />
               </div>
               <h4>Alejandra Ramírez</h4>
               <p className="member-email">alejandra@creativosespacios.mx</p>
@@ -229,7 +229,7 @@ const Conocenos = () => {
             </Col>
             <Col md={4} className="team-member">
               <div className="member-avatar">
-                <img src="/images/team/arturo.png" alt="Arturo Ramírez" />
+                <img src="/images/team/arturo.png" alt="Arturo Ramírez" loading="lazy" />
               </div>
               <h4>Arturo Ramírez</h4>
               <p className="member-email">arturo@creativosespacios.mx</p>
@@ -240,7 +240,7 @@ const Conocenos = () => {
           <Row className="team-members">
             <Col md={4} className="team-member">
               <div className="member-avatar">
-                <img src="/images/team/hugo.png" alt="Hugo Estrada" />
+                <img src="/images/team/hugo.png" alt="Hugo Estrada" loading="lazy" />
               </div>
               <h4>Hugo Estrada</h4>
               <p className="member-email">hugo@creativosespacios.mx</p>
@@ -248,7 +248,7 @@ const Conocenos = () => {
             </Col>
             <Col md={4} className="team-member">
               <div className="member-avatar">
-                <img src="/images/team/jesus.png" alt="Jesús Mondragón" />
+                <img src="/images/team/jesus.png" alt="Jesús Mondragón" loading="lazy" />
               </div>
               <h4>Jesús Mondragón</h4>
               <p className="member-email">jesus@creativosespacios.mx</p>
@@ -256,7 +256,7 @@ const Conocenos = () => {
             </Col>
             <Col md={4} className="team-member">
               <div className="member-avatar">
-                <img src="/images/team/selene.png" alt="Selene" />
+                <img src="/images/team/selene.png" alt="Selene" loading="lazy" />
               </div>
               <h4>Selene</h4>
               <p className="member-email">ventas@creativosespacios.mx</p>
@@ -266,7 +266,7 @@ const Conocenos = () => {
 
           <div className="personal-adicional">
             <div className="member-avatar">
-              <img src="/images/team/personal.png" alt="Personal de confianza" />
+              <img src="/images/team/personal.png" alt="Personal de confianza" loading="lazy" />
             </div>
             <h4>Personal de confianza</h4>
             <p className="member-email">proyectos@creativosespacios.mx</p>

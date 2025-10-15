@@ -12,7 +12,7 @@
 
   &__title {
     font-family: $font-titulos;
-    font-size: 40px;
+    font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
     font-weight: $font-weight-light;
     color: $color-negro;
     line-height: 1.2;
@@ -21,7 +21,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -33,11 +33,11 @@
     padding: $spacing-xl 0;
 
     &__title {
-      font-size: 32px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
 
     &__description {
-      font-size: 11px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     }
   }
 
@@ -45,7 +45,7 @@
     padding: $spacing-lg 0;
 
     &__title {
-      font-size: 28px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
   }
 }
@@ -65,7 +65,7 @@
 .contacto-form {
   &__title {
     font-family: $font-titulos;
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-lg 0;
@@ -73,7 +73,7 @@
 
   &__label {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin-bottom: 4px;
@@ -81,7 +81,7 @@
 
   &__input {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     padding: $spacing-sm;
   }
@@ -91,7 +91,7 @@
 .contacto-info {
   &__title {
     font-family: $font-titulos;
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-lg 0;
@@ -108,7 +108,7 @@
   }
 
   &__icon {
-    font-size: 16px;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     color: $color-negro;
     margin-right: $spacing-sm;
     margin-top: 2px;
@@ -117,7 +117,7 @@
 
   &__text {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -140,7 +140,7 @@
 
   &__subtitle {
     font-family: $font-titulos;
-    font-size: 16px;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-md 0;
@@ -153,7 +153,7 @@
   }
 
   &__social-link {
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     color: $color-negro;
     transition: opacity 0.3s ease;
 

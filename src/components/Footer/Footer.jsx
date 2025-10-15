@@ -2,44 +2,108 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaTiktok, FaYoutube, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaTimes } from 'react-icons/fa';
+import { trackPhoneClick, trackEmailClick, trackSocialClick } from '../../utils/analytics';
 import logo from '../../assets/logo-footer.png';
 import './Footer.scss';
 
 const Footer = () => {
   return (
-    <footer className="site-footer position-relative">
+    <footer className="site-footer position-relative" role="contentinfo">
       <Container>
         <Row className="contact-info">
           <Col xs={12} sm={6} md={3} className="ms-auto text-center text-md-start">
             <div className="footer-section">
-              <h4>Comunícate con nosotros</h4>
+              <h4 id="contact-heading">Comunícate con nosotros</h4>
               <p>Lunes a viernes de<br/>9:00am a 6:00pm</p>
               <p>
-                <FaWhatsapp className="icon" />
+                <FaWhatsapp className="icon" aria-hidden="true" />
                 <span>Whatsapp</span><br/>
-                <a href="https://wa.me/5554269941">55-54-26-99-41</a>
+                <a
+                  href="https://wa.me/5554269941"
+                  aria-label="Contactar por WhatsApp"
+                  onClick={() => trackPhoneClick('55-54-26-99-41', 'footer-whatsapp')}
+                >
+                  55-54-26-99-41
+                </a>
               </p>
               <p>
-                <FaPhone className="icon" />
+                <FaPhone className="icon" aria-hidden="true" />
                 <span>Teléfono</span><br/>
-                <a href="tel:5526088886">55-26-08-88-86</a>
+                <a
+                  href="tel:5526088886"
+                  aria-label="Llamar al teléfono"
+                  onClick={() => trackPhoneClick('55-26-08-88-86', 'footer-phone')}
+                >
+                  55-26-08-88-86
+                </a>
               </p>
               <p>
-                <FaEnvelope className="icon" />
+                <FaEnvelope className="icon" aria-hidden="true" />
                 <span>Mail</span><br/>
-                <a href="mailto:ventas@creativosespacios.mx">ventas@creativosespacios.mx</a>
+                <a
+                  href="mailto:ventas@creativosespacios.mx"
+                  aria-label="Enviar correo electrónico"
+                  onClick={() => trackEmailClick('ventas@creativosespacios.mx', 'footer')}
+                >
+                  ventas@creativosespacios.mx
+                </a>
               </p>
             </div>
           </Col>
           <Col xs={12} sm={6} md={3} className="ms-auto text-center text-md-start">
             <div className="footer-section">
-              <h4>Síguenos</h4>
-              <div className="social-links d-flex align-items-center align-items-md-start">
-                <a href="https://facebook.com/creativosespaciosmx" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-                <a href="https://instagram.com/creativposespaciosmx" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-                <a href="https://tiktok.com/@creativosespaciosmx" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
-                <a href="https://x.com/creaespaciosmx" target="_blank" rel="noopener noreferrer"><FaTimes /></a>
-                <a href="https://youtube.com/@creativosespacios" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+              <h4 id="social-heading">Síguenos</h4>
+              <div className="social-links d-flex align-items-center align-items-md-start" role="list" aria-labelledby="social-heading">
+                <a
+                  href="https://facebook.com/creativosespaciosmx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Síguenos en Facebook"
+                  role="listitem"
+                  onClick={() => trackSocialClick('facebook', 'footer')}
+                >
+                  <FaFacebookF aria-hidden="true" />
+                </a>
+                <a
+                  href="https://instagram.com/creativposespaciosmx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Síguenos en Instagram"
+                  role="listitem"
+                  onClick={() => trackSocialClick('instagram', 'footer')}
+                >
+                  <FaInstagram aria-hidden="true" />
+                </a>
+                <a
+                  href="https://tiktok.com/@creativosespaciosmx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Síguenos en TikTok"
+                  role="listitem"
+                  onClick={() => trackSocialClick('tiktok', 'footer')}
+                >
+                  <FaTiktok aria-hidden="true" />
+                </a>
+                <a
+                  href="https://x.com/creaespaciosmx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Síguenos en X (Twitter)"
+                  role="listitem"
+                  onClick={() => trackSocialClick('twitter', 'footer')}
+                >
+                  <FaTimes aria-hidden="true" />
+                </a>
+                <a
+                  href="https://youtube.com/@creativosespacios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Síguenos en YouTube"
+                  role="listitem"
+                  onClick={() => trackSocialClick('youtube', 'footer')}
+                >
+                  <FaYoutube aria-hidden="true" />
+                </a>
               </div>
               <h4 className="mt-4">Patios de contenedores</h4>
               <ul className="list-unstyled">
@@ -54,8 +118,8 @@ const Footer = () => {
             <div className="footer-section">
               <h4>Atención a clientes</h4>
               <p>
-                <a href="https://maps.app.goo.gl/kGwek2XYdjEUvruP6" target="_blank" rel="noopener noreferrer">
-                <FaMapMarkerAlt className="icon" />
+                <a href="https://maps.app.goo.gl/kGwek2XYdjEUvruP6" target="_blank" rel="noopener noreferrer" aria-label="Ver ubicación en Google Maps">
+                <FaMapMarkerAlt className="icon" aria-hidden="true" />
                 Av. Del Árbol 104,<br/>
                 Colonia Lomas de San Lorenzo<br/>
                 Código Postal 09780<br/>
@@ -151,8 +215,8 @@ const Footer = () => {
         
         <Row className="copyright mt-5">
           <Col md={8}>
-            <Link to="/">
-              <img src={logo} alt="Creativos Espacios" className="footer-logo" />
+            <Link to="/" aria-label="Ir a la página principal">
+              <img src={logo} alt="Creativos Espacios Logo" className="footer-logo" loading="lazy" />
             </Link>
             <p className="copyright-text">Todos los derechos reservados 2024-25</p>
             <div className="legal-links">
@@ -167,8 +231,8 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>     
-      <Link to="/" className='position-absolute bottom-0 end-0'>
-              <img src="../images/contenedeores-maritimos-creativos.webp" alt="venta-contenedores-maritimos" className="" />
+      <Link to="/" className='position-absolute bottom-0 end-0' aria-label="Ir a la página principal">
+              <img src="../images/contenedeores-maritimos-creativos.webp" alt="Venta de contenedores marítimos en México" className="" loading="lazy" />
           </Link>  
     </footer>
   );

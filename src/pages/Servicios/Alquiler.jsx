@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Alquiler.scss';
 
 const Alquiler = () => {
@@ -27,8 +28,26 @@ const Alquiler = () => {
     { tamano: '40 pies', precio: 'Desde $8,000/mes', caracteristicas: 'Máximo espacio disponible, ideal para proyectos grandes.' }
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Renta de Contenedores Marítimos",
+    "provider": {
+      "@type": "Organization",
+      "name": "Creativos Espacios",
+      "url": "https://www.creativosespacios.mx"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "México"
+    },
+    "description": "Renta de contenedores marítimos por día, semana o mes. Soluciones flexibles de almacenamiento temporal y espacios modulares."
+  };
+
   return (
     <div className="alquiler-page">
+      <SEO {...seoConfig.alquiler} structuredData={serviceSchema} />
+
       {/* Hero Section */}
       <section className="alquiler-hero">
         <Container>

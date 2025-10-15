@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../../components/SEO';
 import './QuienesSomos.scss';
 
 // Image URLs from Figma
@@ -12,6 +13,8 @@ const FIGMA_IMAGES = {
 const QuienesSomos = () => {
   return (
     <div className="quienes-somos-page">
+      <SEO {...seoConfig.quienesSomos} />
+
       {/* Hero Section */}
       <section className="quienes-hero">
         <Container>
@@ -35,6 +38,7 @@ const QuienesSomos = () => {
                   src={FIGMA_IMAGES.image258}
                   alt="Contenedores marítimos - Ayuda profesional"
                   className="quienes-gallery__image"
+                  loading="lazy"
                 />
               </div>
             </Col>
@@ -44,6 +48,7 @@ const QuienesSomos = () => {
                   src={FIGMA_IMAGES.image259}
                   alt="Construcción sostenible consciente"
                   className="quienes-gallery__image"
+                  loading="lazy"
                 />
               </div>
             </Col>
@@ -53,6 +58,7 @@ const QuienesSomos = () => {
                   src={FIGMA_IMAGES.image260}
                   alt="Cuidado del medio ambiente"
                   className="quienes-gallery__image"
+                  loading="lazy"
                 />
               </div>
             </Col>

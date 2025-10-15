@@ -1,10 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../../components/SEO';
 import './Historia.scss';
 
 const Historia = () => {
   return (
     <div className="historia-page">
+      <SEO {...seoConfig.historia} />
+
       {/* Hero Section */}
       <section className="historia-hero">
         <Container>

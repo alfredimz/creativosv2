@@ -21,15 +21,15 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`site-header ${scrolled ? 'scrolled' : ''}`}>
-      <Navbar expand="lg" className="navbar-dark">
+    <header className={`site-header ${scrolled ? 'scrolled' : ''}`} role="banner">
+      <Navbar expand="lg" className="navbar-dark" role="navigation" aria-label="Navegación principal">
         <Container>
-          <Navbar.Brand as={Link} to="/">
-            <img src={logo} alt="Creativos Espacios" className="logo" />
+          <Navbar.Brand as={Link} to="/" aria-label="Creativos Espacios - Inicio">
+            <img src={logo} alt="Creativos Espacios Logo" className="logo" />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" aria-label="Abrir menú de navegación" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+            <Nav className="ms-auto" role="menubar">
               {/* Menú desplegable: Productos */}
               <NavDropdown title="Productos" id="productos-dropdown">
                 <NavDropdown.Item as={NavLink} to="/tipos-contenedores">Tipos de Contenedores</NavDropdown.Item>

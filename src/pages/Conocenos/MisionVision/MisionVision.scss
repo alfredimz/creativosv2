@@ -31,7 +31,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -57,21 +57,16 @@
     padding: $spacing-xl 0 $spacing-md 0;
 
     &__title {
-      font-size: 32px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
 
     &__description {
-      font-size: 11px;
       max-width: 100%;
     }
   }
 
   @media (max-width: $breakpoint-sm) {
     padding: $spacing-lg 0 $spacing-sm 0;
-
-    &__title {
-      font-size: 28px;
-    }
   }
 }
 

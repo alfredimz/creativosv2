@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './ArticuloBlog.scss';
 
 const ArticuloBlog = () => {
-  const { slug } = useParams();
+  // Note: slug parameter available via useParams() if needed for dynamic content
 
   // Datos de ejemplo del artículo
   const articulo = {

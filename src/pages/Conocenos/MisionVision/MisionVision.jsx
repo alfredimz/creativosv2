@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../../components/SEO';
 import './MisionVision.scss';
 
 // Image URL from Figma
@@ -10,6 +11,8 @@ const FIGMA_IMAGE = {
 const MisionVision = () => {
   return (
     <div className="mision-vision-page">
+      <SEO {...seoConfig.misionVision} />
+
       {/* Hero Section */}
       <section className="mv-hero">
         <Container>
@@ -45,6 +48,7 @@ const MisionVision = () => {
               src={FIGMA_IMAGE.image261}
               alt="Misión y Visión - Contenedores Creativos Espacios"
               className="mv-image__img"
+              loading="lazy"
             />
           </div>
         </Container>

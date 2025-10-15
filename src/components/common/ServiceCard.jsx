@@ -31,6 +31,7 @@ const ServiceCard = ({
           src={image}
           alt={title}
           className="service-card__image"
+          loading="lazy"
         />
       </div>
 

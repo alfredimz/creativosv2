@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Button, ProgressBar } from 'react-bootstrap';
+import { Container, Row, Col, Card, ProgressBar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './PerfiladorCliente.scss';
 
 const PerfiladorCliente = () => {
@@ -51,6 +52,8 @@ const PerfiladorCliente = () => {
 
   return (
     <div className="perfilador-page">
+      <SEO {...seoConfig.perfiladorCliente} />
+
       {/* Hero Section */}
       <section className="perfilador-hero">
         <Container>

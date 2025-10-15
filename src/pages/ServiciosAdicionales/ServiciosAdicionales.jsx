@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './ServiciosAdicionales.scss';
 
 const ServiciosAdicionales = () => {
@@ -79,6 +80,8 @@ const ServiciosAdicionales = () => {
 
   return (
     <div className="servicios-adicionales-page">
+      <SEO {...seoConfig.serviciosAdicionales} />
+
       {/* Hero Section */}
       <section className="servicios-adicionales-hero">
         <Container>

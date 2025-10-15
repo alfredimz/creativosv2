@@ -1,0 +1,50 @@
+@import '../../styles/variables';
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  font-size: $fluid-font-size-base; // Fluid 14px → 16px
+  font-weight: 500;
+
+  svg {
+    flex-shrink: 0;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
+  }
+
+  &--error {
+    background-color: #fee;
+    border: 1px solid #fcc;
+    color: #c33;
+
+    svg {
+      color: #c33;
+    }
+  }
+
+  &--warning {
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #92400e;
+
+    svg {
+      color: #f59e0b;
+    }
+  }
+
+  &--success {
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+
+    svg {
+      color: #22c55e;
+    }
+  }
+
+  &__text {
+    flex: 1;
+  }
+}

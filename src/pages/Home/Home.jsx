@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaPlus } from 'react-icons/fa';
 import { ServiceCard, ServiceFeature, AcabadoCard } from '../../components/common';
+import { SEO, seoConfig } from '../../components/SEO';
+import { trackPhoneClick, trackEmailClick, trackCTAClick } from '../../utils/analytics';
 import './Home.scss';
 
 // Image URLs from Figma (these will need to be downloaded to public/images)
@@ -28,8 +30,41 @@ const FIGMA_IMAGES = {
 };
 
 const Home = () => {
+  // Organization Schema for Home page
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Creativos Espacios",
+    "url": "https://www.creativosespacios.mx",
+    "logo": "https://www.creativosespacios.mx/creativos-images/creativos-espacios.png",
+    "description": "Venta, renta y modificación de contenedores marítimos",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Del Árbol 104, Lomas de San Lorenzo",
+      "addressLocality": "Iztapalapa",
+      "addressRegion": "CDMX",
+      "postalCode": "09780",
+      "addressCountry": "MX"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+52-55-2608-886",
+      "contactType": "Customer Service",
+      "email": "ventas@creativosespacios.mx",
+      "availableLanguage": "Spanish"
+    },
+    "sameAs": [
+      "https://www.instagram.com/creativosespaciosmx",
+      "https://www.youtube.com/channel/UCEAQ-yq9sq0C-KCX8-aRyZA",
+      "https://x.com/creaespaciosmx",
+      "https://www.tiktok.com/@creativosespaciosmx"
+    ]
+  };
+
   return (
     <div className="home-page">
+      <SEO {...seoConfig.home} structuredData={organizationSchema} />
+
       {/* Hero Section */}
       <section
         className="hero-section"
@@ -53,15 +88,31 @@ const Home = () => {
                 <h3 className="contact-panel__title">Contacto</h3>
                 <div className="contact-panel__item">
                   <span className="contact-panel__label">Teléfono</span>
-                  <a href="tel:552608886" className="contact-panel__value">552608886</a>
+                  <a
+                    href="tel:552608886"
+                    className="contact-panel__value"
+                    onClick={() => trackPhoneClick('552608886', 'hero-contact-panel')}
+                  >
+                    552608886
+                  </a>
                 </div>
                 <div className="contact-panel__item">
                   <span className="contact-panel__label">Whatsapp</span>
-                  <a href="https://wa.me/5554269941" className="contact-panel__value">5554269941</a>
+                  <a
+                    href="https://wa.me/5554269941"
+                    className="contact-panel__value"
+                    onClick={() => trackPhoneClick('5554269941', 'hero-whatsapp')}
+                  >
+                    5554269941
+                  </a>
                 </div>
                 <div className="contact-panel__item">
                   <span className="contact-panel__label">Mail</span>
-                  <a href="mailto:ventas@creativosespacios.mx" className="contact-panel__value">
+                  <a
+                    href="mailto:ventas@creativosespacios.mx"
+                    className="contact-panel__value"
+                    onClick={() => trackEmailClick('ventas@creativosespacios.mx', 'hero-contact-panel')}
+                  >
                     ventas@creativosespacios.mx
                   </a>
                 </div>
@@ -212,13 +263,25 @@ const Home = () => {
       <section className="experience-section">
         <Container>
           <div className="experience-buttons">
-            <Button variant="warning" className="experience-btn experience-btn--primary">
+            <Button
+              variant="warning"
+              className="experience-btn experience-btn--primary"
+              onClick={() => trackCTAClick('Soy nuevo y quiero aprender más', 'home-experience', '/perfilador-cliente')}
+            >
               Soy nuevo y quiero aprender más
             </Button>
-            <Button variant="outline-secondary" className="experience-btn experience-btn--secondary">
+            <Button
+              variant="outline-secondary"
+              className="experience-btn experience-btn--secondary"
+              onClick={() => trackCTAClick('He trabajado con contenedores antes', 'home-experience', '/perfilador-cliente')}
+            >
               He trabajado con contenedores antes
             </Button>
-            <Button variant="outline-secondary" className="experience-btn experience-btn--tertiary">
+            <Button
+              variant="outline-secondary"
+              className="experience-btn experience-btn--tertiary"
+              onClick={() => trackCTAClick('Conozco bien los contenedores', 'home-experience', '/perfilador-cliente')}
+            >
               Conozco bien los contenedores
             </Button>
           </div>

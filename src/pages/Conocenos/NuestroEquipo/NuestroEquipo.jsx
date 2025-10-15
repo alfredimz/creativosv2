@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../../components/SEO';
 import './NuestroEquipo.scss';
 
 // Image URLs from Figma
@@ -70,6 +71,8 @@ const NuestroEquipo = () => {
 
   return (
     <div className="nuestro-equipo-page">
+      <SEO {...seoConfig.nuestroEquipo} />
+
       {/* Hero Section */}
       <section className="equipo-hero">
         <Container>
@@ -107,6 +110,7 @@ const NuestroEquipo = () => {
                       src={miembro.imagen}
                       alt={miembro.nombre}
                       className="equipo-card__img"
+                      loading="lazy"
                     />
                   </div>
                   <div className="equipo-card__divider"></div>
@@ -134,6 +138,7 @@ const NuestroEquipo = () => {
                       src={miembro.imagen}
                       alt={miembro.nombre}
                       className="equipo-card__img"
+                      loading="lazy"
                     />
                   </div>
                   <div className="equipo-card__divider"></div>
@@ -159,6 +164,7 @@ const NuestroEquipo = () => {
                   src={FIGMA_IMAGES.operativo}
                   alt="Personal de confianza"
                   className="equipo-operativo__img"
+                  loading="lazy"
                 />
               </div>
             </Col>

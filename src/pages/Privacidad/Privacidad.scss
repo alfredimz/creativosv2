@@ -13,7 +13,7 @@
 
   &__title {
     font-family: $font-titulos;
-    font-size: 40px;
+    font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
     font-weight: $font-weight-light;
     color: $color-negro;
     line-height: 1.2;
@@ -22,7 +22,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -34,11 +34,11 @@
     padding: $spacing-xl 0;
 
     &__title {
-      font-size: 32px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
 
     &__description {
-      font-size: 11px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     }
   }
 
@@ -46,7 +46,7 @@
     padding: $spacing-lg 0;
 
     &__title {
-      font-size: 28px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
   }
 }
@@ -58,7 +58,7 @@
 
   &__text {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.6;
@@ -66,7 +66,7 @@
 
   &__intro {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.6;
@@ -78,7 +78,7 @@
 
   &__titulo {
     font-family: $font-titulos;
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: $spacing-xl 0 $spacing-lg 0;
@@ -91,7 +91,7 @@
 
     li {
       font-family: $font-parrafos;
-      font-size: 12px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
       font-weight: $font-weight-normal;
       color: $color-negro;
       padding: $spacing-xs 0;
@@ -116,7 +116,7 @@
 
     p {
       font-family: $font-parrafos;
-      font-size: 12px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
       font-weight: $font-weight-normal;
       color: $color-negro;
       line-height: 1.6;
@@ -139,13 +139,51 @@
 
   &__update-date {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     text-align: right;
     margin-top: $spacing-xl;
     padding-top: $spacing-lg;
     border-top: 1px solid $color-negro;
+  }
+
+  &__subtitulo {
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: $spacing-lg 0 $spacing-md 0;
+  }
+
+  &__cookie-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-md;
+    margin: $spacing-lg 0;
+  }
+
+  &__cookie-type {
+    padding: $spacing-md;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+
+    h4 {
+      font-family: $font-titulos;
+      font-size: $fluid-font-size-base; // Fluid 14px → 16px
+      font-weight: $font-weight-semibold;
+      color: $color-negro;
+      margin: 0 0 $spacing-sm 0;
+    }
+
+    p {
+      font-family: $font-parrafos;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
+      color: #555;
+      line-height: 1.5;
+      margin: 0;
+    }
   }
 
   // Links within content
@@ -167,7 +205,7 @@
   // Paragraphs
   p {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.6;
@@ -179,7 +217,7 @@
     padding: $spacing-lg 0;
 
     &__titulo {
-      font-size: 18px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
       margin: $spacing-lg 0 $spacing-md 0;
     }
 
@@ -201,7 +239,7 @@
 
   &__titulo {
     font-family: $font-titulos;
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     font-weight: $font-weight-semibold;
     color: $color-blanco;
     margin: 0 0 $spacing-md 0;
@@ -209,7 +247,7 @@
 
   &__texto {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-blanco;
     line-height: 1.6;
@@ -222,7 +260,7 @@
     background-color: $color-blanco;
     color: $color-negro;
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-semibold;
     text-decoration: none;
     border: 1px solid $color-blanco;
@@ -239,7 +277,7 @@
     padding: $spacing-lg 0;
 
     &__titulo {
-      font-size: 18px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     }
   }
 }

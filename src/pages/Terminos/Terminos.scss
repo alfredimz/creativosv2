@@ -13,7 +13,7 @@
 
   &__title {
     font-family: $font-titulos;
-    font-size: 40px;
+    font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
     font-weight: $font-weight-light;
     color: $color-negro;
     line-height: 1.2;
@@ -22,7 +22,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -34,11 +34,11 @@
     padding: $spacing-xl 0;
 
     &__title {
-      font-size: 32px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
 
     &__description {
-      font-size: 11px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     }
   }
 
@@ -46,7 +46,7 @@
     padding: $spacing-lg 0;
 
     &__title {
-      font-size: 28px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
   }
 }
@@ -61,7 +61,7 @@
 
     p {
       font-family: $font-parrafos;
-      font-size: 12px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
       font-weight: $font-weight-normal;
       color: $color-negro;
       line-height: 1.6;
@@ -77,7 +77,7 @@
 
     p {
       font-family: $font-parrafos;
-      font-size: 12px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
       font-weight: $font-weight-normal;
       color: $color-negro;
       line-height: 1.6;
@@ -97,7 +97,7 @@
     .accordion-header {
       button {
         font-family: $font-titulos;
-        font-size: 16px;
+        font-size: $fluid-font-size-lg; // Fluid 16px → 18px
         font-weight: $font-weight-semibold;
         color: $color-negro;
         background-color: $color-blanco;
@@ -122,7 +122,7 @@
 
       p {
         font-family: $font-parrafos;
-        font-size: 12px;
+        font-size: $fluid-font-size-sm; // Fluid 12px → 14px
         font-weight: $font-weight-normal;
         color: $color-negro;
         line-height: 1.6;
@@ -140,7 +140,7 @@
 
         li {
           font-family: $font-parrafos;
-          font-size: 12px;
+          font-size: $fluid-font-size-sm; // Fluid 12px → 14px
           font-weight: $font-weight-normal;
           color: $color-negro;
           padding: $spacing-xs 0;
@@ -174,7 +174,7 @@
 
     p {
       font-family: $font-parrafos;
-      font-size: 12px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
       font-weight: $font-weight-normal;
       color: $color-negro;
       line-height: 1.6;
@@ -217,7 +217,7 @@
 
     &__accordion {
       .accordion-header button {
-        font-size: 14px;
+        font-size: $fluid-font-size-base; // Fluid 14px → 16px
         padding: $spacing-sm $spacing-md;
       }
 
@@ -240,7 +240,7 @@
 
   &__titulo {
     font-family: $font-titulos;
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     font-weight: $font-weight-semibold;
     color: $color-blanco;
     margin: 0 0 $spacing-md 0;
@@ -248,7 +248,7 @@
 
   &__texto {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-blanco;
     line-height: 1.6;
@@ -261,7 +261,7 @@
     background-color: $color-blanco;
     color: $color-negro;
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-semibold;
     text-decoration: none;
     border: 1px solid $color-blanco;
@@ -278,7 +278,7 @@
     padding: $spacing-lg 0;
 
     &__titulo {
-      font-size: 18px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     }
   }
 }

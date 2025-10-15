@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Beneficios.scss';
 
 const Beneficios = () => {
@@ -117,6 +118,8 @@ const Beneficios = () => {
 
   return (
     <div className="beneficios-page">
+      <SEO {...seoConfig.beneficios} />
+
       {/* Hero Section */}
       <section className="beneficios-hero">
         <Container>

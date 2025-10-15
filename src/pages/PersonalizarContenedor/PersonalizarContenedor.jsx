@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './PersonalizarContenedor.scss';
 
 const PersonalizarContenedor = () => {
@@ -22,6 +23,8 @@ const PersonalizarContenedor = () => {
 
   return (
     <div className="personalizar-page">
+      <SEO {...seoConfig.personalizarContenedor} />
+
       {/* Hero Section */}
       <section className="personalizar-hero">
         <Container>

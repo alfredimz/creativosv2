@@ -13,7 +13,7 @@
 
   &__title {
     font-family: $font-titulos;
-    font-size: 40px;
+    font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
     font-weight: $font-weight-light;
     color: $color-negro;
     line-height: 1.2;
@@ -22,7 +22,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -34,11 +34,11 @@
     padding: $spacing-xl 0;
 
     &__title {
-      font-size: 32px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
 
     &__description {
-      font-size: 11px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     }
   }
 
@@ -46,7 +46,7 @@
     padding: $spacing-lg 0;
 
     &__title {
-      font-size: 28px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
   }
 }
@@ -68,7 +68,7 @@
 
   &__progreso-numero {
     font-family: $font-titulos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin-bottom: $spacing-md;
@@ -87,7 +87,7 @@
 
   &__pregunta {
     font-family: $font-titulos;
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-2xl 0;
@@ -105,7 +105,7 @@
   &__opcion {
     padding: $spacing-md $spacing-lg;
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     background-color: $color-blanco;
@@ -122,7 +122,7 @@
 
   &__back-button {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     background: none;
@@ -152,7 +152,7 @@
 
   &__resultado-titulo {
     font-family: $font-titulos;
-    font-size: 24px;
+    font-size: $fluid-font-size-3xl; // Fluid 24px → 30px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-lg 0;
@@ -160,7 +160,7 @@
 
   &__resultado-texto {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.6;
@@ -177,7 +177,7 @@
 
   &__resumen-titulo {
     font-family: $font-titulos;
-    font-size: 16px;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-lg 0;
@@ -198,7 +198,7 @@
   &__resumen-pregunta {
     display: block;
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin-bottom: $spacing-xs;
@@ -206,7 +206,7 @@
 
   &__resumen-respuesta {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -228,7 +228,7 @@
   &__accion-button {
     padding: $spacing-sm $spacing-lg;
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-semibold;
     text-align: center;
     text-decoration: none;
@@ -263,11 +263,11 @@
     padding: $spacing-lg 0;
 
     &__pregunta {
-      font-size: 18px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     }
 
     &__resultado-titulo {
-      font-size: 20px;
+      font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     }
   }
 
@@ -277,7 +277,7 @@
     }
 
     &__pregunta {
-      font-size: 16px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     }
 
     &__resultado-icon {
@@ -285,7 +285,7 @@
     }
 
     &__resultado-titulo {
-      font-size: 18px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     }
   }
 }
@@ -298,7 +298,7 @@
 
   &__titulo {
     font-family: $font-titulos;
-    font-size: 20px;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-xl 0;
@@ -317,7 +317,7 @@
 
   &__card-titulo {
     font-family: $font-titulos;
-    font-size: 16px;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-sm 0;
@@ -325,7 +325,7 @@
 
   &__card-texto {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -337,11 +337,11 @@
     padding: $spacing-lg 0;
 
     &__titulo {
-      font-size: 18px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     }
 
     &__card-icon {
-      font-size: 40px;
+      font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
     }
   }
 }

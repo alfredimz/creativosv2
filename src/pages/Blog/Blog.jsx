@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Pagination } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Blog.scss';
 
 const Blog = () => {
@@ -77,6 +78,8 @@ const Blog = () => {
 
   return (
     <div className="blog-page">
+      <SEO {...seoConfig.blog} />
+
       {/* Hero Section */}
       <section className="blog-hero">
         <Container>

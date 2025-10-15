@@ -38,7 +38,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     color: $color-blanco;
     line-height: 1.5;
     margin: 0;
@@ -59,11 +59,7 @@
     padding: $spacing-lg;
 
     &__title {
-      font-size: 32px;
-    }
-
-    &__description {
-      font-size: 11px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
   }
 }

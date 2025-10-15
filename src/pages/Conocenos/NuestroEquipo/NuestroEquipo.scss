@@ -21,7 +21,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -42,21 +42,16 @@
     padding: $spacing-xl 0 $spacing-lg 0;
 
     &__title {
-      font-size: 32px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
 
     &__description {
-      font-size: 11px;
       max-width: 100%;
     }
   }
 
   @media (max-width: $breakpoint-sm) {
     padding: $spacing-lg 0;
-
-    &__title {
-      font-size: 28px;
-    }
   }
 }
 
@@ -105,7 +100,7 @@
 
   &__name {
     font-family: $font-titulos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     line-height: 1.2;
@@ -114,7 +109,7 @@
 
   &__email {
     font-family: $font-parrafos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -123,23 +118,11 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
     margin: 0;
-  }
-
-  // Responsive
-  @media (max-width: $breakpoint-md) {
-    &__name {
-      font-size: 13px;
-    }
-
-    &__email,
-    &__description {
-      font-size: 12px;
-    }
   }
 }
 
@@ -169,7 +152,7 @@
 
   &__name {
     font-family: $font-titulos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-semibold;
     color: $color-negro;
     line-height: 1.2;
@@ -178,7 +161,7 @@
 
   &__email {
     font-family: $font-parrafos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -187,7 +170,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -202,17 +185,6 @@
       padding-left: 0;
       padding-top: $spacing-md;
       text-align: center;
-    }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    &__name {
-      font-size: 13px;
-    }
-
-    &__email,
-    &__description {
-      font-size: 12px;
     }
   }
 }

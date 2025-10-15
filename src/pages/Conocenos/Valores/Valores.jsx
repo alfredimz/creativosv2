@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../../components/SEO';
 import './Valores.scss';
 
 // Image URL from Figma
@@ -19,6 +20,8 @@ const Valores = () => {
 
   return (
     <div className="valores-page">
+      <SEO {...seoConfig.valores} />
+
       {/* Hero Section */}
       <section className="valores-hero">
         <Container>
@@ -63,6 +66,7 @@ const Valores = () => {
                   src={FIGMA_IMAGE.image273}
                   alt="Creativos Espacios - Nuestros Valores"
                   className="valores-image__img"
+                  loading="lazy"
                 />
               </div>
             </Col>

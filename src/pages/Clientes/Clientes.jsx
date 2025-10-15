@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Clientes.scss';
 
 // Importaciones de logotipos (estos serán importados desde la carpeta assets o referenciados directamente)
@@ -35,6 +36,8 @@ const Clientes = () => {
   
   return (
     <div className="clientes-page">
+      <SEO {...seoConfig.clientes} />
+
       {/* Banner Principal */}
       <section className="banner-section">
         <div className="banner-overlay">
@@ -72,7 +75,7 @@ const Clientes = () => {
       <section className="client-animation-section">
         <Container>
           <div className="animation-container">
-            <img src="/images/clientes/animation.png" alt="Cliente Creativos Espacios" className="client-animation" />
+            <img src="/images/clientes/animation.png" alt="Cliente Creativos Espacios" className="client-animation" loading="lazy" />
           </div>
         </Container>
       </section>
@@ -88,7 +91,7 @@ const Clientes = () => {
                 <Col md={3} sm={6} key={cliente.id} className="client-item">
                   <div className="client-circle">
                     <div className="client-logo">
-                      <img src={cliente.logo} alt={cliente.nombre} />
+                      <img src={cliente.logo} alt={cliente.nombre} loading="lazy" />
                     </div>
                     <div className="grass-element"></div>
                   </div>
@@ -110,7 +113,7 @@ const Clientes = () => {
               <Col md={3} sm={6} key={industria.id} className="industry-item">
                 <div className="industry-card">
                   <div className="industry-icon">
-                    <img src={`/images/clientes/icons/${industria.icon}.png`} alt={industria.nombre} />
+                    <img src={`/images/clientes/icons/${industria.icon}.png`} alt={industria.nombre} loading="lazy" />
                   </div>
                   <h4>{industria.nombre}</h4>
                   <p>{industria.clientes} clientes</p>
@@ -134,7 +137,7 @@ const Clientes = () => {
                 </p>
                 <div className="testimonial-author">
                   <div className="author-image">
-                    <img src="/images/clientes/testimonial1.jpg" alt="Testimonio" />
+                    <img src="/images/clientes/testimonial1.jpg" alt="Testimonio" loading="lazy" />
                   </div>
                   <div className="author-info">
                     <h5>Ricardo Sánchez</h5>
@@ -152,7 +155,7 @@ const Clientes = () => {
                 </p>
                 <div className="testimonial-author">
                   <div className="author-image">
-                    <img src="/images/clientes/testimonial2.jpg" alt="Testimonio" />
+                    <img src="/images/clientes/testimonial2.jpg" alt="Testimonio" loading="lazy" />
                   </div>
                   <div className="author-info">
                     <h5>Ana Gutiérrez</h5>
@@ -170,7 +173,7 @@ const Clientes = () => {
                 </p>
                 <div className="testimonial-author">
                   <div className="author-image">
-                    <img src="/images/clientes/testimonial3.jpg" alt="Testimonio" />
+                    <img src="/images/clientes/testimonial3.jpg" alt="Testimonio" loading="lazy" />
                   </div>
                   <div className="author-info">
                     <h5>Carlos Martínez</h5>
@@ -248,7 +251,7 @@ const Clientes = () => {
                 </div>
               </Col>
               <Col lg={5} className="cta-image">
-                <img src="/images/clientes/cta-image.jpg" alt="Contacta con nosotros" />
+                <img src="/images/clientes/cta-image.jpg" alt="Contacta con nosotros" loading="lazy" />
               </Col>
             </Row>
           </div>

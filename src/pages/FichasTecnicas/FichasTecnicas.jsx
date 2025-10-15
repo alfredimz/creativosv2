@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './FichasTecnicas.scss';
 
 const FichasTecnicas = () => {
@@ -239,6 +240,8 @@ const FichasTecnicas = () => {
 
   return (
     <div className="fichas-tecnicas-page">
+      <SEO {...seoConfig.fichasTecnicas} />
+
       {/* Hero Section */}
       <section className="fichas-tecnicas-hero">
         <Container>
@@ -268,7 +271,7 @@ const FichasTecnicas = () => {
                   {/* Imagen */}
                   <Col md={2} className="text-center mb-3 mb-md-0">
                     <div className="fichas-tecnicas-content__card-imagen">
-                      <img src={ficha.imagen} alt={ficha.nombre} className="img-fluid" />
+                      <img src={ficha.imagen} alt={ficha.nombre} className="img-fluid" loading="lazy" />
                     </div>
                   </Col>
 

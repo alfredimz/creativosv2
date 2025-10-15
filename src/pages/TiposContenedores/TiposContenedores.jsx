@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form } from 'react-bootstrap';
 import { ContainerCard } from '../../components/common';
+import { SEO, seoConfig } from '../../components/SEO';
 import './TiposContenedores.scss';
 
 // Image URLs from Figma
@@ -174,6 +175,8 @@ const TiposContenedores = () => {
 
   return (
     <div className="tipos-contenedores-page">
+      <SEO {...seoConfig.tiposContenedores} />
+
       {/* Hero Section */}
       <section className="tipos-hero">
         <Container>

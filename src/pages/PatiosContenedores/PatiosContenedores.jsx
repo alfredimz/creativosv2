@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Breadcrumb, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './PatiosContenedores.scss';
 
 /**
@@ -58,6 +59,8 @@ const PatiosContenedores = () => {
 
   return (
     <div className="patios-page">
+      <SEO {...seoConfig.patiosContenedores} />
+
       {/* Breadcrumb */}
       <Container className="py-3">
         <Breadcrumb>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Videos.scss';
 
 const Videos = () => {
@@ -71,6 +72,8 @@ const Videos = () => {
 
   return (
     <div className="videos-page">
+      <SEO {...seoConfig.videos} />
+
       {/* Hero Section */}
       <section className="videos-hero">
         <Container>

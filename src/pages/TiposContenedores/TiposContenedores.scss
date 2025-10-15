@@ -24,16 +24,12 @@
     padding: $spacing-xl 0 $spacing-lg 0;
 
     &__title {
-      font-size: 32px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
   }
 
   @media (max-width: $breakpoint-sm) {
     padding: $spacing-lg 0;
-
-    &__title {
-      font-size: 24px;
-    }
   }
 }
 
@@ -55,7 +51,7 @@
 
   &__title {
     font-family: $font-parrafos;
-    font-size: 14px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-normal;
     color: $color-negro;
     margin-bottom: $spacing-lg;
@@ -93,7 +89,7 @@
 
     .form-check-label {
       font-family: $font-parrafos;
-      font-size: 14px;
+      font-size: $fluid-font-size-base; // Fluid 14px → 16px
       font-weight: $font-weight-light;
       color: $color-negro;
       cursor: pointer;
@@ -138,7 +134,7 @@
 
   p {
     font-family: $font-parrafos;
-    font-size: 16px;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     color: $color-gris-oscuro;
     margin: 0;
   }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Aliados.scss';
 
 const Aliados = () => {
@@ -19,6 +20,8 @@ const Aliados = () => {
 
   return (
     <div className="aliados-page">
+      <SEO {...seoConfig.aliados} />
+
       {/* Hero Section */}
       <section className="aliados-hero">
         <Container>
@@ -91,9 +94,13 @@ const Aliados = () => {
                     <Card.Text className="aliados-grid__card-texto">
                       {aliado.descripcion}
                     </Card.Text>
-                    <a href="#" className="aliados-grid__card-link">
+                    <button
+                      type="button"
+                      className="aliados-grid__card-link"
+                      onClick={() => console.log(`Ver más de ${aliado.nombre}`)}
+                    >
                       Ver más información →
-                    </a>
+                    </button>
                   </Card.Body>
                 </Card>
               </Col>

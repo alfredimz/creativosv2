@@ -54,7 +54,7 @@
 
   &__subtitle {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     color: $color-blanco;
     text-align: center;
     margin: 0;
@@ -91,7 +91,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     color: $color-blanco;
     line-height: 1.5;
     margin-bottom: $spacing-lg;
@@ -110,7 +110,7 @@
     justify-content: center;
     margin: 0 auto;
     color: $color-blanco;
-    font-size: 32px;
+    font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
 
     .service-card--construccion & {
       color: $color-negro;

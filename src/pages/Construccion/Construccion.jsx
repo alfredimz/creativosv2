@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Construccion.scss';
 
 const Construccion = () => {
@@ -89,6 +90,8 @@ const Construccion = () => {
 
   return (
     <div className="construccion-page">
+      <SEO {...seoConfig.construccion} />
+
       {/* Hero Section */}
       <section className="construccion-hero">
         <Container>

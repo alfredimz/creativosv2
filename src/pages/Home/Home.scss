@@ -51,7 +51,7 @@
 
   &__title {
     font-family: $font-titulos;
-    font-size: 48px;
+    font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
     font-weight: $font-weight-light;
     line-height: 1.2;
     margin-bottom: $spacing-md;
@@ -60,7 +60,7 @@
 
   &__subtitle {
     font-family: $font-parrafos;
-    font-size: 18px;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     font-weight: $font-weight-normal;
     line-height: 1.6;
     color: $color-blanco;
@@ -72,24 +72,6 @@
     padding-right: 0;
     margin-bottom: $spacing-lg;
     text-align: center;
-
-    &__title {
-      font-size: 36px;
-    }
-
-    &__subtitle {
-      font-size: 16px;
-    }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    &__title {
-      font-size: 28px;
-    }
-
-    &__subtitle {
-      font-size: 14px;
-    }
   }
 }
 
@@ -103,7 +85,7 @@
 
   &__title {
     font-family: $font-titulos;
-    font-size: 32px;
+    font-size: $fluid-font-size-3xl; // Fluid 24px → 30px
     font-weight: $font-weight-medium;
     color: $color-calipso;
     margin-bottom: $spacing-md;
@@ -125,7 +107,7 @@
 
   &__label {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-xs; // Fluid 10px → 12px
     font-weight: $font-weight-medium;
     color: $color-gris-claro;
     text-transform: uppercase;
@@ -135,7 +117,7 @@
 
   &__value {
     font-family: $font-parrafos;
-    font-size: 16px;
+    font-size: $fluid-font-size-base; // Fluid 14px → 16px
     font-weight: $font-weight-normal;
     color: $color-calipso;
     text-decoration: none;
@@ -154,7 +136,7 @@
 
     h4 {
       font-family: $font-titulos;
-      font-size: 18px;
+      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
       font-weight: $font-weight-medium;
       color: $color-calipso;
       margin-bottom: 8px;
@@ -162,7 +144,7 @@
 
     p {
       font-family: $font-parrafos;
-      font-size: 14px;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
       color: $color-gris-oscuro;
       line-height: 1.5;
       margin-bottom: 0;
@@ -176,24 +158,6 @@
 
   @media (max-width: $breakpoint-sm) {
     padding: $spacing-md;
-
-    &__title {
-      font-size: 24px;
-    }
-
-    &__value {
-      font-size: 14px;
-    }
-
-    &__office {
-      h4 {
-        font-size: 16px;
-      }
-
-      p {
-        font-size: 12px;
-      }
-    }
   }
 }
 
@@ -294,7 +258,7 @@
 
 .experience-btn {
   font-family: $font-parrafos;
-  font-size: 16px;
+  font-size: $fluid-font-size-base; // Fluid 14px → 16px
   font-weight: $font-weight-medium;
   padding: 16px 32px;
   border-radius: 50px;
@@ -360,12 +324,10 @@
   // Responsive
   @media (max-width: $breakpoint-md) {
     min-width: 100%;
-    font-size: 15px;
     padding: 14px 24px;
   }
 
   @media (max-width: $breakpoint-sm) {
-    font-size: 14px;
     padding: 12px 20px;
   }
 }

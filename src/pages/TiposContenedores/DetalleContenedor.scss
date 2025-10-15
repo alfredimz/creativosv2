@@ -10,12 +10,12 @@
   &__titulo {
     font-family: $font-titulos;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     color: #333;
     margin-bottom: 0;
 
     @include respond-to(md) {
-      font-size: 2.5rem;
+      font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
     }
   }
 
@@ -65,7 +65,7 @@
   .product-info {
     &__nombre {
       font-family: $font-titulos;
-      font-size: 1.75rem;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
       font-weight: 600;
       color: #333;
       margin-bottom: 0.5rem;
@@ -73,21 +73,21 @@
 
     &__condicion {
       font-family: $font-parrafos;
-      font-size: 0.95rem;
+      font-size: $fluid-font-size-base; // Fluid 14px → 16px
       color: #666;
       margin-bottom: 1rem;
     }
 
     &__precio {
       font-family: $font-titulos;
-      font-size: 2rem;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
       font-weight: 700;
       color: $color-naranja;
       margin-bottom: 0.5rem;
     }
 
     &__iva {
-      font-size: 0.85rem;
+      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
       color: #666;
       margin-bottom: 1.5rem;
     }
@@ -105,11 +105,11 @@
         align-items: center;
         gap: 0.5rem;
         font-family: $font-parrafos;
-        font-size: 0.9rem;
+        font-size: $fluid-font-size-sm; // Fluid 12px → 14px
         color: #555;
 
         .icon {
-          font-size: 1.2rem;
+          font-size: $fluid-font-size-xl; // Fluid 18px → 20px
         }
       }
     }
@@ -117,7 +117,7 @@
     &__colores {
       h5 {
         font-family: $font-titulos;
-        font-size: 1rem;
+        font-size: $fluid-font-size-base; // Fluid 14px → 16px
         font-weight: 600;
         color: #333;
         margin-bottom: 0.75rem;
@@ -145,7 +145,7 @@
     &__medidas {
       h5 {
         font-family: $font-titulos;
-        font-size: 1rem;
+        font-size: $fluid-font-size-base; // Fluid 14px → 16px
         font-weight: 600;
         color: #333;
         margin-bottom: 0.75rem;
@@ -160,7 +160,7 @@
         small {
           display: block;
           font-family: $font-parrafos;
-          font-size: 0.75rem;
+          font-size: $fluid-font-size-sm; // Fluid 12px → 14px
           color: #666;
           margin-bottom: 0.25rem;
         }
@@ -168,7 +168,7 @@
         strong {
           display: block;
           font-family: $font-titulos;
-          font-size: 1rem;
+          font-size: $fluid-font-size-base; // Fluid 14px → 16px
           color: $color-calipso;
         }
       }
@@ -177,7 +177,7 @@
     &__entrega {
       h5 {
         font-family: $font-titulos;
-        font-size: 1rem;
+        font-size: $fluid-font-size-base; // Fluid 14px → 16px
         font-weight: 600;
         color: #333;
         margin-bottom: 0.75rem;
@@ -213,7 +213,7 @@
             }
 
             .badge {
-              font-size: 0.7rem;
+              font-size: $fluid-font-size-xs; // Fluid 10px → 12px
             }
 
             p {
@@ -273,7 +273,7 @@
 
       .card-title {
         font-family: $font-parrafos;
-        font-size: 0.9rem;
+        font-size: $fluid-font-size-sm; // Fluid 12px → 14px
         color: #333;
         margin-bottom: 0.5rem;
       }
@@ -287,7 +287,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.25rem;
+        font-size: $fluid-font-size-xl; // Fluid 18px → 20px
         font-weight: 300;
         color: #333;
         transition: transform 0.3s ease;

@@ -115,6 +115,7 @@ const DetalleContenedor = () => {
                     src={contenedor.imagenes[selectedImage]}
                     alt={contenedor.nombre}
                     className="img-fluid rounded shadow"
+                    loading="lazy"
                   />
                 </div>
 
@@ -126,7 +127,7 @@ const DetalleContenedor = () => {
                       className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
                       onClick={() => setSelectedImage(index)}
                     >
-                      <img src={img} alt={`Vista ${index + 1}`} className="img-fluid" />
+                      <img src={img} alt={`Vista ${index + 1}`} className="img-fluid" loading="lazy" />
                     </div>
                   ))}
                 </div>
@@ -301,6 +302,7 @@ const DetalleContenedor = () => {
                         variant="top"
                         src={`/images/contenedores/${cont.imagen}`}
                         alt={cont.nombre}
+                        loading="lazy"
                       />
                     </div>
                     <Card.Body className="text-center bg-white">

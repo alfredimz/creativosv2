@@ -27,6 +27,7 @@ const ContainerCard = ({ id, title, image, backgroundColor, link }) => {
           src={image}
           alt={title}
           className="container-card__image"
+          loading="lazy"
         />
       </div>
       <div className="container-card__footer">

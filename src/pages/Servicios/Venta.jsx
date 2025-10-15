@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Venta.scss';
 
 const Venta = () => {
@@ -39,8 +40,26 @@ const Venta = () => {
     'Inversión para reventa o renta posterior'
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Venta de Contenedores Marítimos",
+    "provider": {
+      "@type": "Organization",
+      "name": "Creativos Espacios",
+      "url": "https://www.creativosespacios.mx"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "México"
+    },
+    "description": "Venta de contenedores marítimos nuevos y usados. Las mejores opciones para tu proyecto. Entrega en toda la República Mexicana."
+  };
+
   return (
     <div className="venta-page">
+      <SEO {...seoConfig.venta} structuredData={serviceSchema} />
+
       {/* Hero Section */}
       <section className="venta-hero">
         <Container>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './MapaSitio.scss';
 
 const MapaSitio = () => {
@@ -101,6 +102,8 @@ const MapaSitio = () => {
 
   return (
     <div className="mapa-sitio-page">
+      <SEO {...seoConfig.mapaSitio} />
+
       <section className="mapa-sitio-hero">
         <Container>
           <Row className="justify-content-center text-center">

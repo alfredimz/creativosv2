@@ -33,7 +33,13 @@
       "mcp__figma__get_metadata",
       "mcp__figma__create_design_system_rules",
       "mcp__figma__get_code",
-      "mcp__figma__get_screenshot"
+      "mcp__figma__get_screenshot",
+      "Bash(del:*)",
+      "Bash(npm run build)",
+      "Bash(find:*)",
+      "Read(//c/**)",
+      "Bash(if exist \".ai-docs\\old\" dir \".ai-docs\\old\" /b)",
+      "Bash(if exist .ai-docsold dir .ai-docsold /b)"
     ],
     "deny": [],
     "ask": []

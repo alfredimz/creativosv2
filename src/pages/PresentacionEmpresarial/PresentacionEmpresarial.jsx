@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../components/SEO';
 import './PresentacionEmpresarial.scss';
 
 const PresentacionEmpresarial = () => {
@@ -75,6 +76,8 @@ const PresentacionEmpresarial = () => {
 
   return (
     <div className="presentacion-empresarial-page">
+      <SEO {...seoConfig.presentacionEmpresarial} />
+
       {/* Hero Section */}
       <section className="presentacion-hero">
         <Container>

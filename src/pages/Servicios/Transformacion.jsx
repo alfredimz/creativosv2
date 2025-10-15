@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Transformacion.scss';
 
 const Transformacion = () => {
@@ -25,8 +26,26 @@ const Transformacion = () => {
     'Garantía de 2 años'
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Transformación de Contenedores Marítimos",
+    "provider": {
+      "@type": "Organization",
+      "name": "Creativos Espacios",
+      "url": "https://www.creativosespacios.mx"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "México"
+    },
+    "description": "Servicio de transformación y modificación de contenedores marítimos. Convertimos contenedores en oficinas, casas, negocios y más."
+  };
+
   return (
     <div className="transformacion-page">
+      <SEO {...seoConfig.transformacion} structuredData={serviceSchema} />
+
       {/* Hero Section */}
       <section className="transformacion-hero">
         <Container>

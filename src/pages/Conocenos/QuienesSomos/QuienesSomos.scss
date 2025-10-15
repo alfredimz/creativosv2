@@ -21,7 +21,7 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -34,20 +34,12 @@
     padding: $spacing-xl 0 $spacing-lg 0;
 
     &__title {
-      font-size: 32px;
-    }
-
-    &__description {
-      font-size: 11px;
+      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
     }
   }
 
   @media (max-width: $breakpoint-sm) {
     padding: $spacing-lg 0;
-
-    &__title {
-      font-size: 28px;
-    }
   }
 }
 
@@ -104,7 +96,7 @@
 
   &__text {
     font-family: $font-parrafos;
-    font-size: 12px;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
@@ -118,26 +110,12 @@
 
   @media (max-width: $breakpoint-md) {
     &__title {
-      font-size: 22px;
+      font-size: $fluid-font-size-2xl; // Fluid 20px → 24px
       margin-bottom: $spacing-sm;
-    }
-
-    &__text {
-      font-size: 11px;
     }
 
     &__card {
       margin-bottom: $spacing-lg;
-    }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    &__title {
-      font-size: 20px;
-    }
-
-    &__text {
-      font-size: 10px;
     }
   }
 }

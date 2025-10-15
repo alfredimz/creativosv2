@@ -1,11 +1,14 @@
 import React from 'react';
 import { Container, Row, Col, Accordion } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { SEO, seoConfig } from '../../components/SEO';
 import './Terminos.scss';
 
 const Terminos = () => {
   return (
     <div className="terminos-page">
+      <SEO {...seoConfig.terminos} />
+
       <section className="terminos-hero">
         <Container>
           <Row className="justify-content-center text-center">
