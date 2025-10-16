@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaMoneyBillWave, FaBolt, FaTools, FaDumbbell, FaLeaf, FaLock, FaStar } from 'react-icons/fa'; // FASE 4: Reemplazo de emojis
 import { SEO, seoConfig } from '../../components/SEO';
 import './Beneficios.scss';
 
 const Beneficios = () => {
   const beneficiosPrincipales = [
     {
-      icono: '💰',
+      icono: <FaMoneyBillWave size={48} color="#3B6F7F" />,
       titulo: 'Economía y Ahorro',
       descripcion: 'Reduce hasta un 40% en costos de construcción comparado con métodos tradicionales.',
       detalles: [
@@ -18,7 +19,7 @@ const Beneficios = () => {
       ]
     },
     {
-      icono: '⚡',
+      icono: <FaBolt size={48} color="#F16700" />,
       titulo: 'Rapidez de Instalación',
       descripcion: 'Tiempos de entrega e instalación de 30-45 días vs 6-12 meses de construcción convencional.',
       detalles: [
@@ -29,7 +30,7 @@ const Beneficios = () => {
       ]
     },
     {
-      icono: '🔧',
+      icono: <FaTools size={48} color="#3B6F7F" />,
       titulo: 'Versatilidad Total',
       descripcion: 'Adaptables a cualquier necesidad: oficinas, viviendas, comercios, bodegas y más.',
       detalles: [
@@ -40,7 +41,7 @@ const Beneficios = () => {
       ]
     },
     {
-      icono: '💪',
+      icono: <FaDumbbell size={48} color="#3B6F7F" />,
       titulo: 'Durabilidad Extrema',
       descripcion: 'Estructura de acero corten resistente a condiciones climáticas extremas.',
       detalles: [
@@ -51,7 +52,7 @@ const Beneficios = () => {
       ]
     },
     {
-      icono: '🌱',
+      icono: <FaLeaf size={48} color="#2E7D32" />,
       titulo: 'Sustentabilidad',
       descripcion: 'Construcción ecológica mediante el reciclaje de contenedores marítimos.',
       detalles: [
@@ -62,7 +63,7 @@ const Beneficios = () => {
       ]
     },
     {
-      icono: '🔒',
+      icono: <FaLock size={48} color="#3B6F7F" />,
       titulo: 'Seguridad Garantizada',
       descripcion: 'Estructura ultra resistente diseñada originalmente para transporte marítimo.',
       detalles: [
@@ -218,7 +219,13 @@ const Beneficios = () => {
             <Col md={4} className="mb-4">
               <Card className="beneficios-testimonios__card h-100">
                 <Card.Body>
-                  <div className="beneficios-testimonios__stars">⭐⭐⭐⭐⭐</div>
+                  <div className="beneficios-testimonios__stars">
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                  </div>
                   <Card.Text className="beneficios-testimonios__text">
                     "Excelente servicio. Mi oficina estuvo lista en 6 semanas y el ahorro fue significativo. Totalmente recomendados."
                   </Card.Text>
@@ -232,7 +239,13 @@ const Beneficios = () => {
             <Col md={4} className="mb-4">
               <Card className="beneficios-testimonios__card h-100">
                 <Card.Body>
-                  <div className="beneficios-testimonios__stars">⭐⭐⭐⭐⭐</div>
+                  <div className="beneficios-testimonios__stars">
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                  </div>
                   <Card.Text className="beneficios-testimonios__text">
                     "La calidad de construcción es increíble. Mi local comercial está funcionando perfectamente desde hace 2 años."
                   </Card.Text>
@@ -246,7 +259,13 @@ const Beneficios = () => {
             <Col md={4} className="mb-4">
               <Card className="beneficios-testimonios__card h-100">
                 <Card.Body>
-                  <div className="beneficios-testimonios__stars">⭐⭐⭐⭐⭐</div>
+                  <div className="beneficios-testimonios__stars">
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                    <FaStar color="#FFD700" />
+                  </div>
                   <Card.Text className="beneficios-testimonios__text">
                     "Solución perfecta para mi bodega. Segura, resistente y con excelente relación calidad-precio."
                   </Card.Text>

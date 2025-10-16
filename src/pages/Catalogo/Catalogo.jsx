@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // FASE 5: Agregar Link para botones
 import { SEO, seoConfig } from '../../components/SEO';
 import './Catalogo.scss';
 
@@ -131,6 +132,15 @@ const Catalogo = () => {
                   <p className="catalogo-productos__card-precio">{producto.precio}</p>
                   <p className="catalogo-productos__card-medidas"><strong>Medidas:</strong> {producto.medidas}</p>
                   <p className="catalogo-productos__card-disponibilidad"><strong>Disponibilidad:</strong> {producto.disponibilidad}</p>
+                  {/* FASE 5: Agregar botones de acción */}
+                  <div className="catalogo-productos__card-actions mt-3">
+                    <Link to="/cotizador-venta" className="btn btn-primary btn-sm w-100 mb-2">
+                      Cotizar Compra
+                    </Link>
+                    <Link to="/cotizador-renta" className="btn btn-outline-primary btn-sm w-100">
+                      Cotizar Renta
+                    </Link>
+                  </div>
                 </div>
               </Col>
             ))}

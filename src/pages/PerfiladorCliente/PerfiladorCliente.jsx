@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, ProgressBar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { FaBullseye, FaBolt, FaMoneyBillWave } from 'react-icons/fa'; // FASE 4: Reemplazo de emojis
 import { SEO, seoConfig } from '../../components/SEO';
+import { determinarNivelPorRespuestas, setUserLevel, getNombreNivel } from '../../utils/userLevel';
 import './PerfiladorCliente.scss';
 
 const PerfiladorCliente = () => {
   const [paso, setPaso] = useState(1);
   const [respuestas, setRespuestas] = useState({});
+  const [nivelSugerido, setNivelSugerido] = useState(null);
+  const navigate = useNavigate();
 
   const preguntas = [
     {
@@ -37,15 +41,34 @@ const PerfiladorCliente = () => {
   ];
 
   const handleRespuesta = (opcion) => {
-    setRespuestas({ ...respuestas, [paso]: opcion });
+    const nuevasRespuestas = { ...respuestas, [paso]: opcion };
+    setRespuestas(nuevasRespuestas);
+
     if (paso < preguntas.length) {
       setPaso(paso + 1);
+    } else {
+      // Última pregunta: determinar nivel
+      const nivel = determinarNivelPorRespuestas(nuevasRespuestas);
+      setNivelSugerido(nivel);
     }
   };
 
   const reiniciar = () => {
     setPaso(1);
     setRespuestas({});
+    setNivelSugerido(null);
+  };
+
+  const handleFinalizarPerfilador = () => {
+    if (nivelSugerido) {
+      // Guardar nivel en localStorage
+      setUserLevel(nivelSugerido);
+
+      // Redirigir a home después de un breve delay
+      setTimeout(() => {
+        navigate('/');
+      }, 1500);
+    }
   };
 
   const progreso = (paso / preguntas.length) * 100;
@@ -115,8 +138,20 @@ const PerfiladorCliente = () => {
                       <h2 className="perfilador-quiz__resultado-titulo">¡Perfil Completado!</h2>
                       <p className="perfilador-quiz__resultado-texto">
                         Gracias por completar el perfilador. Basándonos en tus respuestas,
-                        te recomendamos contactarnos para una asesoría personalizada.
+                        hemos personalizado la experiencia perfecta para ti.
                       </p>
+
+                      {nivelSugerido && (
+                        <div className="perfilador-quiz__nivel-sugerido">
+                          <h3 className="perfilador-quiz__nivel-titulo">Tu Nivel Sugerido:</h3>
+                          <div className="perfilador-quiz__nivel-badge">
+                            {getNombreNivel(nivelSugerido)}
+                          </div>
+                          <p className="perfilador-quiz__nivel-descripcion">
+                            Hemos configurado el contenido del sitio especialmente para tu nivel de experiencia.
+                          </p>
+                        </div>
+                      )}
 
                       <div className="perfilador-quiz__resumen">
                         <h3 className="perfilador-quiz__resumen-titulo">Tus respuestas:</h3>
@@ -129,12 +164,18 @@ const PerfiladorCliente = () => {
                       </div>
 
                       <div className="perfilador-quiz__acciones">
-                        <Link to="/contacto" className="perfilador-quiz__accion-button perfilador-quiz__accion-button--primary">
-                          Solicitar Asesoría Personalizada
+                        <button
+                          onClick={handleFinalizarPerfilador}
+                          className="perfilador-quiz__accion-button perfilador-quiz__accion-button--primary"
+                        >
+                          Ver Mi Home Personalizado
+                        </button>
+                        <Link to="/contacto" className="perfilador-quiz__accion-button perfilador-quiz__accion-button--secondary">
+                          Solicitar Asesoría
                         </Link>
                         <button
                           onClick={reiniciar}
-                          className="perfilador-quiz__accion-button perfilador-quiz__accion-button--secondary"
+                          className="perfilador-quiz__accion-button perfilador-quiz__accion-button--tertiary"
                         >
                           Reiniciar Perfilador
                         </button>
@@ -159,21 +200,27 @@ const PerfiladorCliente = () => {
           <Row>
             <Col md={4} className="text-center mb-4">
               <div className="perfilador-beneficios__card">
-                <div className="perfilador-beneficios__card-icon">🎯</div>
+                <div className="perfilador-beneficios__card-icon">
+                  <FaBullseye size={48} color="#3B6F7F" />
+                </div>
                 <h3 className="perfilador-beneficios__card-titulo">Solución Precisa</h3>
                 <p className="perfilador-beneficios__card-texto">Identifica exactamente qué tipo de contenedor necesitas</p>
               </div>
             </Col>
             <Col md={4} className="text-center mb-4">
               <div className="perfilador-beneficios__card">
-                <div className="perfilador-beneficios__card-icon">⚡</div>
+                <div className="perfilador-beneficios__card-icon">
+                  <FaBolt size={48} color="#F16700" />
+                </div>
                 <h3 className="perfilador-beneficios__card-titulo">Proceso Rápido</h3>
                 <p className="perfilador-beneficios__card-texto">Solo 5 preguntas para obtener una recomendación personalizada</p>
               </div>
             </Col>
             <Col md={4} className="text-center mb-4">
               <div className="perfilador-beneficios__card">
-                <div className="perfilador-beneficios__card-icon">💰</div>
+                <div className="perfilador-beneficios__card-icon">
+                  <FaMoneyBillWave size={48} color="#3B6F7F" />
+                </div>
                 <h3 className="perfilador-beneficios__card-titulo">Ahorra Tiempo</h3>
                 <p className="perfilador-beneficios__card-texto">Evita cotizaciones innecesarias, directo a lo que necesitas</p>
               </div>

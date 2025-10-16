@@ -3,3 +3,4 @@ export { default as ServiceCard } from './ServiceCard';
 export { default as ServiceFeature } from './ServiceFeature';
 export { default as AcabadoCard } from './AcabadoCard';
 export { default as ContainerCard } from './ContainerCard';
+export { default as ProductoEstrellaCard } from './ProductoEstrellaCard';

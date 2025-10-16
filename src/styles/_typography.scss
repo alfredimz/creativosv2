@@ -1,0 +1,292 @@
+// ============================================
+// TYPOGRAPHY GLOBAL - FASE 1
+// ============================================
+// Aplica tipografía Outfit/Hind + clamp() a TODO el sitio
+// Outfit → Títulos, menús, footer
+// Hind → Párrafos y texto corrido
+
+@import './variables';
+
+// ============================================
+// BASE FONT SETTINGS
+// ============================================
+
+body {
+  font-family: $font-parrafos; // Hind para el cuerpo
+  font-size: $font-base;  // clamp(14px, 1.5vw, 18px)
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
+  color: $color-gris-oscuro;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ============================================
+// HEADINGS - OUTFIT FONT
+// ============================================
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-titulos; // Outfit
+  font-weight: $font-weight-semibold;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: $color-negro;
+}
+
+h1, .h1 {
+  font-size: $font-h1; // clamp(28px, 5vw, 48px)
+  font-weight: $font-weight-bold;
+}
+
+h2, .h2 {
+  font-size: $font-h2; // clamp(24px, 4vw, 40px)
+  font-weight: $font-weight-semibold;
+}
+
+h3, .h3 {
+  font-size: $font-h3; // clamp(20px, 3vw, 32px)
+  font-weight: $font-weight-semibold;
+}
+
+h4, .h4 {
+  font-size: $font-h4; // clamp(18px, 2.5vw, 24px)
+  font-weight: $font-weight-medium;
+}
+
+h5, .h5 {
+  font-size: $font-base; // clamp(14px, 1.5vw, 18px)
+  font-weight: $font-weight-medium;
+}
+
+h6, .h6 {
+  font-size: $font-base; // clamp(14px, 1.5vw, 18px)
+  font-weight: $font-weight-normal;
+}
+
+// ============================================
+// PARAGRAPHS - HIND FONT
+// ============================================
+
+p {
+  font-family: $font-parrafos; // Hind
+  font-size: $font-base; // clamp(14px, 1.5vw, 18px)
+  font-weight: $font-weight-normal;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: $color-gris-oscuro;
+}
+
+// ============================================
+// LINKS
+// ============================================
+
+a {
+  font-family: inherit;
+  color: $color-calipso;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-naranja;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid $color-calipso;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// LISTS - HIND FONT
+// ============================================
+
+ul, ol {
+  font-family: $font-parrafos; // Hind
+  font-size: $font-base;
+  line-height: 1.6;
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+// ============================================
+// SMALL TEXT & CAPTIONS
+// ============================================
+
+small, .small {
+  font-family: $font-parrafos; // Hind
+  font-size: $font-small; // clamp(12px, 1.2vw, 14px)
+  font-weight: $font-weight-normal;
+}
+
+// ============================================
+// EMPHASIS
+// ============================================
+
+strong, b {
+  font-weight: $font-weight-bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+// ============================================
+// BLOCKQUOTES
+// ============================================
+
+blockquote {
+  font-family: $font-titulos; // Outfit
+  font-size: $font-h4;
+  font-weight: $font-weight-light;
+  font-style: italic;
+  border-left: 4px solid $color-calipso;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0;
+  color: $color-gris-oscuro;
+}
+
+// ============================================
+// CODE
+// ============================================
+
+code, pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: $font-small;
+  background-color: $color-gris-claro;
+  padding: 0.2em 0.4em;
+  border-radius: $border-radius-sm;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+// ============================================
+// LABELS & FORM TEXT
+// ============================================
+
+label {
+  font-family: $font-titulos; // Outfit
+  font-size: $font-small;
+  font-weight: $font-weight-medium;
+  color: $color-gris-oscuro;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+// ============================================
+// BUTTONS - OUTFIT FONT
+// ============================================
+
+button, .btn {
+  font-family: $font-titulos; // Outfit
+  font-weight: $font-weight-medium;
+}
+
+// ============================================
+// NAV LINKS - OUTFIT FONT
+// ============================================
+
+nav a,
+.nav-link,
+.navbar-nav .nav-link {
+  font-family: $font-titulos; // Outfit
+  font-weight: $font-weight-normal;
+}
+
+// ============================================
+// FOOTER - OUTFIT FONT
+// ============================================
+
+footer,
+.footer {
+  font-family: $font-titulos; // Outfit
+
+  p {
+    font-family: $font-parrafos; // Hind para párrafos en footer
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $font-titulos; // Outfit para títulos en footer
+  }
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+.text-hero {
+  font-family: $font-titulos;
+  font-size: $font-hero; // clamp(32px, 6vw, 56px)
+  font-weight: $font-weight-bold;
+  line-height: 1.1;
+}
+
+.text-display {
+  font-family: $font-titulos;
+  font-size: $font-h1;
+  font-weight: $font-weight-bold;
+}
+
+.text-large {
+  font-size: $font-h4;
+}
+
+.text-normal {
+  font-size: $font-base;
+}
+
+.text-small {
+  font-size: $font-small;
+}
+
+.font-titulos {
+  font-family: $font-titulos !important;
+}
+
+.font-parrafos {
+  font-family: $font-parrafos !important;
+}
+
+// ============================================
+// RESPONSIVE ADJUSTMENTS
+// ============================================
+
+// Asegurar legibilidad en móviles
+@media (max-width: $breakpoint-sm) {
+  body {
+    // clamp ya se encarga del responsive
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, .h1 {
+    margin-bottom: 0.75em;
+  }
+
+  h2, .h2 {
+    margin-bottom: 0.75em;
+  }
+
+  p {
+    margin-bottom: 1.25em;
+  }
+}
+
+// Mejorar legibilidad en pantallas grandes
+@media (min-width: $breakpoint-xl) {
+  body {
+    // clamp ya se encarga del responsive
+    letter-spacing: 0.01em;
+  }
+}

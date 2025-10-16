@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaTruck, FaBolt, FaSnowflake, FaTint, FaPaintBrush, FaLock, FaDoorOpen, FaLayerGroup, FaRuler, FaTools } from 'react-icons/fa'; // FASE 4: Reemplazo de emojis
 import { SEO, seoConfig } from '../../components/SEO';
 import './ServiciosAdicionales.scss';
 
@@ -8,70 +9,70 @@ const ServiciosAdicionales = () => {
   const servicios = [
     {
       id: 1,
-      icono: '🚛',
+      icono: <FaTruck size={40} color="#3B6F7F" />,
       titulo: 'Transporte y Logística',
       descripcion: 'Servicio de flete y maniobras para entrega de contenedores en todo México',
       caracteristicas: ['Fletes nacionales', 'Maniobras de carga/descarga', 'Grúa y montacargas', 'Seguimiento en tiempo real']
     },
     {
       id: 2,
-      icono: '🔌',
+      icono: <FaBolt size={40} color="#F16700" />,
       titulo: 'Instalaciones Eléctricas',
       descripcion: 'Instalación completa de sistemas eléctricos certificados',
       caracteristicas: ['Cableado completo', 'Tableros eléctricos', 'Iluminación LED', 'Tomas y contactos']
     },
     {
       id: 3,
-      icono: '❄️',
+      icono: <FaSnowflake size={40} color="#00BCD4" />,
       titulo: 'Climatización',
       descripcion: 'Sistemas de aire acondicionado y ventilación',
       caracteristicas: ['Aire acondicionado', 'Ventilación', 'Extractores', 'Control de temperatura']
     },
     {
       id: 4,
-      icono: '💧',
+      icono: <FaTint size={40} color="#2196F3" />,
       titulo: 'Plomería e Hidráulica',
       descripcion: 'Instalaciones sanitarias y sistemas de agua',
       caracteristicas: ['Tuberías y conexiones', 'Baños completos', 'Cocinas', 'Drenaje y desagüe']
     },
     {
       id: 5,
-      icono: '🎨',
+      icono: <FaPaintBrush size={40} color="#9C27B0" />,
       titulo: 'Acabados Personalizados',
       descripcion: 'Diseño interior y exterior a tu gusto',
       caracteristicas: ['Pintura especializada', 'Revestimientos', 'Pisos', 'Decoración']
     },
     {
       id: 6,
-      icono: '🔒',
+      icono: <FaLock size={40} color="#3B6F7F" />,
       titulo: 'Seguridad',
       descripcion: 'Sistemas de seguridad y protección',
       caracteristicas: ['Cerraduras de seguridad', 'Cámaras', 'Alarmas', 'Iluminación exterior']
     },
     {
       id: 7,
-      icono: '🪟',
+      icono: <FaDoorOpen size={40} color="#795548" />,
       titulo: 'Ventanas y Puertas',
       descripcion: 'Instalación de accesos y ventilación',
       caracteristicas: ['Puertas de seguridad', 'Ventanas de aluminio', 'Cancelería', 'Cristales templados']
     },
     {
       id: 8,
-      icono: '🧱',
+      icono: <FaLayerGroup size={40} color="#607D8B" />,
       titulo: 'Aislamiento Térmico/Acústico',
       descripcion: 'Materiales aislantes de alta calidad',
       caracteristicas: ['Aislante térmico', 'Aislante acústico', 'Impermeabilización', 'Protección UV']
     },
     {
       id: 9,
-      icono: '📐',
+      icono: <FaRuler size={40} color="#FF9800" />,
       titulo: 'Diseño Arquitectónico',
       descripcion: 'Planos y diseño personalizado',
       caracteristicas: ['Planos arquitectónicos', 'Renders 3D', 'Asesoría técnica', 'Diseño a medida']
     },
     {
       id: 10,
-      icono: '🛠️',
+      icono: <FaTools size={40} color="#3B6F7F" />,
       titulo: 'Mantenimiento',
       descripcion: 'Servicio de mantenimiento preventivo y correctivo',
       caracteristicas: ['Inspección periódica', 'Reparaciones', 'Pintura de retoque', 'Garantía extendida']

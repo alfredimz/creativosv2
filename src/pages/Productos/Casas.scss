@@ -1,0 +1,348 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.casas-page {
+  background-color: $color-blanco;
+}
+
+// Hero Section
+.casas-hero {
+  position: relative;
+  min-height: 500px;
+  background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 15%) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2xl 0;
+  overflow: hidden;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($color-negro, 0.3);
+    z-index: 1;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h1; // clamp(28px, 5vw, 48px)
+    font-weight: $font-weight-bold;
+    color: $color-blanco;
+    margin-bottom: $spacing-md;
+    text-shadow: 2px 2px 4px rgba($color-negro, 0.3);
+  }
+
+  &__subtitle {
+    font-family: $font-parrafos;
+    font-size: $font-h4; // clamp(18px, 2.5vw, 24px)
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    margin-bottom: $spacing-xl;
+    text-shadow: 1px 1px 3px rgba($color-negro, 0.3);
+  }
+
+  &__cta {
+    font-family: $font-titulos;
+    font-weight: $font-weight-semibold;
+    padding: $spacing-sm $spacing-xl;
+    font-size: $font-base;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    min-height: 400px;
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    min-height: 350px;
+    padding: $spacing-lg 0;
+  }
+}
+
+// Section Base
+.casas-section {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &--gray {
+    background-color: $color-gris-claro;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h2; // clamp(24px, 4vw, 40px)
+    font-weight: $font-weight-bold;
+    color: $color-negro;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto $spacing-lg auto;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+  }
+}
+
+// Card Component
+.casas-card {
+  background-color: $color-blanco;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba($color-negro, 0.1);
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba($color-negro, 0.15);
+  }
+
+  &--featured {
+    border: 2px solid $color-calipso;
+  }
+
+  &--success {
+    background-color: rgba($color-calipso, 0.05);
+    border-left: 4px solid $color-calipso;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h4; // clamp(18px, 2.5vw, 24px)
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__spec {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    font-weight: $font-weight-semibold;
+    color: $color-calipso;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__price {
+    font-family: $font-titulos;
+    font-size: $font-h3; // clamp(20px, 3vw, 32px)
+    font-weight: $font-weight-bold;
+    color: $color-naranja;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__disclaimer {
+    font-family: $font-parrafos;
+    font-size: $font-small;
+    color: $color-gris-medio;
+    font-style: italic;
+    display: block;
+  }
+
+  &__result {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    padding-top: $spacing-sm;
+    border-top: 1px solid $color-gris-medio;
+    margin-top: $spacing-sm;
+  }
+}
+
+// Specifications Component
+.casas-spec {
+  background-color: $color-blanco;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  height: 100%;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h4;
+    font-weight: $font-weight-semibold;
+    color: $color-calipso;
+    margin-bottom: $spacing-sm;
+    padding-bottom: $spacing-xs;
+    border-bottom: 2px solid $color-calipso;
+  }
+
+  &__list {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      padding-left: $spacing-md;
+      position: relative;
+      margin-bottom: $spacing-xs;
+
+      &:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: $color-calipso;
+        font-weight: $font-weight-bold;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Process Component
+.casas-process {
+  text-align: center;
+  padding: $spacing-md;
+
+  &__number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, $color-calipso, darken($color-calipso, 15%));
+    color: $color-blanco;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-titulos;
+    font-size: $font-h3;
+    font-weight: $font-weight-bold;
+    margin: 0 auto $spacing-md auto;
+    box-shadow: 0 4px 12px rgba($color-calipso, 0.3);
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h4;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+  }
+}
+
+// Gallery Component
+.casas-gallery-item {
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba($color-negro, 0.1);
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &__placeholder {
+    background: linear-gradient(135deg, $color-gris-claro, $color-gris-medio);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+
+    p {
+      margin: 0;
+      padding: $spacing-md;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-sm) {
+    &__placeholder {
+      height: 200px;
+    }
+  }
+}
+
+// CTA Section
+.casas-cta {
+  background: linear-gradient(135deg, $color-calipso 0%, darken($color-calipso, 15%) 100%);
+  padding: $spacing-2xl 0;
+  color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h2;
+    font-weight: $font-weight-bold;
+    color: $color-blanco;
+    margin-bottom: $spacing-md;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $font-h4;
+    color: $color-blanco;
+    margin-bottom: $spacing-xl;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__buttons {
+      flex-direction: column;
+      align-items: center;
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  }
+}

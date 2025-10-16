@@ -13,7 +13,7 @@
 
   &__title {
     font-family: $font-titulos;
-    font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
+    font-size: $fluid-font-size-5xl;
     font-weight: $font-weight-light;
     color: $color-negro;
     line-height: 1.2;
@@ -22,192 +22,367 @@
 
   &__description {
     font-family: $font-parrafos;
-    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
+    font-size: $fluid-font-size-lg;
     font-weight: $font-weight-normal;
     color: $color-negro;
     line-height: 1.5;
-    margin: 0;
+    margin: 0 0 $spacing-xl 0;
   }
 
-  // Responsive
+  &__progress {
+    margin-top: $spacing-xl;
+
+    .progress {
+      height: 8px;
+      background-color: #e0e0e0;
+      border-radius: 4px;
+
+      .progress-bar {
+        background-color: $color-negro;
+        transition: width 0.3s ease;
+      }
+    }
+  }
+
+  &__steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $spacing-md;
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-sm;
+    color: $color-negro;
+
+    span {
+      opacity: 0.4;
+      transition: opacity 0.3s ease;
+
+      &.active {
+        opacity: 1;
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+
   @media (max-width: $breakpoint-md) {
     padding: $spacing-xl 0;
 
     &__title {
-      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
+      font-size: $fluid-font-size-4xl;
     }
 
-    &__description {
-      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-    }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    padding: $spacing-lg 0;
-
-    &__title {
-      font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
+    &__steps span {
+      font-size: 10px;
     }
   }
 }
 
-// Configurador Section
-.personalizar-configurador {
-  padding: $spacing-xl 0;
+// Wizard Section
+.personalizar-wizard {
+  padding: $spacing-2xl 0;
   background-color: $color-blanco;
+  min-height: 600px;
+}
 
-  &__viewer {
-    background-color: $color-blanco;
-    border: 1px solid $color-negro;
-    margin-bottom: $spacing-xl;
+// Wizard Steps Common
+.wizard-step {
+  animation: fadeIn 0.3s ease;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-4xl;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-sm 0;
+    text-align: center;
   }
 
-  &__viewer-content {
-    height: 500px;
-    background-color: $color-blanco;
-    border-bottom: 1px solid $color-negro;
+  &__subtitle {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-lg;
+    color: $color-negro;
+    margin: 0 0 $spacing-2xl 0;
+    text-align: center;
+    opacity: 0.7;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// PASO 1: Tipo de Uso Cards
+.tipo-uso-card {
+  border: 2px solid $color-negro;
+  background-color: $color-blanco;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%;
+  min-height: 180px;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  &__placeholder {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  &.selected {
+    background-color: $color-negro;
+    color: $color-blanco;
+
+    .tipo-uso-card__nombre,
+    .tipo-uso-card__descripcion {
+      color: $color-blanco;
+    }
+
+    .tipo-uso-card__icon svg {
+      color: $color-blanco !important;
+    }
+  }
+
+  &__icon {
+    font-size: 48px;
+    margin-bottom: $spacing-md;
     color: $color-negro;
   }
 
-  &__placeholder-icon {
-    font-size: 60px;
-    margin-bottom: $spacing-lg;
-    opacity: 0.3;
-  }
-
-  &__placeholder-title {
+  &__nombre {
     font-family: $font-titulos;
-    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
+    font-size: $fluid-font-size-lg;
     font-weight: $font-weight-semibold;
     color: $color-negro;
     margin: 0 0 $spacing-sm 0;
   }
 
-  &__placeholder-text {
+  &__descripcion {
     font-family: $font-parrafos;
-    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-    font-weight: $font-weight-normal;
+    font-size: $fluid-font-size-sm;
     color: $color-negro;
-    line-height: 1.5;
-    opacity: 0.6;
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  &__check {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: $color-blanco;
+    color: $color-negro;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  .card-body {
+    padding: $spacing-lg;
+  }
+}
+
+// PASO 2: Tamaño Cards
+.tamano-card {
+  border: 2px solid $color-negro;
+  background-color: $color-blanco;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &.selected {
+    background-color: $color-negro;
+    color: $color-blanco;
+
+    .tamano-card__nombre,
+    .tamano-card__specs p,
+    .tamano-card__descripcion {
+      color: $color-blanco;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__nombre {
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
     margin: 0;
   }
 
-  &__resumen {
+  &__check {
     background-color: $color-blanco;
-    padding: $spacing-xl;
-    border: 1px solid $color-negro;
-  }
-
-  &__resumen-titulo {
-    font-family: $font-titulos;
-    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
-    font-weight: $font-weight-semibold;
     color: $color-negro;
-    margin: 0 0 $spacing-lg 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
   }
 
-  &__resumen-lista {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 $spacing-xl 0;
+  &__specs {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-base;
+    color: $color-negro;
 
-    li {
-      font-family: $font-parrafos;
-      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-      font-weight: $font-weight-normal;
-      color: $color-negro;
-      padding: $spacing-sm 0;
-      border-bottom: 1px solid $color-negro;
-      line-height: 1.5;
-
-      &:last-child {
-        border-bottom: none;
-      }
+    p {
+      margin-bottom: $spacing-sm;
 
       strong {
         font-weight: $font-weight-semibold;
-        color: $color-negro;
       }
     }
   }
 
-  &__resumen-button {
-    display: block;
-    width: 100%;
-    padding: $spacing-sm $spacing-md;
-    background-color: $color-negro;
-    color: $color-blanco;
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-    font-weight: $font-weight-semibold;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid $color-negro;
-    transition: all 0.3s ease;
+  &__descripcion {
+    font-size: $fluid-font-size-sm;
+    opacity: 0.7;
+    font-style: italic;
+  }
 
-    &:hover {
-      background-color: $color-blanco;
-      color: $color-negro;
+  .card-body {
+    padding: $spacing-xl;
+  }
+}
+
+// PASO 3: Personalización Básica
+.personalizacion-card {
+  border: 2px solid $color-negro;
+  background-color: $color-blanco;
+
+  .card-body {
+    padding: $spacing-xl;
+  }
+}
+
+.personalizacion-label {
+  font-family: $font-titulos;
+  font-size: $fluid-font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-negro;
+  margin-bottom: $spacing-md;
+  display: block;
+}
+
+.color-selector {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  margin-bottom: $spacing-sm;
+}
+
+.color-option {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.selected {
+    border-color: $color-negro;
+    box-shadow: 0 0 0 2px $color-blanco, 0 0 0 4px $color-negro;
+  }
+}
+
+.form-select,
+.form-control {
+  font-family: $font-parrafos;
+  font-size: $fluid-font-size-base;
+  color: $color-negro;
+  border: 2px solid $color-negro;
+  background-color: $color-blanco;
+  padding: $spacing-sm $spacing-md;
+  border-radius: 4px;
+
+  &:focus {
+    border-color: $color-negro;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+}
+
+// PASO 4: Servicios y Acabados
+.servicios-card {
+  border: 2px solid $color-negro;
+  background-color: $color-blanco;
+
+  .card-body {
+    padding: $spacing-xl;
+  }
+}
+
+.servicio-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-lg;
+  border: 1px solid $color-negro;
+  border-radius: 8px;
+  background-color: $color-blanco;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+
+  &__header {
+    display: flex;
+    gap: $spacing-md;
+    align-items: center;
+    flex: 1;
+
+    div {
+      h5 {
+        font-family: $font-titulos;
+        font-size: $fluid-font-size-lg;
+        font-weight: $font-weight-semibold;
+        color: $color-negro;
+        margin: 0 0 $spacing-xs 0;
+      }
+
+      p {
+        font-family: $font-parrafos;
+        font-size: $fluid-font-size-sm;
+        color: $color-negro;
+        margin: 0;
+        opacity: 0.7;
+      }
     }
   }
 
-  &__opciones {
+  .form-check-input {
+    width: 48px;
+    height: 24px;
+    border: 2px solid $color-negro;
     background-color: $color-blanco;
-    border: 1px solid $color-negro;
-    position: sticky;
-    top: 20px;
-  }
-
-  &__opciones-titulo {
-    font-family: $font-titulos;
-    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
-    font-weight: $font-weight-semibold;
-    color: $color-negro;
-    margin: 0 0 $spacing-lg 0;
-  }
-
-  // Form styles
-  .form-label {
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-    font-weight: $font-weight-semibold;
-    color: $color-negro;
-    margin-bottom: $spacing-xs;
-  }
-
-  .form-select,
-  .form-control {
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-    color: $color-negro;
-    border: 1px solid $color-negro;
-    background-color: $color-blanco;
-    padding: $spacing-sm;
-
-    &:focus {
-      border-color: $color-negro;
-      box-shadow: none;
-      outline: none;
-    }
-  }
-
-  .form-check-label {
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-    color: $color-negro;
-  }
-
-  .form-switch .form-check-input {
-    border: 1px solid $color-negro;
+    cursor: pointer;
 
     &:checked {
       background-color: $color-negro;
@@ -215,102 +390,238 @@
     }
 
     &:focus {
-      box-shadow: none;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
       border-color: $color-negro;
-    }
-  }
-
-  // Responsive
-  @media (max-width: $breakpoint-lg) {
-    &__opciones {
-      position: static;
-      margin-top: $spacing-lg;
-    }
-  }
-
-  @media (max-width: $breakpoint-md) {
-    padding: $spacing-lg 0;
-
-    &__viewer-content {
-      height: 400px;
-    }
-
-    &__placeholder-icon {
-      font-size: 48px;
-    }
-
-    &__placeholder-title {
-      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
-    }
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    &__viewer-content {
-      height: 300px;
-    }
-
-    &__placeholder-icon {
-      font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
-    }
-
-    &__placeholder-title {
-      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
     }
   }
 }
 
-// Características Section
-.personalizar-caracteristicas {
-  padding: $spacing-xl 0;
+// PASO 5: Resumen
+.resumen-card {
+  border: 2px solid $color-negro;
   background-color: $color-blanco;
-  border-top: 1px solid $color-negro;
 
-  &__titulo {
-    font-family: $font-titulos;
-    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
-    font-weight: $font-weight-semibold;
-    color: $color-negro;
-    margin: 0 0 $spacing-xl 0;
-    text-align: center;
+  .card-body {
+    padding: $spacing-2xl;
+  }
+}
+
+.resumen-section {
+  margin-bottom: $spacing-2xl;
+  padding-bottom: $spacing-lg;
+  border-bottom: 1px solid $color-negro;
+
+  &:last-of-type {
+    border-bottom: none;
   }
 
-  &__card {
-    text-align: center;
+  h4 {
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-family: $font-parrafos;
+      font-size: $fluid-font-size-base;
+      color: $color-negro;
+      padding: $spacing-xs 0;
+
+      strong {
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+}
+
+.resumen-value {
+  font-family: $font-parrafos;
+  font-size: $fluid-font-size-lg;
+  color: $color-negro;
+  font-weight: $font-weight-semibold;
+  margin: 0;
+}
+
+.resumen-cta {
+  background-color: #f5f5f5;
+  padding: $spacing-xl;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: $spacing-2xl;
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-lg;
+    color: $color-negro;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  &__button {
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-lg;
+    font-weight: $font-weight-semibold;
+    padding: $spacing-md $spacing-xl;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Navigation Buttons
+.wizard-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: $spacing-md;
+  padding: $spacing-xl 0;
+
+  &__prev,
+  &__next {
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-lg;
+    font-weight: $font-weight-semibold;
+    padding: $spacing-md $spacing-xl;
+    border-radius: 8px;
+    border: 2px solid $color-negro;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  &__prev {
+    background-color: $color-blanco;
+    color: $color-negro;
+  }
+
+  &__next {
+    background-color: $color-negro;
+    color: $color-blanco;
+    margin-left: auto;
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-lg) {
+  .tipo-uso-card,
+  .tamano-card {
+    margin-bottom: $spacing-lg;
+  }
+
+  .servicio-item {
+    &__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .personalizar-wizard {
+    padding: $spacing-xl 0;
+  }
+
+  .wizard-step {
+    &__title {
+      font-size: $fluid-font-size-3xl;
+    }
+
+    &__subtitle {
+      font-size: $fluid-font-size-base;
+    }
+  }
+
+  .tipo-uso-card {
+    min-height: 160px;
+
+    &__icon {
+      font-size: 36px;
+    }
+
+    &__nombre {
+      font-size: $fluid-font-size-base;
+    }
+  }
+
+  .tamano-card__nome {
+    font-size: $fluid-font-size-xl;
+  }
+
+  .color-option {
+    width: 50px;
+    height: 50px;
+  }
+
+  .servicio-item {
+    padding: $spacing-md;
+
+    &__header div h5 {
+      font-size: $fluid-font-size-base;
+    }
+  }
+
+  .wizard-navigation {
+    flex-direction: column;
+
+    &__next {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .personalizar-hero {
+    &__steps span {
+      font-size: 9px;
+    }
+  }
+
+  .tipo-uso-card {
+    min-height: 140px;
+
+    &__icon {
+      font-size: 32px;
+      margin-bottom: $spacing-sm;
+    }
+
+    &__nombre {
+      font-size: $fluid-font-size-sm;
+    }
+
+    &__descripcion {
+      font-size: 11px;
+    }
+
+    .card-body {
+      padding: $spacing-md;
+    }
+  }
+
+  .resumen-card .card-body {
     padding: $spacing-lg;
   }
 
-  &__card-icon {
-    font-size: 48px;
-    margin-bottom: $spacing-md;
-  }
-
-  &__card-titulo {
-    font-family: $font-titulos;
-    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
-    font-weight: $font-weight-semibold;
-    color: $color-negro;
-    margin: 0 0 $spacing-sm 0;
-  }
-
-  &__card-texto {
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-    font-weight: $font-weight-normal;
-    color: $color-negro;
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  // Responsive
-  @media (max-width: $breakpoint-md) {
-    padding: $spacing-lg 0;
-
-    &__titulo {
-      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
-    }
-
-    &__card-icon {
-      font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
-    }
+  .resumen-cta {
+    padding: $spacing-lg;
   }
 }

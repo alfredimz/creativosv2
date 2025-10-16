@@ -39,7 +39,11 @@
       "Bash(find:*)",
       "Read(//c/**)",
       "Bash(if exist \".ai-docs\\old\" dir \".ai-docs\\old\" /b)",
-      "Bash(if exist .ai-docsold dir .ai-docsold /b)"
+      "Bash(if exist .ai-docsold dir .ai-docsold /b)",
+      "Bash(if exist .ai-docs dir .ai-docs /b)",
+      "mcp__figma__get_design_context",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:www.creativosespacios.mx)"
     ],
     "deny": [],
     "ask": []

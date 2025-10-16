@@ -150,14 +150,19 @@ const Footer = () => {
         </Row>
         
         <Row className="site-map mt-5">
-          {/* Columna 1: Productos / Contenedores */}
+          {/* Columna 1: Productos Estrella - FASE 2 */}
           <Col md={2} className="ms-auto text-center text-md-start">
-            <h5>Contenedores</h5>
+            <h5>Productos</h5>
             <ul className="list-unstyled">
-              <li><Link to="/tipos-contenedores">Tipos de contenedores</Link></li>
+              <li><Link to="/productos/casas">Casas</Link></li>
+              <li><Link to="/productos/bodegas">Bodegas</Link></li>
+              <li><Link to="/productos/oficinas">Oficinas</Link></li>
+            </ul>
+            <h5 className="mt-3">Contenedores</h5>
+            <ul className="list-unstyled">
+              <li><Link to="/tipos-contenedores">Tipos</Link></li>
               <li><Link to="/fichas-tecnicas">Fichas técnicas</Link></li>
-              <li><Link to="/presentacion-empresarial">Presentación</Link></li>
-              <li><Link to="/personalizar-contenedor">Personaliza tu contenedor</Link></li>
+              <li><Link to="/personalizar-contenedor">Personalizar</Link></li>
               <li><Link to="/cotizador-venta">Cotizador</Link></li>
             </ul>
           </Col>

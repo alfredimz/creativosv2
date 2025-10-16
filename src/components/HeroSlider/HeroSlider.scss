@@ -1,0 +1,347 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+// Hero Slider Component
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 508px;
+  overflow: hidden;
+
+  // Swiper pagination override
+  :global(.swiper-pagination) {
+    bottom: 32px !important;
+    z-index: 10;
+  }
+
+  // Slide
+  &__slide {
+    position: relative;
+    width: 100%;
+    height: 508px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $breakpoint-md) {
+      height: 600px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      height: auto;
+      min-height: 500px;
+    }
+  }
+
+  // Overlay
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 1;
+
+    @media (max-width: $breakpoint-md) {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  // Container
+  &__container {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  // Content
+  &__content {
+    color: $color-blanco;
+    padding: $spacing-xl 0;
+
+    @media (max-width: $breakpoint-md) {
+      text-align: center;
+      padding: $spacing-lg 0;
+    }
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: $font-weight-light;
+    line-height: 1.2;
+    margin-bottom: $spacing-md;
+    color: $color-blanco;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: clamp(24px, 6vw, 36px);
+    }
+  }
+
+  &__subtitle {
+    font-family: $font-parrafos;
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: $font-weight-normal;
+    line-height: 1.6;
+    color: $color-blanco;
+    margin-bottom: $spacing-lg;
+
+    @media (max-width: $breakpoint-md) {
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  // CTA Button
+  &__cta {
+    font-family: $font-titulos;
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: $font-weight-semibold;
+    background-color: $color-naranja;
+    border-color: $color-naranja;
+    color: $color-blanco;
+    padding: 14px 32px;
+    border-radius: 8px;
+    @include transition(all);
+
+    &:hover {
+      background-color: darken($color-naranja, 10%);
+      border-color: darken($color-naranja, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(241, 103, 0, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      display: block;
+      margin: 0 auto;
+      padding: 12px 28px;
+    }
+  }
+
+  // Video Play Button
+  &__video-btn {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    @include transition(all);
+    z-index: 5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    svg {
+      font-size: 20px;
+      color: $color-calipso;
+      margin-left: 4px; // Optical alignment
+    }
+
+    &:hover {
+      background: $color-blanco;
+      transform: translateX(-50%) scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+
+      svg {
+        color: $color-naranja;
+      }
+    }
+
+    &:active {
+      transform: translateX(-50%) scale(0.95);
+    }
+
+    @media (max-width: $breakpoint-md) {
+      bottom: 100px;
+      width: 56px;
+      height: 56px;
+
+      svg {
+        font-size: 18px;
+      }
+    }
+  }
+
+  // Contact Panel (Slide 1)
+  &__contact-panel {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: $spacing-lg;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: $spacing-lg;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: $spacing-md;
+    }
+  }
+
+  &__contact-title {
+    font-family: $font-titulos;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: $font-weight-light;
+    color: $color-negro;
+    margin-bottom: $spacing-md;
+    text-align: center;
+  }
+
+  &__contact-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $spacing-sm;
+    padding-bottom: $spacing-sm;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:last-of-type {
+      border-bottom: none;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__contact-label {
+    font-family: $font-titulos;
+    font-size: clamp(10px, 1vw, 12px);
+    font-weight: $font-weight-semibold;
+    color: $color-gris-claro;
+    text-transform: capitalize;
+    margin-bottom: 4px;
+  }
+
+  &__contact-value {
+    font-family: $font-parrafos;
+    font-size: clamp(12px, 1.2vw, 14px);
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    text-decoration: none;
+    @include transition(color);
+
+    &:hover {
+      color: $color-naranja;
+    }
+  }
+
+  &__contact-office {
+    background: rgba(59, 111, 127, 0.05);
+    border-radius: 12px;
+    padding: $spacing-sm;
+    text-align: center;
+
+    h4 {
+      font-family: $font-titulos;
+      font-size: clamp(12px, 1.2vw, 14px);
+      font-weight: $font-weight-normal;
+      color: $color-negro;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-family: $font-parrafos;
+      font-size: clamp(10px, 1vw, 12px);
+      color: $color-negro;
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+  }
+
+  // Pagination Bullets (Dots)
+  &__bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 6px !important;
+    opacity: 1;
+    @include transition(all);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.7);
+      transform: scale(1.2);
+    }
+
+    &--active {
+      background: $color-blanco;
+      width: 32px;
+      border-radius: 6px;
+      transform: scale(1);
+
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+
+  // Video Modal
+  &__video-modal {
+    .modal-content {
+      background: $color-negro;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      background: $color-negro;
+      color: $color-blanco;
+      padding: $spacing-md $spacing-lg;
+
+      .modal-title {
+        font-family: $font-titulos;
+        font-size: clamp(18px, 2vw, 24px);
+        font-weight: $font-weight-normal;
+      }
+
+      .btn-close {
+        filter: invert(1);
+        opacity: 0.8;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .modal-body {
+      background: $color-negro;
+    }
+  }
+
+  &__video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    height: 0;
+    overflow: hidden;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // FASE 5: Agregar Link para CTAs
 import { SEO, seoConfig } from '../../components/SEO';
 import './Servicios.scss';
 
@@ -99,6 +100,31 @@ const Servicios = () => {
                 </div>
               </Col>
             ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* CTA Section - FASE 5 */}
+      <section className="servicios-cta">
+        <Container>
+          <Row className="justify-content-center text-center">
+            <Col lg={8}>
+              <h2 className="servicios-cta__title">¿Listo para Transformar tu Espacio?</h2>
+              <p className="servicios-cta__text">
+                Solicita una cotización personalizada y descubre cómo nuestros contenedores pueden ser la solución perfecta para tu proyecto.
+              </p>
+              <div className="servicios-cta__buttons">
+                <Link to="/cotizador-venta" className="btn btn-primary btn-lg me-3">
+                  Cotizar Compra
+                </Link>
+                <Link to="/cotizador-renta" className="btn btn-outline-primary btn-lg me-3">
+                  Cotizar Renta
+                </Link>
+                <Link to="/contacto" className="btn btn-secondary btn-lg">
+                  Contactar Asesor
+                </Link>
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>

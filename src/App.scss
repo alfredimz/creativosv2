@@ -2,8 +2,8 @@
 @import './styles/variables';
 @import './styles/mixins';
 
-// Fonts (Google Fonts)
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Hind:wght@300;400;500;600;700&display=swap');
+// Typography Global - FASE 1 (Outfit & Hind + clamp)
+@import './styles/typography';
 
 // Import Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -21,11 +21,8 @@ $light-color: $color-blanco;
   padding: 0;
 }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  color: $dark-color;
-  line-height: 1.6;
-}
+// Body styles moved to _typography.scss (FASE 1)
+// font-family: Hind, line-height, colors all configured there
 
 // =============================================
 // ACCESSIBILITY STYLES
@@ -142,11 +139,8 @@ select {
   }
 }
 
-// Typography
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
-}
+// Typography moved to _typography.scss (FASE 1)
+// h1-h6 with Outfit font + clamp() configured there
 
 // Buttons
 .btn-primary {

@@ -1,0 +1,362 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.bodegas-page {
+  background-color: $color-blanco;
+}
+
+// Hero Section
+.bodegas-hero {
+  position: relative;
+  min-height: 500px;
+  background: linear-gradient(135deg, $color-naranja 0%, $color-terracota 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2xl 0;
+  overflow: hidden;
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($color-negro, 0.2);
+    z-index: 1;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $color-blanco;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h1;
+    font-weight: $font-weight-bold;
+    color: $color-blanco;
+    margin-bottom: $spacing-md;
+    text-shadow: 2px 2px 4px rgba($color-negro, 0.3);
+  }
+
+  &__subtitle {
+    font-family: $font-parrafos;
+    font-size: $font-h4;
+    font-weight: $font-weight-normal;
+    color: $color-blanco;
+    margin-bottom: $spacing-xl;
+    text-shadow: 1px 1px 3px rgba($color-negro, 0.3);
+  }
+
+  &__cta {
+    font-family: $font-titulos;
+    font-weight: $font-weight-semibold;
+    padding: $spacing-sm $spacing-xl;
+    font-size: $font-base;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    min-height: 400px;
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    min-height: 350px;
+    padding: $spacing-lg 0;
+  }
+}
+
+// Section Base
+.bodegas-section {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &--gray {
+    background-color: $color-gris-claro;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h2;
+    font-weight: $font-weight-bold;
+    color: $color-negro;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto $spacing-lg auto;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+  }
+}
+
+// Card Component
+.bodegas-card {
+  background-color: $color-blanco;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba($color-negro, 0.1);
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba($color-negro, 0.15);
+  }
+
+  &--featured {
+    border: 2px solid $color-naranja;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h4;
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__specs {
+    background-color: $color-gris-claro;
+    border-radius: $border-radius-sm;
+    padding: $spacing-sm;
+    margin-bottom: $spacing-md;
+
+    p {
+      font-family: $font-parrafos;
+      font-size: $font-small;
+      color: $color-gris-oscuro;
+      margin-bottom: $spacing-xs;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: $color-negro;
+      }
+    }
+  }
+
+  &__price {
+    font-family: $font-titulos;
+    font-size: $font-h3;
+    font-weight: $font-weight-bold;
+    color: $color-naranja;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__disclaimer {
+    font-family: $font-parrafos;
+    font-size: $font-small;
+    color: $color-gris-medio;
+    font-style: italic;
+    display: block;
+  }
+}
+
+// Customization Component
+.bodegas-custom {
+  background-color: $color-blanco;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+  height: 100%;
+  border-left: 4px solid $color-naranja;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h4;
+    font-weight: $font-weight-semibold;
+    color: $color-naranja;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__list {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      padding-left: $spacing-md;
+      position: relative;
+      margin-bottom: $spacing-xs;
+
+      &:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: $color-naranja;
+        font-weight: $font-weight-bold;
+        font-size: 1.2em;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Application Component
+.bodegas-application {
+  background-color: rgba($color-naranja, 0.05);
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  height: 100%;
+  border-top: 3px solid $color-naranja;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h4;
+    font-weight: $font-weight-bold;
+    color: $color-negro;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+    margin-bottom: $spacing-sm;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Security Component
+.bodegas-security {
+  background-color: $color-blanco;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba($color-negro, 0.1);
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h4;
+    font-weight: $font-weight-semibold;
+    color: $color-terracota;
+    margin-bottom: $spacing-sm;
+    padding-bottom: $spacing-xs;
+    border-bottom: 2px solid $color-terracota;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+  }
+}
+
+// Gallery Component
+.bodegas-gallery-item {
+  border-radius: $border-radius-md;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba($color-negro, 0.1);
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &__placeholder {
+    background: linear-gradient(135deg, $color-gris-claro, $color-gris-medio);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: $font-parrafos;
+    font-size: $font-base;
+    color: $color-gris-oscuro;
+
+    p {
+      margin: 0;
+      padding: $spacing-md;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__placeholder {
+      height: 200px;
+    }
+  }
+}
+
+// CTA Section
+.bodegas-cta {
+  background: linear-gradient(135deg, $color-naranja 0%, $color-terracota 100%);
+  padding: $spacing-2xl 0;
+  color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: $font-h2;
+    font-weight: $font-weight-bold;
+    color: $color-blanco;
+    margin-bottom: $spacing-md;
+  }
+
+  &__text {
+    font-family: $font-parrafos;
+    font-size: $font-h4;
+    color: $color-blanco;
+    margin-bottom: $spacing-xl;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &__buttons {
+      flex-direction: column;
+      align-items: center;
+
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  }
+}

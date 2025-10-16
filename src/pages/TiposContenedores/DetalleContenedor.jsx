@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Breadcrumb } from 'react-bootstrap';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import { FaTools } from 'react-icons/fa'; // FASE 4: Reemplazo de emojis
 import './DetalleContenedor.scss';
 
 const DetalleContenedor = () => {
@@ -147,7 +148,7 @@ const DetalleContenedor = () => {
                 <div className="product-info__caracteristicas mb-4">
                   {contenedor.caracteristicas.map((car, index) => (
                     <div key={index} className="caracteristica-item">
-                      <span className="icon">🔧</span>
+                      <span className="icon"><FaTools color="#3B6F7F" /></span>
                       <span>{car}</span>
                     </div>
                   ))}
@@ -266,11 +267,11 @@ const DetalleContenedor = () => {
                   </div>
                 </div>
 
-                {/* Botones de Acción */}
+                {/* Botones de Acción - FASE 5: Implementar navegación */}
                 <div className="product-info__acciones">
-                  <Button variant="primary" size="lg" className="w-100 mb-3">
+                  <Link to="/contacto" className="btn btn-primary btn-lg w-100 mb-3">
                     ▶ Quiero comprar el contenedor
-                  </Button>
+                  </Link>
                   <Button
                     variant="outline-secondary"
                     className="w-100"

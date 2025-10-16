@@ -29,17 +29,40 @@ $font-size-3xl: 1.875rem;  // 30px
 $font-size-4xl: 2.25rem;   // 36px
 $font-size-5xl: 3rem;      // 48px
 
-// Fluid Typography (320px → 1920px) - Use these in custom components
-// Using clamp() for responsive typography without media queries
-$fluid-font-size-xs: clamp(0.625rem, 0.5rem + 0.5vw, 0.75rem);      // 10px → 12px
-$fluid-font-size-sm: clamp(0.75rem, 0.625rem + 0.5vw, 0.875rem);    // 12px → 14px
-$fluid-font-size-base: clamp(0.875rem, 0.75rem + 0.5vw, 1rem);      // 14px → 16px
-$fluid-font-size-lg: clamp(1rem, 0.875rem + 0.5vw, 1.125rem);       // 16px → 18px
-$fluid-font-size-xl: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);        // 18px → 20px
-$fluid-font-size-2xl: clamp(1.25rem, 1rem + 1vw, 1.5rem);           // 20px → 24px
-$fluid-font-size-3xl: clamp(1.5rem, 1.25rem + 1.5vw, 1.875rem);     // 24px → 30px
-$fluid-font-size-4xl: clamp(1.75rem, 1.5rem + 2vw, 2.25rem);        // 28px → 36px
-$fluid-font-size-5xl: clamp(1.75rem, 1.5rem + 3vw, 3rem);           // 28px → 48px (hero)
+// Fluid Typography - FASE 1 (CORRECCIONES_PLAN.md specifications)
+// Using clamp() for responsive typography - pantallas grandes = fuentes más grandes
+
+// Títulos Hero - Para hero sections y títulos principales grandes
+$font-hero: clamp(32px, 6vw, 56px);
+
+// Títulos Principales (H1)
+$font-h1: clamp(28px, 5vw, 48px);
+
+// Títulos Secundarios (H2)
+$font-h2: clamp(24px, 4vw, 40px);
+
+// Títulos Terciarios (H3)
+$font-h3: clamp(20px, 3vw, 32px);
+
+// Subtítulos (H4)
+$font-h4: clamp(18px, 2.5vw, 24px);
+
+// Texto Normal (Párrafos)
+$font-base: clamp(14px, 1.5vw, 18px);
+
+// Texto Pequeño (Labels, captions)
+$font-small: clamp(12px, 1.2vw, 14px);
+
+// LEGACY - Mantener para compatibilidad con código existente
+$fluid-font-size-xs: $font-small;          // 12px → 14px
+$fluid-font-size-sm: $font-small;          // 12px → 14px
+$fluid-font-size-base: $font-base;         // 14px → 18px
+$fluid-font-size-lg: $font-base;           // 14px → 18px
+$fluid-font-size-xl: $font-h4;             // 18px → 24px
+$fluid-font-size-2xl: $font-h4;            // 18px → 24px
+$fluid-font-size-3xl: $font-h3;            // 20px → 32px
+$fluid-font-size-4xl: $font-h2;            // 24px → 40px
+$fluid-font-size-5xl: $font-h1;            // 28px → 48px (hero)
 
 // Pesos de fuente
 $font-weight-light: 300;

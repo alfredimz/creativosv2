@@ -2,7 +2,7 @@
 
 **Project Type:** B2B/B2C Website - Container Sales, Rental & Transformation
 **Tech Stack:** React 19 + React Router 7 + React Bootstrap 5 + SASS
-**Status:** ✅ **PRODUCTION READY** - All phases complete (0-21)
+**Status:** 🔄 **CORRECCIONES EN PROGRESO** - Nuevas fases de mejora (0-10)
 **Last Updated:** 2025-01-14
 
 ---
@@ -25,24 +25,42 @@
 
 ## 📊 PROJECT STATUS
 
-### ✅ ALL PHASES COMPLETE (0-21)
+### ✅ PREVIOUS PHASES COMPLETE (Base Development)
 
 **Development Phases (0-10):** 37+ pages fully functional with BEM methodology
 **Optimization Phases (11-21):** SEO, Accessibility, Performance, Forms, Analytics, PWA, Testing, Deployment
 
-### Key Features Implemented:
-- ✅ 37+ fully functional pages
-- ✅ 100% BEM methodology compliance
-- ✅ SEO optimization with meta tags and structured data
-- ✅ WCAG 2.1 AA accessibility compliance
-- ✅ Responsive typography with fluid clamp()
-- ✅ Performance optimized (80%+ Lighthouse)
-- ✅ Form integration with EmailJS
-- ✅ Analytics (GTM, Google Ads, MailChimp)
-- ✅ Cookie consent (GDPR compliance)
-- ✅ Error handling (404 page, error boundaries)
-- ✅ PWA features (service worker, offline support)
-- ✅ Production build tested and verified
+### 🔄 NEW CORRECTION PHASES (0-2.5, 3-10) - IN PROGRESS
+
+**Total Phases:** 12 phases (FASE 0, 1, 2, 2.5, 3-10)
+**Current Focus:** Visual improvements, functionality enhancements, and UX refinements
+
+**See:** [CORRECCIONES_PLAN.md](CORRECCIONES_PLAN.md) for complete details
+
+---
+
+## 🎨 FIGMA INTEGRATION
+
+### ✅ Figma MCP Connection Active
+
+**Access Method:** Figma MCP Server (connected)
+**Design Source:** Figma files for Creativos Espacios
+
+**Available Tools:**
+- `mcp__figma__get_screenshot` - Get screenshots of Figma nodes
+- `mcp__figma__get_design_context` - Get design specifications and code
+- `mcp__figma__get_metadata` - Get structure and layout information
+
+**Usage for Corrections:**
+```
+For any visual implementation:
+1. Consult Figma ALWAYS (except typography)
+2. Use mcp__figma__ tools to extract designs
+3. If design not in Figma: use existing project patterns
+4. Maintain visual consistency
+```
+
+**IMPORTANT:** Typography specifications from CORRECCIONES_PLAN.md override Figma designs
 
 ---
 
@@ -60,43 +78,83 @@
 }
 ```
 
-### Additional Integrations
-- `react-helmet-async` - SEO meta tags
-- `@emailjs/browser` - Form submissions
-- Google Tag Manager - Analytics
-- Google Ads - Conversion tracking
-- MailChimp - Email marketing
+### New Dependencies for Corrections
+```bash
+# To be installed during correction phases:
+npm install swiper                    # FASE 0: Hero Slider
+npm install framer-motion            # FASE 10: Animations
+npm install react-intersection-observer  # FASE 10: Scroll animations
+npm install @react-three/fiber       # FASE 8: 3D Virtual Tour (optional)
+npm install @react-three/drei        # FASE 8: 3D helpers
+```
 
 ### Project Structure
 ```
 src/
-├── pages/              # 37+ page components
+├── pages/              # 37+ page components (40+ after corrections)
+│   ├── Productos/     # New: Star products
+│   │   ├── Casas/
+│   │   ├── Bodegas/
+│   │   └── Oficinas/
+│   ├── Home/          # Updated with HeroSlider
+│   └── ...
 ├── components/         # Reusable components
 │   ├── common/
-│   ├── Header/
-│   ├── Footer/
+│   ├── Header/        # Two types: Home & Interior
+│   ├── HeaderHome/    # New: Specific for home (FASE 2)
+│   ├── Footer/        # Updated with Productos section
+│   ├── HeroSlider/    # New: FASE 0 (5 slides + YouTube modal)
 │   ├── SEO/
-│   ├── CookieConsent/
-│   ├── ErrorBoundary/
 │   └── ...
 ├── styles/            # Global SASS with BEM
-└── utils/             # Utilities and helpers
+│   ├── _variables.scss    # Updated with new typography
+│   └── _mixins.scss
+├── utils/             # Utilities and helpers
+└── filesForDesing/    # Design assets
+    └── Presentacion.pdf  # For FASE 6
 ```
 
 ---
 
-## 🎨 DESIGN SYSTEM
+## 🎨 DESIGN SYSTEM (UPDATED FOR CORRECTIONS)
+
+### Typography (NEW - Overrides Figma)
+
+**Font Families:**
+- **Outfit** → Títulos, menús, footer
+- **Hind** → Párrafos y texto corrido
+
+**Responsive Scale (clamp):**
+```scss
+// Hero Titles
+$font-hero: clamp(32px, 6vw, 56px);
+
+// H1 - Main Titles
+$font-h1: clamp(28px, 5vw, 48px);
+
+// H2 - Secondary Titles
+$font-h2: clamp(24px, 4vw, 40px);
+
+// H3 - Tertiary Titles
+$font-h3: clamp(20px, 3vw, 32px);
+
+// H4 - Subtitles
+$font-h4: clamp(18px, 2.5vw, 24px);
+
+// Base Text
+$font-base: clamp(14px, 1.5vw, 18px);
+
+// Small Text
+$font-small: clamp(12px, 1.2vw, 14px);
+```
+
+### Color System
+- **Primary:** Black/white minimalist aesthetic
+- **Accents:** Calipso (#3B6F7F), Naranja (#F16700), Terracota (#841C03)
 
 ### Methodology
 - **CSS Architecture:** BEM (Block Element Modifier)
-- **Color System:** Black/white minimalist aesthetic
-- **Typography:** Outfit (headings), Hind (body text)
-- **Responsive:** Fluid typography with clamp()
-
-### Typography
-- Hero titles: `clamp(28px, 5vw, 40px)`
-- Section titles: `clamp(18px, 3vw, 20px)`
-- Body text: `clamp(12px, 1.5vw, 14px)`
+- **Responsive:** Bootstrap breakpoints + fluid typography
 
 ---
 
@@ -133,9 +191,6 @@ npm start           # Start dev server (localhost:3000)
 npm run build       # Create production build
 ```
 
-### Deployment
-See [DEPLOYMENT.md](../DEPLOYMENT.md) for complete deployment instructions.
-
 ### Common Issues & Fixes
 
 **1. Project won't start:**
@@ -151,87 +206,106 @@ npm start
 
 ---
 
-## 🔧 ENVIRONMENT VARIABLES
+## 📋 CORRECTION PHASES OVERVIEW
 
-### Required for Production
+**Total:** 12 fases (0, 1, 2, 2.5, 3-10)
+**Orden de Ejecución:** Prioridad Visual - Lo más visible primero
 
-```bash
-# Analytics (Already configured)
-REACT_APP_GTM_ID=GTM-M2Z9THQF
-REACT_APP_GA_CONVERSION=AW-11471696489
+### ⚡ PRIORIDAD 1: LO MÁS VISIBLE
 
-# EmailJS (Required - Get from dashboard.emailjs.com)
-REACT_APP_EMAILJS_SERVICE_ID=your_service_id
-REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
-REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
-REACT_APP_EMAIL_DESTINATION=ventas@creativosespacios.mx
+### FASE 0: Hero Slider Home 🔴 CRÍTICO - PRIMERA IMPRESIÓN
+- 5 slides manuales (Contacto, Venta, Renta, Construcciones, Servicios)
+- Modal de video YouTube
+- Navegación manual por puntos (NO automático)
+- Consultar Figma: fileKey `5wJFG1eYWcGQak6eyjAgjo`, nodeId `207:2`
 
-# Application
-REACT_APP_SITE_URL=https://www.creativosespacios.mx
-REACT_APP_ENV=production
+### FASE 1: Tipografía Responsiva 🔴 CRÍTICO - AFECTA TODO EL SITIO
+- Implementar clamp() en todo el sitio (37+ páginas)
+- Outfit para títulos/menús/footer
+- Hind para párrafos
+- Pantallas grandes = fuentes más grandes
 
-# Feature Flags
-REACT_APP_ENABLE_PWA=true
-REACT_APP_ENABLE_COOKIE_CONSENT=true
-```
+### FASE 2: Dos Headers 🔴 CRÍTICO - NAVEGACIÓN PRINCIPAL
+- Header Home (diseño único con menú Productos)
+- Header Secciones Interiores (estándar)
+- Footer actualizado con sección Productos
+- Consultar Figma para ambos
 
-See `.env.example` for complete configuration template.
+### FASE 4: Imágenes Faltantes 🟡 MEDIA - PARTE CRÍTICA PRIMERO
+- **CRÍTICO:** Equipo aplastado (aspect-ratio) + emojis → imágenes
+- Contenedores: detalle y fichas técnicas
+- **Orden:** Defectos visuales primero, resto después
+
+### ⚡ PRIORIDAD 2: CONTENIDO Y PÁGINAS
+
+### FASE 2.5: Páginas Productos Estrella 🔴 CRÍTICO-ALTA
+- **3 nuevas páginas:** Casas, Bodegas, Oficinas
+- Hero específico para cada producto
+- Galería de imágenes
+- Especificaciones técnicas
+- CTAs a cotización
+
+### FASE 3: Home Personalizado 🔴 CRÍTICO - FEATURE DIFERENCIADOR
+- 3 niveles de usuario (Nuevo, Intermedio, Técnico)
+- 3 homes diferentes según perfilador
+- LocalStorage para guardar preferencias
+- Conexión con perfilador de cliente existente
+
+### ⚡ PRIORIDAD 3: FUNCIONALIDAD
+
+### FASE 5: Botones y Navegación 🟡 MEDIA
+- Inventario de botones sin destino
+- Corregir rutas y acciones
+
+### FASE 7: Personaliza Contenedor 🟡 MEDIA
+- Selector de tipo de contenedor
+- 19 opciones de adecuación (Oficinas, Sanitarios, Bodegas, etc.)
+- Cotización personalizada funcional
+
+### FASE 6: Presentación Empresarial 🟢 BAJA
+- Rediseño basado en PDF (src/filesForDesing/Presentacion.pdf)
+- Colores de marca
+- Formas y elementos visuales
+
+### ⚡ PRIORIDAD 4: ENHANCEMENTS
+
+### FASE 10: Microinteracciones 🟡 MEDIA-ALTA
+- Framer Motion
+- Parallax effects
+- Hover effects sutiles
+- Animaciones al scroll
+
+### FASE 9: Blog Funcional 🟢 BAJA
+- Paginador funcional
+- Tabs de categorías
+- Imágenes en artículos
+
+### FASE 8: Recorrido Virtual 🟢 BAJA
+- **Tecnología:** Three.js + React Three Fiber + Drei
+- Modelos 3D (.glb/.gltf) descargados de internet
+- Navegación interactiva
+- Controles de cámara
+
+**Ver:** [CORRECCIONES_PLAN.md](CORRECCIONES_PLAN.md) para detalles completos
 
 ---
 
-## 📈 PROJECT METRICS
+## 🎯 ORDEN DE EJECUCIÓN PRIORIZADO
 
-### Performance (Lighthouse Scores)
-- **Performance:** 80%+ (Goal: 90%+)
-- **Accessibility:** 90%+ (WCAG 2.1 AA compliant)
-- **Best Practices:** 90%+
-- **SEO:** 90%+
+**Criterio:** Impacto visual inmediato primero
 
-### Features
-- **Pages:** 37+ (100% complete)
-- **Forms:** 4 forms integrated with EmailJS → ventas@creativosespacios.mx
-- **SEO:** Meta tags on all pages, sitemap.xml, robots.txt, structured data
-- **PWA:** Installable, offline support, service worker caching
-- **Analytics:** Full tracking with GTM, Google Ads, MailChimp
-
----
-
-## 📁 SITE PAGES
-
-### Main Sections (37+ Pages)
-
-**Home & Services (4)**
-- Home, Services General, Sales, Rental, Transformation
-
-**Containers (4)**
-- Container Types, Technical Specs, Catalog, Business Presentation
-
-**About Us (6)**
-- Who We Are, Mission & Vision, History, Values, Team, Success Cases
-
-**Resources (4)**
-- FAQ, Videos, Blog, Virtual Tour
-
-**Client Zone (3)**
-- Clients, Social Media, Complaints & Suggestions
-
-**Construction (3)**
-- Construction Process, Container Yards, Benefits
-
-**Location (3)**
-- Our Location, Allies, Contact
-
-**Interactive Tools (4)**
-- Customize Container, Client Profiler, Sales Quoter, Rental Quoter
-
-**Additional (1)**
-- Additional Services
-
-**Legal (4)**
-- Privacy Notice, Terms & Conditions, Identity Theft, Sitemap
-
-**Error Handling (1)**
-- 404 Not Found
+1. **FASE 0** → Primera impresión (Hero Slider)
+2. **FASE 1** → Legibilidad global (Tipografía)
+3. **FASE 2** → Navegación principal (Headers)
+4. **FASE 4 (parte)** → Defectos visuales (Imágenes aplastadas)
+5. **FASE 2.5** → Productos estrella (Páginas nuevas)
+6. **FASE 3** → Homes personalizados
+7. **FASE 5** → Botones y navegación
+8. **FASE 7** → Personalizar contenedor
+9. **FASE 6** → Presentación empresarial
+10. **FASE 10** → Microinteracciones
+11. **FASE 9** → Blog funcional
+12. **FASE 8** → Recorrido virtual 3D
 
 ---
 
@@ -239,50 +313,43 @@ See `.env.example` for complete configuration template.
 
 | Need | Location |
 |------|----------|
+| **Correction Phases Plan** | [CORRECCIONES_PLAN.md](CORRECCIONES_PLAN.md) |
 | **Deployment Guide** | [DEPLOYMENT.md](../DEPLOYMENT.md) |
 | **Main README** | [README.md](../README.md) |
 | **Environment Template** | [.env.example](../.env.example) |
-| **AI Documentation** | `.ai-docs/README.md` |
 
 ---
 
-## ✅ PRODUCTION CHECKLIST
+## 🎯 KEY FACTS FOR CLAUDE CODE
 
-### Pre-Deployment
-- [x] All 37+ pages functional
-- [x] All forms send to ventas@creativosespacios.mx
-- [x] SEO meta tags on all pages
-- [x] Sitemap.xml and robots.txt configured
-- [x] Analytics tracking verified
-- [x] PWA features working
-- [x] Accessibility WCAG 2.1 AA compliant
-- [x] Performance optimized (80%+)
-- [x] Production build tested
-- [x] Environment variables documented
+### Current Work Phase
+1. **Status:** Correction phases in progress (12 total: 0, 1, 2, 2.5, 3-10)
+2. **Figma:** MCP connection active - File Key: `5wJFG1eYWcGQak6eyjAgjo`
+3. **Typography:** Override Figma - use CORRECCIONES_PLAN specs (Outfit/Hind + clamp)
+4. **Forms:** ALL forms → `ventas@creativosespacios.mx`
+5. **Analytics:** GTM-M2Z9THQF, AW-11471696489, MailChimp 47304de05985a3e09520dc95e
 
-### Post-Deployment
-- [ ] Submit sitemap to Google Search Console
-- [ ] Verify analytics tracking in production
-- [ ] Test all forms in production
-- [ ] Verify PWA installation
-- [ ] Run Lighthouse audit on production URL
-- [ ] Check Core Web Vitals
+### Design Guidelines
+- **Consult Figma ALWAYS** for visual design (except typography)
+- **Typography:** Outfit (titles/menus/footer) + Hind (paragraphs)
+- **If no Figma design:** Use existing project patterns
+- **Maintain:** BEM methodology, visual consistency
 
----
+### Figma MCP Usage
+```
+# Get screenshot of Figma node
+Use: mcp__figma__get_screenshot with nodeId and fileKey
 
-## 🎯 KEY FACTS FOR AI ASSISTANTS
+# Get design specifications
+Use: mcp__figma__get_design_context with nodeId and fileKey
 
-1. **Status:** Production ready - all development and optimization complete
-2. **Forms:** ALL forms → `ventas@creativosespacios.mx`
-3. **Analytics IDs:** GTM-M2Z9THQF, AW-11471696489, MailChimp 47304de05985a3e09520dc95e
-4. **Performance Target:** 80% minimum (90%+ desirable)
-5. **Accessibility:** WCAG 2.1 AA compliant
-6. **SEO:** Full meta tags, structured data, sitemap on all pages
-7. **PWA:** Installable with offline support
-8. **Design:** BEM methodology, minimalist black/white aesthetic
+# Get structure/metadata
+Use: mcp__figma__get_metadata with nodeId and fileKey
+```
 
 ---
 
-**Current Status:** ✅ PRODUCTION READY
-**Next Action:** Deploy to production (see DEPLOYMENT.md)
+**Current Phase:** Ready to start FASE 0 (Hero Slider Home)
+**Next Action:** Consult Figma for hero slider design, then implement
 **Support:** ventas@creativosespacios.mx
+**Plan Document:** [CORRECCIONES_PLAN.md](CORRECCIONES_PLAN.md)

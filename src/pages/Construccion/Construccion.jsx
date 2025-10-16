@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FaSearch, FaRuler, FaHammer, FaCog, FaBolt, FaLayerGroup, FaPaintBrush, FaPaintRoller, FaTools, FaCheckCircle, FaClock } from 'react-icons/fa'; // FASE 4: Reemplazo de emojis
 import { SEO, seoConfig } from '../../components/SEO';
 import './Construccion.scss';
 
@@ -11,7 +12,7 @@ const Construccion = () => {
       numero: '01',
       titulo: 'Inspección y Evaluación',
       descripcion: 'Evaluación completa del contenedor, verificando estructura, soldaduras y condición general',
-      icono: '🔍',
+      icono: <FaSearch size={36} color="#3B6F7F" />,
       duracion: '1-2 días'
     },
     {
@@ -19,7 +20,7 @@ const Construccion = () => {
       numero: '02',
       titulo: 'Diseño y Planificación',
       descripcion: 'Creación del diseño arquitectónico y planos técnicos según especificaciones del cliente',
-      icono: '📐',
+      icono: <FaRuler size={36} color="#FF9800" />,
       duracion: '3-5 días'
     },
     {
@@ -27,7 +28,7 @@ const Construccion = () => {
       numero: '03',
       titulo: 'Preparación de la Estructura',
       descripcion: 'Limpieza, tratamiento anticorrosivo y preparación de la superficie del contenedor',
-      icono: '🔨',
+      icono: <FaHammer size={36} color="#3B6F7F" />,
       duracion: '2-3 días'
     },
     {
@@ -35,7 +36,7 @@ const Construccion = () => {
       numero: '04',
       titulo: 'Corte y Modificaciones',
       descripcion: 'Apertura de ventanas, puertas y realización de modificaciones estructurales necesarias',
-      icono: '⚙️',
+      icono: <FaCog size={36} color="#607D8B" />,
       duracion: '3-4 días'
     },
     {
@@ -43,7 +44,7 @@ const Construccion = () => {
       numero: '05',
       titulo: 'Instalaciones Eléctricas',
       descripcion: 'Instalación completa del sistema eléctrico, iluminación y puntos de conexión',
-      icono: '⚡',
+      icono: <FaBolt size={36} color="#F16700" />,
       duracion: '2-3 días'
     },
     {
@@ -51,7 +52,7 @@ const Construccion = () => {
       numero: '06',
       titulo: 'Aislamiento Térmico',
       descripcion: 'Aplicación de materiales aislantes para temperatura y acústica interior',
-      icono: '🧱',
+      icono: <FaLayerGroup size={36} color="#607D8B" />,
       duracion: '2-3 días'
     },
     {
@@ -59,7 +60,7 @@ const Construccion = () => {
       numero: '07',
       titulo: 'Acabados Interiores',
       descripcion: 'Instalación de paredes, pisos, techos y elementos decorativos interiores',
-      icono: '🎨',
+      icono: <FaPaintBrush size={36} color="#9C27B0" />,
       duracion: '4-5 días'
     },
     {
@@ -67,7 +68,7 @@ const Construccion = () => {
       numero: '08',
       titulo: 'Acabados Exteriores',
       descripcion: 'Pintura exterior, revestimientos y protección contra elementos climáticos',
-      icono: '🖌️',
+      icono: <FaPaintRoller size={36} color="#9C27B0" />,
       duracion: '2-3 días'
     },
     {
@@ -75,7 +76,7 @@ const Construccion = () => {
       numero: '09',
       titulo: 'Instalación de Sistemas',
       descripcion: 'Montaje de aire acondicionado, plomería y sistemas especiales según diseño',
-      icono: '🔧',
+      icono: <FaTools size={36} color="#3B6F7F" />,
       duracion: '3-4 días'
     },
     {
@@ -83,7 +84,7 @@ const Construccion = () => {
       numero: '10',
       titulo: 'Inspección Final',
       descripcion: 'Revisión completa de calidad, pruebas de sistemas y certificación del proyecto',
-      icono: '✅',
+      icono: <FaCheckCircle size={36} color="#2E7D32" />,
       duracion: '1-2 días'
     }
   ];
@@ -147,7 +148,7 @@ const Construccion = () => {
                   <h3 className="construccion-pasos__card-titulo">{paso.titulo}</h3>
                   <p className="construccion-pasos__card-descripcion">{paso.descripcion}</p>
                   <div className="construccion-pasos__card-duracion">
-                    ⏱️ Duración estimada: <strong>{paso.duracion}</strong>
+                    <FaClock className="me-2" color="#3B6F7F" /> Duración estimada: <strong>{paso.duracion}</strong>
                   </div>
                 </div>
               </Col>

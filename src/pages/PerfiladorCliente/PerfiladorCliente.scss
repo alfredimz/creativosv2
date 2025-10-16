@@ -256,6 +256,62 @@
         color: $color-blanco;
       }
     }
+
+    &--tertiary {
+      background-color: transparent;
+      color: $color-negro;
+      border: 1px solid $color-negro;
+      opacity: 0.6;
+
+      &:hover {
+        background-color: $color-negro;
+        color: $color-blanco;
+        opacity: 1;
+      }
+    }
+  }
+
+  // FASE 3: Nivel Sugerido Section
+  &__nivel-sugerido {
+    background: linear-gradient(135deg, rgba($color-calipso, 0.05) 0%, rgba($color-naranja, 0.05) 100%);
+    border: 2px solid $color-calipso;
+    border-radius: 8px;
+    padding: $spacing-xl;
+    margin-bottom: $spacing-2xl;
+    text-align: center;
+  }
+
+  &__nivel-titulo {
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  &__nivel-badge {
+    display: inline-block;
+    background-color: $color-calipso;
+    color: $color-blanco;
+    font-family: $font-titulos;
+    font-size: $fluid-font-size-xl; // Fluid 18px → 20px
+    font-weight: $font-weight-bold;
+    padding: $spacing-md $spacing-2xl;
+    border-radius: 50px;
+    margin-bottom: $spacing-md;
+    box-shadow: 0 4px 8px rgba($color-calipso, 0.3);
+  }
+
+  &__nivel-descripcion {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-sm; // Fluid 12px → 14px
+    font-weight: $font-weight-normal;
+    color: $color-negro;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   // Responsive

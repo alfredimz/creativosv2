@@ -73,18 +73,20 @@
   height: 100%;
 
   &__image {
-    width: 100%;
+    width: 100px;
     height: 100px;
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto $spacing-sm;
     flex-shrink: 0;
+    aspect-ratio: 1 / 1; // FASE 4: Asegurar proporción cuadrada
   }
 
   &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center; // FASE 4: Centrar imagen
   }
 
   &__divider {
@@ -132,18 +134,19 @@
   background-color: $color-blanco;
 
   &__image {
-    width: 100%;
-    max-width: 100px;
+    width: 100px;
     height: 100px;
     overflow: hidden;
     border-radius: 50%;
     margin: 0 auto;
+    aspect-ratio: 1 / 1; // FASE 4: Asegurar proporción cuadrada
   }
 
   &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center; // FASE 4: Centrar imagen
   }
 
   &__content {

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.png'; // Asegúrate de tener esta imagen en tu proyecto
+import { getUserLevel, setUserLevel, getNombreNivel, USER_LEVELS } from '../../utils/userLevel';
 import './Header.scss';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [userLevel, setUserLevelState] = useState(getUserLevel());
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +23,17 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleChangLevel = (level) => {
+    setUserLevel(level);
+    setUserLevelState(level);
+    // Si no estamos en home, redirigir
+    if (window.location.pathname !== '/') {
+      navigate('/');
+    } else {
+      window.location.reload(); // Recargar para aplicar cambios
+    }
+  };
+
   return (
     <header className={`site-header ${scrolled ? 'scrolled' : ''}`} role="banner">
       <Navbar expand="lg" className="navbar-dark" role="navigation" aria-label="Navegación principal">
@@ -32,6 +46,11 @@ const Header = () => {
             <Nav className="ms-auto" role="menubar">
               {/* Menú desplegable: Productos */}
               <NavDropdown title="Productos" id="productos-dropdown">
+                {/* FASE 2: Productos Estrella */}
+                <NavDropdown.Item as={NavLink} to="/productos/casas">Contenedores para Casas</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/productos/bodegas">Contenedores para Bodegas</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/productos/oficinas">Contenedores para Oficinas</NavDropdown.Item>
+                <NavDropdown.Divider />
                 <NavDropdown.Item as={NavLink} to="/tipos-contenedores">Tipos de Contenedores</NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/fichas-tecnicas">Fichas Técnicas</NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/catalogo">Catálogo</NavDropdown.Item>
@@ -75,6 +94,36 @@ const Header = () => {
                 <NavDropdown.Item as={NavLink} to="/faq">FAQ</NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/recorrido-virtual">Recorrido Virtual</NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/perfilador-cliente">Perfilador de Cliente</NavDropdown.Item>
+              </NavDropdown>
+
+              {/* Menú desplegable: Nivel de Usuario - FASE 3 */}
+              <NavDropdown
+                title={`Mi Nivel: ${getNombreNivel(userLevel)}`}
+                id="user-level-dropdown"
+                className="user-level-dropdown"
+              >
+                <NavDropdown.Item
+                  onClick={() => handleChangLevel(USER_LEVELS.NUEVO)}
+                  className={userLevel === USER_LEVELS.NUEVO ? 'active' : ''}
+                >
+                  🎓 Nuevo Usuario
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  onClick={() => handleChangLevel(USER_LEVELS.INTERMEDIO)}
+                  className={userLevel === USER_LEVELS.INTERMEDIO ? 'active' : ''}
+                >
+                  💼 Usuario Intermedio
+                </NavDropdown.Item>
+                <NavDropdown.Item
+                  onClick={() => handleChangLevel(USER_LEVELS.TECNICO)}
+                  className={userLevel === USER_LEVELS.TECNICO ? 'active' : ''}
+                >
+                  ⚙️ Usuario Técnico
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item disabled className="text-muted small">
+                  El contenido se adaptará a tu nivel
+                </NavDropdown.Item>
               </NavDropdown>
 
               {/* Enlace directo: Contacto */}

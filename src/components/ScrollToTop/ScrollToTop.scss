@@ -1,0 +1,70 @@
+@import '../../styles/variables';
+
+.scroll-to-top {
+  // Posición y layout
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: $z-index-fixed;
+
+  // Tamaño
+  width: 50px;
+  height: 50px;
+
+  // Estilo visual
+  background: linear-gradient(135deg, $color-naranja 0%, $color-terracota 100%);
+  border: none;
+  border-radius: $border-radius-full;
+  box-shadow: $shadow-md;
+
+  // Cursor
+  cursor: pointer;
+
+  // Centrar icono
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Transiciones (complementan framer-motion)
+  transition: box-shadow $transition-base;
+
+  // Hover effect para sombra (motion.whileHover maneja el scale)
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+
+  // Active state
+  &:active {
+    box-shadow: $shadow-sm;
+  }
+
+  // Focus state para accesibilidad
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color-naranja, 0.3),
+                $shadow-md;
+  }
+
+  // Icono
+  &__icon {
+    color: $color-blanco;
+    font-size: 1.25rem;
+  }
+
+  // Responsive: Más pequeño en móviles
+  @media (max-width: $breakpoint-md) {
+    width: 45px;
+    height: 45px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+
+    &__icon {
+      font-size: 1.1rem;
+    }
+  }
+
+  // Accesibilidad: reducir motion si el usuario lo prefiere
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

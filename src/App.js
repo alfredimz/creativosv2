@@ -6,6 +6,7 @@ import { LoadingSpinner } from './components/Accessibility';
 import { CookieConsent } from './components/CookieConsent';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
+import ScrollToTop from './components/ScrollToTop'; // FASE 10
 // import LazyLoadError from './components/ErrorBoundary/LazyLoadError'; // Available for future use
 import { initializeDataLayer, trackPageView } from './utils/analytics';
 import './App.scss';
@@ -23,6 +24,11 @@ const Historia = lazy(() => import('./pages/Conocenos/Historia/Historia'));
 const Valores = lazy(() => import('./pages/Conocenos/Valores/Valores'));
 const Clientes = lazy(() => import('./pages/Clientes/Clientes'));
 const CasosExito = lazy(() => import('./pages/Conocenos/CasosExito/CasosExito'));
+
+// Productos Estrella - FASE 2.5 (3 lazy-loaded)
+const Casas = lazy(() => import('./pages/Productos/Casas'));
+const Bodegas = lazy(() => import('./pages/Productos/Bodegas'));
+const Oficinas = lazy(() => import('./pages/Productos/Oficinas'));
 
 // Fase 1 - Críticas (15 lazy-loaded)
 const PresentacionEmpresarial = lazy(() => import('./pages/PresentacionEmpresarial/PresentacionEmpresarial'));
@@ -105,6 +111,11 @@ function App() {
               {/* Home - Loaded immediately */}
               <Route path="/" element={<Home />} />
 
+              {/* Productos Estrella - FASE 2.5 (3 lazy-loaded) */}
+              <Route path="/productos/casas" element={<Casas />} />
+              <Route path="/productos/bodegas" element={<Bodegas />} />
+              <Route path="/productos/oficinas" element={<Oficinas />} />
+
               {/* Páginas Existentes (7 lazy-loaded) */}
               <Route path="/quienes-somos" element={<QuienesSomos />} />
               <Route path="/mision-vision" element={<MisionVision />} />
@@ -161,6 +172,7 @@ function App() {
           </Suspense>
         </main>
         <Footer />
+        <ScrollToTop showAfter={300} />
       </div>
     </Router>
     </ErrorBoundary>

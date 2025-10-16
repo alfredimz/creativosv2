@@ -6,160 +6,7 @@
   overflow-x: hidden;
 }
 
-// Hero Section
-.hero-section {
-  position: relative;
-  min-height: 508px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  padding: $spacing-xl 0;
-
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
-    z-index: 1;
-  }
-
-  &__container {
-    position: relative;
-    z-index: 2;
-  }
-
-  // Responsive
-  @media (max-width: $breakpoint-md) {
-    min-height: 600px;
-    padding: $spacing-lg 0;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    min-height: auto;
-    padding: $spacing-md 0;
-  }
-}
-
-// Hero Content (Left Side)
-.hero-content {
-  color: $color-blanco;
-  padding-right: $spacing-lg;
-
-  &__title {
-    font-family: $font-titulos;
-    font-size: $fluid-font-size-5xl; // Fluid 28px → 48px (hero)
-    font-weight: $font-weight-light;
-    line-height: 1.2;
-    margin-bottom: $spacing-md;
-    color: $color-blanco;
-  }
-
-  &__subtitle {
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-lg; // Fluid 16px → 18px
-    font-weight: $font-weight-normal;
-    line-height: 1.6;
-    color: $color-blanco;
-    margin-bottom: 0;
-  }
-
-  // Responsive
-  @media (max-width: $breakpoint-md) {
-    padding-right: 0;
-    margin-bottom: $spacing-lg;
-    text-align: center;
-  }
-}
-
-// Contact Panel (Right Side)
-.contact-panel {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  padding: $spacing-lg;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-
-  &__title {
-    font-family: $font-titulos;
-    font-size: $fluid-font-size-3xl; // Fluid 24px → 30px
-    font-weight: $font-weight-medium;
-    color: $color-calipso;
-    margin-bottom: $spacing-md;
-    text-align: center;
-  }
-
-  &__item {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: $spacing-sm;
-    padding-bottom: $spacing-sm;
-    border-bottom: 1px solid rgba(59, 111, 127, 0.1);
-
-    &:last-of-type {
-      border-bottom: none;
-      margin-bottom: $spacing-md;
-    }
-  }
-
-  &__label {
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-xs; // Fluid 10px → 12px
-    font-weight: $font-weight-medium;
-    color: $color-gris-claro;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-
-  &__value {
-    font-family: $font-parrafos;
-    font-size: $fluid-font-size-base; // Fluid 14px → 16px
-    font-weight: $font-weight-normal;
-    color: $color-calipso;
-    text-decoration: none;
-    @include transition(color);
-
-    &:hover {
-      color: $color-naranja;
-    }
-  }
-
-  &__office {
-    background: rgba(59, 111, 127, 0.05);
-    border-radius: 12px;
-    padding: $spacing-sm;
-    margin-top: $spacing-sm;
-
-    h4 {
-      font-family: $font-titulos;
-      font-size: $fluid-font-size-lg; // Fluid 16px → 18px
-      font-weight: $font-weight-medium;
-      color: $color-calipso;
-      margin-bottom: 8px;
-    }
-
-    p {
-      font-family: $font-parrafos;
-      font-size: $fluid-font-size-sm; // Fluid 12px → 14px
-      color: $color-gris-oscuro;
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-  }
-
-  // Responsive
-  @media (max-width: $breakpoint-md) {
-    margin-top: $spacing-lg;
-  }
-
-  @media (max-width: $breakpoint-sm) {
-    padding: $spacing-md;
-  }
-}
+// Hero section now handled by HeroSlider component
 
 // Services Section (3 Cards)
 .services-section {
@@ -228,6 +75,45 @@
   // Add small gap between sections
   & + .acabados-section {
     margin-top: 0;
+  }
+}
+
+// Productos Estrella Section
+.productos-estrella-section {
+  padding: $spacing-2xl 0;
+  background-color: $color-blanco;
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: $font-weight-semibold;
+    color: $color-calipso;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(to right, $color-calipso, $color-naranja);
+      margin: $spacing-md auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+
+    &__title {
+      margin-bottom: $spacing-lg;
+    }
   }
 }
 
@@ -337,5 +223,243 @@
   &:focus,
   &:focus-visible {
     box-shadow: 0 0 0 0.25rem rgba(59, 111, 127, 0.25);
+  }
+
+  // Active state for selected level - FASE 3
+  &.experience-btn--active {
+    border: 3px solid $color-calipso !important;
+    box-shadow: 0 0 0 3px rgba($color-calipso, 0.2);
+    transform: scale(1.02);
+
+    &.experience-btn--primary {
+      background-color: $color-calipso;
+      border-color: $color-calipso !important;
+      color: $color-blanco;
+    }
+
+    &.experience-btn--secondary {
+      background-color: $color-calipso;
+      border-color: $color-calipso !important;
+      color: $color-blanco;
+    }
+  }
+}
+
+// FASE 3: Home Intro Section (Nivel NUEVO - Educativo)
+.home-intro-section {
+  background-color: rgba($color-gris-claro, 0.15);
+  padding: $spacing-2xl 0;
+  border-top: 2px solid rgba($color-calipso, 0.1);
+
+  h2 {
+    font-family: $font-titulos;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  p {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-base;
+    color: $color-gris-oscuro;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto $spacing-xl;
+    line-height: 1.7;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+  }
+}
+
+.intro-card {
+  background: $color-blanco;
+  border-radius: 12px;
+  padding: $spacing-lg;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  @include transition(all);
+  text-align: center;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  &__icon {
+    font-size: 48px;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-weight: $font-weight-semibold;
+    color: $color-calipso;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-sm;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.faq-simple {
+  background: $color-blanco;
+  border-left: 4px solid $color-calipso;
+  padding: $spacing-md;
+  margin-bottom: $spacing-md;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+
+  &__question {
+    font-family: $font-titulos;
+    font-size: clamp(16px, 2vw, 18px);
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__answer {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-sm;
+    color: $color-gris-oscuro;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// FASE 3: Home Technical Section (Nivel TÉCNICO - Profesional)
+.home-technical-section {
+  background: linear-gradient(135deg, rgba($color-calipso, 0.03) 0%, rgba($color-naranja, 0.03) 100%);
+  padding: $spacing-2xl 0;
+  border-top: 2px solid rgba($color-calipso, 0.1);
+
+  h2 {
+    font-family: $font-titulos;
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: $font-weight-semibold;
+    color: $color-negro;
+    text-align: center;
+    margin-bottom: $spacing-xl;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-lg 0;
+  }
+}
+
+.quick-access-card {
+  display: block;
+  background: $color-blanco;
+  border-radius: 12px;
+  padding: $spacing-lg;
+  text-align: center;
+  color: $color-negro;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  @include transition(all);
+  height: 100%;
+  border: 2px solid transparent;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: $color-calipso;
+    color: $color-calipso;
+    text-decoration: none;
+  }
+
+  &__icon {
+    font-size: 48px;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+  }
+
+  &__title {
+    font-family: $font-titulos;
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__description {
+    font-family: $font-parrafos;
+    font-size: $fluid-font-size-sm;
+    color: $color-gris-oscuro;
+    line-height: 1.5;
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
+  }
+}
+
+.technical-info-card {
+  background: $color-blanco;
+  border-radius: 12px;
+  padding: $spacing-lg;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  h3 {
+    font-family: $font-titulos;
+    font-size: clamp(20px, 2.5vw, 24px);
+    font-weight: $font-weight-semibold;
+    color: $color-calipso;
+    margin-bottom: $spacing-md;
+    border-bottom: 2px solid rgba($color-calipso, 0.2);
+    padding-bottom: $spacing-sm;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      font-family: $font-parrafos;
+      font-size: $fluid-font-size-sm;
+      color: $color-gris-oscuro;
+      padding: $spacing-xs 0;
+      border-bottom: 1px solid rgba($color-gris-claro, 0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      strong {
+        color: $color-negro;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-md;
   }
 }
