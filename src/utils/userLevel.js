@@ -14,6 +14,20 @@ export const USER_LEVELS = {
 const STORAGE_KEY = 'creativos_user_level';
 
 /**
+ * Verificar si el usuario ha seleccionado un nivel
+ * @returns {boolean} - true si el usuario ya seleccionó un nivel
+ */
+export const hasUserSelectedLevel = () => {
+  try {
+    const level = localStorage.getItem(STORAGE_KEY);
+    return level !== null && Object.values(USER_LEVELS).includes(level);
+  } catch (error) {
+    console.error('Error al verificar nivel de usuario:', error);
+    return false;
+  }
+};
+
+/**
  * Obtener el nivel actual del usuario desde localStorage
  * @returns {string} - Nivel del usuario o 'intermedio' por defecto
  */

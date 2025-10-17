@@ -135,7 +135,11 @@ select {
   
   main {
     flex: 1;
-    margin-top: 70px; // Para compensar el header fijo
+    margin-top: 160px; // Para compensar el header fijo (logo section + menu section)
+
+    @media (max-width: 991px) {
+      margin-top: 120px; // Altura reducida en móvil
+    }
   }
 }
 

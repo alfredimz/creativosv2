@@ -1,122 +1,532 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
 .site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: $color-blanco;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  // Contenedor superior - Logo
+  .header-top {
+    position: relative;
+    background-color: $color-blanco;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    
-    &.scrolled {
-      background-color: rgba(0, 0, 0, 0.9);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      
-      .navbar {
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-      }
-      
-      .logo {
-        max-height: 50px;
+    overflow: hidden;
+
+    .logo-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80px;
+      overflow: hidden;
+    }
+
+    .logo-link {
+      position: relative;
+      z-index: 10;
+      display: inline-block;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
       }
     }
-    
-    .navbar {
-      padding: 1rem 0;
+
+    .logo {
+      max-height: 70px;
+      width: auto;
       transition: all 0.3s ease;
-      
-      .navbar-nav {
-        .nav-link {
-          color: black;
-          font-weight: 500;
-          padding: 0.5rem 1rem;
-          transition: all 0.3s ease;
-          
-          &:hover, &.active {
-            color: #ff6b00;
+    }
+
+    // SVGs flotantes con animaciones
+    .floating-svg {
+      position: absolute;
+      opacity: 1; // Sin opacidad
+      pointer-events: none;
+      z-index: 1;
+
+      // X amarilla estática - 100px (más grande)
+      &--x {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 15%;
+        animation: floatSmoothX 8s ease-in-out infinite;
+      }
+
+      // Ondas rojas estáticas - 80px
+      &--waves {
+        width: 80px;
+        height: 80px;
+        top: 50%;
+        right: 10%;
+        animation: floatSmoothWaves 10s ease-in-out infinite;
+      }
+
+      // Triángulos verdes estáticos - 60px
+      &--triangles {
+        width: 60px;
+        height: 60px;
+        bottom: 10%;
+        left: 20%;
+        animation: floatSmoothTriangles 12s ease-in-out infinite;
+      }
+
+      // Líneas naranjas estáticas - 40px (más pequeño)
+      &--lines {
+        width: 40px;
+        height: 40px;
+        top: 30%;
+        right: 18%;
+        animation: floatSmoothLines 9s ease-in-out infinite;
+      }
+
+      // SVGs que atraviesan la pantalla
+      &--crossing {
+        z-index: 2;
+
+        // Primera - X amarilla (izquierda a derecha) - 80px
+        &-1 {
+          width: 80px;
+          height: 80px;
+          animation: crossLeftToRight 4s linear infinite;
+          animation-delay: 0s;
+        }
+
+        // Segunda - Ondas rojas (derecha a izquierda) - 100px
+        &-2 {
+          width: 100px;
+          height: 100px;
+          animation: crossRightToLeft 5s linear infinite;
+          animation-delay: 1s;
+        }
+
+        // Tercera - Triángulos verdes (izquierda a derecha) - 60px
+        &-3 {
+          width: 60px;
+          height: 60px;
+          animation: crossLeftToRight 4.5s linear infinite;
+          animation-delay: 2s;
+        }
+
+        // Cuarta - Líneas naranjas (derecha a izquierda) - 40px
+        &-4 {
+          width: 40px;
+          height: 40px;
+          animation: crossRightToLeft 5.5s linear infinite;
+          animation-delay: 3s;
+        }
+      }
+    }
+  }
+
+  // Animaciones flotantes con movimientos espontáneos
+  @keyframes floatSmoothX {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    15% {
+      transform: translate(10px, -5px) rotate(15deg);
+    }
+    25% {
+      transform: translate(-15px, 10px) rotate(-10deg);
+    }
+    40% {
+      transform: translate(25px, -20px) rotate(25deg); // Movimiento brusco
+    }
+    50% {
+      transform: translate(8px, 5px) rotate(5deg);
+    }
+    65% {
+      transform: translate(-8px, -8px) rotate(-8deg);
+    }
+    80% {
+      transform: translate(12px, 12px) rotate(12deg);
+    }
+  }
+
+  @keyframes floatSmoothWaves {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    20% {
+      transform: translate(-8px, 8px) rotate(-8deg) scale(1.05);
+    }
+    35% {
+      transform: translate(15px, -15px) rotate(15deg) scale(0.95);
+    }
+    50% {
+      transform: translate(-20px, -25px) rotate(-30deg) scale(1.1); // Movimiento brusco
+    }
+    60% {
+      transform: translate(-5px, 10px) rotate(-5deg) scale(1);
+    }
+    75% {
+      transform: translate(10px, -5px) rotate(10deg) scale(1.02);
+    }
+    90% {
+      transform: translate(-10px, 5px) rotate(-10deg) scale(0.98);
+    }
+  }
+
+  @keyframes floatSmoothTriangles {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    12% {
+      transform: translate(5px, -10px) rotate(5deg);
+    }
+    30% {
+      transform: translate(-10px, 5px) rotate(-10deg);
+    }
+    45% {
+      transform: translate(8px, 8px) rotate(8deg);
+    }
+    60% {
+      transform: translate(-25px, -18px) rotate(-35deg); // Movimiento brusco
+    }
+    70% {
+      transform: translate(-12px, 12px) rotate(-12deg);
+    }
+    85% {
+      transform: translate(15px, -8px) rotate(15deg);
+    }
+  }
+
+  @keyframes floatSmoothLines {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    18% {
+      transform: translate(-12px, -8px) rotate(-12deg) scale(1.03);
+    }
+    25% {
+      transform: translate(20px, 22px) rotate(28deg) scale(1.15); // Movimiento brusco
+    }
+    40% {
+      transform: translate(-8px, 12px) rotate(-8deg) scale(0.95);
+    }
+    55% {
+      transform: translate(10px, -10px) rotate(10deg) scale(1.05);
+    }
+    70% {
+      transform: translate(-15px, 8px) rotate(-15deg) scale(0.98);
+    }
+    85% {
+      transform: translate(8px, -5px) rotate(8deg) scale(1.02);
+    }
+  }
+
+  // Animación de izquierda a derecha (cruzando la pantalla)
+  @keyframes crossLeftToRight {
+    0% {
+      left: -50px;
+      top: 20%;
+      transform: rotate(-15deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      left: calc(100% + 50px);
+      top: 60%;
+      transform: rotate(15deg);
+      opacity: 0;
+    }
+  }
+
+  // Animación de derecha a izquierda (cruzando la pantalla)
+  @keyframes crossRightToLeft {
+    0% {
+      right: -50px;
+      top: 30%;
+      transform: rotate(15deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      right: calc(100% + 50px);
+      top: 70%;
+      transform: rotate(-15deg);
+      opacity: 0;
+    }
+  }
+
+  // Contenedor inferior - Menú
+  .navbar-menu {
+    background-color: $color-negro;
+    padding: 0;
+    transition: all 0.3s ease;
+
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.3);
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+    }
+
+    .navbar-nav {
+      .nav-link {
+        color: $color-blanco;
+        font-weight: 500;
+        padding: 1rem 1.2rem;
+        transition: all 0.3s ease;
+        font-family: $font-titulos;
+        font-size: 15px;
+
+        &:hover,
+        &.active {
+          color: $color-naranja;
+          background-color: rgba(241, 103, 0, 0.1);
+        }
+      }
+
+      // Estilos para el menú desplegable
+      .dropdown {
+        &:hover {
+          .dropdown-menu {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
           }
         }
-        
-        // Estilos para el menú desplegable
-        .dropdown {
-          &:hover {
-            .dropdown-menu {
-              display: block;
-              opacity: 1;
-              visibility: visible;
-              transform: translateY(0);
-            }
+
+        .dropdown-toggle {
+          color: $color-blanco;
+          font-weight: 500;
+          padding: 1rem 1.2rem;
+          transition: all 0.3s ease;
+          font-family: $font-titulos;
+          font-size: 15px;
+
+          &::after {
+            margin-left: 0.5rem;
+            vertical-align: middle;
           }
-          
-          .dropdown-toggle {
-            &::after {
-              margin-left: 0.5rem;
-              vertical-align: middle;
-            }
-            
-            &:hover {
-              color: #ff6b00;
-            }
+
+          &:hover,
+          &.active {
+            color: $color-naranja;
+            background-color: rgba(241, 103, 0, 0.1);
           }
-          
-          .dropdown-menu {
-            margin-top: 0;
-            border: none;
-            border-radius: 0 0 5px 5px;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 0.5rem 0;
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            display: block;
-            
-            .dropdown-item {
-              color: white;
-              padding: 0.5rem 1.5rem;
-              font-weight: 400;
-              
-              &:hover, &.active {
-                background-color: rgba(255, 107, 0, 0.2);
-                color: #ff6b00;
+        }
+
+        .dropdown-menu {
+          margin-top: 0;
+          border: none;
+          border-radius: 0 0 8px 8px;
+          background-color: rgba(0, 0, 0, 0.95);
+          padding: 0.5rem 0;
+          transition: all 0.3s ease;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(10px);
+          display: block;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+          .dropdown-item {
+            color: $color-blanco;
+            padding: 0.6rem 1.5rem;
+            font-weight: 400;
+            font-family: $font-parrafos;
+            font-size: 14px;
+            transition: all 0.2s ease;
+
+            &:hover,
+            &.active {
+              background-color: rgba(241, 103, 0, 0.15);
+              color: $color-naranja;
+              padding-left: 2rem;
+            }
+
+            &.text-muted {
+              color: rgba(255, 255, 255, 0.5) !important;
+              font-size: 12px;
+
+              &:hover {
+                background-color: transparent;
+                padding-left: 1.5rem;
               }
             }
           }
+
+          .dropdown-divider {
+            border-top-color: rgba(255, 255, 255, 0.1);
+            margin: 0.5rem 0;
+          }
+        }
+      }
+
+      // Estilos especiales para el dropdown de nivel de usuario
+      .user-level-dropdown {
+        .dropdown-toggle {
+          background-color: rgba(241, 103, 0, 0.1);
+          border-radius: 4px;
+
+          &:hover {
+            background-color: rgba(241, 103, 0, 0.2);
+          }
+        }
+
+        .dropdown-item {
+          &.active {
+            background-color: rgba(241, 103, 0, 0.25);
+            color: $color-naranja;
+            font-weight: 600;
+
+            &::before {
+              content: '✓ ';
+              margin-right: 0.5rem;
+            }
+          }
         }
       }
     }
-    
-    .logo {
-      max-height: 60px;
-      transition: all 0.3s ease;
+  }
+
+  // Estado scrolled - Compactar header
+  &.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+
+    .header-top {
+      padding: 0.8rem 0;
+
+      .logo-container {
+        min-height: 60px;
+      }
+
+      .logo {
+        max-height: 50px;
+      }
+
+      .floating-svg {
+        &--x {
+          width: 70px;
+          height: 70px;
+        }
+
+        &--waves {
+          width: 60px;
+          height: 60px;
+        }
+
+        &--triangles {
+          width: 45px;
+          height: 45px;
+        }
+
+        &--lines {
+          width: 30px;
+          height: 30px;
+        }
+
+        &--crossing-1 {
+          width: 60px;
+          height: 60px;
+        }
+
+        &--crossing-2 {
+          width: 70px;
+          height: 70px;
+        }
+
+        &--crossing-3 {
+          width: 45px;
+          height: 45px;
+        }
+
+        &--crossing-4 {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .navbar-menu {
+      .navbar-nav {
+        .nav-link,
+        .dropdown-toggle {
+          padding: 0.8rem 1.2rem;
+        }
+      }
     }
   }
-  
-  @media (max-width: 991px) {
-    .site-header {
-      background-color: rgba(0, 0, 0, 0.9);
-      
+}
+
+// Responsive
+@media (max-width: 991px) {
+  .site-header {
+    .header-top {
+      padding: 1rem 0;
+
+      .logo-container {
+        min-height: 60px;
+      }
+
+      .logo {
+        max-height: 60px;
+      }
+
+      // Ocultar SVGs en móvil para mejor rendimiento
+      .floating-svg {
+        display: none;
+      }
+    }
+
+    .navbar-menu {
       .navbar-collapse {
-        background-color: rgba(0, 0, 0, 0.95);
+        background-color: rgba(0, 0, 0, 0.98);
         margin: 0 -12px;
         padding: 1rem;
+        max-height: 70vh;
+        overflow-y: auto;
       }
-      
+
       .dropdown-menu {
         background-color: rgba(0, 0, 0, 0) !important;
         border: none;
         padding: 0 0 0 1rem !important;
         margin: 0;
-        
+        box-shadow: none !important;
+
         .dropdown-item {
           padding: 0.5rem 1rem !important;
-          
-          &:hover {
+          font-size: 13px;
+
+          &:hover,
+          &.active {
             background-color: transparent !important;
+            padding-left: 1rem !important;
           }
         }
       }
-      
+
       .navbar-nav {
+        .nav-link,
+        .dropdown-toggle {
+          padding: 0.8rem 1rem;
+          font-size: 14px;
+        }
+
         .dropdown {
           &:hover {
             .dropdown-menu {
@@ -128,4 +538,38 @@
         }
       }
     }
+
+    &.scrolled {
+      .header-top {
+        padding: 0.8rem 0;
+
+        .logo-container {
+          min-height: 50px;
+        }
+
+        .logo {
+          max-height: 45px;
+        }
+      }
+    }
   }
+}
+
+@media (max-width: 576px) {
+  .site-header {
+    .header-top {
+      .logo {
+        max-height: 50px;
+      }
+    }
+
+    .navbar-menu {
+      .navbar-nav {
+        .nav-link,
+        .dropdown-toggle {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

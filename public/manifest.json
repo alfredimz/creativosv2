@@ -10,13 +10,23 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
+      "src": "favicon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "web-app-manifest-192x192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "logo512.png",
+      "src": "web-app-manifest-512x512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
@@ -37,21 +47,21 @@
       "short_name": "Cotizar",
       "description": "Solicita una cotización de venta",
       "url": "/cotizador-venta?source=pwa",
-      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "web-app-manifest-192x192.png", "sizes": "192x192" }]
     },
     {
       "name": "Tipos de Contenedores",
       "short_name": "Contenedores",
       "description": "Explora nuestros contenedores",
       "url": "/tipos-contenedores?source=pwa",
-      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "web-app-manifest-192x192.png", "sizes": "192x192" }]
     },
     {
       "name": "Contacto",
       "short_name": "Contacto",
       "description": "Contáctanos",
       "url": "/contacto?source=pwa",
-      "icons": [{ "src": "logo192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "web-app-manifest-192x192.png", "sizes": "192x192" }]
     }
   ],
   "screenshots": []

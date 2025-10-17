@@ -1,15 +1,17 @@
 @import '../../styles/variables';
 
 .pwa-install-prompt {
-  position: sticky;
+  position: fixed !important;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1040; // Below modals (1050) but above most content
   margin: 0;
   border-radius: 0;
   border: none;
   border-bottom: 3px solid $color-calipso;
   background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  box-shadow: $shadow-md;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   animation: slideDown 0.4s ease-out;
 
   // iOS variant styling
@@ -124,9 +126,8 @@
   // Override Bootstrap Alert close button
   .btn-close {
     position: absolute;
-    top: 50%;
+    top: auto;
     right: $spacing-md;
-    transform: translateY(-50%);
     opacity: 0.6;
     font-size: 1.2rem;
 

@@ -43,7 +43,8 @@
       "Bash(if exist .ai-docs dir .ai-docs /b)",
       "mcp__figma__get_design_context",
       "Bash(mkdir:*)",
-      "WebFetch(domain:www.creativosespacios.mx)"
+      "WebFetch(domain:www.creativosespacios.mx)",
+      "Bash(xcopy:*)"
     ],
     "deny": [],
     "ask": []

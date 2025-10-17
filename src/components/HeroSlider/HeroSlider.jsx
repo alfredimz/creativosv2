@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import { FaPlay } from 'react-icons/fa';
 import { trackPhoneClick, trackEmailClick, trackCTAClick } from '../../utils/analytics';
 
@@ -12,15 +12,20 @@ import './HeroSlider.scss';
 
 const HeroSlider = () => {
   const [showVideoModal, setShowVideoModal] = useState(false);
-  const videoId = 'uMXB54itJeM';
+  const [currentVideoId, setCurrentVideoId] = useState('');
+  const [currentVideoTitle, setCurrentVideoTitle] = useState('');
 
-  const handleShowVideo = () => {
+  const handleShowVideo = (videoId, title) => {
+    setCurrentVideoId(videoId);
+    setCurrentVideoTitle(title);
     setShowVideoModal(true);
     trackCTAClick('Play video YouTube', 'hero-slider', `https://www.youtube.com/watch?v=${videoId}`);
   };
 
   const handleCloseVideo = () => {
     setShowVideoModal(false);
+    setCurrentVideoId('');
+    setCurrentVideoTitle('');
   };
 
   const slides = [
@@ -29,9 +34,10 @@ const HeroSlider = () => {
       type: 'contacto',
       title: '14 años creando espacios y soluciones a la medida para tus proyectos',
       subtitle: 'Venta, renta, construcción y transformación de contenedores marítimos nuevos y usados en México',
-      image: '/images/hero/hero-contacto.jpg', // Imagen del contenedor verde actual
+      image: new URL('../../assets/banner-image.png', import.meta.url).href,
       showContact: true,
-      showVideo: true
+      showVideo: true,
+      videoId: 'uMXB54itJeM'
     },
     {
       id: 2,
@@ -40,9 +46,10 @@ const HeroSlider = () => {
       subtitle: 'Nuevos y usados, entrega inmediata',
       ctaText: 'Ver Catálogo',
       ctaLink: '/catalogo',
-      image: '/images/hero/hero-venta.jpg', // Necesita descargarse
+      image: new URL('../../assets/slide-venta.png', import.meta.url).href,
       showContact: false,
-      showVideo: true
+      showVideo: true,
+      videoId: 'oaFMasSUM80'
     },
     {
       id: 3,
@@ -51,9 +58,10 @@ const HeroSlider = () => {
       subtitle: 'Soluciones flexibles para almacenamiento temporal',
       ctaText: 'Ver Opciones de Renta',
       ctaLink: '/servicios/alquiler',
-      image: '/images/hero/hero-renta.jpg', // Necesita descargarse
+      image: new URL('../../assets/renta-slide.png', import.meta.url).href,
       showContact: false,
-      showVideo: true
+      showVideo: true,
+      videoId: 'igD7uzwF7cY'
     },
     {
       id: 4,
@@ -62,9 +70,10 @@ const HeroSlider = () => {
       subtitle: 'Transforma espacios, crea soluciones innovadoras',
       ctaText: 'Ver Proyectos',
       ctaLink: '/construccion',
-      image: '/images/hero/hero-construccion.jpg', // Necesita descargarse
+      image: new URL('../../assets/construccion-slide.png', import.meta.url).href,
       showContact: false,
-      showVideo: true
+      showVideo: true,
+      videoId: 'Yc9Z4V1piQ8'
     },
     {
       id: 5,
@@ -73,16 +82,17 @@ const HeroSlider = () => {
       subtitle: 'Arquitectura, diseño y servicios adicionales',
       ctaText: 'Conocer Servicios',
       ctaLink: '/servicios-adicionales',
-      image: '/images/hero/hero-servicios.jpg', // Necesita descargarse
+      image: new URL('../../assets/slide-servicios-completos.png', import.meta.url).href,
       showContact: false,
-      showVideo: true
+      showVideo: true,
+      videoId: 'prXleMCzWCI'
     }
   ];
 
   return (
     <>
       <Swiper
-        modules={[Pagination]}
+        modules={[Pagination, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
         pagination={{
@@ -92,7 +102,10 @@ const HeroSlider = () => {
         }}
         className="hero-slider"
         speed={600}
-        autoplay={false} // NO automático, solo manual
+        autoplay={{
+          delay: 8000,
+          disableOnInteraction: false,
+        }}
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
@@ -125,7 +138,7 @@ const HeroSlider = () => {
                       {slide.showVideo && (
                         <button
                           className="hero-slider__video-btn"
-                          onClick={handleShowVideo}
+                          onClick={() => handleShowVideo(slide.videoId, slide.title)}
                           aria-label="Reproducir video"
                         >
                           <FaPlay />
@@ -205,14 +218,14 @@ const HeroSlider = () => {
         className="hero-slider__video-modal"
       >
         <Modal.Header closeButton className="border-0">
-          <Modal.Title>Video Corporativo</Modal.Title>
+          <Modal.Title>{currentVideoTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body className="p-0">
           <div className="hero-slider__video-wrapper">
             <iframe
               width="100%"
               height="500"
-              src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+              src={`https://www.youtube.com/embed/${currentVideoId}?autoplay=1`}
               title="Creativos Espacios - Video Corporativo"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

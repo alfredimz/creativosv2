@@ -3,9 +3,11 @@
 
 .service-card {
   width: 313px;
-  height: 575px;
+  height: 100%; // 100% de altura para que sean parejas en fila
+  min-height: 575px; // Altura mínima
   border-radius: 32px;
-  padding: $spacing-lg;
+  padding-top: $spacing-lg;
+  padding-bottom: $spacing-lg;
   cursor: pointer;
   position: relative;
   display: flex;
@@ -35,6 +37,8 @@
 
   &__header {
     margin-bottom: $spacing-lg;
+    position: relative;
+    z-index: 3; // Por encima de imagen y figura
   }
 
   &__title {
@@ -45,6 +49,9 @@
     line-height: 1;
     margin-bottom: $spacing-xs;
     text-align: center;
+    overflow-wrap: break-word; // Para que las palabras largas se dividan
+    word-wrap: break-word;
+    hyphens: auto;
 
     // Color específico para construcción
     .service-card--construccion & {
@@ -71,6 +78,46 @@
     align-items: center;
     justify-content: center;
     margin-bottom: $spacing-lg;
+    position: relative; // Para posicionar los SVGs de fondo
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  // Figuras SVG de fondo decorativas
+  &__figure {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1; // Bajo, debajo de todo
+
+    // Figure 1 - Para renta (centrada verticalmente)
+    .service-card--renta & {
+      width: calc(100% - 30px); // 30px más pequeña
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: figureRentaZoom 6s ease-in-out infinite;
+    }
+
+    // Figure 2 - Para venta (centrada verticalmente, alineada a la izquierda, 15% más pequeña)
+    .service-card--venta & {
+      width: 105%; // 15% más pequeña (antes 120%)
+      height: auto;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      animation: figureVentaSlideDown 4s ease-in-out infinite;
+    }
+
+    // Figure 3 - Para construcción (centro absoluto, girando más lento)
+    .service-card--construccion & {
+      width: 100%;
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: figureConstruccionRotate 15s linear infinite; // Más lento (era 8s)
+    }
   }
 
   &__image {
@@ -79,6 +126,13 @@
     max-height: 286px;
     object-fit: cover;
     border-radius: 24px;
+    position: relative;
+    z-index: 2; // Por encima de la figura (figura es z-index: 1)
+
+    // Padding para que el SVG de fondo se vea
+    .service-card--renta & {
+      padding-bottom: 20px;
+    }
 
     // Circular image for construcción variant
     .service-card--construccion & {
@@ -96,6 +150,8 @@
     line-height: 1.5;
     margin-bottom: $spacing-lg;
     text-align: center;
+    position: relative;
+    z-index: 3; // Por encima de imagen y figura
 
     .service-card--construccion & {
       color: $color-negro;
@@ -111,6 +167,8 @@
     margin: 0 auto;
     color: $color-blanco;
     font-size: $fluid-font-size-4xl; // Fluid 28px → 36px
+    position: relative;
+    z-index: 3; // Por encima de imagen y figura
 
     .service-card--construccion & {
       color: $color-negro;
@@ -129,5 +187,39 @@
     width: 100%;
     max-width: 343px;
     min-height: 450px;
+  }
+}
+
+// Animaciones para las figuras SVG de fondo
+
+// Animación para renta - Zoom sutil (centrada)
+@keyframes figureRentaZoom {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+// Animación para venta - Slide down sutil (alineada izquierda, centrada verticalmente)
+@keyframes figureVentaSlideDown {
+  0%, 100% {
+    transform: translateY(-50%) translateX(-5px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+// Animación para construcción - Rotación sutil (centrada)
+@keyframes figureConstruccionRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
