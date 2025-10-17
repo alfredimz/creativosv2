@@ -1,18 +1,17 @@
-# 🤖 GUÍA DE EJECUCIÓN PARA CLAUDE CODE
+# 🤖 GUÍA DE DESARROLLO - CREATIVOS ESPACIOS
 
-**Proyecto:** Creativos Espacios - Fases de Corrección
+**Proyecto:** Creativos Espacios
 **Fecha:** 2025-01-14
-**Modo:** Ejecución autónoma con Claude Code CLI
 
 ---
 
-## 📋 ANTES DE EMPEZAR CUALQUIER FASE
+## 📋 ANTES DE EMPEZAR
 
 ### 1. Leer Documentos Clave
 ```
 SIEMPRE leer al inicio de cada sesión:
 1. .ai-docs/00_PROJECT_CONTEXT.md (contexto general)
-2. .ai-docs/CORRECCIONES_PLAN.md (plan de fases)
+2. .ai-docs/CORRECCIONES_PLAN.md (guía de diseño)
 3. Esta guía (CLAUDE_CODE_GUIDE.md)
 ```
 
@@ -36,15 +35,15 @@ npm start
 
 ---
 
-## 🎯 WORKFLOW POR FASE
+## 🎯 WORKFLOW DE DESARROLLO
 
-### TEMPLATE: Ejecución de Cualquier Fase
+### TEMPLATE: Implementación de Features
 
 ```
-PASO 1: Leer especificaciones
-- Abrir CORRECCIONES_PLAN.md
-- Leer sección de la fase actual
-- Identificar todos los requerimientos
+PASO 1: Analizar requerimientos
+- Identificar objetivo del feature
+- Listar componentes necesarios
+- Definir estructura de archivos
 
 PASO 2: Consultar Figma (si aplica)
 - Identificar qué elementos visuales se necesitan
@@ -66,158 +65,13 @@ PASO 4: Implementar cambios
 PASO 5: Verificar
 - Probar funcionalidad
 - Verificar responsive
-- Validar que cumple specs
+- Validar que cumple especificaciones
 
 PASO 6: Reportar
-- Actualizar CORRECCIONES_PLAN.md con progreso
+- Documentar cambios realizados
 - Marcar items completados
-- Solicitar aprobación antes de siguiente fase
+- Solicitar aprobación si es necesario
 ```
-
----
-
-## 📁 FASE 0: HERO SLIDER HOME
-
-### Requerimientos
-- [ ] 5 slides diferentes
-- [ ] Navegación manual (NO automático)
-- [ ] Puntos de navegación (dots)
-- [ ] Responsive
-
-### Paso a Paso
-
-**1. Consultar Figma**
-```
-Buscar en Figma:
-- Diseño del hero slider
-- Diseño de cada slide
-- Navegación (dots)
-
-Herramientas MCP:
-- mcp__figma__get_screenshot (para ver diseño)
-- mcp__figma__get_design_context (para specs)
-```
-
-**2. Instalar Dependencia**
-```bash
-npm install swiper
-```
-
-**3. Crear Componente**
-```
-Archivo: src/components/HeroSlider/HeroSlider.jsx
-Archivo: src/components/HeroSlider/HeroSlider.scss
-
-Contenido slides:
-1. Contacto (usar hero actual)
-2. Venta
-3. Renta
-4. Construcciones
-5. Servicios arquitectónicos y adicionales
-```
-
-**4. Integrar en Home**
-```
-Modificar: src/pages/Home/Home.jsx
-- Reemplazar hero actual con <HeroSlider />
-- Mantener resto de secciones
-```
-
-**5. Estilos**
-```scss
-// Aplicar BEM
-.hero-slider {
-  // Contenedor principal
-
-  &__slide {
-    // Cada slide
-  }
-
-  &__navigation {
-    // Dots de navegación
-  }
-
-  &__dot {
-    // Cada punto
-    &--active {
-      // Punto activo
-    }
-  }
-}
-
-// Responsive con breakpoints Bootstrap
-```
-
-**6. Verificación**
-- [ ] 5 slides funcionan
-- [ ] Solo cambia con clicks (no auto)
-- [ ] Dots funcionan
-- [ ] Responsive en móvil/tablet/desktop
-- [ ] Diseño coincide con Figma
-
----
-
-## 📝 FASE 1: TIPOGRAFÍA RESPONSIVA
-
-### Requerimientos
-- [ ] clamp() en todas las fuentes
-- [ ] Outfit para títulos/menús/footer
-- [ ] Hind para párrafos
-- [ ] Aplicar a 37+ páginas
-
-### Paso a Paso
-
-**1. NO Consultar Figma para Typography**
-```
-⚠️ IMPORTANTE:
-La tipografía se define en CORRECCIONES_PLAN.md
-NO seguir especificaciones de tipografía de Figma
-```
-
-**2. Actualizar Variables SASS**
-```
-Archivo: src/styles/_variables.scss
-
-Agregar/modificar:
-
-// Font Families
-$font-titulos: 'Outfit', sans-serif;
-$font-parrafos: 'Hind', sans-serif;
-
-// Font Sizes Responsive
-$font-hero: clamp(32px, 6vw, 56px);
-$font-h1: clamp(28px, 5vw, 48px);
-$font-h2: clamp(24px, 4vw, 40px);
-$font-h3: clamp(20px, 3vw, 32px);
-$font-h4: clamp(18px, 2.5vw, 24px);
-$font-base: clamp(14px, 1.5vw, 18px);
-$font-small: clamp(12px, 1.2vw, 14px);
-```
-
-**3. Aplicar en Todos los Componentes**
-```
-Buscar en proyecto:
-- Todos los h1, h2, h3, h4, h5, h6
-- Todos los p, span, div con texto
-- Header, Footer, menús
-
-Reemplazar font-size fijos por variables
-```
-
-**4. Orden de Ejecución**
-```
-1. Actualizar _variables.scss
-2. Modificar componentes globales (Header, Footer)
-3. Modificar páginas (una por una, 37+)
-4. Probar en diferentes tamaños de pantalla
-```
-
-**5. Verificación**
-- [ ] Outfit en títulos, menús, footer
-- [ ] Hind en párrafos
-- [ ] Fuentes más grandes en pantallas grandes
-- [ ] Legible en móvil (no muy pequeño)
-- [ ] Aplicado en todas las 37+ páginas
 
 ---
 
@@ -228,7 +82,7 @@ Reemplazar font-size fijos por variables
 **1. Obtener Screenshot**
 ```javascript
 mcp__figma__get_screenshot({
-  fileKey: "FILE_KEY_FROM_URL",
+  fileKey: "5wJFG1eYWcGQak6eyjAgjo",
   nodeId: "NODE_ID_FROM_URL",
   clientLanguages: "javascript,html,css,typescript",
   clientFrameworks: "react"
@@ -238,7 +92,7 @@ mcp__figma__get_screenshot({
 **2. Obtener Diseño y Código**
 ```javascript
 mcp__figma__get_design_context({
-  fileKey: "FILE_KEY_FROM_URL",
+  fileKey: "5wJFG1eYWcGQak6eyjAgjo",
   nodeId: "NODE_ID_FROM_URL",
   clientLanguages: "javascript,html,css,typescript",
   clientFrameworks: "react"
@@ -248,7 +102,7 @@ mcp__figma__get_design_context({
 **3. Obtener Metadata/Estructura**
 ```javascript
 mcp__figma__get_metadata({
-  fileKey: "FILE_KEY_FROM_URL",
+  fileKey: "5wJFG1eYWcGQak6eyjAgjo",
   nodeId: "NODE_ID_FROM_URL",
   clientLanguages: "javascript,html,css,typescript",
   clientFrameworks: "react"
@@ -259,20 +113,163 @@ mcp__figma__get_metadata({
 
 **De URL de Figma:**
 ```
-URL: https://figma.com/design/ABC123/NombreArchivo?node-id=1-2
+URL: https://figma.com/design/5wJFG1eYWcGQak6eyjAgjo/NombreArchivo?node-id=1-2
 
 Extraer:
-fileKey = "ABC123"
+fileKey = "5wJFG1eYWcGQak6eyjAgjo"
 nodeId = "1:2" (cambiar guión por dos puntos)
 ```
 
 ---
 
-## ✅ CHECKLIST POR FASE
+## 🎨 METODOLOGÍA BEM
+
+### Estructura de Nombres
+
+```scss
+// Bloque
+.hero-slider {
+  // Estilos del contenedor principal
+}
+
+// Elemento
+.hero-slider__slide {
+  // Estilos de cada slide
+}
+
+// Modificador
+.hero-slider__slide--active {
+  // Estilos del slide activo
+}
+
+// Elemento de elemento
+.hero-slider__navigation {
+  // Contenedor de navegación
+}
+
+.hero-slider__dot {
+  // Cada punto de navegación
+
+  &--active {
+    // Punto activo
+  }
+}
+```
+
+### Ejemplo Completo
+
+```jsx
+// Componente React
+function HeroSlider() {
+  return (
+    <div className="hero-slider">
+      <div className="hero-slider__slide hero-slider__slide--active">
+        <h1 className="hero-slider__title">Título</h1>
+        <p className="hero-slider__text">Descripción</p>
+      </div>
+      <nav className="hero-slider__navigation">
+        <button className="hero-slider__dot hero-slider__dot--active" />
+        <button className="hero-slider__dot" />
+      </nav>
+    </div>
+  );
+}
+```
+
+```scss
+// Estilos SCSS
+.hero-slider {
+  position: relative;
+  width: 100%;
+
+  &__slide {
+    padding: 2rem;
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(28px, 5vw, 48px);
+  }
+
+  &__text {
+    font-family: 'Hind', sans-serif;
+    font-size: clamp(14px, 1.5vw, 18px);
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    cursor: pointer;
+
+    &--active {
+      background: #F16700;
+    }
+  }
+}
+```
+
+---
+
+## 📱 RESPONSIVE DESIGN
+
+### Breakpoints Bootstrap
+
+```scss
+// Variables disponibles
+$mobile: 576px;      // sm
+$tablet: 768px;      // md
+$desktop: 992px;     // lg
+$large: 1200px;      // xl
+$xlarge: 1400px;     // xxl
+
+// Uso
+.component {
+  padding: 1rem;
+
+  @media (min-width: $tablet) {
+    padding: 2rem;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 3rem;
+  }
+}
+```
+
+### Tipografía Responsiva
+
+```scss
+// Usar variables definidas en _variables.scss
+.title {
+  font-family: 'Outfit', sans-serif;
+  font-size: $font-h1; // clamp(28px, 5vw, 48px)
+}
+
+.paragraph {
+  font-family: 'Hind', sans-serif;
+  font-size: $font-base; // clamp(14px, 1.5vw, 18px)
+}
+```
+
+---
+
+## ✅ CHECKLIST DE DESARROLLO
 
 ### Antes de Empezar
 - [ ] Leer 00_PROJECT_CONTEXT.md
-- [ ] Leer sección específica en CORRECCIONES_PLAN.md
+- [ ] Leer CORRECCIONES_PLAN.md
 - [ ] Identificar si requiere Figma
 - [ ] Verificar que npm start funcione
 
@@ -287,8 +284,7 @@ nodeId = "1:2" (cambiar guión por dos puntos)
 - [ ] Probar en localhost:3000
 - [ ] Verificar responsive (móvil, tablet, desktop)
 - [ ] Validar contra especificaciones
-- [ ] Actualizar CORRECCIONES_PLAN.md (marcar completados)
-- [ ] Solicitar aprobación usuario
+- [ ] Documentar cambios realizados
 
 ---
 
@@ -308,26 +304,6 @@ nodeId = "1:2" (cambiar guión por dos puntos)
 ❌ Romper BEM methodology
 ❌ Cambiar colores de marca sin aprobación
 ❌ Olvidar probar responsive
-❌ Pasar a siguiente fase sin aprobación
-
----
-
-## 📊 TRACKING DE PROGRESO
-
-### Actualizar CORRECCIONES_PLAN.md
-
-**Marcar items completados:**
-```markdown
-- [x] Item completado
-- [ ] Item pendiente
-```
-
-**Agregar notas de progreso:**
-```markdown
-**Estado:** Implementando FASE 0 - Hero Slider
-**Completado:** 3 de 5 slides
-**Siguiente:** Terminar slides 4 y 5
-```
 
 ---
 
@@ -356,36 +332,32 @@ npm start
 
 ---
 
-## 📞 NEXT STEPS
+## 📝 VARIABLES SASS DISPONIBLES
 
-### ⚡ ORDEN DE EJECUCIÓN PRIORIZADO - LO MÁS VISIBLE PRIMERO
+### Tipografía
+```scss
+$font-titulos: 'Outfit', sans-serif;
+$font-parrafos: 'Hind', sans-serif;
 
-**Criterio:** Impacto visual inmediato
-
-1. **FASE 0** → Hero Slider (Primera impresión del sitio)
-2. **FASE 1** → Tipografía (Afecta TODO el sitio)
-3. **FASE 2** → Headers (Navegación principal siempre visible)
-4. **FASE 4 (crítico)** → Imágenes aplastadas (Defecto visual notorio)
-5. **Continuar con resto del plan...**
-
-### Para Iniciar FASE 0:
+$font-hero: clamp(32px, 6vw, 56px);
+$font-h1: clamp(28px, 5vw, 48px);
+$font-h2: clamp(24px, 4vw, 40px);
+$font-h3: clamp(20px, 3vw, 32px);
+$font-h4: clamp(18px, 2.5vw, 24px);
+$font-base: clamp(14px, 1.5vw, 18px);
+$font-small: clamp(12px, 1.2vw, 14px);
 ```
-1. Leer esta guía completa
-2. Leer sección FASE 0 en CORRECCIONES_PLAN.md
-3. Consultar Figma (File Key: 5wJFG1eYWcGQak6eyjAgjo, Node: 207:2)
-4. Instalar swiper: npm install swiper
-5. Crear componente HeroSlider
-6. Implementar 5 slides con contenido definido
-7. Agregar modal YouTube (Video ID: uMXB54itJeM)
-8. Agregar sección Productos Estrella en Home
-9. Probar responsive
-10. Reportar progreso
-11. Solicitar aprobación para FASE 1
+
+### Colores
+```scss
+$calipso: #3B6F7F;
+$naranja: #F16700;
+$terracota: #841C03;
 ```
 
 ---
 
-**Preparado para:** Claude Code CLI
-**Usuario:** Ejecutar fases de forma autónoma
+**Preparado para:** Desarrollo con Claude Code
+**Usuario:** Implementar features siguiendo mejores prácticas
 **Soporte:** Documentación en .ai-docs/
 **Figma:** MCP activo y listo para usar
