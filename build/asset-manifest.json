@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.0157973e.css",
-    "main.js": "/static/js/main.e65e499d.js",
+    "main.css": "/static/css/main.39373e3c.css",
+    "main.js": "/static/js/main.09c7b747.js",
     "static/css/549.8d2e4a2b.chunk.css": "/static/css/549.8d2e4a2b.chunk.css",
     "static/js/549.2ae980bd.chunk.js": "/static/js/549.2ae980bd.chunk.js",
     "static/css/417.8486c84f.chunk.css": "/static/css/417.8486c84f.chunk.css",
@@ -95,6 +95,9 @@
     "static/media/construccion-slide.png": "/static/media/construccion-slide.a15e1f38d4c7ef3f15e1.png",
     "static/media/clientes-contenedores-maritimos.png": "/static/media/clientes-contenedores-maritimos.31d44c0488052fb1804d.png",
     "static/media/renta-slide.png": "/static/media/renta-slide.9315018e25f61385dda1.png",
+    "static/media/renta-contenedores.png": "/static/media/renta-contenedores.dd09237ba35e5b0ec376.png",
+    "static/media/contruccion-contenedores.png": "/static/media/contruccion-contenedores.68d7ae582575d74c09e2.png",
+    "static/media/venta-contenedores.png": "/static/media/venta-contenedores.7bb2f2dac1c2cf49a2b5.png",
     "index.html": "/index.html",
     "static/media/waves-red.svg": "/static/media/waves-red.005ff60500c1ed6c27e356d4564b1b97.svg",
     "static/media/lines-orange.svg": "/static/media/lines-orange.eb048588bf5294f4dcaf99dde5e0735d.svg",
@@ -103,8 +106,8 @@
     "static/media/figure-3.svg": "/static/media/figure-3.7bb1cf9e8281802318de71a860174741.svg",
     "static/media/figure-2.svg": "/static/media/figure-2.0e5b5f9335402169cffbd694ca0d38ea.svg",
     "static/media/figure-1.svg": "/static/media/figure-1.a1e67b2e843095eea0641c65c9462450.svg",
-    "main.0157973e.css.map": "/static/css/main.0157973e.css.map",
-    "main.e65e499d.js.map": "/static/js/main.e65e499d.js.map",
+    "main.39373e3c.css.map": "/static/css/main.39373e3c.css.map",
+    "main.09c7b747.js.map": "/static/js/main.09c7b747.js.map",
     "549.8d2e4a2b.chunk.css.map": "/static/css/549.8d2e4a2b.chunk.css.map",
     "549.2ae980bd.chunk.js.map": "/static/js/549.2ae980bd.chunk.js.map",
     "417.8486c84f.chunk.css.map": "/static/css/417.8486c84f.chunk.css.map",
@@ -194,7 +197,7 @@
     "853.89a6e504.chunk.js.map": "/static/js/853.89a6e504.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0157973e.css",
-    "static/js/main.e65e499d.js"
+    "static/css/main.39373e3c.css",
+    "static/js/main.09c7b747.js"
   ]
 }

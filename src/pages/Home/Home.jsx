@@ -8,15 +8,18 @@ import { SEO, seoConfig } from '../../components/SEO';
 import { trackCTAClick } from '../../utils/analytics';
 import { getUserLevel, setUserLevel, USER_LEVELS } from '../../utils/userLevel';
 import { FadeIn, SlideIn, ScaleIn } from '../../components/Animations'; // FASE 10
+import rentaContenedores from '../../assets/renta-contenedores.png';
+import ventaContenedores from '../../assets/venta-contenedores.png';
+import construccionContenedores from '../../assets/contruccion-contenedores.png';
 import './Home.scss';
 
 // Image URLs from Figma (these will need to be downloaded to public/images)
 const FIGMA_IMAGES = {
   hero: 'https://www.figma.com/api/mcp/asset/53e8c2f3-9fce-4218-8424-92340da4f84f',
   services: {
-    renta: 'https://www.figma.com/api/mcp/asset/bbe768e9-f07a-4f7a-8dba-a2856b7206e8',
-    venta: 'https://www.figma.com/api/mcp/asset/58584cfc-03f2-405e-bd27-e49c88566ecf',
-    construccion: 'https://www.figma.com/api/mcp/asset/aab5af26-deb7-40c4-bc8b-8617cec7c773',
+    renta: rentaContenedores,
+    venta: ventaContenedores,
+    construccion: construccionContenedores,
   },
   additionalServices: {
     transporte: 'https://www.figma.com/api/mcp/asset/7bc63624-5df0-49bd-bd7c-2c282bc026fe',
